@@ -155,7 +155,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full flex items-center justify-center gap-2 bg-[#F4C9D6] text-[#3E2723] hover:bg-[#A38D89] border-[1.5px] border-[#A38D89] py-3.5 px-6 rounded-xl font-mono-code text-sm tracking-wider uppercase paper-shadow-hover transition-all cursor-pointer"
+                      className="w-full flex items-center justify-center gap-2 bg-[#D69589] text-[#3E2723] hover:bg-[#A38D89] border-[1.5px] border-[#A38D89] py-3.5 px-6 rounded-xl font-mono-code text-sm tracking-wider uppercase paper-shadow-hover transition-all cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span>Inscribing Studio Log...</span>
@@ -211,7 +211,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                     <div className="flex justify-between">
                       <span className="text-[#A38D89]">STATUS:</span>
                       <span className="text-[#F8E5D7] flex items-center gap-1">
-                        <Check className="w-3.5 h-3.5 text-[#F4C9D6]" />
+                        <Check className="w-3.5 h-3.5 text-[#D69589]" />
                         Queued for Response
                       </span>
                     </div>
@@ -225,7 +225,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                 </div>
 
                 <div className="flex items-center justify-center gap-2 mb-4">
-                  <Sparkles className="w-4 h-4 text-[#F4C9D6]" />
+                  <Sparkles className="w-4 h-4 text-[#D69589]" />
                   <span className="font-serif-display text-xl text-[#F8E5D7]">Inquiry Logged</span>
                 </div>
                 <p className="font-body text-xs text-[#F8E5D7]/80 max-w-sm mx-auto mb-6">
@@ -235,7 +235,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                 <div className="flex items-center justify-center gap-3">
                   <button
                     onClick={copyTicket}
-                    className="flex items-center gap-1.5 px-4 py-2 bg-[#A38D89] border border-[#A38D89] rounded-lg text-xs font-mono-code text-[#F8E5D7] paper-shadow-sm hover:translate-y-[-1px] transition-all cursor-pointer"
+                    className="flex items-center gap-1.5 px-4 py-2 bg-[#705955] border border-[#705955] rounded-lg text-xs font-mono-code text-[#F8E5D7] paper-shadow-sm hover:translate-y-[-1px] transition-all cursor-pointer"
                   >
                     {isCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                     <span>{isCopied ? 'Copied to Clipboard' : 'Copy Reference #'}</span>

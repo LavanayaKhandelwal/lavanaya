@@ -83,7 +83,7 @@ export const ProjectsOverviewPage: React.FC = () => {
                       ].map((b) => (
                         <div
                           key={b.label}
-                          className="p-4 bg-[#3E2723] border border-[#A38D89]/20 rounded-xl"
+                          className="p-4 bg-[#705955] border border-[#A38D89]/20 rounded-xl"
                         >
                           <span className="font-mono-code text-[10px] font-bold text-[#F8E5D7]/60 uppercase tracking-wider block mb-1.5">
                             {b.label}
@@ -109,7 +109,7 @@ export const ProjectsOverviewPage: React.FC = () => {
                 </div>
 
                 <div className="lg:col-span-4 flex flex-col justify-between h-full pt-4 lg:pt-0">
-                  <div className="p-6 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl mb-6">
+                  <div className="p-6 bg-[#705955] border border-[#A38D89]/20 rounded-2xl mb-6">
                     <span className="font-mono-code text-xs font-bold text-[#F8E5D7] block mb-2">
                       CORE FOCUS
                     </span>
@@ -120,7 +120,7 @@ export const ProjectsOverviewPage: React.FC = () => {
 
                   <Link
                     to={`/projects/${proj.slug}`}
-                    className="flex items-center justify-between w-full py-4 px-6 bg-[#3E2723] text-[#F8E5D7] hover:bg-[#A38D89] rounded-xl font-mono-code text-xs uppercase tracking-wider font-bold transition-all"
+                    className="flex items-center justify-between w-full py-4 px-6 bg-[#705955] text-[#F8E5D7] hover:bg-[#A38D89] rounded-xl font-mono-code text-xs uppercase tracking-wider font-bold transition-all"
                   >
                     <span>Read Complete Study</span>
                     <ArrowRight className="w-4 h-4" />

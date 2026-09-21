@@ -109,7 +109,7 @@ export const ProjectThreePage: React.FC = () => {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
                 {p3.page2SurveyInsights.theObservation.map((obs) => (
-                  <div key={obs.num} className="p-6 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl">
+                  <div key={obs.num} className="p-6 bg-[#705955] border border-[#A38D89]/20 rounded-2xl">
                     <h3 className="font-serif-display text-xl text-[#F8E5D7] mb-2">
                       {obs.title}
                     </h3>
@@ -184,7 +184,7 @@ export const ProjectThreePage: React.FC = () => {
             </div>
 
             {/* WHAT I WORKED WITH */}
-            <div className="p-6 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl">
+            <div className="p-6 bg-[#705955] border border-[#A38D89]/20 rounded-2xl">
               <div className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] mb-4 pb-2 border-b border-[#A38D89]/15">
                 WHAT I WORKED WITH
               </div>
@@ -247,7 +247,7 @@ export const ProjectThreePage: React.FC = () => {
                     {p3.page3DesignAndMaterial.material.title}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="p-4 bg-[#3E2723] border border-[#A38D89]/25 rounded-xl">
+                    <div className="p-4 bg-[#705955] border border-[#A38D89]/25 rounded-xl">
                       <div className="font-mono-code text-xs font-bold text-[#F8E5D7] mb-1">
                         {p3.page3DesignAndMaterial.material.lycra.name}
                       </div>
@@ -256,7 +256,7 @@ export const ProjectThreePage: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="p-4 bg-[#3E2723] border border-[#A38D89]/25 rounded-xl">
+                    <div className="p-4 bg-[#705955] border border-[#A38D89]/25 rounded-xl">
                       <div className="font-mono-code text-xs font-bold text-[#F8E5D7] mb-1">
                         {p3.page3DesignAndMaterial.material.terryCotton.name}
                       </div>
@@ -391,7 +391,7 @@ export const ProjectThreePage: React.FC = () => {
               </h2>
               <div className="space-y-3">
                 {p3.page4FeedbackAndIteration.whatIHeard.map((quote, qIdx) => (
-                  <div key={qIdx} className="p-4 bg-[#3E2723] border border-[#A38D89]/20 rounded-xl font-serif-display text-lg text-[#F8E5D7]">
+                  <div key={qIdx} className="p-4 bg-[#705955] border border-[#A38D89]/20 rounded-xl font-serif-display text-lg text-[#F8E5D7]">
                     <span className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] block mb-1 whitespace-pre-line">
                       {quote}
                     </span>
@@ -407,7 +407,7 @@ export const ProjectThreePage: React.FC = () => {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {p3.page4FeedbackAndIteration.whatThisTaughtMe.map((item, tIdx) => (
-                  <div key={tIdx} className="p-6 bg-[#3E2723] border border-[#A38D89]/25 rounded-2xl">
+                  <div key={tIdx} className="p-6 bg-[#705955] border border-[#A38D89]/25 rounded-2xl">
                     <h3 className="font-serif-display text-xl text-[#F8E5D7] mb-2">
                       {item.headline}
                     </h3>
@@ -426,7 +426,7 @@ export const ProjectThreePage: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-center text-center font-mono-code text-xs">
-                <div className="md:col-span-1 p-5 bg-[#3E2723] border border-[#A38D89]/40 rounded-xl">
+                <div className="md:col-span-1 p-5 bg-[#705955] border border-[#A38D89]/40 rounded-xl">
                   <span className="text-[#A38D89] uppercase text-[10px] block mb-1">FEEDBACK</span>
                   <strong className="text-sm text-[#F8E5D7]">
                     {p3.page4FeedbackAndIteration.feedbackLoop.feedback}
@@ -448,7 +448,7 @@ export const ProjectThreePage: React.FC = () => {
                   →
                 </div>
 
-                <div className="md:col-span-1 p-5 bg-[#3E2723] border border-[#A38D89]/40 rounded-xl">
+                <div className="md:col-span-1 p-5 bg-[#705955] border border-[#A38D89]/40 rounded-xl">
                   <span className="text-[#A38D89] uppercase text-[10px] block mb-1">IMPACT</span>
                   <strong className="text-sm text-[#F8E5D7]">
                     {p3.page4FeedbackAndIteration.feedbackLoop.impact}
@@ -469,7 +469,7 @@ export const ProjectThreePage: React.FC = () => {
             <div className="flex justify-end pt-6 border-t border-[#A38D89]/15 font-mono-code text-xs">
               <Link
                 to="/skills"
-                className="bg-[#F4C9D6] text-[#3E2723] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
+                className="bg-[#D69589] text-[#3E2723] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
               >
                 <span>View Skills Matrix →</span>
               </Link>

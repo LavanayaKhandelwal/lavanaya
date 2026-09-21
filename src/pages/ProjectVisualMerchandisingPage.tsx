@@ -123,7 +123,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
               <h2 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7] mb-4">
                 {vm.page2Brief.briefTitle}
               </h2>
-              <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed p-4 bg-[#3E2723] rounded-2xl border border-[#A38D89]/40">
+              <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed p-4 bg-[#705955] rounded-2xl border border-[#A38D89]/40">
                 {vm.page2Brief.briefText}
               </p>
             </div>
@@ -135,7 +135,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {vm.page2Brief.whatIInvestigated.map((item, idx) => (
-                  <div key={idx} className="p-6 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl">
+                  <div key={idx} className="p-6 bg-[#705955] border border-[#A38D89]/20 rounded-2xl">
                     <h3 className="font-serif-display text-xl text-[#F8E5D7] mb-3">
                       {item.pillar}
                     </h3>
@@ -377,7 +377,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {vm.page5SkillsAndPrinciples.skillsApplied.map((sk, idx) => (
-                  <div key={idx} className="p-5 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl">
+                  <div key={idx} className="p-5 bg-[#705955] border border-[#A38D89]/20 rounded-2xl">
                     <h3 className="font-mono-code text-xs font-bold text-[#F8E5D7] uppercase mb-2">
                       {sk.title}
                     </h3>
@@ -396,7 +396,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {vm.page5SkillsAndPrinciples.vmPrinciplesApplied.map((p, idx) => (
-                  <div key={idx} className="p-5 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl">
+                  <div key={idx} className="p-5 bg-[#705955] border border-[#A38D89]/20 rounded-2xl">
                     <span className="font-mono-code text-xs text-[#A38D89] font-bold block mb-1">
                       {p.number}.
                     </span>
@@ -424,7 +424,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
             <div className="flex justify-end pt-6 border-t border-[#A38D89]/15 font-mono-code text-xs">
               <Link
                 to="/projects/project-3"
-                className="bg-[#F4C9D6] text-[#3E2723] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
+                className="bg-[#D69589] text-[#3E2723] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
               >
                 <span>Next Project: Start Up →</span>
               </Link>

@@ -18,7 +18,7 @@ export const SkillsSection: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#A38D89] mb-2">
-              <FlowerMark className="w-3.5 h-3.5 text-[#F4C9D6]" />
+              <FlowerMark className="w-3.5 h-3.5 text-[#D69589]" />
               <span>SKILLS</span>
             </div>
             <h2 className="relative z-10 font-serif-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#F8E5D7]">

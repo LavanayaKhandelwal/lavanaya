@@ -34,7 +34,7 @@ export const InternshipExperiencePage: React.FC = () => {
         {/* SECTION 1: PAGE 1 — SOCIAL MEDIA */}
         <section id="social-media" className="scroll-mt-24 mb-20">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b-2 border-[#A38D89]/20">
-            <Video className="w-5 h-5 text-[#F4C9D6]" />
+            <Video className="w-5 h-5 text-[#D69589]" />
             <h2 className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]">
               01 — SOCIAL MEDIA
             </h2>
@@ -49,7 +49,7 @@ export const InternshipExperiencePage: React.FC = () => {
                 <h2 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] mb-4">
                   From concept to content
                 </h2>
-                <div className="p-4 bg-[#3E2723] rounded-2xl border border-[#A38D89]/40 font-body text-sm sm:text-base text-[#F8E5D7]/85 leading-relaxed">
+                <div className="p-4 bg-[#705955] rounded-2xl border border-[#A38D89]/40 font-body text-sm sm:text-base text-[#F8E5D7]/85 leading-relaxed">
                   {internship.page1SocialMedia.intro}
                 </div>
               </div>
@@ -77,7 +77,7 @@ export const InternshipExperiencePage: React.FC = () => {
               {/* REAL VIDEO MEDIA SHOWCASE */}
               <div className="mb-12">
                 <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A38D89] mb-4 pb-2 border-b border-[#A38D89]/20 flex items-center gap-2">
-                  <Play className="w-3.5 h-3.5 text-[#F4C9D6]" />
+                  <Play className="w-3.5 h-3.5 text-[#D69589]" />
                   <span>Video Content Production & Reels</span>
                 </div>
 
@@ -151,7 +151,7 @@ export const InternshipExperiencePage: React.FC = () => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {internship.page1SocialMedia.whatIWorkedOn.map((item) => (
-                    <div key={item.id} className="p-5 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl flex flex-col justify-between">
+                    <div key={item.id} className="p-5 bg-[#705955] border border-[#A38D89]/20 rounded-2xl flex flex-col justify-between">
                       <div>
                         <span className="font-mono-code text-xs text-[#A38D89] font-bold block mb-1">
                           {item.id}.
@@ -179,7 +179,7 @@ export const InternshipExperiencePage: React.FC = () => {
                       key={sIdx}
                       className="px-3.5 py-1.5 bg-[#F4C9D6] border border-[#A38D89]/30 rounded-xl font-mono-code text-xs text-[#3E2723] flex items-center gap-1.5"
                     >
-                      <span className="text-[#F4C9D6] font-bold">•</span>
+                      <span className="text-[#D69589] font-bold">•</span>
                       <span>{skill}</span>
                     </span>
                   ))}
@@ -192,7 +192,7 @@ export const InternshipExperiencePage: React.FC = () => {
         {/* SECTION 2: PAGE 2 — E-COMMERCE */}
         <section id="ecommerce" className="scroll-mt-24 mb-20">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b-2 border-[#A38D89]/20">
-            <ShoppingBag className="w-5 h-5 text-[#F4C9D6]" />
+            <ShoppingBag className="w-5 h-5 text-[#D69589]" />
             <h2 className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]">
               02 — E-COMMERCE
             </h2>
@@ -207,7 +207,7 @@ export const InternshipExperiencePage: React.FC = () => {
                 <h2 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] mb-4">
                   From product to online store
                 </h2>
-                <div className="p-4 bg-[#3E2723] rounded-2xl border border-[#A38D89]/40 font-body text-sm sm:text-base text-[#F8E5D7]/85 leading-relaxed">
+                <div className="p-4 bg-[#705955] rounded-2xl border border-[#A38D89]/40 font-body text-sm sm:text-base text-[#F8E5D7]/85 leading-relaxed">
                   {internship.page2Ecommerce.intro}
                 </div>
               </div>
@@ -215,7 +215,7 @@ export const InternshipExperiencePage: React.FC = () => {
               {/* WEBSITE BANNERS MEDIA SHOWCASE */}
               <div className="mb-12 space-y-6">
                 <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A38D89] pb-2 border-b border-[#A38D89]/20 flex items-center gap-2">
-                  <ImageIcon className="w-3.5 h-3.5 text-[#F4C9D6]" />
+                  <ImageIcon className="w-3.5 h-3.5 text-[#D69589]" />
                   <span>Website Banners & Storefront Visuals Designed for Aadiya Jewels</span>
                 </div>
 
@@ -269,7 +269,7 @@ export const InternshipExperiencePage: React.FC = () => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {internship.page2Ecommerce.whatIWorkedOn.map((item) => (
-                    <div key={item.id} className="p-5 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl flex flex-col justify-between">
+                    <div key={item.id} className="p-5 bg-[#705955] border border-[#A38D89]/20 rounded-2xl flex flex-col justify-between">
                       <div>
                         <span className="font-mono-code text-xs text-[#A38D89] font-bold block mb-1">
                           {item.id}.
@@ -297,7 +297,7 @@ export const InternshipExperiencePage: React.FC = () => {
                       key={sIdx}
                       className="px-3.5 py-1.5 bg-[#F4C9D6] border border-[#A38D89]/30 rounded-xl font-mono-code text-xs text-[#3E2723] flex items-center gap-1.5"
                     >
-                      <span className="text-[#F4C9D6] font-bold">•</span>
+                      <span className="text-[#D69589] font-bold">•</span>
                       <span>{skill}</span>
                     </span>
                   ))}
@@ -321,8 +321,8 @@ export const InternshipExperiencePage: React.FC = () => {
 
             <div className="space-y-4">
               {internship.learningOutcomes.map((l, idx) => (
-                <div key={l.number} className="flex items-start gap-4 p-5 bg-[#3E2723] border border-[#A38D89]/25 rounded-2xl">
-                  <span className="font-mono-code text-sm font-bold text-[#3E2723] bg-[#F4C9D6] border border-[#A38D89]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">
+                <div key={l.number} className="flex items-start gap-4 p-5 bg-[#705955] border border-[#A38D89]/25 rounded-2xl">
+                  <span className="font-mono-code text-sm font-bold text-[#3E2723] bg-[#D69589] border border-[#A38D89]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">
                     {idx + 1}
                   </span>
                   <div>
@@ -347,7 +347,7 @@ export const InternshipExperiencePage: React.FC = () => {
           </div>
           <Link
             to="/projects/marketing"
-            className="flex items-center gap-2 px-6 py-3 bg-[#F4C9D6] text-[#3E2723] rounded-xl font-mono-code text-xs uppercase tracking-wider font-bold hover:bg-[#3E2723] hover:text-[#F8E5D7] transition-colors"
+            className="flex items-center gap-2 px-6 py-3 bg-[#D69589] text-[#3E2723] rounded-xl font-mono-code text-xs uppercase tracking-wider font-bold hover:bg-[#3E2723] hover:text-[#F8E5D7] transition-colors"
           >
             <span>View UNIQLO Fragrance Case Study</span>
             <ArrowRight className="w-4 h-4" />

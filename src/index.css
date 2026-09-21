@@ -3,6 +3,7 @@
 @layer base {
   :root {
     --bg: #3E2723;
+    --surface: #705955;
     --card: #F8E5D7;
     --card-muted: #F4C9D6;
     --ink: #F8E5D7;

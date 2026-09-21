@@ -59,7 +59,7 @@ export const AboutPage: React.FC = () => {
 
             <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <div className="font-mono-code text-xs font-bold text-[#F4C9D6] mb-2">
+                <div className="font-mono-code text-xs font-bold text-[#D69589] mb-2">
                   ✦ {student.interests.heading}
                 </div>
                 <p className="font-body text-xs text-[#F8E5D7]/70 leading-relaxed mb-3">
@@ -75,7 +75,7 @@ export const AboutPage: React.FC = () => {
               </div>
 
               <div>
-                <div className="font-mono-code text-xs font-bold text-[#F4C9D6] mb-2">
+                <div className="font-mono-code text-xs font-bold text-[#D69589] mb-2">
                   ◌ {student.exploring.heading}
                 </div>
                 <p className="font-body text-xs text-[#F8E5D7]/70 leading-relaxed mb-3">
@@ -125,7 +125,7 @@ export const AboutPage: React.FC = () => {
           </div>
           <Link
             to="/internship/experience"
-            className="flex items-center gap-2 px-6 py-3 bg-[#F4C9D6] text-[#3E2723] rounded-xl font-mono-code text-xs uppercase tracking-wider font-bold hover:bg-[#3E2723] hover:text-[#F8E5D7] transition-colors"
+            className="flex items-center gap-2 px-6 py-3 bg-[#D69589] text-[#3E2723] rounded-xl font-mono-code text-xs uppercase tracking-wider font-bold hover:bg-[#3E2723] hover:text-[#F8E5D7] transition-colors"
           >
             <span>View Internship</span>
             <ArrowRight className="w-4 h-4" />

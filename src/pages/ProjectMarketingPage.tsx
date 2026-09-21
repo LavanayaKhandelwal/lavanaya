@@ -110,7 +110,7 @@ export const ProjectMarketingPage: React.FC = () => {
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#A38D89]/10 font-mono-code text-xs text-[#A38D89] font-bold flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#F4C9D6]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#D69589]" />
                   <span>Aligned with UNIQLO LifeWear core philosophy & global store architecture</span>
                 </div>
               </div>
@@ -140,10 +140,10 @@ export const ProjectMarketingPage: React.FC = () => {
                 {pm.page3DesignDecisions.map((item) => (
                   <div
                     key={item.number}
-                    className="p-5 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl flex flex-col sm:flex-row sm:items-baseline justify-between gap-4"
+                    className="p-5 bg-[#705955] border-[1.5px] border-[#A38D89]/40 rounded-2xl flex flex-col sm:flex-row sm:items-baseline justify-between gap-4"
                   >
                     <div className="flex items-baseline gap-4">
-                      <span className="font-mono-code text-base font-bold text-[#3E2723] bg-[#F4C9D6] w-8 h-8 rounded-full border border-[#A38D89] flex items-center justify-center shrink-0">
+                      <span className="font-mono-code text-base font-bold text-[#3E2723] bg-[#D69589] w-8 h-8 rounded-full border border-[#A38D89] flex items-center justify-center shrink-0">
                         {item.number}
                       </span>
                       <h3 className="font-serif-display text-2xl text-[#F8E5D7]">
@@ -198,7 +198,7 @@ export const ProjectMarketingPage: React.FC = () => {
             </div>
 
             <div className="space-y-6 mb-10">
-              <div className="p-6 bg-[#3E2723] border border-[#A38D89]/25 rounded-2xl">
+              <div className="p-6 bg-[#705955] border border-[#A38D89]/25 rounded-2xl">
                 <div className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] mb-2 pb-1 border-b border-[#A38D89]/15">
                   THE PRODUCT PITCH
                 </div>
@@ -208,7 +208,7 @@ export const ProjectMarketingPage: React.FC = () => {
               </div>
 
               {/* Marketing Mix Diagram & Framework Visual */}
-              <div className="p-6 bg-[#3E2723] border border-[#A38D89]/25 rounded-2xl">
+              <div className="p-6 bg-[#705955] border border-[#A38D89]/25 rounded-2xl">
                 <div className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] mb-3 pb-1 border-b border-[#A38D89]/15 flex items-center justify-between">
                   <span>PRODUCT PITCH & AUDIENCE INTERACTION</span>
                   <span className="text-[11px] text-[#A38D89]">COLLEGE PRODUCT-PITCH ACTIVITY</span>
@@ -222,7 +222,7 @@ export const ProjectMarketingPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-6 bg-[#3E2723] border border-[#A38D89]/25 rounded-2xl">
+              <div className="p-6 bg-[#705955] border border-[#A38D89]/25 rounded-2xl">
                 <div className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] mb-2 pb-1 border-b border-[#A38D89]/15">
                   FEEDBACK & REFINEMENT
                 </div>
@@ -231,7 +231,7 @@ export const ProjectMarketingPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="p-6 bg-[#3E2723] border border-[#A38D89]/25 rounded-2xl">
+              <div className="p-6 bg-[#705955] border border-[#A38D89]/25 rounded-2xl">
                 <div className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] mb-2 pb-1 border-b border-[#A38D89]/15">
                   REVIEWS & IMPACT
                 </div>
@@ -264,7 +264,7 @@ export const ProjectMarketingPage: React.FC = () => {
             {/* 4 LEARNING PILLARS */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {pm.page5IdeaToImpact.learnings.map((item) => (
-                <div key={item.num} className="p-6 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl">
+                <div key={item.num} className="p-6 bg-[#705955] border border-[#A38D89]/20 rounded-2xl">
                   <div className="flex items-baseline gap-2 mb-2">
                     <span className="font-mono-code text-xs font-bold text-[#A38D89]">
                       {item.num}.
@@ -291,7 +291,7 @@ export const ProjectMarketingPage: React.FC = () => {
                     key={sIdx}
                     className="px-4 py-2 bg-[#F4C9D6] border border-[#A38D89]/30 rounded-xl font-mono-code text-xs text-[#3E2723] flex items-center gap-1.5"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#F4C9D6]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D69589]" />
                     <span>{skill}</span>
                   </span>
                 ))}
@@ -301,7 +301,7 @@ export const ProjectMarketingPage: React.FC = () => {
             <div className="flex justify-end pt-6 border-t border-[#A38D89]/15 font-mono-code text-xs">
               <Link
                 to="/projects/visual-merchandising"
-                className="bg-[#F4C9D6] text-[#3E2723] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
+                className="bg-[#D69589] text-[#3E2723] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
               >
                 <span>Next Project: Cover Story →</span>
               </Link>
