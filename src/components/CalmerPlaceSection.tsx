@@ -64,22 +64,22 @@ export const CalmerPlaceSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 lg:py-36 bg-[#F4C9D6] border-b border-[#3E2723]/15 relative overflow-hidden">
+    <section className="py-24 lg:py-36 bg-[#F4C9D6] border-b border-[#A38D89]/15 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Whitespace-heavy Minimal Statement */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="font-mono-code text-xs uppercase tracking-widest text-[#3E2723]/60 block mb-3">
+          <span className="font-mono-code text-xs uppercase tracking-widest text-[#F8E5D7]/60 block mb-3">
             MENTAL DECOMPRESSION
           </span>
 
-          <h2 className="font-serif-display text-4xl sm:text-6xl lg:text-7xl text-[#3E2723] leading-[1.02] tracking-tight mb-6">
+          <h2 className="font-serif-display text-4xl sm:text-6xl lg:text-7xl text-[#F8E5D7] leading-[1.02] tracking-tight mb-6">
             Less searching. Less forgetting.{' '}
             <span className="italic font-serif-display underline decoration-[#D69589] decoration-4 underline-offset-8">
               More making.
             </span>
           </h2>
 
-          <p className="font-mono-code text-sm sm:text-base text-[#3E2723]/80 max-w-xl mx-auto leading-relaxed">
+          <p className="font-mono-code text-sm sm:text-base text-[#F8E5D7]/80 max-w-xl mx-auto leading-relaxed">
             Your ideas deserve somewhere better than 47 open tabs, random screenshots, and notes you can never find again.
           </p>
 
@@ -87,7 +87,7 @@ export const CalmerPlaceSection: React.FC = () => {
           <div className="mt-8 flex justify-center">
             <button
               onClick={() => setIsOrganized(!isOrganized)}
-              className="flex items-center gap-3 bg-[#F4C9D6] border-[1.5px] border-[#3E2723] px-6 py-3 rounded-full text-xs font-mono-code uppercase tracking-wider font-bold paper-shadow-hover transition-all cursor-pointer"
+              className="flex items-center gap-3 bg-[#F4C9D6] border-[1.5px] border-[#A38D89] px-6 py-3 rounded-full text-xs font-mono-code uppercase tracking-wider font-bold paper-shadow-hover transition-all cursor-pointer"
             >
               {isOrganized ? (
                 <>
@@ -106,16 +106,16 @@ export const CalmerPlaceSection: React.FC = () => {
 
         {/* THE JUNK DRAWER TRANSFORMATION STAGE */}
         <div className="max-w-5xl mx-auto">
-          <div className="bg-[#F8E5D7] border-[1.5px] border-[#3E2723] rounded-3xl p-6 sm:p-10 paper-shadow-lg relative min-h-[460px] flex flex-col justify-center">
+          <div className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-6 sm:p-10 paper-shadow-lg relative min-h-[460px] flex flex-col justify-center">
             {/* Top Indicator */}
-            <div className="flex items-center justify-between border-b border-[#3E2723]/15 pb-3 mb-6">
+            <div className="flex items-center justify-between border-b border-[#A38D89]/15 pb-3 mb-6">
               <div className="flex items-center gap-2">
                 <FlowerMark size={20} />
-                <span className="font-mono-code text-xs font-bold text-[#3E2723]">
+                <span className="font-mono-code text-xs font-bold text-[#F8E5D7]">
                   DESK STATE: {isOrganized ? "CURATED HARMONY" : "SCATTERED RAW MEMORY"}
                 </span>
               </div>
-              <span className="font-mono-code text-[11px] text-[#3E2723]/60">
+              <span className="font-mono-code text-[11px] text-[#F8E5D7]/60">
                 {isOrganized ? "SYNTHESIZED GRID" : "UNRESTRICTED CLUTTER"}
               </span>
             </div>
@@ -123,9 +123,9 @@ export const CalmerPlaceSection: React.FC = () => {
             {/* Transitioning cards */}
             {!isOrganized ? (
               /* Chaotic pile view */
-              <div className="relative h-[360px] sm:h-[380px] w-full border border-dashed border-[#3E2723]/25 rounded-2xl bg-[#F4C9D6]/40 overflow-hidden">
+              <div className="relative h-[360px] sm:h-[380px] w-full border border-dashed border-[#A38D89]/25 rounded-2xl bg-[#F4C9D6]/40 overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
-                  <span className="font-serif-display text-4xl sm:text-6xl text-[#3E2723] italic">
+                  <span className="font-serif-display text-4xl sm:text-6xl text-[#F8E5D7] italic">
                     The Creative Junk Drawer
                   </span>
                 </div>
@@ -137,16 +137,16 @@ export const CalmerPlaceSection: React.FC = () => {
                     initial={{ scale: 0.95 }}
                     animate={{ scale: 1 }}
                     whileHover={{ scale: 1.05, zIndex: 40 }}
-                    className={`absolute ${item.messyPos} max-w-[240px] sm:max-w-[280px] p-3 sm:p-4 rounded-xl border-[1.5px] border-[#3E2723] paper-shadow-sm cursor-pointer transition-transform`}
+                    className={`absolute ${item.messyPos} max-w-[240px] sm:max-w-[280px] p-3 sm:p-4 rounded-xl border-[1.5px] border-[#A38D89] paper-shadow-sm cursor-pointer transition-transform`}
                     style={{ backgroundColor: item.bg }}
                   >
                     <div className="flex justify-between items-center mb-1">
-                      <span className="text-[9px] font-mono-code px-1.5 py-0.5 rounded bg-[#3E2723] text-[#F4C9D6] font-bold">
+                      <span className="text-[9px] font-mono-code px-1.5 py-0.5 rounded bg-[#3E2723] text-[#F8E5D7] font-bold">
                         {item.tag}
                       </span>
-                      <span className="text-[10px] font-mono-code text-[#3E2723]/50">UNFILED</span>
+                      <span className="text-[10px] font-mono-code text-[#F8E5D7]/50">UNFILED</span>
                     </div>
-                    <p className="font-mono-code text-xs text-[#3E2723] font-medium leading-snug">
+                    <p className="font-mono-code text-xs text-[#F8E5D7] font-medium leading-snug">
                       {item.title}
                     </p>
                   </motion.div>
@@ -164,12 +164,12 @@ export const CalmerPlaceSection: React.FC = () => {
                 {deskItems.map((item, idx) => (
                   <div
                     key={item.id}
-                    className="p-4 rounded-xl border-[1.5px] border-[#3E2723] paper-shadow-sm flex flex-col justify-between bg-[#F4C9D6] hover:bg-[#F4C9D6] transition-colors"
+                    className="p-4 rounded-xl border-[1.5px] border-[#A38D89] paper-shadow-sm flex flex-col justify-between bg-[#F4C9D6] hover:bg-[#F4C9D6] transition-colors"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-2">
                         <span 
-                          className="text-[10px] font-mono-code px-2 py-0.5 rounded border border-[#3E2723] font-bold"
+                          className="text-[10px] font-mono-code px-2 py-0.5 rounded border border-[#A38D89] font-bold"
                           style={{ backgroundColor: item.bg }}
                         >
                           {item.tag}
@@ -178,11 +178,11 @@ export const CalmerPlaceSection: React.FC = () => {
                           <Check className="w-3 h-3" /> Clustered
                         </span>
                       </div>
-                      <h4 className="font-serif-display text-lg text-[#3E2723] leading-snug mb-1">
+                      <h4 className="font-serif-display text-lg text-[#F8E5D7] leading-snug mb-1">
                         {item.title}
                       </h4>
                     </div>
-                    <div className="mt-3 pt-2 border-t border-[#3E2723]/15 flex justify-between items-center text-[10px] font-mono-code text-[#3E2723]/60">
+                    <div className="mt-3 pt-2 border-t border-[#A38D89]/15 flex justify-between items-center text-[10px] font-mono-code text-[#F8E5D7]/60">
                       <span>FOLIO: ARCHIVE 01</span>
                       <span>READY TO USE</span>
                     </div>
@@ -192,8 +192,8 @@ export const CalmerPlaceSection: React.FC = () => {
             )}
 
             {/* Bottom Note */}
-            <div className="mt-6 pt-4 border-t border-[#3E2723]/15 flex items-center justify-between text-xs font-mono-code text-[#3E2723]/60">
-              <span className="font-hand text-lg text-[#3E2723]">
+            <div className="mt-6 pt-4 border-t border-[#A38D89]/15 flex items-center justify-between text-xs font-mono-code text-[#F8E5D7]/60">
+              <span className="font-hand text-lg text-[#F8E5D7]">
                 "Nothing is lost, nothing is forced."
               </span>
               <span className="font-mono-code text-[11px]">

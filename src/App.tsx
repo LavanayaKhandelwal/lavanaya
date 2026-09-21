@@ -27,7 +27,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen bg-[#F4C9D6] text-[#3E2723] flex flex-col selection:bg-[#D69589] selection:text-[#3E2723]">
+      <div className="min-h-screen flex flex-col">
         {/* Multi-Page Route Outlet */}
         <main className="flex-1">
           <Routes>

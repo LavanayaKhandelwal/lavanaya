@@ -2,18 +2,21 @@
 
 @layer base {
   :root {
-    --ink: #3E2723;
-    --paper: #F4C9D6;
-    --soft-green: #D69589;
-    --soft-pink: #D69589;
-    --soft-blue: #A38D89;
-    --soft-yellow: #D69589;
-    --lavender: #A38D89;
-    --muted-red: #D69589;
+    --bg: #3E2723;
+    --card: #F8E5D7;
+    --card-muted: #F4C9D6;
+    --ink: #F8E5D7;
+    --ink-muted: #A38D89;
+    --accent: #D69589;
+    --accent-hover: #F4C9D6;
   }
   
   html {
     scroll-behavior: smooth;
+  }
+  body {
+    background-color: #3E2723;
+    color: #F8E5D7;
   }
 }
 
@@ -37,30 +40,32 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Graph paper texture */
+/* Graph paper texture - subtle on dark */
 .bg-graph-paper {
+  background-color: #3E2723;
   background-size: 26px 26px;
   background-image: 
-    linear-gradient(to right, rgba(62, 39, 35, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(62, 39, 35, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(248, 229, 215, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(248, 229, 215, 0.04) 1px, transparent 1px);
 }
 
 .bg-dot-paper {
+  background-color: #3E2723;
   background-size: 20px 20px;
-  background-image: radial-gradient(rgba(62, 39, 35, 0.09) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(248, 229, 215, 0.06) 1px, transparent 1px);
 }
 
-/* Offset paper shadows */
+/* Offset paper shadows - subtle on dark */
 .paper-shadow-sm {
-  box-shadow: 2px 2px 0px #3E2723;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
 .paper-shadow {
-  box-shadow: 3.5px 3.5px 0px #3E2723;
+  box-shadow: 3.5px 3.5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .paper-shadow-lg {
-  box-shadow: 6px 6px 0px #3E2723;
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
 .paper-shadow-hover {
@@ -69,21 +74,21 @@
 
 .paper-shadow-hover:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px #3E2723;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
 .paper-shadow-hover:active {
   transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0px #3E2723;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - dark theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F4C9D6;
+  background: #3E2723;
 }
 ::-webkit-scrollbar-thumb {
   background: #A38D89;
@@ -91,5 +96,11 @@
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #A38D89;
+  background: #D69589;
+}
+
+/* Selection */
+::selection {
+  background: #D69589;
+  color: #3E2723;
 }

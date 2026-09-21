@@ -20,7 +20,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenWaitlist }) => {
     <section className="py-24 lg:py-36 bg-[#F4C9D6] relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Soft Green Editorial Billboard Card */}
-        <div className="relative bg-[#D69589] border-[2px] border-[#3E2723] rounded-3xl p-8 sm:p-14 lg:p-16 paper-shadow-lg text-center overflow-hidden">
+        <div className="relative bg-[#D69589] border-[2px] border-[#A38D89] rounded-3xl p-8 sm:p-14 lg:p-16 paper-shadow-lg text-center overflow-hidden">
           {/* Top Washi Tape */}
           <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
             <WashiTape color="#D69589" width="w-32" />
@@ -34,22 +34,22 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenWaitlist }) => {
             <FlowerMark size={32} />
           </div>
           <div className="absolute top-8 right-12 hidden lg:block">
-            <HandDrawnStar className="w-6 h-6 text-[#3E2723]" />
+            <HandDrawnStar className="w-6 h-6 text-[#F8E5D7]" />
           </div>
 
           {/* Metadata Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#3E2723] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#3E2723] mb-6 paper-shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-6 paper-shadow-sm">
             <FlowerMark size={14} />
             <span>ENROLMENT DISPATCH // BATCH 04</span>
           </div>
 
           {/* Headline */}
-          <h2 className="font-serif-display text-4xl sm:text-6xl lg:text-7xl text-[#3E2723] leading-[1.02] tracking-tight max-w-2xl mx-auto mb-4">
+          <h2 className="font-serif-display text-4xl sm:text-6xl lg:text-7xl text-[#F8E5D7] leading-[1.02] tracking-tight max-w-2xl mx-auto mb-4">
             Your next great idea is probably hiding in the mess.
           </h2>
 
           {/* Supporting Copy */}
-          <p className="font-serif-display text-2xl sm:text-3xl text-[#3E2723]/90 italic mb-8">
+          <p className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]/90 italic mb-8">
             Give it somewhere to grow.
           </p>
 
@@ -63,12 +63,12 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenWaitlist }) => {
                   placeholder="enter your email address..."
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-[#F4C9D6] border-[1.5px] border-[#3E2723] px-4 py-3.5 rounded-full font-mono-code text-xs text-[#3E2723] placeholder-[#3E2723]/50 focus:outline-hidden focus:ring-2 focus:ring-[#3E2723]"
+                  className="flex-1 bg-[#F4C9D6] border-[1.5px] border-[#A38D89] px-4 py-3.5 rounded-full font-mono-code text-xs text-[#F8E5D7] placeholder-[#3E2723]/50 focus:outline-hidden focus:ring-2 focus:ring-[#3E2723]"
                 />
                 <button
                   type="submit"
                   id="final-waitlist-submit"
-                  className="flex items-center justify-center gap-2 bg-[#3E2723] text-[#F4C9D6] hover:bg-[#A38D89] border-[1.5px] border-[#3E2723] px-6 py-3.5 rounded-full font-mono-code text-xs uppercase tracking-wider font-bold paper-shadow hover:translate-y-[-1px] transition-all cursor-pointer whitespace-nowrap"
+                  className="flex items-center justify-center gap-2 bg-[#3E2723] text-[#F8E5D7] hover:bg-[#A38D89] border-[1.5px] border-[#A38D89] px-6 py-3.5 rounded-full font-mono-code text-xs uppercase tracking-wider font-bold paper-shadow hover:translate-y-[-1px] transition-all cursor-pointer whitespace-nowrap"
                 >
                   <span>Join the Waitlist</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -76,24 +76,24 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenWaitlist }) => {
               </form>
             </div>
           ) : (
-            <div className="max-w-md mx-auto mb-6 p-4 bg-[#F4C9D6] border-[1.5px] border-[#3E2723] rounded-2xl paper-shadow">
+            <div className="max-w-md mx-auto mb-6 p-4 bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-2xl paper-shadow">
               <div className="flex items-center justify-center gap-2 text-[#A38D89] font-mono-code text-xs font-bold uppercase mb-1">
                 <Check className="w-4 h-4" />
                 <span>Admission Ticket Reserved!</span>
               </div>
-              <p className="font-body text-xs text-[#3E2723]/80">
+              <p className="font-body text-xs text-[#F8E5D7]/80">
                 Check your inbox shortly for your accession stamp.
               </p>
             </div>
           )}
 
           {/* Secondary Subtitle */}
-          <p className="font-mono-code text-xs text-[#3E2723]/70 max-w-sm mx-auto">
+          <p className="font-mono-code text-xs text-[#F8E5D7]/70 max-w-sm mx-auto">
             No spam. Just occasional dispatch issues and private studio invitations as we build.
           </p>
 
           {/* Bottom Stamp seal */}
-          <div className="mt-8 pt-6 border-t border-[#3E2723]/20 flex items-center justify-between text-[11px] font-mono-code text-[#3E2723]/60">
+          <div className="mt-8 pt-6 border-t border-[#A38D89]/20 flex items-center justify-between text-[11px] font-mono-code text-[#F8E5D7]/60">
             <span>PRINTED IN CURIO STUDIO</span>
             <span>EDITION OF 5,000 PASSES</span>
             <span>STATUS: BETA OPEN</span>

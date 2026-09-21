@@ -9,14 +9,14 @@ export const AboutPage: React.FC = () => {
   const { student } = portfolioData;
 
   return (
-    <div className="bg-[#F4C9D6] min-h-screen py-16 lg:py-24">
+    <div className="min-h-screen py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Breadcrumb */}
-        <div className="flex items-center justify-between font-mono-code text-xs text-[#3E2723]/50 pb-4 border-b border-[#3E2723]/10 mb-12">
+        <div className="flex items-center justify-between font-mono-code text-xs text-[#F8E5D7]/50 pb-4 border-b border-[#A38D89]/10 mb-12">
           <div className="flex items-center gap-2">
-            <Link to="/" className="hover:text-[#3E2723]">HOME</Link>
+            <Link to="/" className="hover:text-[#F8E5D7]">HOME</Link>
             <span>/</span>
-            <span className="text-[#3E2723] font-semibold">ABOUT ME</span>
+            <span className="text-[#F8E5D7] font-semibold">ABOUT ME</span>
           </div>
           <span>FOLIO ETHOS & BACKGROUND</span>
         </div>
@@ -24,17 +24,17 @@ export const AboutPage: React.FC = () => {
         {/* Profile */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F8E5D7] border border-[#3E2723] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#3E2723] paper-shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F8E5D7] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] paper-shadow-sm">
               <FlowerMark size={14} />
               <span>ABOUT ME</span>
             </div>
 
-            <h1 className="font-serif-display text-4xl sm:text-5xl text-[#3E2723] leading-[1.1] tracking-tight">
+            <h1 className="font-serif-display text-4xl sm:text-5xl text-[#F8E5D7] leading-[1.1] tracking-tight">
               {student.degree}
             </h1>
 
-            <div className="font-mono-code text-xs sm:text-sm text-[#3E2723]/70 flex flex-wrap items-center gap-3">
-              <span className="bg-[#D69589] text-[#3E2723] px-2.5 py-0.5 rounded border border-[#3E2723] font-bold">
+            <div className="font-mono-code text-xs sm:text-sm text-[#F8E5D7]/70 flex flex-wrap items-center gap-3">
+              <span className="bg-[#D69589] text-[#F8E5D7] px-2.5 py-0.5 rounded border border-[#A38D89] font-bold">
                 {student.institution} | {student.year}
               </span>
               <span>•</span>
@@ -44,11 +44,11 @@ export const AboutPage: React.FC = () => {
               </span>
             </div>
 
-            <p className="font-serif-display text-2xl sm:text-3xl text-[#3E2723] italic leading-snug pt-2">
+            <p className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7] italic leading-snug pt-2">
               {student.statement}
             </p>
 
-            <div className="space-y-4 font-body text-base text-[#3E2723]/85 leading-relaxed pt-2">
+            <div className="space-y-4 font-body text-base text-[#F8E5D7]/85 leading-relaxed pt-2">
               <p>
                 {student.secondaryStatement}
               </p>
@@ -59,15 +59,15 @@ export const AboutPage: React.FC = () => {
 
             <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <div className="font-mono-code text-xs font-bold text-[#3E2723] mb-2">
+                <div className="font-mono-code text-xs font-bold text-[#F8E5D7] mb-2">
                   ✦ {student.interests.heading}
                 </div>
-                <p className="font-body text-xs text-[#3E2723]/75 leading-relaxed mb-3">
+                <p className="font-body text-xs text-[#F8E5D7]/75 leading-relaxed mb-3">
                   {student.interests.blurb}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {student.interests.chips.map((spec, i) => (
-                    <span key={i} className="font-mono-code text-xs px-3 py-1 bg-[#F8E5D7] border border-[#3E2723]/30 rounded-lg text-[#3E2723]">
+                    <span key={i} className="font-mono-code text-xs px-3 py-1 bg-[#F8E5D7] border border-[#A38D89]/30 rounded-lg text-[#F8E5D7]">
                       {spec}
                     </span>
                   ))}
@@ -75,15 +75,15 @@ export const AboutPage: React.FC = () => {
               </div>
 
               <div>
-                <div className="font-mono-code text-xs font-bold text-[#3E2723] mb-2">
+                <div className="font-mono-code text-xs font-bold text-[#F8E5D7] mb-2">
                   ◌ {student.exploring.heading}
                 </div>
-                <p className="font-body text-xs text-[#3E2723]/75 leading-relaxed mb-3">
+                <p className="font-body text-xs text-[#F8E5D7]/75 leading-relaxed mb-3">
                   {student.exploring.blurb}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {student.exploring.chips.map((spec, i) => (
-                    <span key={i} className="font-mono-code text-xs px-3 py-1 bg-[#F8E5D7] border border-[#3E2723]/30 rounded-lg text-[#3E2723]">
+                    <span key={i} className="font-mono-code text-xs px-3 py-1 bg-[#F8E5D7] border border-[#A38D89]/30 rounded-lg text-[#F8E5D7]">
                       {spec}
                     </span>
                   ))}
@@ -93,23 +93,23 @@ export const AboutPage: React.FC = () => {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="bg-[#F8E5D7] border-[1.5px] border-[#3E2723] rounded-3xl p-8 paper-shadow-lg relative">
+            <div className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-8 paper-shadow-lg relative">
               <div className="absolute -top-3 left-10">
                 <WashiTape color="#D69589" width="w-24" />
               </div>
 
-              <div className="font-mono-code text-xs font-bold text-[#3E2723] mb-4">
+              <div className="font-mono-code text-xs font-bold text-[#F8E5D7] mb-4">
                 ♡ {student.approach.heading}
               </div>
-              <p className="font-body text-sm text-[#3E2723]/85 leading-relaxed">
+              <p className="font-body text-sm text-[#F8E5D7]/85 leading-relaxed">
                 {student.approach.text}
               </p>
 
-              <div className="mt-8 pt-6 border-t border-[#3E2723]/15">
-                <p className="font-serif-display text-2xl sm:text-3xl text-[#3E2723] italic leading-snug whitespace-pre-line">
+              <div className="mt-8 pt-6 border-t border-[#A38D89]/15">
+                <p className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7] italic leading-snug whitespace-pre-line">
                   “{student.handwritten}”
                 </p>
-                <div className="font-mono-code text-[10px] uppercase tracking-widest text-[#3E2723]/50 mt-3">
+                <div className="font-mono-code text-[10px] uppercase tracking-widest text-[#F8E5D7]/50 mt-3">
                   Handwritten-style statement
                 </div>
               </div>
@@ -118,14 +118,14 @@ export const AboutPage: React.FC = () => {
         </div>
 
         {/* Bottom Navigation */}
-        <div className="flex flex-col sm:flex-row items-center justify-between p-8 bg-[#F8E5D7] border-[1.5px] border-[#3E2723] rounded-2xl gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between p-8 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl gap-4">
           <div>
-            <div className="font-mono-code text-xs uppercase text-[#3E2723]/60">NEXT IN PORTFOLIO</div>
-            <div className="font-serif-display text-2xl text-[#3E2723]">Explore Aadiya Jewels Internship</div>
+            <div className="font-mono-code text-xs uppercase text-[#F8E5D7]/60">NEXT IN PORTFOLIO</div>
+            <div className="font-serif-display text-2xl text-[#F8E5D7]">Explore Aadiya Jewels Internship</div>
           </div>
           <Link
             to="/internship/experience"
-            className="flex items-center gap-2 px-6 py-3 bg-[#3E2723] text-[#F4C9D6] rounded-xl font-mono-code text-xs uppercase tracking-wider hover:bg-[#A38D89] transition-colors"
+            className="flex items-center gap-2 px-6 py-3 bg-[#3E2723] text-[#F8E5D7] rounded-xl font-mono-code text-xs uppercase tracking-wider hover:bg-[#A38D89] transition-colors"
           >
             <span>View Internship</span>
             <ArrowRight className="w-4 h-4" />

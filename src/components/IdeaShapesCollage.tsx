@@ -91,25 +91,25 @@ export const IdeaShapesCollage: React.FC = () => {
       });
 
   return (
-    <section id="idea-shapes" className="py-24 lg:py-36 bg-[#F4C9D6] border-b border-[#3E2723]/15 relative overflow-hidden">
+    <section id="idea-shapes" className="py-24 lg:py-36 bg-[#F4C9D6] border-b border-[#A38D89]/15 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header & Central Statement */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#3E2723] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#3E2723] mb-6 paper-shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-6 paper-shadow-sm">
             <FlowerMark size={14} />
             <span>UNIVERSAL MEDIUMS OF CREATIVITY</span>
           </div>
 
-          <h2 className="font-serif-display text-4xl sm:text-6xl lg:text-7xl text-[#3E2723] leading-[1.04] tracking-tight mb-6">
+          <h2 className="font-serif-display text-4xl sm:text-6xl lg:text-7xl text-[#F8E5D7] leading-[1.04] tracking-tight mb-6">
             However your brain works,{' '}
             <span className="relative inline-block whitespace-nowrap">
-              <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#D69589] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#3E2723]/20" />
+              <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#D69589] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/20" />
               <span className="relative z-10 italic">there is room</span>
             </span>{' '}
             for it here.
           </h2>
 
-          <p className="font-mono-code text-sm sm:text-base text-[#3E2723]/80 max-w-xl mx-auto leading-relaxed">
+          <p className="font-mono-code text-sm sm:text-base text-[#F8E5D7]/80 max-w-xl mx-auto leading-relaxed">
             Notes, voice thoughts, random screenshots, color chips, and midnight questions. Curio gathers them without making them boring.
           </p>
 
@@ -127,8 +127,8 @@ export const IdeaShapesCollage: React.FC = () => {
                 onClick={() => setFilter(tab.id as any)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-mono-code tracking-wider uppercase border-[1.5px] transition-all cursor-pointer ${
                   filter === tab.id
-                    ? 'bg-[#3E2723] text-[#F4C9D6] border-[#3E2723] paper-shadow-sm font-bold'
-                    : 'bg-[#F4C9D6] text-[#3E2723]/80 border-[#3E2723]/40 hover:border-[#3E2723]'
+                    ? 'bg-[#3E2723] text-[#F8E5D7] border-[#A38D89] paper-shadow-sm font-bold'
+                    : 'bg-[#F4C9D6] text-[#F8E5D7]/80 border-[#A38D89]/40 hover:border-[#A38D89]'
                 }`}
               >
                 {tab.label}
@@ -147,7 +147,7 @@ export const IdeaShapesCollage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className={`relative bg-[#F4C9D6] border-[1.5px] border-[#3E2723] rounded-2xl p-6 paper-shadow-hover ${item.rotation} cursor-pointer group`}
+              className={`relative bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-2xl p-6 paper-shadow-hover ${item.rotation} cursor-pointer group`}
             >
               {/* Paper Clip or Washi Tape top accent */}
               {index % 2 === 0 ? (
@@ -156,26 +156,26 @@ export const IdeaShapesCollage: React.FC = () => {
                 </div>
               ) : (
                 <div className="absolute -top-3 right-6 z-10">
-                  <PaperClip className="w-5 h-8 text-[#3E2723]" />
+                  <PaperClip className="w-5 h-8 text-[#F8E5D7]" />
                 </div>
               )}
 
               {/* Tag and category metadata */}
-              <div className="flex items-center justify-between border-b border-[#3E2723]/15 pb-3 mb-4 pt-1">
+              <div className="flex items-center justify-between border-b border-[#A38D89]/15 pb-3 mb-4 pt-1">
                 <span 
-                  className="px-2 py-0.5 rounded text-[10px] font-mono-code font-bold uppercase border border-[#3E2723]"
+                  className="px-2 py-0.5 rounded text-[10px] font-mono-code font-bold uppercase border border-[#A38D89]"
                   style={{ backgroundColor: item.accentColor }}
                 >
                   {item.tag}
                 </span>
-                <span className="font-mono-code text-[11px] text-[#3E2723]/50">
+                <span className="font-mono-code text-[11px] text-[#F8E5D7]/50">
                   SCRAP #0{item.id}
                 </span>
               </div>
 
               {/* Visual preview if polaroid or swatch */}
               {item.type === 'polaroid' && (
-                <div className="mb-4 rounded-xl border border-[#3E2723]/30 overflow-hidden bg-[#A38D89]">
+                <div className="mb-4 rounded-xl border border-[#A38D89]/30 overflow-hidden bg-[#A38D89]">
                   <img
                     src="/src/assets/images/creative_chaos_collage_1789788411014.jpg"
                     alt="Study artifact"
@@ -186,7 +186,7 @@ export const IdeaShapesCollage: React.FC = () => {
               )}
 
               {item.type === 'swatch' && (
-                <div className="mb-4 rounded-xl border border-[#3E2723]/30 overflow-hidden bg-[#A38D89]">
+                <div className="mb-4 rounded-xl border border-[#A38D89]/30 overflow-hidden bg-[#A38D89]">
                   <img
                     src="/src/assets/images/curated_moodboard_art_1789788458713.jpg"
                     alt="Material swatch"
@@ -198,22 +198,22 @@ export const IdeaShapesCollage: React.FC = () => {
 
               {/* Voice Player UI */}
               {item.type === 'voice' && (
-                <div className="mb-4 p-3 bg-[#3E2723]/5 border border-[#3E2723]/20 rounded-xl flex items-center justify-between">
+                <div className="mb-4 p-3 bg-[#3E2723]/5 border border-[#A38D89]/20 rounded-xl flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         setPlayingVoice(!playingVoice);
                       }}
-                      className="w-8 h-8 rounded-full bg-[#3E2723] text-[#F4C9D6] flex items-center justify-center hover:scale-105 transition-transform"
+                      className="w-8 h-8 rounded-full bg-[#3E2723] text-[#F8E5D7] flex items-center justify-center hover:scale-105 transition-transform"
                     >
                       <Volume2 className="w-4 h-4" />
                     </button>
                     <div>
-                      <span className="font-mono-code text-[11px] font-bold text-[#3E2723] block">
+                      <span className="font-mono-code text-[11px] font-bold text-[#F8E5D7] block">
                         {playingVoice ? "PLAYING AUDIO..." : "VOICE MEMO 0:48"}
                       </span>
-                      <span className="font-mono-code text-[10px] text-[#3E2723]/60">
+                      <span className="font-mono-code text-[10px] text-[#F8E5D7]/60">
                         Recorded on bike ride
                       </span>
                     </div>
@@ -233,24 +233,24 @@ export const IdeaShapesCollage: React.FC = () => {
                 </div>
               )}
 
-              <h3 className="font-serif-display text-2xl text-[#3E2723] leading-tight mb-2 group-hover:text-[#A38D89] transition-colors">
+              <h3 className="font-serif-display text-2xl text-[#F8E5D7] leading-tight mb-2 group-hover:text-[#A38D89] transition-colors">
                 {item.title}
               </h3>
 
               {item.subtitle && (
-                <p className="font-mono-code text-xs text-[#3E2723]/60 mb-3">
+                <p className="font-mono-code text-xs text-[#F8E5D7]/60 mb-3">
                   {item.subtitle}
                 </p>
               )}
 
               {item.snippet && (
-                <p className="font-body text-xs text-[#3E2723]/80 leading-relaxed whitespace-pre-line border-t border-dashed border-[#3E2723]/15 pt-3 mt-3">
+                <p className="font-body text-xs text-[#F8E5D7]/80 leading-relaxed whitespace-pre-line border-t border-dashed border-[#A38D89]/15 pt-3 mt-3">
                   {item.snippet}
                 </p>
               )}
 
               {/* Card Footer stamp */}
-              <div className="mt-4 pt-3 border-t border-[#3E2723]/15 flex items-center justify-between text-[11px] font-mono-code text-[#3E2723]/60">
+              <div className="mt-4 pt-3 border-t border-[#A38D89]/15 flex items-center justify-between text-[11px] font-mono-code text-[#F8E5D7]/60">
                 <span>INTENT: PRESERVED</span>
                 <span className="group-hover:translate-x-1 transition-transform">✦ PINNED</span>
               </div>
@@ -260,7 +260,7 @@ export const IdeaShapesCollage: React.FC = () => {
 
         {/* Bottom Editorial Callout */}
         <div className="mt-16 text-center">
-          <p className="font-hand text-2xl sm:text-3xl text-[#3E2723]/80 -rotate-1">
+          <p className="font-hand text-2xl sm:text-3xl text-[#F8E5D7]/80 -rotate-1">
             "Your workspace shouldn't force your thoughts into somebody else's boxes."
           </p>
         </div>

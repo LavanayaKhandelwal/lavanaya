@@ -5,23 +5,23 @@ import { portfolioData } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#F8E5D7] border-t border-[#3E2723]/15 py-16 lg:py-20 text-[#3E2723]">
+    <footer className="bg-[#F8E5D7] border-t border-[#A38D89]/15 py-16 lg:py-20 text-[#F8E5D7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-8 text-center">
         <Link to="/" className="flex items-center gap-2.5">
           <FlowerMark size={24} />
-          <span className="font-serif-display text-2xl font-bold tracking-tight text-[#3E2723]">
+          <span className="font-serif-display text-2xl font-bold tracking-tight text-[#F8E5D7]">
             {portfolioData.student.name}
           </span>
         </Link>
 
-        <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 font-mono-code text-xs text-[#3E2723]/70">
-          <Link to="/projects" className="hover:text-[#3E2723] transition-colors">Projects</Link>
-          <Link to="/about" className="hover:text-[#3E2723] transition-colors">About</Link>
-          <Link to="/skills" className="hover:text-[#3E2723] transition-colors">Skills</Link>
-          <Link to="/contact" className="hover:text-[#3E2723] transition-colors">Contact</Link>
+        <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 font-mono-code text-xs text-[#F8E5D7]/70">
+          <Link to="/projects" className="hover:text-[#F8E5D7] transition-colors">Projects</Link>
+          <Link to="/about" className="hover:text-[#F8E5D7] transition-colors">About</Link>
+          <Link to="/skills" className="hover:text-[#F8E5D7] transition-colors">Skills</Link>
+          <Link to="/contact" className="hover:text-[#F8E5D7] transition-colors">Contact</Link>
         </nav>
 
-        <p className="font-mono-code text-[11px] text-[#3E2723]/50">
+        <p className="font-mono-code text-[11px] text-[#F8E5D7]/50">
           © 2026 {portfolioData.student.name}
         </p>
       </div>
