@@ -87,29 +87,29 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
               className="absolute top-4 right-4 p-2 rounded-full border border-[#A38D89]/30 hover:border-[#A38D89] hover:bg-[#3E2723]/5 transition-colors"
               aria-label="Close modal"
             >
-              <X className="w-4 h-4 text-[#F8E5D7]" />
+              <X className="w-4 h-4 text-[#3E2723]" />
             </button>
 
             {!submitted ? (
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <FlowerMark size={22} />
-                  <span className="font-mono-code text-xs uppercase tracking-widest text-[#F8E5D7]/70">
+                  <span className="font-mono-code text-xs uppercase tracking-widest text-[#3E2723]/60">
                     Studio Inquiries • Class of '26
                   </span>
                 </div>
 
-                <h3 className="font-serif-display text-3xl sm:text-4xl leading-tight text-[#F8E5D7] mb-3">
+                <h3 className="font-serif-display text-3xl sm:text-4xl leading-tight text-[#3E2723] mb-3">
                   Request Full Portfolio & Studio Visit
                 </h3>
 
-                <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed mb-6">
+                <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed mb-6">
                   Inquire about visual merchandising commissions, freelance retail strategy, exhibition catalogs, or schedule an in-person studio visit in New York or London.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block font-mono-code text-xs uppercase tracking-wider text-[#F8E5D7] mb-1.5">
+                    <label className="block font-mono-code text-xs uppercase tracking-wider text-[#3E2723] mb-1.5">
                       Your Work Email
                     </label>
                     <input
@@ -118,12 +118,12 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                       placeholder="curator.studio@gallery.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-xl px-4 py-3 font-mono-code text-sm text-[#F8E5D7] placeholder-[#3E2723]/40 focus:outline-hidden focus:ring-2 focus:ring-[#D69589]"
+                      className="w-full bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-xl px-4 py-3 font-mono-code text-sm text-[#3E2723] placeholder-[#3E2723]/40 focus:outline-hidden focus:ring-2 focus:ring-[#D69589]"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-mono-code text-xs uppercase tracking-wider text-[#F8E5D7] mb-1.5">
+                    <label className="block font-mono-code text-xs uppercase tracking-wider text-[#3E2723] mb-1.5">
                       Nature of Correspondence
                     </label>
                     <div className="grid grid-cols-3 gap-2">
@@ -142,7 +142,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                           className={`py-2 px-2 text-xs font-mono-code rounded-lg border-[1.5px] transition-all text-center leading-tight ${
                             role === r
                               ? 'bg-[#D69589] border-[#A38D89] font-bold paper-shadow-sm'
-                              : 'bg-transparent border-[#A38D89]/40 hover:border-[#A38D89] text-[#F8E5D7]/80'
+                              : 'bg-transparent border-[#A38D89]/40 hover:border-[#A38D89] text-[#3E2723]/80'
                           }`}
                         >
                           {r}
@@ -155,7 +155,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full flex items-center justify-center gap-2 bg-[#3E2723] text-[#F8E5D7] hover:bg-[#A38D89] border-[1.5px] border-[#A38D89] py-3.5 px-6 rounded-xl font-mono-code text-sm tracking-wider uppercase paper-shadow-hover transition-all cursor-pointer"
+                      className="w-full flex items-center justify-center gap-2 bg-[#D69589] text-[#3E2723] hover:bg-[#A38D89] border-[1.5px] border-[#A38D89] py-3.5 px-6 rounded-xl font-mono-code text-sm tracking-wider uppercase paper-shadow-hover transition-all cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span>Inscribing Studio Log...</span>
@@ -168,7 +168,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                     </button>
                   </div>
 
-                  <p className="font-mono-code text-[11px] text-center text-[#F8E5D7]/60 mt-3">
+                  <p className="font-mono-code text-[11px] text-center text-[#A38D89] mt-3">
                     ✦ Responses typically dispatched within 24–48 hours.
                   </p>
                 </form>
@@ -181,7 +181,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                   
                   <div className="flex items-start justify-between border-b border-[#A38D89]/20 pb-4 mb-4">
                     <div>
-                      <div className="flex items-center gap-1.5 text-xs font-mono-code uppercase text-[#F8E5D7]/70">
+                      <div className="flex items-center gap-1.5 text-xs font-mono-code uppercase text-[#3E2723]/60">
                         <FlowerMark size={16} />
                         {portfolioData.student.name} Studio Pass
                       </div>
@@ -190,10 +190,10 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                       </div>
                     </div>
                     <div className="text-right">
-                      <span className="inline-block bg-[#D69589] text-[#F8E5D7] border border-[#A38D89] px-2 py-0.5 rounded text-[11px] font-mono-code font-bold">
+                      <span className="inline-block bg-[#D69589] text-[#3E2723] border border-[#A38D89] px-2 py-0.5 rounded text-[11px] font-mono-code font-bold">
                         #{submitted.ticketNumber}
                       </span>
-                      <div className="font-mono-code text-[10px] text-[#F8E5D7]/60 mt-1">
+                      <div className="font-mono-code text-[10px] text-[#A38D89] mt-1">
                         {submitted.submittedAt}
                       </div>
                     </div>
@@ -201,16 +201,16 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
 
                   <div className="space-y-2 text-xs font-mono-code">
                     <div className="flex justify-between">
-                      <span className="text-[#F8E5D7]/60">CONTACT:</span>
-                      <span className="font-bold text-[#F8E5D7] truncate max-w-[200px]">{submitted.email}</span>
+                      <span className="text-[#A38D89]">CONTACT:</span>
+                      <span className="font-bold text-[#3E2723] truncate max-w-[200px]">{submitted.email}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#F8E5D7]/60">INQUIRY TYPE:</span>
-                      <span className="text-[#F8E5D7]">{submitted.role}</span>
+                      <span className="text-[#A38D89]">INQUIRY TYPE:</span>
+                      <span className="text-[#3E2723]">{submitted.role}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-[#F8E5D7]/60">STATUS:</span>
-                      <span className="text-[#F8E5D7] flex items-center gap-1">
+                      <span className="text-[#A38D89]">STATUS:</span>
+                      <span className="text-[#3E2723] flex items-center gap-1">
                         <Check className="w-3.5 h-3.5 text-[#D69589]" />
                         Queued for Response
                       </span>
@@ -218,7 +218,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                   </div>
 
                   {/* Perforation line */}
-                  <div className="border-t-2 border-dashed border-[#A38D89]/30 mt-4 pt-3 flex justify-between items-center text-[10px] font-mono-code text-[#F8E5D7]/50">
+                  <div className="border-t-2 border-dashed border-[#A38D89]/30 mt-4 pt-3 flex justify-between items-center text-[10px] font-mono-code text-[#A38D89]">
                     <span>PORTFOLIO DOSSIER PASS</span>
                     <span>NEW YORK / LONDON</span>
                   </div>
@@ -226,23 +226,23 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
 
                 <div className="flex items-center justify-center gap-2 mb-4">
                   <Sparkles className="w-4 h-4 text-[#D69589]" />
-                  <span className="font-serif-display text-xl text-[#F8E5D7]">Inquiry Logged</span>
+                  <span className="font-serif-display text-xl text-[#3E2723]">Inquiry Logged</span>
                 </div>
-                <p className="font-body text-xs text-[#F8E5D7]/80 max-w-sm mx-auto mb-6">
+                <p className="font-body text-xs text-[#3E2723]/80 max-w-sm mx-auto mb-6">
                   Thank you for reaching out. A complete high-resolution PDF portfolio dossier and thesis catalog will be dispatched to your inbox shortly.
                 </p>
 
                 <div className="flex items-center justify-center gap-3">
                   <button
                     onClick={copyTicket}
-                    className="flex items-center gap-1.5 px-4 py-2 bg-[#A38D89] border border-[#A38D89] rounded-lg text-xs font-mono-code text-[#F8E5D7] paper-shadow-sm hover:translate-y-[-1px] transition-all cursor-pointer"
+                    className="flex items-center gap-1.5 px-4 py-2 bg-[#A38D89] border border-[#A38D89] rounded-lg text-xs font-mono-code text-[#3E2723] paper-shadow-sm hover:translate-y-[-1px] transition-all cursor-pointer"
                   >
                     {isCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                     <span>{isCopied ? 'Copied to Clipboard' : 'Copy Reference #'}</span>
                   </button>
                   <button
                     onClick={onClose}
-                    className="px-4 py-2 bg-transparent hover:bg-[#3E2723]/5 border border-[#A38D89]/40 rounded-lg text-xs font-mono-code text-[#F8E5D7] transition-all cursor-pointer"
+                    className="px-4 py-2 bg-transparent hover:bg-[#3E2723]/5 border border-[#A38D89]/40 rounded-lg text-xs font-mono-code text-[#3E2723] transition-all cursor-pointer"
                   >
                     Return to Portfolio
                   </button>

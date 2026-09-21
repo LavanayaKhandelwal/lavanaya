@@ -14,7 +14,7 @@ export const ProjectMarketingPage: React.FC = () => {
         {/* Top Breadcrumb */}
         <div className="flex items-center justify-between font-mono-code text-xs text-[#F8E5D7]/50 pb-4 border-b border-[#A38D89]/10 mb-12">
           <div className="flex items-center gap-2">
-            <Link to="/projects" className="hover:text-[#F8E5D7] flex items-center gap-1">
+            <Link to="/projects" className="hover:text-[#3E2723] flex items-center gap-1">
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>PROJECTS</span>
             </Link>
@@ -33,31 +33,31 @@ export const ProjectMarketingPage: React.FC = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F8E5D7] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] paper-shadow-sm">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#3E2723] paper-shadow-sm">
                     <FlowerMark size={14} />
                     <span>PROJECT 1 (MARKETING MANAGEMENT) // PAGE 1 & PAGE 2</span>
                   </div>
 
-                  <h1 className="font-serif-display text-4xl sm:text-6xl lg:text-7xl text-[#F8E5D7] leading-[1.02] tracking-tight">
+                  <h1 className="font-serif-display text-4xl sm:text-6xl lg:text-7xl text-[#3E2723] leading-[1.02] tracking-tight">
                     {pm.cover.title}
                   </h1>
 
-                  <p className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]/80 italic leading-snug">
+                  <p className="font-serif-display text-2xl sm:text-3xl text-[#3E2723]/80 italic leading-snug">
                     {pm.cover.subtitle}
                   </p>
 
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-[#A38D89]/15 font-mono-code text-xs">
                     <div>
-                      <span className="text-[#F8E5D7]/50 block text-[10px] uppercase">BRAND / CLIENT:</span>
-                      <span className="font-bold text-[#F8E5D7]">{pm.cover.brand}</span>
+                      <span className="text-[#A38D89] block text-[10px] uppercase">BRAND / CLIENT:</span>
+                      <span className="font-bold text-[#3E2723]">{pm.cover.brand}</span>
                     </div>
                     <div>
-                      <span className="text-[#F8E5D7]/50 block text-[10px] uppercase">DISCIPLINE:</span>
-                      <span className="font-bold text-[#F8E5D7]">{pm.cover.discipline}</span>
+                      <span className="text-[#A38D89] block text-[10px] uppercase">DISCIPLINE:</span>
+                      <span className="font-bold text-[#3E2723]">{pm.cover.discipline}</span>
                     </div>
                     <div>
-                      <span className="text-[#F8E5D7]/50 block text-[10px] uppercase">TIMELINE:</span>
-                      <span className="font-bold text-[#F8E5D7]">{pm.cover.timeline}</span>
+                      <span className="text-[#A38D89] block text-[10px] uppercase">TIMELINE:</span>
+                      <span className="font-bold text-[#3E2723]">{pm.cover.timeline}</span>
                     </div>
                   </div>
                 </div>
@@ -70,7 +70,7 @@ export const ProjectMarketingPage: React.FC = () => {
                       alt="UNIQLO Fragrance Hero Concept"
                       className="w-full h-auto object-cover rounded-xl border border-[#A38D89]/15"
                     />
-                    <div className="font-mono-code text-[11px] text-[#F8E5D7]/70 text-center mt-2">
+                    <div className="font-mono-code text-[11px] text-[#3E2723]/60 text-center mt-2">
                       UNIQLO LifeWear Fragrance Product Mockup & Identity
                     </div>
                   </div>
@@ -80,10 +80,10 @@ export const ProjectMarketingPage: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="p-8 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl paper-shadow">
-                <span className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7]/60 block mb-3">
+                <span className="font-mono-code text-xs font-bold uppercase text-[#A38D89] block mb-3">
                   PAGE 1 — CONTEXT & OPPORTUNITY
                 </span>
-                <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed mb-6 whitespace-pre-line">
+                <p className="font-body text-base text-[#3E2723]/85 leading-relaxed mb-6 whitespace-pre-line">
                   {pm.page1And2.context}
                 </p>
 
@@ -94,7 +94,7 @@ export const ProjectMarketingPage: React.FC = () => {
                     alt="Market Trends Analysis"
                     className="w-full h-auto object-cover rounded-lg"
                   />
-                  <span className="font-mono-code text-[11px] text-[#F8E5D7]/60 block mt-2 text-center">
+                  <span className="font-mono-code text-[11px] text-[#A38D89] block mt-2 text-center">
                     Market Analysis & Accessible Fragrance Opportunity Gap
                   </span>
                 </div>
@@ -102,10 +102,10 @@ export const ProjectMarketingPage: React.FC = () => {
 
               <div className="p-8 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl paper-shadow flex flex-col justify-between">
                 <div>
-                  <span className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7]/60 block mb-3">
+                  <span className="font-mono-code text-xs font-bold uppercase text-[#A38D89] block mb-3">
                     PAGE 2 — THE STRATEGIC BRIEF
                   </span>
-                  <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed">
+                  <p className="font-body text-base text-[#3E2723]/85 leading-relaxed">
                     {pm.page1And2.brief}
                   </p>
                 </div>
@@ -124,13 +124,13 @@ export const ProjectMarketingPage: React.FC = () => {
             </div>
 
             <div className="max-w-4xl mb-8">
-              <span className="font-mono-code text-xs font-bold text-[#F8E5D7]/60 uppercase tracking-widest block mb-2">
+              <span className="font-mono-code text-xs font-bold text-[#A38D89] uppercase tracking-widest block mb-2">
                 PAGE 3 — THE ESSENCE OF JAPANESE SIMPLICITY
               </span>
-              <h2 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7] mb-4">
+              <h2 className="font-serif-display text-3xl sm:text-5xl text-[#3E2723] mb-4">
                 The Essence of Japanese Simplicity
               </h2>
-              <p className="font-body text-base text-[#F8E5D7]/80">
+              <p className="font-body text-base text-[#3E2723]/80">
                 The idea evolved into a fragrance collection designed to feel minimal, subtle and effortless — much like Uniqlo itself.
               </p>
             </div>
@@ -143,14 +143,14 @@ export const ProjectMarketingPage: React.FC = () => {
                     className="p-5 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl flex flex-col sm:flex-row sm:items-baseline justify-between gap-4"
                   >
                     <div className="flex items-baseline gap-4">
-                      <span className="font-mono-code text-base font-bold text-[#F8E5D7] bg-[#D69589] w-8 h-8 rounded-full border border-[#A38D89] flex items-center justify-center shrink-0">
+                      <span className="font-mono-code text-base font-bold text-[#3E2723] bg-[#D69589] w-8 h-8 rounded-full border border-[#A38D89] flex items-center justify-center shrink-0">
                         {item.number}
                       </span>
                       <h3 className="font-serif-display text-2xl text-[#F8E5D7]">
                         {item.title}
                       </h3>
                     </div>
-                    <p className="font-body text-sm text-[#F8E5D7]/85 max-w-sm sm:text-right">
+                    <p className="font-body text-sm text-[#3E2723]/85 max-w-sm sm:text-right">
                       {item.desc}
                     </p>
                   </div>
@@ -167,10 +167,10 @@ export const ProjectMarketingPage: React.FC = () => {
                       className="w-full h-auto object-cover"
                     />
                   </div>
-                  <div className="font-mono-code text-xs font-bold text-[#F8E5D7] text-center pt-1">
+                  <div className="font-mono-code text-xs font-bold text-[#3E2723] text-center pt-1">
                     HANA · KAZE · MIZU · SORA
                   </div>
-                  <div className="font-mono-code text-[11px] text-[#F8E5D7]/60 text-center">
+                  <div className="font-mono-code text-[11px] text-[#A38D89] text-center">
                     Flower · Wind · Water · Sky
                   </div>
                 </div>
@@ -186,32 +186,32 @@ export const ProjectMarketingPage: React.FC = () => {
             </div>
 
             <div className="max-w-4xl mb-8">
-              <span className="font-mono-code text-xs font-bold text-[#F8E5D7]/60 uppercase tracking-widest block mb-2">
+              <span className="font-mono-code text-xs font-bold text-[#A38D89] uppercase tracking-widest block mb-2">
                 PAGE 4 — BRINGING THE CONCEPT TO LIFE
               </span>
-              <h2 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7] mb-4">
+              <h2 className="font-serif-display text-3xl sm:text-5xl text-[#3E2723] mb-4">
                 Bringing the Concept to Life
               </h2>
-              <p className="font-body text-base text-[#F8E5D7]/80">
+              <p className="font-body text-base text-[#3E2723]/80">
                 We presented the fragrance concept, explained the product and invited students to experience the fragrances themselves.
               </p>
             </div>
 
             <div className="space-y-6 mb-10">
-              <div className="p-6 bg-[#F8E5D7] border border-[#A38D89]/25 rounded-2xl">
-                <div className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] mb-2 pb-1 border-b border-[#A38D89]/15">
+              <div className="p-6 bg-[#F4C9D6] border border-[#A38D89]/25 rounded-2xl">
+                <div className="font-mono-code text-xs font-bold uppercase text-[#3E2723] mb-2 pb-1 border-b border-[#A38D89]/15">
                   THE PRODUCT PITCH
                 </div>
-                <p className="font-body text-sm text-[#F8E5D7]/85 leading-relaxed">
+                <p className="font-body text-sm text-[#3E2723]/85 leading-relaxed">
                   {pm.page4Strategy.stp}
                 </p>
               </div>
 
               {/* Marketing Mix Diagram & Framework Visual */}
-              <div className="p-6 bg-[#F8E5D7] border border-[#A38D89]/25 rounded-2xl">
-                <div className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] mb-3 pb-1 border-b border-[#A38D89]/15 flex items-center justify-between">
+              <div className="p-6 bg-[#F4C9D6] border border-[#A38D89]/25 rounded-2xl">
+                <div className="font-mono-code text-xs font-bold uppercase text-[#3E2723] mb-3 pb-1 border-b border-[#A38D89]/15 flex items-center justify-between">
                   <span>PRODUCT PITCH & AUDIENCE INTERACTION</span>
-                  <span className="text-[11px] text-[#F8E5D7]/60">COLLEGE PRODUCT-PITCH ACTIVITY</span>
+                  <span className="text-[11px] text-[#A38D89]">COLLEGE PRODUCT-PITCH ACTIVITY</span>
                 </div>
                 <div className="rounded-xl overflow-hidden border border-[#A38D89]/20 bg-[#F8E5D7] mb-3">
                   <img
@@ -222,20 +222,20 @@ export const ProjectMarketingPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-6 bg-[#F8E5D7] border border-[#A38D89]/25 rounded-2xl">
-                <div className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] mb-2 pb-1 border-b border-[#A38D89]/15">
+              <div className="p-6 bg-[#F4C9D6] border border-[#A38D89]/25 rounded-2xl">
+                <div className="font-mono-code text-xs font-bold uppercase text-[#3E2723] mb-2 pb-1 border-b border-[#A38D89]/15">
                   FEEDBACK & REFINEMENT
                 </div>
-                <p className="font-body text-sm text-[#F8E5D7]/85 leading-relaxed whitespace-pre-line">
+                <p className="font-body text-sm text-[#3E2723]/85 leading-relaxed whitespace-pre-line">
                   {pm.page4Strategy.sevenPs}
                 </p>
               </div>
 
-              <div className="p-6 bg-[#F8E5D7] border border-[#A38D89]/25 rounded-2xl">
-                <div className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] mb-2 pb-1 border-b border-[#A38D89]/15">
+              <div className="p-6 bg-[#F4C9D6] border border-[#A38D89]/25 rounded-2xl">
+                <div className="font-mono-code text-xs font-bold uppercase text-[#3E2723] mb-2 pb-1 border-b border-[#A38D89]/15">
                   REVIEWS & IMPACT
                 </div>
-                <p className="font-body text-sm text-[#F8E5D7]/85 leading-relaxed">
+                <p className="font-body text-sm text-[#3E2723]/85 leading-relaxed">
                   {pm.page4Strategy.bcg}
                 </p>
               </div>
@@ -250,13 +250,13 @@ export const ProjectMarketingPage: React.FC = () => {
             </div>
 
             <div className="max-w-4xl mb-8">
-              <span className="font-mono-code text-xs font-bold text-[#F8E5D7]/60 uppercase tracking-widest block mb-2">
+              <span className="font-mono-code text-xs font-bold text-[#A38D89] uppercase tracking-widest block mb-2">
                 PAGE 05 — WHAT THE PROJECT TAUGHT ME
               </span>
-              <h2 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7] mb-2">
+              <h2 className="font-serif-display text-3xl sm:text-5xl text-[#3E2723] mb-2">
                 {pm.page5IdeaToImpact.headline}
               </h2>
-              <p className="font-mono-code text-xs text-[#F8E5D7]/70">
+              <p className="font-mono-code text-xs text-[#3E2723]/60">
                 {pm.page5IdeaToImpact.subheadline}
               </p>
             </div>
@@ -264,16 +264,16 @@ export const ProjectMarketingPage: React.FC = () => {
             {/* 4 LEARNING PILLARS */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {pm.page5IdeaToImpact.learnings.map((item) => (
-                <div key={item.num} className="p-6 bg-[#F8E5D7] border border-[#A38D89]/20 rounded-2xl">
+                <div key={item.num} className="p-6 bg-[#F4C9D6] border border-[#A38D89]/20 rounded-2xl">
                   <div className="flex items-baseline gap-2 mb-2">
-                    <span className="font-mono-code text-xs font-bold text-[#F8E5D7]/50">
+                    <span className="font-mono-code text-xs font-bold text-[#A38D89]">
                       {item.num}.
                     </span>
-                    <h3 className="font-mono-code text-xs font-bold text-[#F8E5D7] uppercase tracking-wider">
+                    <h3 className="font-mono-code text-xs font-bold text-[#A38D89] uppercase tracking-wider">
                       {item.name}
                     </h3>
                   </div>
-                  <p className="font-body text-sm text-[#F8E5D7]/85 leading-relaxed">
+                  <p className="font-body text-sm text-[#3E2723]/85 leading-relaxed">
                     {item.detail}
                   </p>
                 </div>
@@ -282,14 +282,14 @@ export const ProjectMarketingPage: React.FC = () => {
 
             {/* SKILLS DEVELOPED */}
             <div className="p-6 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl mb-8">
-              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#F8E5D7] mb-3">
+              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#3E2723] mb-3">
                 SKILLS DEVELOPED
               </div>
               <div className="flex flex-wrap gap-2">
                 {pm.page5IdeaToImpact.skillsDeveloped.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="px-4 py-2 bg-[#F8E5D7] border border-[#A38D89]/30 rounded-xl font-mono-code text-xs text-[#F8E5D7] flex items-center gap-1.5"
+                    className="px-4 py-2 bg-[#F4C9D6] border border-[#A38D89]/30 rounded-xl font-mono-code text-xs text-[#3E2723] flex items-center gap-1.5"
                   >
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#D69589]" />
                     <span>{skill}</span>
@@ -301,7 +301,7 @@ export const ProjectMarketingPage: React.FC = () => {
             <div className="flex justify-end pt-6 border-t border-[#A38D89]/15 font-mono-code text-xs">
               <Link
                 to="/projects/visual-merchandising"
-                className="bg-[#3E2723] text-[#F8E5D7] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
+                className="bg-[#D69589] text-[#3E2723] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
               >
                 <span>Next Project: Cover Story →</span>
               </Link>
