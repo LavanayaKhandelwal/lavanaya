@@ -7,10 +7,10 @@ export const SkillsSection: React.FC = () => {
   const { skills } = portfolioData;
 
   return (
-    <section id="skills" className="py-20 lg:py-28 bg-[#F8E5D7] border-b border-[#A38D89]/15">
+    <section id="skills" className="py-20 lg:py-28 border-b border-[#A38D89]/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-4 border-b border-[#3E2723]/15">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-4 border-b border-[#A38D89]/20">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -21,7 +21,7 @@ export const SkillsSection: React.FC = () => {
               <FlowerMark className="w-3.5 h-3.5 text-[#D69589]" />
               <span>SKILLS</span>
             </div>
-            <h2 className="relative z-10 font-serif-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#3E2723]">
+            <h2 className="relative z-10 font-serif-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#F8E5D7]">
               Skills &{' '}
               <span className="relative inline-block whitespace-nowrap">
                 <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#D69589] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/30" />

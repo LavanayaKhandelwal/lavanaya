@@ -140,11 +140,11 @@ My journey began with a background in Business Administration, where I developed
       </section>
 
       {/* 2. THREE FEATURED PROJECTS PREVIEW */}
-      <section className="py-20 bg-[#F4C9D6] border-b border-[#A38D89]/15">
+      <section className="py-20 border-b border-[#A38D89]/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-4 border-b border-[#3E2723]/20">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-4 border-b border-[#A38D89]/20">
             <div>
-              <h2 className="relative z-10 font-serif-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#3E2723]">
+              <h2 className="relative z-10 font-serif-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#F8E5D7]">
                 Selected{' '}
                 <span className="relative inline-block whitespace-nowrap">
                   <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#D69589] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/30" />
@@ -233,9 +233,9 @@ My journey began with a background in Business Administration, where I developed
       </section>
 
       {/* 3. INTERNSHIP FEATURE CALLOUT */}
-      <section className="py-20 bg-[#F8E5D7] border-b border-[#A38D89]/15">
+      <section className="py-20 border-b border-[#A38D89]/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-3xl p-8 sm:p-12 paper-shadow-lg relative">
+          <div className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-8 sm:p-12 paper-shadow-lg relative">
             <div className="absolute -top-3 left-12">
               <WashiTape color="#D69589" width="w-28" />
             </div>
@@ -262,7 +262,7 @@ My journey began with a background in Business Administration, where I developed
                 </p>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {internship.page1SocialMedia.skillsApplied.slice(0, 5).map((sk, i) => (
-                    <span key={i} className="text-xs px-3 py-1 bg-[#F8E5D7] border border-[#A38D89]/30 rounded-md text-[#3E2723] font-bold">
+                    <span key={i} className="text-xs px-3 py-1 bg-[#F4C9D6] border border-[#A38D89]/30 rounded-md text-[#3E2723] font-bold">
                       ✦ {sk}
                     </span>
                   ))}

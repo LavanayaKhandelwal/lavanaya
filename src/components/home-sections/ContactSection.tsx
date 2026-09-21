@@ -7,10 +7,10 @@ export const ContactSection: React.FC = () => {
   const { contact } = portfolioData;
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-[#F4C9D6]">
+    <section id="contact" className="py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 pb-4 border-b border-[#A38D89]/10">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 pb-4 border-b border-[#A38D89]/20">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
