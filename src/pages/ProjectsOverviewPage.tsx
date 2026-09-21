@@ -61,7 +61,7 @@ export const ProjectsOverviewPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <h2 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7] group-hover:underline decoration-[#D69589] underline-offset-4">
+                  <h2 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7] group-hover:underline decoration-[#F4C9D6] underline-offset-4">
                     {proj.title}
                   </h2>
 

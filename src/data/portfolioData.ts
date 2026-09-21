@@ -169,7 +169,7 @@ export const portfolioData = {
       discipline: "Market Mapping · SWOT, 5 Forces, STP, 7Ps, Ansoff & BCG · Product & Packaging",
       year: "2025",
       tagline: "A new dimension of life wear — UNIQLO × fragrances.",
-      accentColor: "#D69589",
+      accentColor: "#F4C9D6",
       rotation: "rotate-1",
       tags: ["UNIQLO", "Fragrance Category Extension", "Market Mapping", "STP · 7Ps · BCG", "Product & Packaging"],
       summary: "The project focused on taking an established fashion brand into a new product category. We chose Uniqlo and explored how its LifeWear philosophy could be extended beyond apparel.",
@@ -187,7 +187,7 @@ export const portfolioData = {
       discipline: "Concept Development · Material Exploration · Spatial Styling · VM Principles",
       year: "2025",
       tagline: "Cover Story × Future Florals — where nature meets technology in a soft, contemporary bloom.",
-      accentColor: "#D69589",
+      accentColor: "#F4C9D6",
       rotation: "-rotate-1",
       tags: ["Cover Story", "Spring/Summer", "Future Florals", "Material Exploration", "VM Principles"],
       summary: "Where nature meets technology in a soft, contemporary bloom. Contemporary, feminine, trend-led — a brand built around modern, versatile fashion became the canvas for our visual merchandising story.",
@@ -224,7 +224,7 @@ export const portfolioData = {
       brand: "UNIQLO",
       discipline: "Marketing Strategy & Brand Extension",
       timeline: "Strategic Research & Capstone",
-      accentColor: "#D69589"
+      accentColor: "#F4C9D6"
     },
     page1And2: {
       context:
@@ -307,7 +307,7 @@ export const portfolioData = {
       brand: "Cover Story",
       season: "Spring / Summer",
       conceptName: "Future Florals",
-      accentColor: "#D69589",
+      accentColor: "#F4C9D6",
       credits: ["COVER STORY X FUTURE FLORALS"],
       intro: ["COVER STORY : Contemporary. Feminine. Trend-led.", "A brand built around modern, versatile fashion became the canvas for our visual merchandising story."]
     },

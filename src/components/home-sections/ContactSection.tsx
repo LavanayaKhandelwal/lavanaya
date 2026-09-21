@@ -20,7 +20,7 @@ export const ContactSection: React.FC = () => {
             <h2 className="relative z-10 font-serif-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#F8E5D7]">
               Contact &{' '}
               <span className="relative inline-block whitespace-nowrap">
-                <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#D69589] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/20" />
+                <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#F4C9D6] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/20" />
                 <span className="relative z-10 italic font-serif-display font-normal">
                   Inquiries
                 </span>
@@ -37,7 +37,7 @@ export const ContactSection: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             href={`mailto:${contact.email}`}
-            className="flex items-center justify-center gap-3 font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] hover:underline underline-offset-4 decoration-[#D69589] break-all"
+            className="flex items-center justify-center gap-3 font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] hover:underline underline-offset-4 decoration-[#F4C9D6] break-all"
           >
             <Mail className="w-7 h-7 text-[#F8E5D7]/60 shrink-0" />
             <span>{contact.email}</span>

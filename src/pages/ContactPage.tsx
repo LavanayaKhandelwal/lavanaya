@@ -42,7 +42,7 @@ export const ContactPage: React.FC = () => {
           <div className="lg:col-span-5 space-y-8">
             <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 paper-shadow-lg relative">
               <div className="absolute -top-3 left-10">
-                <WashiTape color="#D69589" width="w-24" />
+                <WashiTape color="#F4C9D6" width="w-24" />
               </div>
 
               <div className="font-mono-code text-xs font-bold uppercase text-[#A38D89] mb-6 pb-2 border-b border-[#A38D89]/10">
@@ -57,7 +57,7 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <a
                     href={`mailto:${contact.email}`}
-                    className="font-serif-display text-2xl text-[#F8E5D7] hover:underline underline-offset-4 decoration-[#D69589]"
+                    className="font-serif-display text-2xl text-[#F8E5D7] hover:underline underline-offset-4 decoration-[#F4C9D6]"
                   >
                     {contact.email}
                   </a>
@@ -118,7 +118,7 @@ export const ContactPage: React.FC = () => {
           <div className="lg:col-span-7">
             <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-3 sm:p-4 paper-shadow-lg relative">
               <div className="absolute -top-3 right-12">
-                <WashiTape color="#D69589" width="w-28" />
+                <WashiTape color="#F4C9D6" width="w-28" />
               </div>
               <img
                 src="/portfolio-assets/IMG_2187.jpg"
@@ -132,7 +132,7 @@ export const ContactPage: React.FC = () => {
                 </span>
                 <Link
                   to="/about"
-                  className="text-xs font-mono-code text-[#F8E5D7] hover:underline underline-offset-4 decoration-[#D69589] decoration-2"
+                  className="text-xs font-mono-code text-[#F8E5D7] hover:underline underline-offset-4 decoration-[#F4C9D6] decoration-2"
                 >
                   More About Me →
                 </Link>

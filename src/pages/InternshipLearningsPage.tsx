@@ -56,7 +56,7 @@ export const InternshipLearningsPage: React.FC = () => {
               className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 paper-shadow-lg relative flex flex-col justify-between"
             >
               <div className="absolute -top-3 right-8">
-                <WashiTape color={idx % 2 === 0 ? "#D69589" : "#D69589"} width="w-20" />
+                <WashiTape color={idx % 2 === 0 ? "#F4C9D6" : "#F4C9D6"} width="w-20" />
               </div>
 
               <div>
@@ -75,7 +75,7 @@ export const InternshipLearningsPage: React.FC = () => {
               </div>
 
               <div className="mt-8 pt-4 border-t border-[#A38D89]/10 font-mono-code text-xs text-[#A38D89] flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#D69589]" />
+                <CheckCircle2 className="w-4 h-4 text-[#F4C9D6]" />
                 <span>Verified in production & store management</span>
               </div>
             </div>
@@ -94,7 +94,7 @@ export const InternshipLearningsPage: React.FC = () => {
 
           <Link
             to="/projects/marketing"
-            className="flex items-center gap-2 px-6 py-3 bg-[#D69589] text-[#3E2723] rounded-xl font-mono-code text-xs uppercase tracking-wider hover:bg-[#3E2723] hover:text-[#F8E5D7] transition-colors"
+            className="flex items-center gap-2 px-6 py-3 bg-[#F4C9D6] text-[#3E2723] rounded-xl font-mono-code text-xs uppercase tracking-wider hover:bg-[#3E2723] hover:text-[#F8E5D7] transition-colors"
           >
             <span>Proceed to Project 1 (Marketing Management)</span>
             <ArrowRight className="w-4 h-4" />

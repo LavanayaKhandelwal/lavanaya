@@ -127,7 +127,7 @@ export const ProjectThreePage: React.FC = () => {
                 THE OPPORTUNITY
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 mb-4">
-                <span className="font-mono-code text-xs font-bold bg-[#D69589] text-[#3E2723] px-3 py-1.5 rounded-full uppercase tracking-wider text-center">
+                <span className="font-mono-code text-xs font-bold bg-[#F4C9D6] text-[#3E2723] px-3 py-1.5 rounded-full uppercase tracking-wider text-center">
                   {p3.page01.opportunity.label}
                 </span>
                 <span className="font-mono-code text-sm font-bold text-[#F8E5D7]">
@@ -198,7 +198,7 @@ export const ProjectThreePage: React.FC = () => {
         {/* SECTION: DESIGN, MATERIAL & PROTOTYPE */}
         <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative mb-16">
             <div className="absolute -top-3 right-12">
-              <WashiTape color="#D69589" width="w-28" />
+              <WashiTape color="#F4C9D6" width="w-28" />
             </div>
 
             <span className="font-mono-code text-xs font-bold text-[#A38D89] uppercase tracking-widest block mb-4">
@@ -289,7 +289,7 @@ export const ProjectThreePage: React.FC = () => {
             <div className="p-8 bg-[#A38D89]/30 border-[1.5px] border-[#A38D89] rounded-2xl mb-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-6 space-y-3">
-                  <span className="font-mono-code text-xs font-bold bg-[#D69589] text-[#3E2723] px-3 py-1 rounded-full uppercase inline-block">
+                  <span className="font-mono-code text-xs font-bold bg-[#F4C9D6] text-[#3E2723] px-3 py-1 rounded-full uppercase inline-block">
                     {p3.page3DesignAndMaterial.prototype.badge}
                   </span>
                   <h3 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7]">
@@ -323,7 +323,7 @@ export const ProjectThreePage: React.FC = () => {
         {/* SECTION: PAGE 02 — BUILD IT. TEST IT. LET USERS SHAPE IT. */}
         <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative">
             <div className="absolute -top-3 right-12">
-              <WashiTape color="#D69589" width="w-28" />
+              <WashiTape color="#F4C9D6" width="w-28" />
             </div>
 
             <div className="max-w-4xl mb-10">
@@ -437,7 +437,7 @@ export const ProjectThreePage: React.FC = () => {
                   →
                 </div>
 
-                <div className="md:col-span-1 p-5 bg-[#D69589] border border-[#A38D89] rounded-xl">
+                <div className="md:col-span-1 p-5 bg-[#F4C9D6] border border-[#A38D89] rounded-xl">
                   <span className="text-[#A38D89] uppercase text-[10px] block mb-1">ITERATION</span>
                   <strong className="text-sm text-[#F8E5D7]">
                     {p3.page4FeedbackAndIteration.feedbackLoop.iteration}
@@ -469,7 +469,7 @@ export const ProjectThreePage: React.FC = () => {
             <div className="flex justify-end pt-6 border-t border-[#A38D89]/15 font-mono-code text-xs">
               <Link
                 to="/skills"
-                className="bg-[#D69589] text-[#3E2723] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
+                className="bg-[#F4C9D6] text-[#3E2723] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
               >
                 <span>View Skills Matrix →</span>
               </Link>

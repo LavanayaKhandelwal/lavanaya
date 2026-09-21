@@ -34,7 +34,7 @@ export const InternshipExperiencePage: React.FC = () => {
         {/* SECTION 1: PAGE 1 — SOCIAL MEDIA */}
         <section id="social-media" className="scroll-mt-24 mb-20">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b-2 border-[#A38D89]/20">
-            <Video className="w-5 h-5 text-[#D69589]" />
+            <Video className="w-5 h-5 text-[#F4C9D6]" />
             <h2 className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]">
               01 — SOCIAL MEDIA
             </h2>
@@ -42,7 +42,7 @@ export const InternshipExperiencePage: React.FC = () => {
           <div className="space-y-12">
             <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-12 paper-shadow-lg relative">
               <div className="absolute -top-3 right-12">
-                <WashiTape color="#D69589" width="w-28" />
+                <WashiTape color="#F4C9D6" width="w-28" />
               </div>
 
               <div className="max-w-3xl mb-8">
@@ -60,7 +60,7 @@ export const InternshipExperiencePage: React.FC = () => {
                   {internship.contentTypes.map((ct, cIdx) => (
                     <span
                       key={cIdx}
-                      className="px-3.5 py-1.5 bg-[#D69589] border border-[#A38D89]/40 rounded-xl font-mono-code text-xs font-bold text-[#3E2723]"
+                      className="px-3.5 py-1.5 bg-[#F4C9D6] border border-[#A38D89]/40 rounded-xl font-mono-code text-xs font-bold text-[#3E2723]"
                     >
                       {ct}
                     </span>
@@ -77,7 +77,7 @@ export const InternshipExperiencePage: React.FC = () => {
               {/* REAL VIDEO MEDIA SHOWCASE */}
               <div className="mb-12">
                 <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A38D89] mb-4 pb-2 border-b border-[#A38D89]/20 flex items-center gap-2">
-                  <Play className="w-3.5 h-3.5 text-[#D69589]" />
+                  <Play className="w-3.5 h-3.5 text-[#F4C9D6]" />
                   <span>Video Content Production & Reels</span>
                 </div>
 
@@ -179,7 +179,7 @@ export const InternshipExperiencePage: React.FC = () => {
                       key={sIdx}
                       className="px-3.5 py-1.5 bg-[#F4C9D6] border border-[#A38D89]/30 rounded-xl font-mono-code text-xs text-[#3E2723] flex items-center gap-1.5"
                     >
-                      <span className="text-[#D69589] font-bold">•</span>
+                      <span className="text-[#F4C9D6] font-bold">•</span>
                       <span>{skill}</span>
                     </span>
                   ))}
@@ -192,7 +192,7 @@ export const InternshipExperiencePage: React.FC = () => {
         {/* SECTION 2: PAGE 2 — E-COMMERCE */}
         <section id="ecommerce" className="scroll-mt-24 mb-20">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b-2 border-[#A38D89]/20">
-            <ShoppingBag className="w-5 h-5 text-[#D69589]" />
+            <ShoppingBag className="w-5 h-5 text-[#F4C9D6]" />
             <h2 className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]">
               02 — E-COMMERCE
             </h2>
@@ -200,7 +200,7 @@ export const InternshipExperiencePage: React.FC = () => {
           <div className="space-y-12">
             <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-12 paper-shadow-lg relative">
               <div className="absolute -top-3 right-12">
-                <WashiTape color="#D69589" width="w-28" />
+                <WashiTape color="#F4C9D6" width="w-28" />
               </div>
 
               <div className="max-w-3xl mb-8">
@@ -215,7 +215,7 @@ export const InternshipExperiencePage: React.FC = () => {
               {/* WEBSITE BANNERS MEDIA SHOWCASE */}
               <div className="mb-12 space-y-6">
                 <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A38D89] pb-2 border-b border-[#A38D89]/20 flex items-center gap-2">
-                  <ImageIcon className="w-3.5 h-3.5 text-[#D69589]" />
+                  <ImageIcon className="w-3.5 h-3.5 text-[#F4C9D6]" />
                   <span>Website Banners & Storefront Visuals Designed for Aadiya Jewels</span>
                 </div>
 
@@ -297,7 +297,7 @@ export const InternshipExperiencePage: React.FC = () => {
                       key={sIdx}
                       className="px-3.5 py-1.5 bg-[#F4C9D6] border border-[#A38D89]/30 rounded-xl font-mono-code text-xs text-[#3E2723] flex items-center gap-1.5"
                     >
-                      <span className="text-[#D69589] font-bold">•</span>
+                      <span className="text-[#F4C9D6] font-bold">•</span>
                       <span>{skill}</span>
                     </span>
                   ))}
@@ -322,7 +322,7 @@ export const InternshipExperiencePage: React.FC = () => {
             <div className="space-y-4">
               {internship.learningOutcomes.map((l, idx) => (
                 <div key={l.number} className="flex items-start gap-4 p-5 bg-[#3E2723] border border-[#A38D89]/25 rounded-2xl">
-                  <span className="font-mono-code text-sm font-bold text-[#3E2723] bg-[#D69589] border border-[#A38D89]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">
+                  <span className="font-mono-code text-sm font-bold text-[#3E2723] bg-[#F4C9D6] border border-[#A38D89]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">
                     {idx + 1}
                   </span>
                   <div>
@@ -347,7 +347,7 @@ export const InternshipExperiencePage: React.FC = () => {
           </div>
           <Link
             to="/projects/marketing"
-            className="flex items-center gap-2 px-6 py-3 bg-[#D69589] text-[#3E2723] rounded-xl font-mono-code text-xs uppercase tracking-wider font-bold hover:bg-[#3E2723] hover:text-[#F8E5D7] transition-colors"
+            className="flex items-center gap-2 px-6 py-3 bg-[#F4C9D6] text-[#3E2723] rounded-xl font-mono-code text-xs uppercase tracking-wider font-bold hover:bg-[#3E2723] hover:text-[#F8E5D7] transition-colors"
           >
             <span>View UNIQLO Fragrance Case Study</span>
             <ArrowRight className="w-4 h-4" />

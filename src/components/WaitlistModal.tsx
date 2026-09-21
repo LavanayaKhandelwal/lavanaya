@@ -77,7 +77,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
           >
             {/* Washi tape decoration */}
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <WashiTape color="#D69589" width="w-28" />
+              <WashiTape color="#F4C9D6" width="w-28" />
             </div>
 
             {/* Close button */}
@@ -118,7 +118,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                       placeholder="curator.studio@gallery.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-xl px-4 py-3 font-mono-code text-sm text-[#3E2723] placeholder-[#3E2723]/40 focus:outline-hidden focus:ring-2 focus:ring-[#D69589]"
+                      className="w-full bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-xl px-4 py-3 font-mono-code text-sm text-[#3E2723] placeholder-[#3E2723]/40 focus:outline-hidden focus:ring-2 focus:ring-[#F4C9D6]"
                     />
                   </div>
 
@@ -141,7 +141,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                           onClick={() => setRole(r)}
                           className={`py-2 px-2 text-xs font-mono-code rounded-lg border-[1.5px] transition-all text-center leading-tight ${
                             role === r
-                              ? 'bg-[#D69589] border-[#A38D89] font-bold paper-shadow-sm'
+                              ? 'bg-[#F4C9D6] border-[#A38D89] font-bold paper-shadow-sm'
                               : 'bg-transparent border-[#A38D89]/40 hover:border-[#A38D89] text-[#F8E5D7]/80'
                           }`}
                         >
@@ -155,7 +155,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full flex items-center justify-center gap-2 bg-[#D69589] text-[#3E2723] hover:bg-[#A38D89] border-[1.5px] border-[#A38D89] py-3.5 px-6 rounded-xl font-mono-code text-sm tracking-wider uppercase paper-shadow-hover transition-all cursor-pointer"
+                      className="w-full flex items-center justify-center gap-2 bg-[#F4C9D6] text-[#3E2723] hover:bg-[#A38D89] border-[1.5px] border-[#A38D89] py-3.5 px-6 rounded-xl font-mono-code text-sm tracking-wider uppercase paper-shadow-hover transition-all cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span>Inscribing Studio Log...</span>
@@ -177,7 +177,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
               <div className="text-center py-2">
                 {/* Physical ticket look */}
                 <div className="relative bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-xl p-6 mb-6 paper-shadow text-left overflow-hidden">
-                  <div className="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-[#D69589]/30 border border-[#A38D89]/10" />
+                  <div className="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-[#F4C9D6]/30 border border-[#A38D89]/10" />
                   
                   <div className="flex items-start justify-between border-b border-[#A38D89]/20 pb-4 mb-4">
                     <div>
@@ -190,7 +190,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                       </div>
                     </div>
                     <div className="text-right">
-                      <span className="inline-block bg-[#D69589] text-[#3E2723] border border-[#A38D89] px-2 py-0.5 rounded text-[11px] font-mono-code font-bold">
+                      <span className="inline-block bg-[#F4C9D6] text-[#3E2723] border border-[#A38D89] px-2 py-0.5 rounded text-[11px] font-mono-code font-bold">
                         #{submitted.ticketNumber}
                       </span>
                       <div className="font-mono-code text-[10px] text-[#A38D89] mt-1">
@@ -211,7 +211,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                     <div className="flex justify-between">
                       <span className="text-[#A38D89]">STATUS:</span>
                       <span className="text-[#F8E5D7] flex items-center gap-1">
-                        <Check className="w-3.5 h-3.5 text-[#D69589]" />
+                        <Check className="w-3.5 h-3.5 text-[#F4C9D6]" />
                         Queued for Response
                       </span>
                     </div>
@@ -225,7 +225,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                 </div>
 
                 <div className="flex items-center justify-center gap-2 mb-4">
-                  <Sparkles className="w-4 h-4 text-[#D69589]" />
+                  <Sparkles className="w-4 h-4 text-[#F4C9D6]" />
                   <span className="font-serif-display text-xl text-[#F8E5D7]">Inquiry Logged</span>
                 </div>
                 <p className="font-body text-xs text-[#F8E5D7]/80 max-w-sm mx-auto mb-6">

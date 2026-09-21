@@ -18,13 +18,13 @@ export const SkillsSection: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#A38D89] mb-2">
-              <FlowerMark className="w-3.5 h-3.5 text-[#D69589]" />
+              <FlowerMark className="w-3.5 h-3.5 text-[#F4C9D6]" />
               <span>SKILLS</span>
             </div>
             <h2 className="relative z-10 font-serif-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#F8E5D7]">
               Skills &{' '}
               <span className="relative inline-block whitespace-nowrap">
-                <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#D69589] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/30" />
+                <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#F4C9D6] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/30" />
                 <span className="relative z-10 italic font-serif-display font-normal">
                   Applied Disciplines
                 </span>
@@ -51,7 +51,7 @@ export const SkillsSection: React.FC = () => {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                 <div className="lg:col-span-4">
                   <div className="mb-4 pb-2 border-b border-[#A38D89]/20">
-                    <span className="bg-[#D69589] px-2 py-0.5 rounded border border-[#A38D89]/40 font-mono-code text-xs font-bold text-[#3E2723]">{cat.tag}</span>
+                    <span className="bg-[#F4C9D6] px-2 py-0.5 rounded border border-[#A38D89]/40 font-mono-code text-xs font-bold text-[#3E2723]">{cat.tag}</span>
                   </div>
 
                   <h3 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] mb-4 leading-tight">

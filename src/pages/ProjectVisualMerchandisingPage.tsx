@@ -52,7 +52,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
         <section className="space-y-12 mb-16">
             <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative overflow-hidden">
               <div className="absolute -top-3 right-12">
-                <WashiTape color="#D69589" width="w-32" />
+                <WashiTape color="#F4C9D6" width="w-32" />
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -113,7 +113,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
         {/* SECTION: THE BRIEF & CONCEPT */}
         <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative mb-16">
             <div className="absolute -top-3 right-12">
-              <WashiTape color="#D69589" width="w-28" />
+              <WashiTape color="#F4C9D6" width="w-28" />
             </div>
 
             <div className="max-w-4xl mb-10">
@@ -175,7 +175,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
             </div>
 
             {/* MY DESIGN INSIGHT */}
-            <div className="p-6 bg-[#D69589]/25 border border-[#A38D89]/25 rounded-2xl mb-8">
+            <div className="p-6 bg-[#F4C9D6]/25 border border-[#A38D89]/25 rounded-2xl mb-8">
               <span className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] block mb-1">
                 MY DESIGN INSIGHT
               </span>
@@ -189,7 +189,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
         {/* SECTION: MOOD BOARD / COLOUR BOARD */}
         <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative mb-16">
             <div className="absolute -top-3 right-12">
-              <WashiTape color="#D69589" width="w-28" />
+              <WashiTape color="#F4C9D6" width="w-28" />
             </div>
 
             <span className="font-mono-code text-xs font-bold text-[#A38D89] uppercase tracking-widest block mb-4">
@@ -274,7 +274,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
         {/* SECTION: BEHIND THE DISPLAY (5 STEPS WITH REAL PHOTOS) */}
         <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative mb-16">
             <div className="absolute -top-3 right-12">
-              <WashiTape color="#D69589" width="w-28" />
+              <WashiTape color="#F4C9D6" width="w-28" />
             </div>
 
             <div className="max-w-4xl mb-8">
@@ -288,10 +288,10 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
                 The concept moved from visual direction to physical execution.
               </p>
               <div className="flex flex-wrap items-center gap-3">
-                <span className="font-mono-code text-xs font-bold bg-[#D69589] text-[#3E2723] px-3 py-1.5 rounded-full uppercase tracking-wider">
+                <span className="font-mono-code text-xs font-bold bg-[#F4C9D6] text-[#3E2723] px-3 py-1.5 rounded-full uppercase tracking-wider">
                   CONCEPT → MATERIAL → CONSTRUCTION → INSTALLATION
                 </span>
-                <span className="font-mono-code text-xs font-bold bg-[#D69589] text-[#3E2723] px-3 py-1.5 rounded-full border border-[#A38D89]/30 uppercase tracking-wider">
+                <span className="font-mono-code text-xs font-bold bg-[#F4C9D6] text-[#3E2723] px-3 py-1.5 rounded-full border border-[#A38D89]/30 uppercase tracking-wider">
                   ₹8,847 — TOTAL PROJECT COST
                 </span>
               </div>
@@ -326,7 +326,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
 
                   {/* Description Slot */}
                   <div className="md:col-span-7 space-y-2">
-                    <span className="text-[10px] font-mono-code bg-[#D69589] text-[#3E2723] px-2.5 py-0.5 rounded-full font-bold uppercase inline-block">
+                    <span className="text-[10px] font-mono-code bg-[#F4C9D6] text-[#3E2723] px-2.5 py-0.5 rounded-full font-bold uppercase inline-block">
                       {step.imageIndex}
                     </span>
                     <h3 className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]">
@@ -348,7 +348,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
         {/* SECTION: SKILLS & VM PRINCIPLES */}
         <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative">
             <div className="absolute -top-3 right-12">
-              <WashiTape color="#D69589" width="w-28" />
+              <WashiTape color="#F4C9D6" width="w-28" />
             </div>
 
             <span className="font-mono-code text-xs font-bold text-[#A38D89] uppercase tracking-widest block mb-4">
@@ -424,7 +424,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
             <div className="flex justify-end pt-6 border-t border-[#A38D89]/15 font-mono-code text-xs">
               <Link
                 to="/projects/project-3"
-                className="bg-[#D69589] text-[#3E2723] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
+                className="bg-[#F4C9D6] text-[#3E2723] px-5 py-2.5 rounded-xl font-bold hover:bg-[#A38D89] cursor-pointer flex items-center gap-1.5"
               >
                 <span>Next Project: Start Up →</span>
               </Link>

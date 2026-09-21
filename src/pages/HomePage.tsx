@@ -51,7 +51,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
               >
                 {portfolioData.student.name}&apos;s{' '}
                 <span className="relative inline-block whitespace-nowrap">
-                  <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#D69589] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/20" />
+                  <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#F4C9D6] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/20" />
                   <span className="relative z-10 italic font-serif-display font-normal">
                     Portfolio
                   </span>
@@ -68,7 +68,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
                 >
                   <Link
                     to="/projects"
-                    className="flex items-center gap-2 bg-[#D69589] text-[#F8E5D7] border-[1.5px] border-[#A38D89] px-7 py-3 rounded-full text-sm uppercase tracking-wider font-bold paper-shadow hover:translate-y-[-2px] hover:paper-shadow-lg transition-all cursor-pointer group"
+                    className="flex items-center gap-2 bg-[#F4C9D6] text-[#F8E5D7] border-[1.5px] border-[#A38D89] px-7 py-3 rounded-full text-sm uppercase tracking-wider font-bold paper-shadow hover:translate-y-[-2px] hover:paper-shadow-lg transition-all cursor-pointer group"
                   >
                     <Sparkles className="w-4 h-4 text-[#F8E5D7] group-hover:rotate-12 transition-transform" />
                     <span>Explore Selected Works</span>
@@ -119,7 +119,7 @@ My journey began with a background in Business Administration, where I developed
             >
               <div className="relative">
                 <div className="absolute -top-3 left-10 z-10">
-                  <WashiTape color="#D69589" width="w-24" />
+                  <WashiTape color="#F4C9D6" width="w-24" />
                 </div>
 
                 <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-3 paper-shadow-lg">
@@ -147,7 +147,7 @@ My journey began with a background in Business Administration, where I developed
               <h2 className="relative z-10 font-serif-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#F8E5D7]">
                 Selected{' '}
                 <span className="relative inline-block whitespace-nowrap">
-                  <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#D69589] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/30" />
+                  <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#F4C9D6] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/30" />
                   <span className="relative z-10 italic font-serif-display font-normal">
                     Projects
                   </span>
@@ -173,11 +173,11 @@ My journey began with a background in Business Administration, where I developed
                     <span className="font-bold text-[#F8E5D7]">PROJECT {proj.number}</span>
                   </div>
 
-                  <span className="text-xs uppercase px-2.5 py-0.5 rounded-full border border-[#A38D89]/40 inline-block mb-3 bg-[#D69589] text-[#3E2723] font-bold">
+                  <span className="text-xs uppercase px-2.5 py-0.5 rounded-full border border-[#A38D89]/40 inline-block mb-3 bg-[#F4C9D6] text-[#3E2723] font-bold">
                     {homeProjectCategories[proj.id] ?? proj.category}
                   </span>
 
-                  <h3 className="font-serif-display text-2xl text-[#F8E5D7] mb-3 leading-snug group-hover:underline decoration-[#D69589] underline-offset-4">
+                  <h3 className="font-serif-display text-2xl text-[#F8E5D7] mb-3 leading-snug group-hover:underline decoration-[#F4C9D6] underline-offset-4">
                     {homeProjectTitles[proj.id] ?? proj.title}
                   </h3>
 
@@ -220,7 +220,7 @@ My journey began with a background in Business Administration, where I developed
                 <div>
                   <Link
                     to={`/projects/${proj.slug}`}
-                    className="w-full flex items-center justify-between py-2.5 px-4 bg-[#F4C9D6] border border-[#A38D89]/40 rounded-xl text-xs uppercase tracking-wider text-[#3E2723] font-bold group-hover:bg-[#D69589] transition-colors"
+                    className="w-full flex items-center justify-between py-2.5 px-4 bg-[#F4C9D6] border border-[#A38D89]/40 rounded-xl text-xs uppercase tracking-wider text-[#3E2723] font-bold group-hover:bg-[#F4C9D6] transition-colors"
                   >
                     <span>Read Complete Project</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -237,7 +237,7 @@ My journey began with a background in Business Administration, where I developed
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-12 paper-shadow-lg relative">
             <div className="absolute -top-3 left-12">
-              <WashiTape color="#D69589" width="w-28" />
+              <WashiTape color="#F4C9D6" width="w-28" />
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -248,7 +248,7 @@ My journey began with a background in Business Administration, where I developed
                 <h2 className="relative z-10 font-serif-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#F8E5D7]">
                   {internship.company}{' '}
                   <span className="relative inline-block whitespace-nowrap">
-                    <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#D69589] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/30" />
+                    <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#F4C9D6] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/30" />
                     <span className="relative z-10 italic font-serif-display font-normal">
                       Internship
                     </span>
@@ -273,7 +273,7 @@ My journey began with a background in Business Administration, where I developed
                 <Link
                   to="/internship/experience"
                   aria-label="View internship experience"
-                  className="group flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#D69589] text-[#3E2723] border-[1.5px] border-[#A38D89]/40 hover:bg-[#F4C9D6] transition-colors"
+                  className="group flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#F4C9D6] text-[#3E2723] border-[1.5px] border-[#A38D89]/40 hover:bg-[#F4C9D6] transition-colors"
                 >
                   <ArrowRight className="w-10 h-10 sm:w-12 sm:h-12 group-hover:translate-x-1.5 transition-transform" />
                 </Link>
