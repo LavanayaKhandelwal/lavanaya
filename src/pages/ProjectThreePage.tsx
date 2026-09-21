@@ -14,7 +14,7 @@ export const ProjectThreePage: React.FC = () => {
         {/* Top Breadcrumb */}
         <div className="flex items-center justify-between font-mono-code text-xs text-[#F8E5D7]/50 pb-4 border-b border-[#A38D89]/10 mb-12">
           <div className="flex items-center gap-2">
-            <Link to="/projects" className="hover:text-[#3E2723] flex items-center gap-1">
+            <Link to="/projects" className="hover:text-[#F8E5D7] flex items-center gap-1">
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>PROJECTS</span>
             </Link>
@@ -26,7 +26,7 @@ export const ProjectThreePage: React.FC = () => {
 
         {/* SECTION: COVER PAGE */}
         <section className="space-y-12 mb-16">
-            <div className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-8 sm:p-14 paper-shadow-lg relative overflow-hidden">
+            <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative overflow-hidden">
               <div className="absolute -top-3 right-12">
                 <WashiTape color="#A38D89" width="w-32" />
               </div>
@@ -38,39 +38,39 @@ export const ProjectThreePage: React.FC = () => {
                     <span>PROJECT 3 (START UP) // PAGE 1</span>
                   </div>
 
-                  <h1 className="font-serif-display text-4xl sm:text-6xl lg:text-7xl text-[#3E2723] leading-[1.02] tracking-tight">
+                  <h1 className="font-serif-display text-4xl sm:text-6xl lg:text-7xl text-[#F8E5D7] leading-[1.02] tracking-tight">
                     {p3.cover.title}
                   </h1>
 
-                  <p className="font-serif-display text-2xl sm:text-3xl text-[#3E2723]/80 italic leading-snug">
+                  <p className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]/80 italic leading-snug">
                     {p3.cover.conceptSubtitle}
                   </p>
 
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-[#A38D89]/15 font-mono-code text-xs">
                     <div>
                       <span className="text-[#A38D89] block text-[10px] uppercase">PROJECT TYPE:</span>
-                      <span className="font-bold text-[#3E2723]">Fashion Start-Up & Athleisure</span>
+                      <span className="font-bold text-[#F8E5D7]">Fashion Start-Up & Athleisure</span>
                     </div>
                     <div>
                       <span className="text-[#A38D89] block text-[10px] uppercase">DELIVERABLE:</span>
-                      <span className="font-bold text-[#3E2723]">Physical MVP Prototype</span>
+                      <span className="font-bold text-[#F8E5D7]">Physical MVP Prototype</span>
                     </div>
                     <div>
                       <span className="text-[#A38D89] block text-[10px] uppercase">SCOPE:</span>
-                      <span className="font-bold text-[#3E2723]">Research to Fabrication</span>
+                      <span className="font-bold text-[#F8E5D7]">Research to Fabrication</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Cover Graphic Image */}
                 <div className="lg:col-span-5">
-                  <div className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl p-4 paper-shadow">
+                  <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl p-4 paper-shadow">
                     <img
                       src="/portfolio-assets/Screenshot 2026-09-18 at 7.51.59 PM.png"
                       alt="Athleisure Start-up Cover"
                       className="w-full h-auto object-cover rounded-xl border border-[#A38D89]/15"
                     />
-                    <div className="font-mono-code text-[11px] text-[#3E2723]/60 text-center mt-2">
+                    <div className="font-mono-code text-[11px] text-[#F8E5D7]/60 text-center mt-2">
                       Athleisure Venture Cover Dossier
                     </div>
                   </div>
@@ -81,7 +81,7 @@ export const ProjectThreePage: React.FC = () => {
         </section>
 
         {/* SECTION: PAGE 01 — FROM A BUSINESS IDEA TO A REAL OPPORTUNITY */}
-        <div className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-8 sm:p-14 paper-shadow-lg relative mb-16">
+        <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative mb-16">
             <div className="absolute -top-3 right-12">
               <WashiTape color="#A38D89" width="w-28" />
             </div>
@@ -90,30 +90,30 @@ export const ProjectThreePage: React.FC = () => {
               <span className="font-mono-code text-xs font-bold text-[#A38D89] uppercase tracking-widest block mb-2">
                 PAGE 01 — FROM A BUSINESS IDEA TO A REAL OPPORTUNITY
               </span>
-              <h2 className="font-serif-display text-3xl sm:text-5xl text-[#3E2723] mb-4">
+              <h2 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7] mb-4">
                 From a Business Idea to a Real Opportunity
               </h2>
 
-              <div className="p-4 bg-[#A38D89]/20 rounded-2xl border border-[#A38D89]/20 font-mono-code text-xs font-bold text-[#3E2723]">
+              <div className="p-4 bg-[#A38D89]/20 rounded-2xl border border-[#A38D89]/20 font-mono-code text-xs font-bold text-[#F8E5D7]">
                 THE JOURNEY: {p3.page2SurveyInsights.journey}
               </div>
             </div>
 
             {/* WHAT I NOTICED */}
             <div className="mb-10">
-              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#3E2723] mb-4 pb-2 border-b border-[#A38D89]/15">
+              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#F8E5D7] mb-4 pb-2 border-b border-[#A38D89]/15">
                 WHAT I NOTICED
               </div>
-              <p className="font-body text-base text-[#3E2723]/85 leading-relaxed whitespace-pre-line mb-6">
+              <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed whitespace-pre-line mb-6">
                 {p3.page01.noticing.intro}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
                 {p3.page2SurveyInsights.theObservation.map((obs) => (
-                  <div key={obs.num} className="p-6 bg-[#F4C9D6] border border-[#A38D89]/20 rounded-2xl">
-                    <h3 className="font-serif-display text-xl text-[#3E2723] mb-2">
+                  <div key={obs.num} className="p-6 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl">
+                    <h3 className="font-serif-display text-xl text-[#F8E5D7] mb-2">
                       {obs.title}
                     </h3>
-                    <p className="font-body text-xs text-[#3E2723]/70">
+                    <p className="font-body text-xs text-[#F8E5D7]/70">
                       {obs.detail}
                     </p>
                   </div>
@@ -123,34 +123,34 @@ export const ProjectThreePage: React.FC = () => {
 
             {/* THE OPPORTUNITY */}
             <div className="mb-10 p-8 bg-[#A38D89]/20 border-[1.5px] border-[#A38D89] rounded-2xl">
-              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#3E2723] mb-4">
+              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#F8E5D7] mb-4">
                 THE OPPORTUNITY
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 mb-4">
                 <span className="font-mono-code text-xs font-bold bg-[#D69589] text-[#3E2723] px-3 py-1.5 rounded-full uppercase tracking-wider text-center">
                   {p3.page01.opportunity.label}
                 </span>
-                <span className="font-mono-code text-sm font-bold text-[#3E2723]">
+                <span className="font-mono-code text-sm font-bold text-[#F8E5D7]">
                   {p3.page01.opportunity.spectrum}
                 </span>
               </div>
-              <p className="font-mono-code text-xs font-bold text-[#3E2723]/80">
+              <p className="font-mono-code text-xs font-bold text-[#F8E5D7]/80">
                 {p3.page01.opportunity.pillars}
               </p>
             </div>
 
             {/* THE CONCEPT */}
-            <div className="mb-10 p-8 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl">
-              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#3E2723] mb-4">
+            <div className="mb-10 p-8 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl">
+              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#F8E5D7] mb-4">
                 THE CONCEPT
               </div>
-              <h3 className="font-serif-display text-3xl sm:text-5xl text-[#3E2723] mb-3">
+              <h3 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7] mb-3">
                 {p3.page01.concept.headline}
               </h3>
-              <p className="font-body text-base text-[#3E2723]/85 leading-relaxed mb-4">
+              <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed mb-4">
                 {p3.page01.concept.intro}
               </p>
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-mono-code text-xs font-bold text-[#3E2723] mb-5">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-mono-code text-xs font-bold text-[#F8E5D7] mb-5">
                 {p3.page01.concept.flow.split('→').map((node, nIdx) => (
                   <React.Fragment key={nIdx}>
                     <span className="px-3 py-1.5 bg-[#F4C9D6] border border-[#A38D89] rounded-lg">{node.trim()}</span>
@@ -160,7 +160,7 @@ export const ProjectThreePage: React.FC = () => {
                   </React.Fragment>
                 ))}
               </div>
-              <ul className="space-y-2 font-body text-sm text-[#3E2723]/85">
+              <ul className="space-y-2 font-body text-sm text-[#F8E5D7]/85">
                 {p3.page01.concept.notes.map((n, i) => (
                   <li key={i} className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3E2723]" />
@@ -171,24 +171,24 @@ export const ProjectThreePage: React.FC = () => {
             </div>
 
             {/* THE FIRST PRODUCT */}
-            <div className="mb-10 p-8 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl">
-              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#3E2723] mb-4">
+            <div className="mb-10 p-8 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl">
+              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#F8E5D7] mb-4">
                 THE FIRST PRODUCT
               </div>
-              <p className="font-serif-display text-2xl sm:text-3xl text-[#3E2723] mb-2">
+              <p className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7] mb-2">
                 {p3.page01.firstProduct.name}
               </p>
-              <p className="font-body text-sm text-[#3E2723]/80">
+              <p className="font-body text-sm text-[#F8E5D7]/80">
                 {p3.page01.firstProduct.line}
               </p>
             </div>
 
             {/* WHAT I WORKED WITH */}
-            <div className="p-6 bg-[#F4C9D6] border border-[#A38D89]/20 rounded-2xl">
-              <div className="font-mono-code text-xs font-bold uppercase text-[#3E2723] mb-4 pb-2 border-b border-[#A38D89]/15">
+            <div className="p-6 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl">
+              <div className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] mb-4 pb-2 border-b border-[#A38D89]/15">
                 WHAT I WORKED WITH
               </div>
-              <p className="font-body text-sm text-[#3E2723]/85 leading-relaxed whitespace-pre-line">
+              <p className="font-body text-sm text-[#F8E5D7]/85 leading-relaxed whitespace-pre-line">
                 {p3.page01.whatIWorkedWith}
               </p>
             </div>
@@ -196,7 +196,7 @@ export const ProjectThreePage: React.FC = () => {
         </div>
 
         {/* SECTION: DESIGN, MATERIAL & PROTOTYPE */}
-        <div className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-8 sm:p-14 paper-shadow-lg relative mb-16">
+        <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative mb-16">
             <div className="absolute -top-3 right-12">
               <WashiTape color="#D69589" width="w-28" />
             </div>
@@ -206,10 +206,10 @@ export const ProjectThreePage: React.FC = () => {
             </span>
 
             {/* 01 DESIGN */}
-            <div className="p-8 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl mb-8">
+            <div className="p-8 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl mb-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 <div className="lg:col-span-7 space-y-4">
-                  <h2 className="font-serif-display text-3xl text-[#3E2723]">
+                  <h2 className="font-serif-display text-3xl text-[#F8E5D7]">
                     {p3.page3DesignAndMaterial.design.title}
                   </h2>
                   <div className="flex flex-wrap gap-2.5 font-mono-code text-xs">
@@ -219,13 +219,13 @@ export const ProjectThreePage: React.FC = () => {
                       </span>
                     ))}
                   </div>
-                  <p className="font-body text-xs text-[#3E2723]/70 leading-relaxed pt-2">
+                  <p className="font-body text-xs text-[#F8E5D7]/70 leading-relaxed pt-2">
                     Structured top for shape + style. Relaxed bottoms for movement + comfort.
                   </p>
                 </div>
 
                 <div className="lg:col-span-5">
-                  <div className="bg-[#F8E5D7] rounded-xl overflow-hidden border border-[#A38D89]/25 p-2 paper-shadow-sm flex items-center justify-center">
+                  <div className="bg-[#3E2723] rounded-xl overflow-hidden border border-[#A38D89]/25 p-2 paper-shadow-sm flex items-center justify-center">
                     <img
                       src="/portfolio-assets/Screenshot 2026-09-18 at 7.03.12 PM.png"
                       alt="Design Flats Structured Crop Top and Joggers"
@@ -240,38 +240,38 @@ export const ProjectThreePage: React.FC = () => {
             </div>
 
             {/* 02 MATERIAL */}
-            <div className="p-8 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl mb-8">
+            <div className="p-8 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl mb-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 <div className="lg:col-span-7 space-y-4">
-                  <h2 className="font-serif-display text-3xl text-[#3E2723]">
+                  <h2 className="font-serif-display text-3xl text-[#F8E5D7]">
                     {p3.page3DesignAndMaterial.material.title}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="p-4 bg-[#F4C9D6] border border-[#A38D89]/25 rounded-xl">
-                      <div className="font-mono-code text-xs font-bold text-[#3E2723] mb-1">
+                    <div className="p-4 bg-[#3E2723] border border-[#A38D89]/25 rounded-xl">
+                      <div className="font-mono-code text-xs font-bold text-[#F8E5D7] mb-1">
                         {p3.page3DesignAndMaterial.material.lycra.name}
                       </div>
-                      <div className="font-body text-xs text-[#3E2723]/80">
+                      <div className="font-body text-xs text-[#F8E5D7]/80">
                         {p3.page3DesignAndMaterial.material.lycra.attributes}
                       </div>
                     </div>
 
-                    <div className="p-4 bg-[#F4C9D6] border border-[#A38D89]/25 rounded-xl">
-                      <div className="font-mono-code text-xs font-bold text-[#3E2723] mb-1">
+                    <div className="p-4 bg-[#3E2723] border border-[#A38D89]/25 rounded-xl">
+                      <div className="font-mono-code text-xs font-bold text-[#F8E5D7] mb-1">
                         {p3.page3DesignAndMaterial.material.terryCotton.name}
                       </div>
-                      <div className="font-body text-xs text-[#3E2723]/80">
+                      <div className="font-body text-xs text-[#F8E5D7]/80">
                         {p3.page3DesignAndMaterial.material.terryCotton.attributes}
                       </div>
                     </div>
                   </div>
-                  <p className="font-mono-code text-xs text-[#3E2723]/80 font-semibold">
+                  <p className="font-mono-code text-xs text-[#F8E5D7]/80 font-semibold">
                     ✦ {p3.page3DesignAndMaterial.material.colorNote}
                   </p>
                 </div>
 
                 <div className="lg:col-span-5">
-                  <div className="bg-[#F8E5D7] rounded-xl overflow-hidden border border-[#A38D89]/25 p-2 paper-shadow-sm flex items-center justify-center">
+                  <div className="bg-[#3E2723] rounded-xl overflow-hidden border border-[#A38D89]/25 p-2 paper-shadow-sm flex items-center justify-center">
                     <img
                       src="/portfolio-assets/Screenshot 2026-09-18 at 7.03.20 PM.png"
                       alt="Material Testing Lycra and Terry Cotton"
@@ -292,26 +292,26 @@ export const ProjectThreePage: React.FC = () => {
                   <span className="font-mono-code text-xs font-bold bg-[#D69589] text-[#3E2723] px-3 py-1 rounded-full uppercase inline-block">
                     {p3.page3DesignAndMaterial.prototype.badge}
                   </span>
-                  <h3 className="font-serif-display text-3xl sm:text-5xl text-[#3E2723]">
+                  <h3 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7]">
                     {p3.page3DesignAndMaterial.prototype.tagline}
                   </h3>
-                  <p className="font-mono-code text-xs sm:text-sm text-[#3E2723]/90 uppercase tracking-wider font-bold">
+                  <p className="font-mono-code text-xs sm:text-sm text-[#F8E5D7]/90 uppercase tracking-wider font-bold">
                     {p3.page3DesignAndMaterial.prototype.coreProposition}
                   </p>
-                  <p className="font-body text-xs text-[#3E2723]/80 pt-2 leading-relaxed whitespace-pre-line">
+                  <p className="font-body text-xs text-[#F8E5D7]/80 pt-2 leading-relaxed whitespace-pre-line">
                     {p3.page3DesignAndMaterial.prototype.paragraph}
                   </p>
                 </div>
 
                 <div className="lg:col-span-6">
-                  <div className="bg-[#F8E5D7] rounded-2xl overflow-hidden border-[1.5px] border-[#A38D89] p-3 paper-shadow">
+                  <div className="bg-[#3E2723] rounded-2xl overflow-hidden border-[1.5px] border-[#A38D89] p-3 paper-shadow">
                     <img
                       src="/portfolio-assets/Screenshot 2026-09-18 at 7.03.30 PM.png"
                       alt="03 Physical MVP Prototype"
                       className="w-full h-auto max-h-80 object-contain mx-auto"
                     />
                   </div>
-                  <span className="font-mono-code text-[11px] text-[#3E2723]/60 block mt-2 text-center font-bold">
+                  <span className="font-mono-code text-[11px] text-[#F8E5D7]/60 block mt-2 text-center font-bold">
                     03 Final Prototype — Physical MVP Sample
                   </span>
                 </div>
@@ -321,7 +321,7 @@ export const ProjectThreePage: React.FC = () => {
         </div>
 
         {/* SECTION: PAGE 02 — BUILD IT. TEST IT. LET USERS SHAPE IT. */}
-        <div className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-8 sm:p-14 paper-shadow-lg relative">
+        <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative">
             <div className="absolute -top-3 right-12">
               <WashiTape color="#D69589" width="w-28" />
             </div>
@@ -330,14 +330,14 @@ export const ProjectThreePage: React.FC = () => {
               <span className="font-mono-code text-xs font-bold text-[#A38D89] uppercase tracking-widest block mb-2">
                 PAGE 02 — BUILD IT. TEST IT. LET USERS SHAPE IT.
               </span>
-              <h2 className="font-serif-display text-3xl sm:text-5xl text-[#3E2723] mb-4">
+              <h2 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7] mb-4">
                 Build it. Test it. Let Users Shape It.
               </h2>
             </div>
 
             {/* FROM IDEA TO MVP */}
             <div className="mb-10">
-              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#3E2723] mb-4 pb-2 border-b border-[#A38D89]/15">
+              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#F8E5D7] mb-4 pb-2 border-b border-[#A38D89]/15">
                 FROM IDEA TO MVP
               </div>
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-mono-code text-xs mb-5">
@@ -352,28 +352,28 @@ export const ProjectThreePage: React.FC = () => {
                   </React.Fragment>
                 ))}
               </div>
-              <p className="font-body text-sm text-[#3E2723]/80">
+              <p className="font-body text-sm text-[#F8E5D7]/80">
                 {p3.page2SurveyInsights.myApproachSummary}
               </p>
             </div>
 
             {/* THEN I TESTED ONE THING */}
-            <div className="mb-10 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl p-6 paper-shadow">
-              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#3E2723] mb-1 flex items-center gap-2">
+            <div className="mb-10 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl p-6 paper-shadow">
+              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#F8E5D7] mb-1 flex items-center gap-2">
                 <BarChart3 className="w-4 h-4" />
                 <span>{p3.page2SurveyInsights.surveyTitle}</span>
               </div>
-              <p className="font-serif-display text-2xl sm:text-3xl text-[#3E2723] italic mb-4">
+              <p className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7] italic mb-4">
                 Would People Actually Wear It?
               </p>
-              <div className="rounded-xl overflow-hidden border border-[#A38D89]/20 bg-[#F8E5D7] max-h-[420px] flex items-center justify-center p-2 mb-3">
+              <div className="rounded-xl overflow-hidden border border-[#A38D89]/20 bg-[#3E2723] max-h-[420px] flex items-center justify-center p-2 mb-3">
                 <img
                   src="/portfolio-assets/Screenshot 2026-09-18 at 7.12.03 PM.png"
                   alt="Survey Insights Breakdown"
                   className="max-h-[380px] w-auto object-contain"
                 />
               </div>
-              <div className="font-mono-code text-xs text-[#3E2723]/60 leading-relaxed whitespace-pre-line">
+              <div className="font-mono-code text-xs text-[#F8E5D7]/60 leading-relaxed whitespace-pre-line">
                 {p3.page2SurveyInsights.surveyAudience}
                 {"\n"}
                 {p3.page2SurveyInsights.surveyMethods}
@@ -386,13 +386,13 @@ export const ProjectThreePage: React.FC = () => {
 
             {/* WHAT I LEARNED FROM USERS */}
             <div className="mb-10">
-              <h2 className="font-serif-display text-3xl text-[#3E2723] mb-4">
+              <h2 className="font-serif-display text-3xl text-[#F8E5D7] mb-4">
                 WHAT I LEARNED FROM USERS
               </h2>
               <div className="space-y-3">
                 {p3.page4FeedbackAndIteration.whatIHeard.map((quote, qIdx) => (
-                  <div key={qIdx} className="p-4 bg-[#F4C9D6] border border-[#A38D89]/20 rounded-xl font-serif-display text-lg text-[#3E2723]">
-                    <span className="font-mono-code text-xs font-bold uppercase text-[#3E2723] block mb-1 whitespace-pre-line">
+                  <div key={qIdx} className="p-4 bg-[#3E2723] border border-[#A38D89]/20 rounded-xl font-serif-display text-lg text-[#F8E5D7]">
+                    <span className="font-mono-code text-xs font-bold uppercase text-[#F8E5D7] block mb-1 whitespace-pre-line">
                       {quote}
                     </span>
                   </div>
@@ -402,16 +402,16 @@ export const ProjectThreePage: React.FC = () => {
 
             {/* WHAT I TAKE FORWARD */}
             <div className="mb-10">
-              <h2 className="font-serif-display text-3xl text-[#3E2723] mb-4">
+              <h2 className="font-serif-display text-3xl text-[#F8E5D7] mb-4">
                 WHAT I TAKE FORWARD
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {p3.page4FeedbackAndIteration.whatThisTaughtMe.map((item, tIdx) => (
-                  <div key={tIdx} className="p-6 bg-[#F4C9D6] border border-[#A38D89]/25 rounded-2xl">
-                    <h3 className="font-serif-display text-xl text-[#3E2723] mb-2">
+                  <div key={tIdx} className="p-6 bg-[#3E2723] border border-[#A38D89]/25 rounded-2xl">
+                    <h3 className="font-serif-display text-xl text-[#F8E5D7] mb-2">
                       {item.headline}
                     </h3>
-                    <p className="font-body text-xs text-[#3E2723]/80 leading-relaxed whitespace-pre-line">
+                    <p className="font-body text-xs text-[#F8E5D7]/80 leading-relaxed whitespace-pre-line">
                       {item.detail}
                     </p>
                   </div>
@@ -420,15 +420,15 @@ export const ProjectThreePage: React.FC = () => {
             </div>
 
             {/* FEEDBACK → ITERATION → IMPACT */}
-            <div className="p-8 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl mb-8">
-              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#3E2723] mb-6 text-center">
+            <div className="p-8 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl mb-8">
+              <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#F8E5D7] mb-6 text-center">
                 FEEDBACK → ITERATION → IMPACT
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-center text-center font-mono-code text-xs">
-                <div className="md:col-span-1 p-5 bg-[#F4C9D6] border border-[#A38D89] rounded-xl">
+                <div className="md:col-span-1 p-5 bg-[#3E2723] border border-[#A38D89]/40 rounded-xl">
                   <span className="text-[#A38D89] uppercase text-[10px] block mb-1">FEEDBACK</span>
-                  <strong className="text-sm text-[#3E2723]">
+                  <strong className="text-sm text-[#F8E5D7]">
                     {p3.page4FeedbackAndIteration.feedbackLoop.feedback}
                   </strong>
                 </div>
@@ -439,7 +439,7 @@ export const ProjectThreePage: React.FC = () => {
 
                 <div className="md:col-span-1 p-5 bg-[#D69589] border border-[#A38D89] rounded-xl">
                   <span className="text-[#A38D89] uppercase text-[10px] block mb-1">ITERATION</span>
-                  <strong className="text-sm text-[#3E2723]">
+                  <strong className="text-sm text-[#F8E5D7]">
                     {p3.page4FeedbackAndIteration.feedbackLoop.iteration}
                   </strong>
                 </div>
@@ -448,16 +448,16 @@ export const ProjectThreePage: React.FC = () => {
                   →
                 </div>
 
-                <div className="md:col-span-1 p-5 bg-[#F4C9D6] border border-[#A38D89] rounded-xl">
+                <div className="md:col-span-1 p-5 bg-[#3E2723] border border-[#A38D89]/40 rounded-xl">
                   <span className="text-[#A38D89] uppercase text-[10px] block mb-1">IMPACT</span>
-                  <strong className="text-sm text-[#3E2723]">
+                  <strong className="text-sm text-[#F8E5D7]">
                     {p3.page4FeedbackAndIteration.feedbackLoop.impact}
                   </strong>
                 </div>
               </div>
 
               {/* Graphical Feedback Loop Diagram */}
-              <div className="mt-8 rounded-xl overflow-hidden border border-[#A38D89]/20 bg-[#F8E5D7] max-h-48 flex items-center justify-center p-2">
+              <div className="mt-8 rounded-xl overflow-hidden border border-[#A38D89]/20 bg-[#3E2723] max-h-48 flex items-center justify-center p-2">
                 <img
                   src="/portfolio-assets/Screenshot 2026-09-18 at 8.44.29 PM.png"
                   alt="Feedback Iteration Impact Flow"

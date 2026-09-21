@@ -8,7 +8,7 @@ interface ProjectCardMediaProps {
 export const ProjectCardMedia: React.FC<ProjectCardMediaProps> = ({ image, alt = '' }) => {
   if (image) {
     return (
-      <div className="mb-5 overflow-hidden rounded-xl border-[1.5px] border-[#A38D89] bg-[#F8E5D7]">
+      <div className="mb-5 overflow-hidden rounded-xl border-[1.5px] border-[#A38D89] bg-[#3E2723]">
         <img src={image} alt={alt} className="w-full aspect-[16/9] object-cover" />
       </div>
     );

@@ -14,11 +14,11 @@ export const InternshipLearningsPage: React.FC = () => {
         {/* Top Breadcrumb */}
         <div className="flex items-center justify-between font-mono-code text-xs text-[#F8E5D7]/50 pb-4 border-b border-[#A38D89]/10 mb-12">
           <div className="flex items-center gap-2">
-            <Link to="/" className="hover:text-[#3E2723]">HOME</Link>
+            <Link to="/" className="hover:text-[#F8E5D7]">HOME</Link>
             <span>/</span>
-            <Link to="/internship/experience" className="hover:text-[#3E2723]">INTERNSHIP</Link>
+            <Link to="/internship/experience" className="hover:text-[#F8E5D7]">INTERNSHIP</Link>
             <span>/</span>
-            <span className="text-[#3E2723] font-semibold">LEARNINGS</span>
+            <span className="text-[#F8E5D7] font-semibold">LEARNINGS</span>
           </div>
           <span>AADIYA JEWELS // 4 LEARNING OUTCOMES</span>
         </div>
@@ -34,7 +34,7 @@ export const InternshipLearningsPage: React.FC = () => {
             Key Learnings
           </h1>
 
-          <p className="font-body text-base text-[#3E2723]/85 leading-relaxed max-w-3xl mb-8">
+          <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed max-w-3xl mb-8">
             Create, plan, present and execute — the four working principles I carried out of my digital content and e-commerce internship at Aadiya Jewels.
           </p>
 
@@ -53,7 +53,7 @@ export const InternshipLearningsPage: React.FC = () => {
           {internship.learningOutcomes.map((lo, idx) => (
             <div
               key={lo.number}
-              className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-8 paper-shadow-lg relative flex flex-col justify-between"
+              className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 paper-shadow-lg relative flex flex-col justify-between"
             >
               <div className="absolute -top-3 right-8">
                 <WashiTape color={idx % 2 === 0 ? "#D69589" : "#D69589"} width="w-20" />
@@ -61,15 +61,15 @@ export const InternshipLearningsPage: React.FC = () => {
 
               <div>
                 <div className="flex items-center justify-between font-mono-code text-xs text-[#A38D89] mb-4 pb-2 border-b border-[#A38D89]/15">
-                  <span className="font-bold text-[#3E2723]">OUTCOME {lo.number}</span>
+                  <span className="font-bold text-[#F8E5D7]">OUTCOME {lo.number}</span>
                   <span>AADIYA JEWELS</span>
                 </div>
 
-                <h2 className="font-serif-display text-3xl text-[#3E2723] mb-4">
+                <h2 className="font-serif-display text-3xl text-[#F8E5D7] mb-4">
                   {lo.title}
                 </h2>
 
-                <p className="font-body text-base text-[#3E2723]/85 leading-relaxed">
+                <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed">
                   {lo.desc}
                 </p>
               </div>
@@ -83,10 +83,10 @@ export const InternshipLearningsPage: React.FC = () => {
         </div>
 
         {/* Bottom Pagination */}
-        <div className="flex flex-col sm:flex-row items-center justify-between p-8 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between p-8 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl gap-4">
           <Link
             to="/internship/experience"
-            className="font-mono-code text-xs uppercase text-[#3E2723]/60 hover:text-[#3E2723] flex items-center gap-1.5"
+            className="font-mono-code text-xs uppercase text-[#F8E5D7]/60 hover:text-[#F8E5D7] flex items-center gap-1.5"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to Internship Experience</span>

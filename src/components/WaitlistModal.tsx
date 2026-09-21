@@ -73,7 +73,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.94, opacity: 0, y: 15 }}
             transition={{ type: 'spring', damping: 24, stiffness: 300 }}
-            className="relative w-full max-w-lg bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl p-6 sm:p-8 paper-shadow-lg z-10 overflow-hidden"
+            className="relative w-full max-w-lg bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl p-6 sm:p-8 paper-shadow-lg z-10 overflow-hidden"
           >
             {/* Washi tape decoration */}
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -87,29 +87,29 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
               className="absolute top-4 right-4 p-2 rounded-full border border-[#A38D89]/30 hover:border-[#A38D89] hover:bg-[#3E2723]/5 transition-colors"
               aria-label="Close modal"
             >
-              <X className="w-4 h-4 text-[#3E2723]" />
+              <X className="w-4 h-4 text-[#F8E5D7]" />
             </button>
 
             {!submitted ? (
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <FlowerMark size={22} />
-                  <span className="font-mono-code text-xs uppercase tracking-widest text-[#3E2723]/60">
+                  <span className="font-mono-code text-xs uppercase tracking-widest text-[#F8E5D7]/60">
                     Studio Inquiries • Class of '26
                   </span>
                 </div>
 
-                <h3 className="font-serif-display text-3xl sm:text-4xl leading-tight text-[#3E2723] mb-3">
+                <h3 className="font-serif-display text-3xl sm:text-4xl leading-tight text-[#F8E5D7] mb-3">
                   Request Full Portfolio & Studio Visit
                 </h3>
 
-                <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed mb-6">
+                <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed mb-6">
                   Inquire about visual merchandising commissions, freelance retail strategy, exhibition catalogs, or schedule an in-person studio visit in New York or London.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block font-mono-code text-xs uppercase tracking-wider text-[#3E2723] mb-1.5">
+                    <label className="block font-mono-code text-xs uppercase tracking-wider text-[#F8E5D7] mb-1.5">
                       Your Work Email
                     </label>
                     <input
@@ -123,7 +123,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                   </div>
 
                   <div>
-                    <label className="block font-mono-code text-xs uppercase tracking-wider text-[#3E2723] mb-1.5">
+                    <label className="block font-mono-code text-xs uppercase tracking-wider text-[#F8E5D7] mb-1.5">
                       Nature of Correspondence
                     </label>
                     <div className="grid grid-cols-3 gap-2">
@@ -142,7 +142,7 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                           className={`py-2 px-2 text-xs font-mono-code rounded-lg border-[1.5px] transition-all text-center leading-tight ${
                             role === r
                               ? 'bg-[#D69589] border-[#A38D89] font-bold paper-shadow-sm'
-                              : 'bg-transparent border-[#A38D89]/40 hover:border-[#A38D89] text-[#3E2723]/80'
+                              : 'bg-transparent border-[#A38D89]/40 hover:border-[#A38D89] text-[#F8E5D7]/80'
                           }`}
                         >
                           {r}
@@ -176,12 +176,12 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
             ) : (
               <div className="text-center py-2">
                 {/* Physical ticket look */}
-                <div className="relative bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-xl p-6 mb-6 paper-shadow text-left overflow-hidden">
+                <div className="relative bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-xl p-6 mb-6 paper-shadow text-left overflow-hidden">
                   <div className="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-[#D69589]/30 border border-[#A38D89]/10" />
                   
                   <div className="flex items-start justify-between border-b border-[#A38D89]/20 pb-4 mb-4">
                     <div>
-                      <div className="flex items-center gap-1.5 text-xs font-mono-code uppercase text-[#3E2723]/60">
+                      <div className="flex items-center gap-1.5 text-xs font-mono-code uppercase text-[#F8E5D7]/60">
                         <FlowerMark size={16} />
                         {portfolioData.student.name} Studio Pass
                       </div>
@@ -202,15 +202,15 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
                   <div className="space-y-2 text-xs font-mono-code">
                     <div className="flex justify-between">
                       <span className="text-[#A38D89]">CONTACT:</span>
-                      <span className="font-bold text-[#3E2723] truncate max-w-[200px]">{submitted.email}</span>
+                      <span className="font-bold text-[#F8E5D7] truncate max-w-[200px]">{submitted.email}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[#A38D89]">INQUIRY TYPE:</span>
-                      <span className="text-[#3E2723]">{submitted.role}</span>
+                      <span className="text-[#F8E5D7]">{submitted.role}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[#A38D89]">STATUS:</span>
-                      <span className="text-[#3E2723] flex items-center gap-1">
+                      <span className="text-[#F8E5D7] flex items-center gap-1">
                         <Check className="w-3.5 h-3.5 text-[#D69589]" />
                         Queued for Response
                       </span>
@@ -226,23 +226,23 @@ export const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose, i
 
                 <div className="flex items-center justify-center gap-2 mb-4">
                   <Sparkles className="w-4 h-4 text-[#D69589]" />
-                  <span className="font-serif-display text-xl text-[#3E2723]">Inquiry Logged</span>
+                  <span className="font-serif-display text-xl text-[#F8E5D7]">Inquiry Logged</span>
                 </div>
-                <p className="font-body text-xs text-[#3E2723]/80 max-w-sm mx-auto mb-6">
+                <p className="font-body text-xs text-[#F8E5D7]/80 max-w-sm mx-auto mb-6">
                   Thank you for reaching out. A complete high-resolution PDF portfolio dossier and thesis catalog will be dispatched to your inbox shortly.
                 </p>
 
                 <div className="flex items-center justify-center gap-3">
                   <button
                     onClick={copyTicket}
-                    className="flex items-center gap-1.5 px-4 py-2 bg-[#A38D89] border border-[#A38D89] rounded-lg text-xs font-mono-code text-[#3E2723] paper-shadow-sm hover:translate-y-[-1px] transition-all cursor-pointer"
+                    className="flex items-center gap-1.5 px-4 py-2 bg-[#A38D89] border border-[#A38D89] rounded-lg text-xs font-mono-code text-[#F8E5D7] paper-shadow-sm hover:translate-y-[-1px] transition-all cursor-pointer"
                   >
                     {isCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                     <span>{isCopied ? 'Copied to Clipboard' : 'Copy Reference #'}</span>
                   </button>
                   <button
                     onClick={onClose}
-                    className="px-4 py-2 bg-transparent hover:bg-[#3E2723]/5 border border-[#A38D89]/40 rounded-lg text-xs font-mono-code text-[#3E2723] transition-all cursor-pointer"
+                    className="px-4 py-2 bg-transparent hover:bg-[#3E2723]/5 border border-[#A38D89]/40 rounded-lg text-xs font-mono-code text-[#F8E5D7] transition-all cursor-pointer"
                   >
                     Return to Portfolio
                   </button>

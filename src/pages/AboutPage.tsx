@@ -93,7 +93,7 @@ export const AboutPage: React.FC = () => {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-3xl p-8 paper-shadow-lg relative">
+            <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 paper-shadow-lg relative">
               <div className="absolute -top-3 left-10">
                 <WashiTape color="#D69589" width="w-24" />
               </div>
@@ -101,12 +101,12 @@ export const AboutPage: React.FC = () => {
               <div className="font-mono-code text-xs font-bold text-[#A38D89] mb-4">
                 ♡ {student.approach.heading}
               </div>
-              <p className="font-body text-sm text-[#3E2723]/85 leading-relaxed">
+              <p className="font-body text-sm text-[#F8E5D7]/85 leading-relaxed">
                 {student.approach.text}
               </p>
 
-              <div className="mt-8 pt-6 border-t border-[#3E2723]/15">
-                <p className="font-serif-display text-2xl sm:text-3xl text-[#3E2723] italic leading-snug whitespace-pre-line">
+              <div className="mt-8 pt-6 border-t border-[#A38D89]/20">
+                <p className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7] italic leading-snug whitespace-pre-line">
                   "{student.handwritten}"
                 </p>
                 <div className="font-mono-code text-[10px] uppercase tracking-widest text-[#A38D89] mt-3">
@@ -118,10 +118,10 @@ export const AboutPage: React.FC = () => {
         </div>
 
         {/* Bottom Navigation */}
-        <div className="flex flex-col sm:flex-row items-center justify-between p-8 bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-2xl gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between p-8 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl gap-4">
           <div>
             <div className="font-mono-code text-xs uppercase text-[#A38D89]">NEXT IN PORTFOLIO</div>
-            <div className="font-serif-display text-2xl text-[#3E2723]">Explore Aadiya Jewels Internship</div>
+            <div className="font-serif-display text-2xl text-[#F8E5D7]">Explore Aadiya Jewels Internship</div>
           </div>
           <Link
             to="/internship/experience"

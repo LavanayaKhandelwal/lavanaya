@@ -23,7 +23,7 @@ export const ProjectsOverviewPage: React.FC = () => {
 
         {/* Hero Title & Intro */}
         <div className="max-w-4xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F8E5D7] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-4 paper-shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#3E2723] mb-4 paper-shadow-sm">
             <FlowerMark size={14} />
             <span>CURATED WORKS ARCHIVE</span>
           </div>
@@ -42,7 +42,7 @@ export const ProjectsOverviewPage: React.FC = () => {
           {portfolioData.selectedProjects.map((proj) => (
             <div
               key={proj.id}
-              className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-8 sm:p-12 paper-shadow-lg relative overflow-hidden group hover:paper-shadow-xl transition-all"
+              className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-12 paper-shadow-lg relative overflow-hidden group hover:paper-shadow-xl transition-all"
             >
               <div className="absolute -top-3 right-12">
                 <WashiTape color={proj.accentColor} width="w-28" />
@@ -61,7 +61,7 @@ export const ProjectsOverviewPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <h2 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7] group-hover:underline decoration-[#3E2723] underline-offset-4">
+                  <h2 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7] group-hover:underline decoration-[#D69589] underline-offset-4">
                     {proj.title}
                   </h2>
 
@@ -83,7 +83,7 @@ export const ProjectsOverviewPage: React.FC = () => {
                       ].map((b) => (
                         <div
                           key={b.label}
-                          className="p-4 bg-[#F8E5D7] border border-[#A38D89]/20 rounded-xl"
+                          className="p-4 bg-[#3E2723] border border-[#A38D89]/20 rounded-xl"
                         >
                           <span className="font-mono-code text-[10px] font-bold text-[#F8E5D7]/60 uppercase tracking-wider block mb-1.5">
                             {b.label}
@@ -100,7 +100,7 @@ export const ProjectsOverviewPage: React.FC = () => {
                     {proj.tags.map((tag, tIdx) => (
                       <span
                         key={tIdx}
-                        className="px-3 py-1 bg-[#F8E5D7] border border-[#A38D89]/20 rounded-lg font-mono-code text-xs text-[#F8E5D7]"
+                        className="px-3 py-1 bg-[#F4C9D6] border border-[#A38D89]/20 rounded-lg font-mono-code text-xs text-[#3E2723]"
                       >
                         {tag}
                       </span>
@@ -109,7 +109,7 @@ export const ProjectsOverviewPage: React.FC = () => {
                 </div>
 
                 <div className="lg:col-span-4 flex flex-col justify-between h-full pt-4 lg:pt-0">
-                  <div className="p-6 bg-[#F8E5D7] border border-[#A38D89]/20 rounded-2xl mb-6">
+                  <div className="p-6 bg-[#3E2723] border border-[#A38D89]/20 rounded-2xl mb-6">
                     <span className="font-mono-code text-xs font-bold text-[#F8E5D7] block mb-2">
                       CORE FOCUS
                     </span>

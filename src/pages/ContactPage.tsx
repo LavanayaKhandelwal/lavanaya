@@ -13,9 +13,9 @@ export const ContactPage: React.FC = () => {
         {/* Top Breadcrumb */}
         <div className="flex items-center justify-between font-mono-code text-xs text-[#F8E5D7]/50 pb-4 border-b border-[#A38D89]/10 mb-12">
           <div className="flex items-center gap-2">
-            <Link to="/" className="hover:text-[#3E2723]">HOME</Link>
+            <Link to="/" className="hover:text-[#F8E5D7]">HOME</Link>
             <span>/</span>
-            <span className="text-[#3E2723] font-semibold">CORRESPONDENCE & INQUIRIES</span>
+            <span className="text-[#F8E5D7] font-semibold">CORRESPONDENCE & INQUIRIES</span>
           </div>
           <span>STUDIO DISPATCH // {student.name.toUpperCase()}</span>
         </div>
@@ -31,7 +31,7 @@ export const ContactPage: React.FC = () => {
             Contact & Inquiries
           </h1>
 
-          <p className="font-body text-base text-[#3E2723]/85 leading-relaxed">
+          <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed">
             Open to opportunities across fashion marketing, visual merchandising, content creation and photography. Feel free to send a note or request complete project catalogs.
           </p>
         </div>
@@ -40,7 +40,7 @@ export const ContactPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
           {/* Left Column: Contact Information */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-8 paper-shadow-lg relative">
+            <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 paper-shadow-lg relative">
               <div className="absolute -top-3 left-10">
                 <WashiTape color="#D69589" width="w-24" />
               </div>
@@ -68,7 +68,7 @@ export const ContactPage: React.FC = () => {
                     <MapPin className="w-3.5 h-3.5" />
                     <span>LOCATION</span>
                   </div>
-                  <p className="font-body text-sm text-[#3E2723] leading-relaxed">
+                  <p className="font-body text-sm text-[#F8E5D7] leading-relaxed">
                     {contact.location}
                   </p>
                   <span className="font-mono-code text-[11px] text-[#A38D89] mt-1 block">
@@ -81,7 +81,7 @@ export const ContactPage: React.FC = () => {
                     <Phone className="w-3.5 h-3.5" />
                     <span>TELEPHONE & SIGNAL</span>
                   </div>
-                  <p className="font-mono-code text-sm text-[#3E2723]">
+                  <p className="font-mono-code text-sm text-[#F8E5D7]">
                     {contact.phone}
                   </p>
                 </div>
@@ -89,7 +89,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* Social Links Panel */}
-            <div className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-8 paper-shadow">
+            <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 paper-shadow">
               <div className="font-mono-code text-xs font-bold uppercase text-[#A38D89] mb-4 pb-2 border-b border-[#A38D89]/10">
                 Digital Channels & Profiles
               </div>
@@ -101,7 +101,7 @@ export const ContactPage: React.FC = () => {
                     href={soc.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-between p-3 rounded-xl bg-[#F4C9D6] hover:bg-[#3E2723] hover:text-[#3E2723] border border-[#A38D89]/20 transition-all group"
+                    className="flex items-center justify-between p-3 rounded-xl bg-[#F4C9D6] text-[#3E2723] hover:bg-[#3E2723] hover:text-[#F8E5D7] border border-[#A38D89]/20 transition-all group"
                   >
                     <div>
                       <span className="font-bold block">{soc.name}</span>
@@ -116,7 +116,7 @@ export const ContactPage: React.FC = () => {
 
           {/* Right Column: Image */}
           <div className="lg:col-span-7">
-            <div className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-3 sm:p-4 paper-shadow-lg relative">
+            <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-3 sm:p-4 paper-shadow-lg relative">
               <div className="absolute -top-3 right-12">
                 <WashiTape color="#D69589" width="w-28" />
               </div>
@@ -126,13 +126,13 @@ export const ContactPage: React.FC = () => {
                 className="w-full h-[420px] lg:h-[560px] object-cover rounded-2xl"
               />
               <div className="flex items-center justify-between px-3 pt-4 pb-1">
-                <span className="font-mono-code text-xs uppercase tracking-widest text-[#3E2723]/60">
+                <span className="font-mono-code text-xs uppercase tracking-widest text-[#F8E5D7]/60">
                   <FlowerMark size={14} className="inline mr-1.5" />
                   CLOSER LOOK
                 </span>
                 <Link
                   to="/about"
-                  className="text-xs font-mono-code text-[#3E2723] hover:underline underline-offset-4 decoration-[#D69589] decoration-2"
+                  className="text-xs font-mono-code text-[#F8E5D7] hover:underline underline-offset-4 decoration-[#D69589] decoration-2"
                 >
                   More About Me →
                 </Link>

@@ -23,7 +23,7 @@ export const SkillsPage: React.FC = () => {
 
         {/* Hero Title */}
         <div className="max-w-4xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F8E5D7] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-4 paper-shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#3E2723] mb-4 paper-shadow-sm">
             <FlowerMark size={14} />
             <span>DISCIPLINARY PROFICIENCIES</span>
           </div>
@@ -42,7 +42,7 @@ export const SkillsPage: React.FC = () => {
           {skills.categories.map((cat, idx) => (
             <div
               key={idx}
-              className="bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-3xl p-6 sm:p-8 paper-shadow-lg relative"
+              className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-6 sm:p-8 paper-shadow-lg relative"
             >
               <div className="absolute -top-3 right-8">
                 <WashiTape color={cat.color} width="w-24" />
@@ -65,7 +65,7 @@ export const SkillsPage: React.FC = () => {
                 {cat.skills.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="px-3.5 py-2 bg-[#F8E5D7] rounded-xl border border-[#A38D89]/15 font-mono-code text-xs font-bold text-[#F8E5D7]"
+                    className="px-3.5 py-2 bg-[#F4C9D6] rounded-xl border border-[#A38D89]/15 font-mono-code text-xs font-bold text-[#3E2723]"
                   >
                     {skill}
                   </span>
@@ -76,7 +76,7 @@ export const SkillsPage: React.FC = () => {
         </div>
 
         {/* Bottom Banner */}
-        <div className="flex flex-col sm:flex-row items-center justify-between p-8 bg-[#F8E5D7] border-[1.5px] border-[#A38D89] rounded-2xl gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between p-8 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl gap-4">
           <div>
             <div className="font-mono-code text-xs uppercase text-[#F8E5D7]/60">NEXT STEP</div>
             <div className="font-serif-display text-2xl text-[#F8E5D7]">Inquire for Commissions or Roles</div>

@@ -42,7 +42,7 @@ export const SkillsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-3xl p-6 sm:p-10 paper-shadow-lg relative"
+              className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-6 sm:p-10 paper-shadow-lg relative"
             >
               <div className="absolute -top-3 right-8">
                 <WashiTape color={cat.color} width="w-24" />
@@ -50,15 +50,15 @@ export const SkillsSection: React.FC = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                 <div className="lg:col-span-4">
-                  <div className="mb-4 pb-2 border-b border-[#3E2723]/15">
-                    <span className="bg-[#D69589] px-2 py-0.5 rounded border border-[#A38D89] font-mono-code text-xs font-bold text-[#3E2723]">{cat.tag}</span>
+                  <div className="mb-4 pb-2 border-b border-[#A38D89]/20">
+                    <span className="bg-[#D69589] px-2 py-0.5 rounded border border-[#A38D89]/40 font-mono-code text-xs font-bold text-[#3E2723]">{cat.tag}</span>
                   </div>
 
-                  <h3 className="font-serif-display text-3xl sm:text-4xl text-[#3E2723] mb-4 leading-tight">
+                  <h3 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] mb-4 leading-tight">
                     {cat.name}
                   </h3>
 
-                  <p className="font-body text-sm text-[#3E2723]/70 leading-relaxed">
+                  <p className="font-body text-sm text-[#F8E5D7]/70 leading-relaxed">
                     {cat.note}
                   </p>
                 </div>
@@ -67,7 +67,7 @@ export const SkillsSection: React.FC = () => {
                   {cat.skills.map((skill, sIdx) => (
                     <span
                       key={sIdx}
-                      className="px-4 py-2.5 bg-[#F8E5D7] rounded-xl border border-[#A38D89]/20 font-mono-code text-xs sm:text-sm font-bold text-[#3E2723]"
+                      className="px-4 py-2.5 bg-[#F4C9D6] rounded-xl border border-[#A38D89]/40 font-mono-code text-xs sm:text-sm font-bold text-[#3E2723]"
                     >
                       {skill}
                     </span>
