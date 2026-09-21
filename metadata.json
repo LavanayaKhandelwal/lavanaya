@@ -1,0 +1,7 @@
+{
+  "name": "Curio — AI Creative Collaborator",
+  "description": "An editorial-style AI creative collaborator and idea space designed to transform chaos into creativity.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
