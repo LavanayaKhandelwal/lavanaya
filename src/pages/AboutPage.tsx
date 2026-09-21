@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, MapPin } from 'lucide-react';
-import { FlowerMark, WashiTape } from '../components/CustomDoodles';
 import { portfolioData } from '../data/portfolioData';
 
 export const AboutPage: React.FC = () => {
@@ -11,33 +10,28 @@ export const AboutPage: React.FC = () => {
   return (
     <div className="min-h-screen py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Breadcrumb */}
-        <div className="flex items-center justify-between font-mono-code text-xs text-[#A38D89] pb-4 border-b border-[#A38D89]/20 mb-12">
+        {/* Folio rule */}
+        <div className="flex items-center justify-between eyebrow text-[#A38D89] pb-4 rule-b mb-14">
           <div className="flex items-center gap-2">
             <Link to="/" className="hover:text-[#F8E5D7]">HOME</Link>
             <span>/</span>
             <span className="text-[#F8E5D7] font-semibold">ABOUT ME</span>
           </div>
-          <span>FOLIO ETHOS & BACKGROUND</span>
+          <span>FOLIO ETHOS &amp; BACKGROUND</span>
         </div>
 
-        {/* Profile */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#3E2723] paper-shadow-sm">
-              <FlowerMark size={14} />
-              <span>ABOUT ME</span>
-            </div>
+        {/* Profile spread */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-start mb-24">
+          <div className="lg:col-span-7 space-y-8">
+            <p className="eyebrow text-[#D69589] border-l-2 border-[#D69589] pl-4">ABOUT ME</p>
 
-            <h1 className="font-serif-display text-4xl sm:text-5xl text-[#F8E5D7] leading-[1.1] tracking-tight">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#F8E5D7] leading-[1.05] tracking-tight">
               {student.degree}
             </h1>
 
-            <div className="font-mono-code text-xs sm:text-sm text-[#A38D89] flex flex-wrap items-center gap-3">
-              <span className="bg-[#F4C9D6] text-[#3E2723] px-2.5 py-0.5 rounded border border-[#A38D89] font-bold">
-                {student.institution} | {student.year}
-              </span>
-              <span>•</span>
+            <div className="flex flex-wrap items-center gap-3 eyebrow text-[#A38D89]">
+              <span className="text-[#F8E5D7] font-bold">{student.institution} | {student.year}</span>
+              <span className="text-[#D69589]">•</span>
               <span className="flex items-center gap-1">
                 <MapPin className="w-3.5 h-3.5" />
                 {student.location}
@@ -48,7 +42,7 @@ export const AboutPage: React.FC = () => {
               {student.statement}
             </p>
 
-            <div className="space-y-4 font-body text-base text-[#F8E5D7]/85 leading-relaxed pt-2">
+            <div className="space-y-4 font-body text-base text-[#F8E5D7]/85 leading-loose pt-2">
               <p>
                 {student.secondaryStatement}
               </p>
@@ -57,79 +51,75 @@ export const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <div className="font-mono-code text-xs font-bold text-[#D69589] mb-2">
-                  ✦ {student.interests.heading}
-                </div>
-                <p className="font-body text-xs text-[#F8E5D7]/70 leading-relaxed mb-3">
+            {/* Interests & Exploring */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 pt-8">
+              <div className="rule-t pt-5">
+                <p className="eyebrow text-[#D69589] mb-3">{student.interests.heading}</p>
+                <p className="font-body text-xs text-[#F8E5D7]/70 leading-relaxed mb-5">
                   {student.interests.blurb}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div>
                   {student.interests.chips.map((spec, i) => (
-                    <span key={i} className="font-mono-code text-xs px-3 py-1 bg-[#F8E5D7] border border-[#A38D89]/30 rounded-lg text-[#3E2723] font-bold">
-                      {spec}
-                    </span>
+                    <div key={i} className="rule-t flex items-baseline gap-3 py-2">
+                      <span className="font-mono-code text-[10px] text-[#D69589]">0{i + 1}</span>
+                      <span className="font-mono-code text-xs text-[#F8E5D7] uppercase tracking-wider">{spec}</span>
+                    </div>
                   ))}
+                  <div className="rule-b" />
                 </div>
               </div>
 
-              <div>
-                <div className="font-mono-code text-xs font-bold text-[#D69589] mb-2">
-                  ◌ {student.exploring.heading}
-                </div>
-                <p className="font-body text-xs text-[#F8E5D7]/70 leading-relaxed mb-3">
+              <div className="rule-t pt-5">
+                <p className="eyebrow text-[#D69589] mb-3">{student.exploring.heading}</p>
+                <p className="font-body text-xs text-[#F8E5D7]/70 leading-relaxed mb-5">
                   {student.exploring.blurb}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div>
                   {student.exploring.chips.map((spec, i) => (
-                    <span key={i} className="font-mono-code text-xs px-3 py-1 bg-[#F8E5D7] border border-[#A38D89]/30 rounded-lg text-[#3E2723] font-bold">
-                      {spec}
-                    </span>
+                    <div key={i} className="rule-t flex items-baseline gap-3 py-2">
+                      <span className="font-mono-code text-[10px] text-[#D69589]">0{i + 1}</span>
+                      <span className="font-mono-code text-xs text-[#F8E5D7] uppercase tracking-wider">{spec}</span>
+                    </div>
                   ))}
+                  <div className="rule-b" />
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-5">
-            <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 paper-shadow-lg relative">
-              <div className="absolute -top-3 left-10">
-                <WashiTape color="#F4C9D6" width="w-24" />
-              </div>
-
-              <div className="font-mono-code text-xs font-bold text-[#A38D89] mb-4">
-                ♡ {student.approach.heading}
-              </div>
+          {/* Approach plate */}
+          <div className="lg:col-span-5 lg:col-start-8">
+            <div className="plate p-8 lg:p-10 lg:mt-16">
+              <p className="eyebrow text-[#D69589] mb-4">{student.approach.heading}</p>
               <p className="font-body text-sm text-[#F8E5D7]/85 leading-relaxed">
                 {student.approach.text}
               </p>
 
-              <div className="mt-8 pt-6 border-t border-[#A38D89]/20">
+              <div className="rule-t mt-10 pt-8">
                 <p className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7] italic leading-snug whitespace-pre-line">
                   "{student.handwritten}"
                 </p>
-                <div className="font-mono-code text-[10px] uppercase tracking-widest text-[#A38D89] mt-3">
-                  Handwritten-style statement
-                </div>
+                <p className="plate-caption mt-3">Handwritten-style statement</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Navigation */}
-        <div className="flex flex-col sm:flex-row items-center justify-between p-8 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl gap-4">
+        {/* Next in portfolio */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 rule-t pt-10 items-end">
           <div>
-            <div className="font-mono-code text-xs uppercase text-[#A38D89]">NEXT IN PORTFOLIO</div>
-            <div className="font-serif-display text-2xl text-[#F8E5D7]">Explore Aadiya Jewels Internship</div>
+            <p className="eyebrow text-[#A38D89] mb-3">NEXT IN PORTFOLIO</p>
+            <p className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]">Explore Aadiya Jewels Internship</p>
           </div>
-          <Link
-            to="/internship/experience"
-            className="flex items-center gap-2 px-6 py-3 bg-[#D69589] text-[#3E2723] rounded-xl font-mono-code text-xs uppercase tracking-wider font-bold hover:bg-[#3E2723] hover:text-[#F8E5D7] transition-colors"
-          >
-            <span>View Internship</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="sm:text-right">
+            <Link
+              to="/internship/experience"
+              className="inline-flex items-center gap-3 eyebrow text-[#F8E5D7] editorial-link"
+            >
+              <span>View Internship</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

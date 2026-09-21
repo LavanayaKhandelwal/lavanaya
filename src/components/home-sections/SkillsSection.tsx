@@ -1,40 +1,34 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { FlowerMark, WashiTape } from '../CustomDoodles';
 import { portfolioData } from '../../data/portfolioData';
 
 export const SkillsSection: React.FC = () => {
   const { skills } = portfolioData;
 
   return (
-    <section id="skills" className="py-20 lg:py-28 border-b border-[#A38D89]/15">
+    <section id="skills" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-4 border-b border-[#A38D89]/20">
+        <div className="rule-b pb-6 mb-16 lg:mb-24 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#A38D89] mb-2">
-              <FlowerMark className="w-3.5 h-3.5 text-[#D69589]" />
-              <span>SKILLS</span>
-            </div>
-            <h2 className="relative z-10 font-serif-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#F8E5D7]">
+            <p className="eyebrow text-[#A38D89] mb-3">SKILLS</p>
+            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1] tracking-tight text-[#F8E5D7]">
               Skills &{' '}
-              <span className="relative inline-block whitespace-nowrap">
-                <span className="absolute inset-0 -inset-x-2 bottom-1 bg-[#F4C9D6] -rotate-1 rounded-sm -z-10 opacity-90 border-b-2 border-[#A38D89]/30" />
-                <span className="relative z-10 italic font-serif-display font-normal">
-                  Applied Disciplines
-                </span>
+              <span className="font-serif-display italic font-normal text-[#F4C9D6]">
+                Applied Disciplines
               </span>
             </h2>
           </motion.div>
+          <p className="eyebrow text-[#A38D89]">Sections 01 — 04</p>
         </div>
 
         {/* SKILL GROUPS */}
-        <div className="grid grid-cols-1 gap-8">
+        <div>
           {skills.categories.map((cat, idx) => (
             <motion.div
               key={idx}
@@ -42,37 +36,39 @@ export const SkillsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-6 sm:p-10 paper-shadow-lg relative"
+              className={`py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start ${idx !== 0 ? 'rule-t' : ''}`}
             >
-              <div className="absolute -top-3 right-8">
-                <WashiTape color={cat.color} width="w-24" />
+              {/* Meta column */}
+              <div className="lg:col-span-4 lg:pt-4">
+                <div className="flex items-baseline gap-8 mb-6">
+                  <span className="index-figure text-8xl text-[#A38D89]/30 leading-none">
+                    0{idx + 1}
+                  </span>
+                  <span className="eyebrow text-[#D69589]">{cat.tag}</span>
+                </div>
+
+                <h3 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] mb-5 leading-tight">
+                  {cat.name}
+                </h3>
+
+                <p className="font-body text-sm text-[#F8E5D7]/70 leading-relaxed">
+                  {cat.note}
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                <div className="lg:col-span-4">
-                  <div className="mb-4 pb-2 border-b border-[#A38D89]/20">
-                    <span className="bg-[#F4C9D6] px-2 py-0.5 rounded border border-[#A38D89]/40 font-mono-code text-xs font-bold text-[#3E2723]">{cat.tag}</span>
-                  </div>
-
-                  <h3 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] mb-4 leading-tight">
-                    {cat.name}
-                  </h3>
-
-                  <p className="font-body text-sm text-[#F8E5D7]/70 leading-relaxed">
-                    {cat.note}
-                  </p>
-                </div>
-
-                <div className="lg:col-span-8 flex flex-wrap gap-3">
-                  {cat.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="px-4 py-2.5 bg-[#F4C9D6] rounded-xl border border-[#A38D89]/40 font-mono-code text-xs sm:text-sm font-bold text-[#3E2723]"
-                    >
+              {/* Skills index */}
+              <div className="lg:col-span-8">
+                {cat.skills.map((skill, sIdx) => (
+                  <div key={sIdx} className="rule-t flex items-baseline gap-6 py-3.5 group">
+                    <span className="font-mono-code text-xs text-[#D69589] w-4 shrink-0">
+                      {String(sIdx + 1).padStart(2, '0')}
+                    </span>
+                    <span className="font-mono-code text-xs sm:text-sm text-[#F8E5D7] uppercase tracking-wider group-hover:text-[#F4C9D6] transition-colors">
                       {skill}
                     </span>
-                  ))}
-                </div>
+                  </div>
+                ))}
+                <div className="rule-b" />
               </div>
             </motion.div>
           ))}

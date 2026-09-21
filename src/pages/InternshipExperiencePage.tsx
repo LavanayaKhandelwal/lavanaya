@@ -1,357 +1,325 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Video, ShoppingBag, ArrowRight, Camera, Play, Image as ImageIcon } from 'lucide-react';
-import { FlowerMark, WashiTape } from '../components/CustomDoodles';
+import { Video, ShoppingBag, ArrowRight } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export const InternshipExperiencePage: React.FC = () => {
   const { internship } = portfolioData;
 
+  const workedOnBlocks = (items: { id: string; title: string; desc: string }[]) =>
+    items.map((item) => (
+      <div key={item.id} className="rule-t pt-5">
+        <span className="font-mono-code text-xs text-[#D69589] font-bold block mb-2">
+          {item.id}.
+        </span>
+        <h3 className="font-serif-display text-2xl text-[#F8E5D7] mb-2">
+          {item.title}
+        </h3>
+        <p className="font-body text-xs text-[#F8E5D7]/70 leading-relaxed">
+          {item.desc}
+        </p>
+      </div>
+    ));
+
+  const skillsList = (skills: string[]) =>
+    skills.map((skill, sIdx) => (
+      <span key={sIdx} className="plate-caption text-[#F8E5D7] inline-flex items-center gap-3">
+        <span className="text-[#D69589]">●</span>
+        {skill}
+      </span>
+    ));
+
   return (
     <div className="min-h-screen py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Company Header */}
-        <div className="max-w-4xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#3E2723] mb-4 paper-shadow-sm">
-            <FlowerMark size={14} />
-            <span>FINE JEWELLERY BRAND INTERNSHIP</span>
-          </div>
-
-          <h1 className="font-serif-display text-4xl sm:text-6xl text-[#F8E5D7] leading-[1.05] tracking-tight mb-2">
+        {/* Company header */}
+        <div className="max-w-4xl mb-20 lg:mb-28">
+          <p className="eyebrow text-[#D69589] border-l-2 border-[#D69589] pl-4 mb-4">
+            FINE JEWELLERY BRAND INTERNSHIP
+          </p>
+          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-[#F8E5D7] leading-[1] tracking-tight mb-4">
             {internship.company}
           </h1>
-
-          <div className="font-mono-code text-sm sm:text-base text-[#A38D89] font-bold mb-4">
-            {internship.role}
-          </div>
-
-          <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed max-w-3xl mb-8">
+          <p className="eyebrow text-[#A38D89] mb-6">{internship.role}</p>
+          <p className="font-body text-base text-[#F8E5D7]/85 leading-loose max-w-3xl">
             {internship.overview}
           </p>
         </div>
 
-        {/* SECTION 1: PAGE 1 — SOCIAL MEDIA */}
-        <section id="social-media" className="scroll-mt-24 mb-20">
-          <div className="flex items-center gap-3 mb-6 pb-4 border-b-2 border-[#A38D89]/20">
-            <Video className="w-5 h-5 text-[#D69589]" />
-            <h2 className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]">
-              01 — SOCIAL MEDIA
-            </h2>
+        {/* SECTION 1 — SOCIAL MEDIA */}
+        <section id="social-media" className="scroll-mt-24 mb-24 lg:mb-32">
+          <div className="rule-b pb-6 mb-14 flex items-baseline justify-between gap-6">
+            <div className="flex items-baseline gap-6">
+              <span className="index-figure text-7xl sm:text-8xl text-[#A38D89]/30 leading-none">
+                01
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl text-[#F8E5D7] tracking-tight">
+                SOCIAL MEDIA
+              </h2>
+            </div>
+            <Video className="w-6 h-6 text-[#D69589] hidden sm:block" />
           </div>
-          <div className="space-y-12">
-            <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-12 paper-shadow-lg relative">
-              <div className="absolute -top-3 right-12">
-                <WashiTape color="#F4C9D6" width="w-28" />
-              </div>
 
-              <div className="max-w-3xl mb-8">
-                <h2 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] mb-4">
-                  From concept to content
-                </h2>
-                <div className="p-4 bg-[#705955] rounded-2xl border border-[#A38D89]/40 font-body text-sm sm:text-base text-[#F8E5D7]/85 leading-relaxed">
-                  {internship.page1SocialMedia.intro}
+          <div className="space-y-16">
+            {/* Intro */}
+            <div className="max-w-3xl">
+              <h2 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] mb-6">
+                From concept to content
+              </h2>
+              <div className="rule-l border-[#D69589] pl-6 font-body text-sm sm:text-base text-[#F8E5D7]/85 leading-loose">
+                {internship.page1SocialMedia.intro}
+              </div>
+            </div>
+
+            {/* Content types strip */}
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+              {internship.contentTypes.map((ct, cIdx) => (
+                <span key={cIdx} className="plate-caption text-[#F8E5D7] inline-flex items-center gap-3">
+                  <span className="text-[#D69589]">●</span>
+                  {ct}
+                </span>
+              ))}
+            </div>
+
+            <p className="eyebrow text-[#D69589]">VIDEOS &amp; REEL PRODUCTION INCLUDED</p>
+
+            {/* Media showcase */}
+            <div>
+              <p className="eyebrow text-[#A38D89] mb-6 pb-2 rule-b inline-flex items-center gap-2">
+                Video Content Production &amp; Reels
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                {/* Reel 1 */}
+                <div className="md:col-span-5">
+                  <div className="plate aspect-[3/4] overflow-hidden">
+                    <img
+                      src="/portfolio-assets/f54639f8-2182-461e-bc6b-63ce3787f763.jpg"
+                      alt="Video placeholder"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="plate-caption text-[#F8E5D7] mt-3 mb-1">
+                    Jewellery Reel 01 — Aesthetic &amp; Product Styling
+                  </p>
+                  <p className="font-body text-xs text-[#F8E5D7]/70">
+                    Shot on set, edited, color graded and published for Aadiya Jewels social handle.
+                  </p>
                 </div>
-              </div>
 
-              {/* Content Types Strip */}
-              <div className="mb-8">
-                <div className="flex flex-wrap gap-2">
-                  {internship.contentTypes.map((ct, cIdx) => (
-                    <span
-                      key={cIdx}
-                      className="px-3.5 py-1.5 bg-[#F4C9D6] border border-[#A38D89]/40 rounded-xl font-mono-code text-xs font-bold text-[#3E2723]"
-                    >
-                      {ct}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Videos Callout Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#3E2723] border border-[#A38D89]/20 rounded-full text-xs font-mono-code font-bold text-[#F8E5D7] mb-8">
-                <Camera className="w-3.5 h-3.5" />
-                <span>VIDEOS & REEL PRODUCTION INCLUDED</span>
-              </div>
-
-              {/* REAL VIDEO MEDIA SHOWCASE */}
-              <div className="mb-12">
-                <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A38D89] mb-4 pb-2 border-b border-[#A38D89]/20 flex items-center gap-2">
-                  <Play className="w-3.5 h-3.5 text-[#D69589]" />
-                  <span>Video Content Production & Reels</span>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                  {/* Video Reel 1 */}
-                  <div className="md:col-span-5 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl p-4 paper-shadow">
-                    <div className="aspect-[9/16] bg-[#3E2723] rounded-xl overflow-hidden relative shadow-inner mb-3 max-h-[520px] mx-auto">
+                {/* Reel 2 + stills */}
+                <div className="md:col-span-7 space-y-8">
+                  <div>
+                    <div className="plate aspect-video overflow-hidden">
                       <img
-                        src="/portfolio-assets/f54639f8-2182-461e-bc6b-63ce3787f763.jpg"
+                        src="/portfolio-assets/B7E707CC-CED2-43AE-A2AD-C2B28D50CD10.jpg"
                         alt="Video placeholder"
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="font-mono-code text-xs text-[#F8E5D7] font-bold">
-                      Jewellery Reel 01 — Aesthetic & Product Styling
-                    </div>
-                    <p className="font-body text-xs text-[#F8E5D7]/70 mt-1">
-                      Shot on set, edited, color graded and published for Aadiya Jewels social handle.
+                    <p className="plate-caption text-[#F8E5D7] mt-3 mb-1">
+                      Studio Campaign &amp; Jewellery Showcase
+                    </p>
+                    <p className="font-body text-xs text-[#F8E5D7]/70">
+                      Highlighting brilliance, luxury finishes, and craftsmanship through video capture.
                     </p>
                   </div>
 
-                  {/* Video Reel 2 */}
-                  <div className="md:col-span-7 space-y-6">
-                    <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl p-4 paper-shadow">
-                      <div className="aspect-video bg-[#3E2723] rounded-xl overflow-hidden relative shadow-inner mb-3">
-                        <img
-                          src="/portfolio-assets/B7E707CC-CED2-43AE-A2AD-C2B28D50CD10.jpg"
-                          alt="Video placeholder"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="font-mono-code text-xs text-[#F8E5D7] font-bold">
-                        Studio Campaign & Jewellery Showcase
-                      </div>
-                      <p className="font-body text-xs text-[#F8E5D7]/70 mt-1">
-                        Highlighting brilliance, luxury finishes, and craftsmanship through video capture.
-                      </p>
-                    </div>
-
-                    {/* On-set Photography Stills */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-[#3E2723] border border-[#A38D89]/25 rounded-2xl p-2 paper-shadow-sm">
+                  <div className="grid grid-cols-2 gap-8">
+                    <div>
+                      <div className="plate aspect-[4/5] overflow-hidden">
                         <img
                           src="/portfolio-assets/WhatsApp Image 2026-09-13 at 19.42.18.jpeg"
                           alt="Jewellery on-set photography"
-                          className="w-full h-44 object-cover rounded-xl border border-[#A38D89]/10"
+                          className="w-full h-full object-cover"
                         />
-                        <span className="font-mono-code text-[11px] text-[#F8E5D7]/70 block mt-2 px-1">
-                          Macro Jewellery Styling
-                        </span>
                       </div>
-                      <div className="bg-[#3E2723] border border-[#A38D89]/25 rounded-2xl p-2 paper-shadow-sm">
+                      <p className="plate-caption text-[#F8E5D7] mt-2">Macro Jewellery Styling</p>
+                    </div>
+                    <div className="md:mt-10 lg:mt-16">
+                      <div className="plate aspect-[4/5] overflow-hidden">
                         <img
                           src="/portfolio-assets/WhatsApp Image 2026-09-13 at 19.42.18 (1).jpeg"
                           alt="Product photography framing"
-                          className="w-full h-44 object-cover rounded-xl border border-[#A38D89]/10"
+                          className="w-full h-full object-cover"
                         />
-                        <span className="font-mono-code text-[11px] text-[#F8E5D7]/70 block mt-2 px-1">
-                          Product Photography Framing
-                        </span>
                       </div>
+                      <p className="plate-caption text-[#F8E5D7] mt-2">Product Photography Framing</p>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* What I Worked On Grid */}
-              <div className="mb-10">
-                <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A38D89] mb-4 pb-2 border-b border-[#A38D89]/20">
-                  What I Worked On
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {internship.page1SocialMedia.whatIWorkedOn.map((item) => (
-                    <div key={item.id} className="p-5 bg-[#705955] border border-[#A38D89]/20 rounded-2xl flex flex-col justify-between">
-                      <div>
-                        <span className="font-mono-code text-xs text-[#A38D89] font-bold block mb-1">
-                          {item.id}.
-                        </span>
-                        <h3 className="font-serif-display text-xl text-[#F8E5D7] mb-2">
-                          {item.title}
-                        </h3>
-                      </div>
-                      <p className="font-body text-xs text-[#F8E5D7]/70 leading-relaxed mt-2">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+            {/* What I Worked On */}
+            <div>
+              <p className="eyebrow text-[#A38D89] mb-8 pb-2 rule-b inline-block">What I Worked On</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
+                {workedOnBlocks(internship.page1SocialMedia.whatIWorkedOn)}
               </div>
+            </div>
 
-              {/* Skills Applied */}
-              <div>
-                <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A38D89] mb-3">
-                  Skills Applied
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {internship.page1SocialMedia.skillsApplied.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="px-3.5 py-1.5 bg-[#F4C9D6] border border-[#A38D89]/30 rounded-xl font-mono-code text-xs text-[#3E2723] flex items-center gap-1.5"
-                    >
-                      <span className="text-[#D69589] font-bold">•</span>
-                      <span>{skill}</span>
-                    </span>
-                  ))}
-                </div>
+            {/* Skills Applied */}
+            <div>
+              <p className="eyebrow text-[#A38D89] mb-5 pb-2 rule-b inline-block">Skills Applied</p>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                {skillsList(internship.page1SocialMedia.skillsApplied)}
               </div>
             </div>
           </div>
         </section>
 
-        {/* SECTION 2: PAGE 2 — E-COMMERCE */}
-        <section id="ecommerce" className="scroll-mt-24 mb-20">
-          <div className="flex items-center gap-3 mb-6 pb-4 border-b-2 border-[#A38D89]/20">
-            <ShoppingBag className="w-5 h-5 text-[#D69589]" />
-            <h2 className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]">
-              02 — E-COMMERCE
-            </h2>
+        {/* SECTION 2 — E-COMMERCE */}
+        <section id="ecommerce" className="scroll-mt-24 mb-24 lg:mb-32">
+          <div className="rule-b pb-6 mb-14 flex items-baseline justify-between gap-6">
+            <div className="flex items-baseline gap-6">
+              <span className="index-figure text-7xl sm:text-8xl text-[#A38D89]/30 leading-none">
+                02
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl text-[#F8E5D7] tracking-tight">
+                E-COMMERCE
+              </h2>
+            </div>
+            <ShoppingBag className="w-6 h-6 text-[#D69589] hidden sm:block" />
           </div>
-          <div className="space-y-12">
-            <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-12 paper-shadow-lg relative">
-              <div className="absolute -top-3 right-12">
-                <WashiTape color="#F4C9D6" width="w-28" />
-              </div>
 
-              <div className="max-w-3xl mb-8">
-                <h2 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] mb-4">
-                  From product to online store
-                </h2>
-                <div className="p-4 bg-[#705955] rounded-2xl border border-[#A38D89]/40 font-body text-sm sm:text-base text-[#F8E5D7]/85 leading-relaxed">
-                  {internship.page2Ecommerce.intro}
+          <div className="space-y-16">
+            {/* Intro */}
+            <div className="max-w-3xl">
+              <h2 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] mb-6">
+                From product to online store
+              </h2>
+              <div className="rule-l border-[#D69589] pl-6 font-body text-sm sm:text-base text-[#F8E5D7]/85 leading-loose">
+                {internship.page2Ecommerce.intro}
+              </div>
+            </div>
+
+            {/* Banners */}
+            <div className="space-y-10">
+              <p className="eyebrow text-[#A38D89] mb-2">
+                Website Banners &amp; Storefront Visuals Designed for Aadiya Jewels
+              </p>
+
+              <div>
+                <div className="plate p-2">
+                  <img
+                    src="/portfolio-assets/Screenshot 2026-09-13 at 6.31.18 PM.png"
+                    alt="Aadiya Jewels Desktop Website Hero Banner"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-3 plate-caption">
+                  <span className="text-[#F8E5D7]">E-Commerce Desktop Hero Banner</span>
+                  <span>Designed for seasonal homepage campaign</span>
                 </div>
               </div>
 
-              {/* WEBSITE BANNERS MEDIA SHOWCASE */}
-              <div className="mb-12 space-y-6">
-                <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A38D89] pb-2 border-b border-[#A38D89]/20 flex items-center gap-2">
-                  <ImageIcon className="w-3.5 h-3.5 text-[#D69589]" />
-                  <span>Website Banners & Storefront Visuals Designed for Aadiya Jewels</span>
-                </div>
-
-                <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl p-4 sm:p-6 paper-shadow">
-                  <div className="rounded-xl overflow-hidden border border-[#A38D89]/20 mb-3 bg-[#3E2723]">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div>
+                  <div className="plate p-2">
                     <img
-                      src="/portfolio-assets/Screenshot 2026-09-13 at 6.31.18 PM.png"
-                      alt="Aadiya Jewels Desktop Website Hero Banner"
+                      src="/portfolio-assets/Screenshot 2026-09-13 at 6.34.14 PM.png"
+                      alt="Collection promotional banner"
                       className="w-full h-auto object-cover"
                     />
                   </div>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between font-mono-code text-xs text-[#F8E5D7] pt-1">
-                    <span className="font-bold">E-Commerce Desktop Hero Banner</span>
-                    <span className="text-[#A38D89]">Designed for seasonal homepage campaign</span>
-                  </div>
+                  <p className="plate-caption text-[#F8E5D7] mt-3">
+                    Jewellery Collection Category Banner
+                  </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl p-4 paper-shadow">
-                    <div className="rounded-xl overflow-hidden border border-[#A38D89]/20 mb-3 bg-[#3E2723]">
-                      <img
-                        src="/portfolio-assets/Screenshot 2026-09-13 at 6.34.14 PM.png"
-                        alt="Collection promotional banner"
-                        className="w-full h-auto object-cover"
-                      />
-                    </div>
-                    <div className="font-mono-code text-xs font-bold text-[#F8E5D7]">
-                      Jewellery Collection Category Banner
-                    </div>
+                <div className="md:mt-16">
+                  <div className="plate p-2">
+                    <img
+                      src="/portfolio-assets/Screenshot 2026-09-13 at 6.31.58 PM.png"
+                      alt="Shopify product listing layout"
+                      className="w-full h-auto object-cover"
+                    />
                   </div>
-
-                  <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl p-4 paper-shadow">
-                    <div className="rounded-xl overflow-hidden border border-[#A38D89]/20 mb-3 bg-[#3E2723]">
-                      <img
-                        src="/portfolio-assets/Screenshot 2026-09-13 at 6.31.58 PM.png"
-                        alt="Shopify product listing layout"
-                        className="w-full h-auto object-cover"
-                      />
-                    </div>
-                    <div className="font-mono-code text-xs font-bold text-[#F8E5D7]">
-                      Shopify Product Listing & Catalogue Management
-                    </div>
-                  </div>
+                  <p className="plate-caption text-[#F8E5D7] mt-3">
+                    Shopify Product Listing &amp; Catalogue Management
+                  </p>
                 </div>
               </div>
+            </div>
 
-              {/* What I Worked On */}
-              <div className="mb-10">
-                <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A38D89] mb-4 pb-2 border-b border-[#A38D89]/20">
-                  What I Worked On
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {internship.page2Ecommerce.whatIWorkedOn.map((item) => (
-                    <div key={item.id} className="p-5 bg-[#705955] border border-[#A38D89]/20 rounded-2xl flex flex-col justify-between">
-                      <div>
-                        <span className="font-mono-code text-xs text-[#A38D89] font-bold block mb-1">
-                          {item.id}.
-                        </span>
-                        <h3 className="font-serif-display text-xl text-[#F8E5D7] mb-2">
-                          {item.title}
-                        </h3>
-                      </div>
-                      <p className="font-body text-xs text-[#F8E5D7]/70 leading-relaxed mt-2">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+            {/* What I Worked On */}
+            <div>
+              <p className="eyebrow text-[#A38D89] mb-8 pb-2 rule-b inline-block">What I Worked On</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
+                {workedOnBlocks(internship.page2Ecommerce.whatIWorkedOn)}
               </div>
+            </div>
 
-              {/* Skills Applied */}
-              <div>
-                <div className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#A38D89] mb-3">
-                  Skills Applied
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {internship.page2Ecommerce.skillsApplied.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="px-3.5 py-1.5 bg-[#F4C9D6] border border-[#A38D89]/30 rounded-xl font-mono-code text-xs text-[#3E2723] flex items-center gap-1.5"
-                    >
-                      <span className="text-[#D69589] font-bold">•</span>
-                      <span>{skill}</span>
-                    </span>
-                  ))}
-                </div>
+            {/* Skills Applied */}
+            <div>
+              <p className="eyebrow text-[#A38D89] mb-5 pb-2 rule-b inline-block">Skills Applied</p>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                {skillsList(internship.page2Ecommerce.skillsApplied)}
               </div>
             </div>
           </div>
         </section>
 
-        {/* SECTION 3: LEARNINGS OF INTERNSHIP */}
-        <section id="internship-learnings" className="scroll-mt-24 mb-16">
-          <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-12 paper-shadow-lg">
-            <div className="max-w-2xl mb-8">
-              <span className="font-mono-code text-xs font-bold text-[#A38D89] uppercase tracking-widest block mb-2">
-                03 — KEY LEARNINGS
-              </span>
-              <h2 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7]">
+        {/* SECTION 3 — KEY LEARNINGS */}
+        <section id="internship-learnings" className="scroll-mt-24 mb-20">
+          <div className="rule-b pb-6 mb-14 flex items-baseline gap-6">
+            <span className="index-figure text-7xl sm:text-8xl text-[#A38D89]/30 leading-none">
+              03
+            </span>
+            <div>
+              <p className="eyebrow text-[#D69589] mb-1">03 — KEY LEARNINGS</p>
+              <h2 className="font-display text-3xl sm:text-4xl text-[#F8E5D7] tracking-tight">
                 Key Learnings
               </h2>
             </div>
+          </div>
 
-            <div className="space-y-4">
-              {internship.learningOutcomes.map((l, idx) => (
-                <div key={l.number} className="flex items-start gap-4 p-5 bg-[#705955] border border-[#A38D89]/25 rounded-2xl">
-                  <span className="font-mono-code text-sm font-bold text-[#3E2723] bg-[#D69589] border border-[#A38D89]/40 rounded-full w-8 h-8 flex items-center justify-center shrink-0">
-                    {idx + 1}
-                  </span>
-                  <div>
-                    <div className="font-mono-code text-xs sm:text-sm font-bold text-[#F8E5D7] uppercase mb-1">
-                      {l.title}
-                    </div>
-                    <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed">
-                      {l.desc}
-                    </p>
-                  </div>
+          <div>
+            {internship.learningOutcomes.map((l, idx) => (
+              <motion.div
+                key={l.number}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className={`grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-8 items-baseline ${idx !== 0 ? 'rule-t' : ''}`}
+              >
+                <div className="md:col-span-2">
+                  <span className="index-figure text-5xl text-[#D69589]">{l.number}</span>
                 </div>
-              ))}
-            </div>
+                <div className="md:col-span-3">
+                  <span className="font-mono-code text-xs sm:text-sm font-bold text-[#F8E5D7] uppercase tracking-wider">
+                    {l.title}
+                  </span>
+                </div>
+                <div className="md:col-span-7">
+                  <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed">
+                    {l.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+            <div className="rule-b" />
           </div>
         </section>
 
-        {/* Bottom Navigation */}
-        <div className="flex flex-col sm:flex-row items-center justify-between p-8 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl gap-4">
+        {/* Next project */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 rule-t pt-10 items-end">
           <div>
-            <div className="font-mono-code text-xs uppercase text-[#A38D89]">NEXT PROJECT</div>
-            <div className="font-serif-display text-2xl text-[#F8E5D7]">Project 1 — Marketing (UNIQLO)</div>
+            <p className="eyebrow text-[#A38D89] mb-3">NEXT PROJECT</p>
+            <p className="font-serif-display text-2xl sm:text-3xl text-[#F8E5D7]">Project 1 — Marketing (UNIQLO)</p>
           </div>
-          <Link
-            to="/projects/marketing"
-            className="flex items-center gap-2 px-6 py-3 bg-[#D69589] text-[#3E2723] rounded-xl font-mono-code text-xs uppercase tracking-wider font-bold hover:bg-[#3E2723] hover:text-[#F8E5D7] transition-colors"
-          >
-            <span>View UNIQLO Fragrance Case Study</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="sm:text-right">
+            <Link
+              to="/projects/marketing"
+              className="inline-flex items-center gap-3 eyebrow text-[#F8E5D7] editorial-link"
+            >
+              <span>View UNIQLO Fragrance Case Study</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

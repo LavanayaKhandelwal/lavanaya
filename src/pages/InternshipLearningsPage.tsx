@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, ArrowLeft, CheckCircle2, Lightbulb, Compass, BookOpen } from 'lucide-react';
-import { FlowerMark, WashiTape } from '../components/CustomDoodles';
+import { ArrowRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export const InternshipLearningsPage: React.FC = () => {
@@ -11,8 +10,8 @@ export const InternshipLearningsPage: React.FC = () => {
   return (
     <div className="min-h-screen py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Breadcrumb */}
-        <div className="flex items-center justify-between font-mono-code text-xs text-[#F8E5D7]/50 pb-4 border-b border-[#A38D89]/10 mb-12">
+        {/* Folio rule */}
+        <div className="flex items-center justify-between eyebrow text-[#A38D89] pb-4 rule-b mb-14">
           <div className="flex items-center gap-2">
             <Link to="/" className="hover:text-[#F8E5D7]">HOME</Link>
             <span>/</span>
@@ -23,82 +22,76 @@ export const InternshipLearningsPage: React.FC = () => {
           <span>AADIYA JEWELS // 4 LEARNING OUTCOMES</span>
         </div>
 
-        {/* Hero Title */}
-        <div className="max-w-4xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#3E2723] mb-4 paper-shadow-sm">
-            <FlowerMark size={14} />
-            <span>INTERNSHIP SYNTHESIS</span>
-          </div>
-
-          <h1 className="font-serif-display text-4xl sm:text-6xl text-[#F8E5D7] leading-[1.05] tracking-tight mb-4">
+        {/* Intro */}
+        <div className="max-w-4xl mb-20">
+          <p className="eyebrow text-[#D69589] border-l-2 border-[#D69589] pl-4 mb-4">
+            INTERNSHIP SYNTHESIS
+          </p>
+          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-[#F8E5D7] leading-[1] tracking-tight mb-6">
             Key Learnings
           </h1>
-
-          <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed max-w-3xl mb-8">
+          <p className="font-body text-base text-[#F8E5D7]/85 leading-loose max-w-3xl mb-10">
             Create, plan, present and execute — the four working principles I carried out of my digital content and e-commerce internship at Aadiya Jewels.
           </p>
-
-          <div className="flex items-center gap-3 font-mono-code text-xs">
-            <Link
-              to="/internship/experience"
-              className="bg-[#F8E5D7] hover:bg-[#F8E5D7] text-[#3E2723] px-4 py-2 rounded-xl border border-[#A38D89]/30 hover:border-[#A38D89] transition-colors"
-            >
-              ← Back to Page 1 & Page 2 Overview
-            </Link>
-          </div>
+          <Link
+            to="/internship/experience"
+            className="inline-flex items-center gap-2 eyebrow text-[#F8E5D7] editorial-link"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>← Back to Page 1 &amp; Page 2 Overview</span>
+          </Link>
         </div>
 
-        {/* 4 LEARNING OUTCOMES CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        {/* 4 LEARNING OUTCOMES */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 mb-24">
           {internship.learningOutcomes.map((lo, idx) => (
-            <div
+            <motion.div
               key={lo.number}
-              className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 paper-shadow-lg relative flex flex-col justify-between"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: (idx % 2) * 0.06 }}
+              className={`rule-t pt-10`}
             >
-              <div className="absolute -top-3 right-8">
-                <WashiTape color={idx % 2 === 0 ? "#F4C9D6" : "#F4C9D6"} width="w-20" />
+              <div className="flex items-baseline justify-between mb-6">
+                <span className="index-figure text-6xl text-[#A38D89]/35">{lo.number}</span>
+                <span className="plate-caption">AADIYA JEWELS</span>
               </div>
 
-              <div>
-                <div className="flex items-center justify-between font-mono-code text-xs text-[#A38D89] mb-4 pb-2 border-b border-[#A38D89]/15">
-                  <span className="font-bold text-[#F8E5D7]">OUTCOME {lo.number}</span>
-                  <span>AADIYA JEWELS</span>
-                </div>
+              <h2 className="font-serif-display text-3xl sm:text-4xl text-[#F8E5D7] mb-4">
+                {lo.title}
+              </h2>
 
-                <h2 className="font-serif-display text-3xl text-[#F8E5D7] mb-4">
-                  {lo.title}
-                </h2>
+              <p className="font-body text-base text-[#F8E5D7]/85 leading-loose">
+                {lo.desc}
+              </p>
 
-                <p className="font-body text-base text-[#F8E5D7]/85 leading-relaxed">
-                  {lo.desc}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-[#A38D89]/10 font-mono-code text-xs text-[#A38D89] flex items-center gap-2">
+              <div className="rule-t mt-8 pt-4 font-mono-code text-xs text-[#A38D89] flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#D69589]" />
-                <span>Verified in production & store management</span>
+                <span>Verified in production &amp; store management</span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Bottom Pagination */}
-        <div className="flex flex-col sm:flex-row items-center justify-between p-8 bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-2xl gap-4">
+        {/* Bottom pagination */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 rule-t pt-10 items-end">
           <Link
             to="/internship/experience"
-            className="font-mono-code text-xs uppercase text-[#F8E5D7]/60 hover:text-[#F8E5D7] flex items-center gap-1.5"
+            className="inline-flex items-center gap-2 eyebrow text-[#F8E5D7] editorial-link"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to Internship Experience</span>
           </Link>
-
-          <Link
-            to="/projects/marketing"
-            className="flex items-center gap-2 px-6 py-3 bg-[#D69589] text-[#3E2723] rounded-xl font-mono-code text-xs uppercase tracking-wider hover:bg-[#3E2723] hover:text-[#F8E5D7] transition-colors"
-          >
-            <span>Proceed to Project 1 (Marketing Management)</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="sm:text-right">
+            <Link
+              to="/projects/marketing"
+              className="inline-flex items-center gap-3 eyebrow text-[#F8E5D7] editorial-link"
+            >
+              <span>Proceed to Project 1 (Marketing Management)</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

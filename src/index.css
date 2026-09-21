@@ -11,7 +11,7 @@
     --accent: #D69589;
     --accent-hover: #F4C9D6;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
@@ -20,6 +20,8 @@
     color: #F8E5D7;
   }
 }
+
+/* ————— Typefaces ————— */
 
 .font-serif-display {
   font-family: 'Instrument Serif', Georgia, serif;
@@ -33,57 +35,79 @@
   font-family: 'Space Mono', monospace;
 }
 
-.font-hand {
-  font-family: 'Caveat', cursive;
-}
-
 .font-body {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Graph paper texture - subtle on dark */
-.bg-graph-paper {
+/* ————— Editorial micro-labels ————— */
+
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.plate-caption {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.675rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #A38D89;
+}
+
+/* Oversized serif index figure */
+.index-figure {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+/* ————— Editorial rules ————— */
+
+.rule-t {
+  border-top: 1px solid rgba(163, 141, 137, 0.25);
+}
+
+.rule-b {
+  border-bottom: 1px solid rgba(163, 141, 137, 0.25);
+}
+
+.rule-l {
+  border-left: 1px solid rgba(163, 141, 137, 0.25);
+}
+
+.rule-r {
+  border-right: 1px solid rgba(163, 141, 137, 0.25);
+}
+
+/* Editorial image plate */
+.plate {
   background-color: #3E2723;
-  background-size: 26px 26px;
-  background-image: 
-    linear-gradient(to right, rgba(248, 229, 215, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(248, 229, 215, 0.04) 1px, transparent 1px);
+  border: 1px solid rgba(163, 141, 137, 0.3);
 }
 
-.bg-dot-paper {
-  background-color: #3E2723;
-  background-size: 20px 20px;
-  background-image: radial-gradient(rgba(248, 229, 215, 0.06) 1px, transparent 1px);
+/* Quiet serif link underline used across editorial CTA text */
+.editorial-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  text-decoration-color: rgba(163, 141, 137, 0.5);
+  transition: text-decoration-color 0.2s ease;
 }
 
-/* Offset paper shadows - subtle on dark */
-.paper-shadow-sm {
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+.editorial-link:hover {
+  text-decoration-color: #F4C9D6;
 }
 
-.paper-shadow {
-  box-shadow: 3.5px 3.5px 0px rgba(0, 0, 0, 0.3);
+/* ————— Selection & scrollbar ————— */
+
+::selection {
+  background: #F4C9D6;
+  color: #3E2723;
 }
 
-.paper-shadow-lg {
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
-}
-
-.paper-shadow-hover {
-  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.paper-shadow-hover:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.4);
-}
-
-.paper-shadow-hover:active {
-  transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
-}
-
-/* Custom scrollbar - dark theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -98,10 +122,4 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #D69589;
-}
-
-/* Selection */
-::selection {
-  background: #F4C9D6;
-  color: #3E2723;
 }
