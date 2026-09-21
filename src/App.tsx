@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { WaitlistModal } from './components/WaitlistModal';
 import { ScrollToTop } from './components/ScrollToTop';
@@ -18,12 +17,6 @@ import { ambientSound } from './utils/ambientAudio';
 
 export default function App() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
-  const [isAmbientActive, setIsAmbientActive] = useState(false);
-
-  const handleToggleAmbient = () => {
-    const active = ambientSound.toggle();
-    setIsAmbientActive(active);
-  };
 
   useEffect(() => {
     return () => {
@@ -35,13 +28,6 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <div className="min-h-screen bg-[#F4C9D6] text-[#3E2723] flex flex-col selection:bg-[#D69589] selection:text-[#3E2723]">
-        {/* Editorial Header */}
-        <Header
-          onOpenWaitlist={() => setWaitlistOpen(true)}
-          ambientSound={isAmbientActive}
-          onToggleAmbient={handleToggleAmbient}
-        />
-
         {/* Multi-Page Route Outlet */}
         <main className="flex-1">
           <Routes>
