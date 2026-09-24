@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Footer } from './components/Footer';
 import { WaitlistModal } from './components/WaitlistModal';
 import { ScrollToTop } from './components/ScrollToTop';
+import { FashionPortfolioPage } from './pages/FashionPortfolioPage';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { InternshipExperiencePage } from './pages/InternshipExperiencePage';
@@ -13,7 +14,6 @@ import { ProjectVisualMerchandisingPage } from './pages/ProjectVisualMerchandisi
 import { ProjectThreePage } from './pages/ProjectThreePage';
 import { SkillsPage } from './pages/SkillsPage';
 import { ContactPage } from './pages/ContactPage';
-import { FashionPortfolioPage } from './pages/FashionPortfolioPage';
 import { ambientSound } from './utils/ambientAudio';
 
 export default function App() {
@@ -47,8 +47,8 @@ function AppShell({
   onCloseInquiry: () => void;
 }) {
   const { pathname } = useLocation();
-  // The fashion portfolio plate is a standalone editorial page —
-  // exactly three stacked sections, no site chrome.
+  // The homepage opens with the full-screen fashion portfolio plate,
+  // followed by the original homepage sections exactly as they were.
   const isStandalonePlate = pathname === '/fashion-portfolio';
 
   return (
@@ -56,7 +56,12 @@ function AppShell({
       {/* Multi-Page Route Outlet */}
       <main className="flex-1">
         <Routes>
-          <Route path="/" element={<HomePage onOpenInquiry={onOpenInquiry} />} />
+          <Route path="/" element={
+            <>
+              <FashionPortfolioPage />
+              <HomePage onOpenInquiry={onOpenInquiry} />
+            </>
+          } />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/internship/experience" element={<InternshipExperiencePage />} />
           <Route path="/internship/learnings" element={<InternshipLearningsPage />} />

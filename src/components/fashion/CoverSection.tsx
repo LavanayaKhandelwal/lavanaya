@@ -8,7 +8,7 @@
 export function CoverSection() {
   return (
     <section
-      className="relative flex min-h-[540px] items-center justify-center overflow-hidden bg-[#10090B] md:h-[620px]"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#10090B]"
       aria-label="Portfolio cover"
     >
       {/* Tartan plaid weave — near-black with burgundy + neutral threads */}
@@ -43,26 +43,26 @@ export function CoverSection() {
       {/* Masthead */}
       <div className="relative px-6 text-center">
         <h1 className="leading-none">
-          <span className="font-serif-display text-[96px] tracking-tight text-[#F8E5D7] md:text-[176px]">
+          <span className="font-serif-display tracking-tight text-[#F8E5D7]" style={{ fontSize: 'clamp(84px, 16vw, 230px)' }}>
             PoRt
           </span>
           <span
-            className="relative -top-2 -ml-5 font-body text-[86px] italic font-bold text-[#F4C9D6] md:-top-4 md:-ml-9 md:text-[150px]"
-            style={{ fontFamily: "'Caveat', cursive", fontWeight: 700 }}
+            className="relative -top-2 -ml-5 italic font-bold text-[#F4C9D6] md:-top-4 md:-ml-9"
+            style={{ fontFamily: "'Caveat', cursive", fontWeight: 700, fontSize: 'clamp(72px, 13vw, 195px)' }}
           >
             folio
           </span>
         </h1>
         <p
-          className="mt-6 text-2xl text-[#D6B9AC] md:mt-8 md:text-3xl"
-          style={{ fontFamily: "'Caveat', cursive" }}
+          className="mt-6 text-[#D6B9AC] md:mt-8"
+          style={{ fontFamily: "'Caveat', cursive", fontSize: 'clamp(24px, 3vw, 40px)' }}
         >
           by lavanaya Khandelwal
         </p>
       </div>
 
       {/* Year anchor */}
-      <span className="absolute bottom-6 right-8 font-body text-xl font-extrabold tracking-[0.18em] text-[#F8E5D7] md:text-2xl">
+      <span className="absolute bottom-8 right-10 font-body font-extrabold tracking-[0.18em] text-[#F8E5D7]" style={{ fontSize: 'clamp(20px, 2.2vw, 34px)' }}>
         2026
       </span>
     </section>

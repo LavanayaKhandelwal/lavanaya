@@ -204,7 +204,7 @@ function AnalyticsPanel() {
 export function CaseStudySection() {
   return (
     <section
-      className="relative overflow-hidden bg-[#12090B] px-6 py-14 md:h-[780px] md:px-10"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-[#12090B] px-6 py-16 md:px-16"
       aria-label="Internship case study — Aadiya Jewels"
     >
       {/* Dark silky fabric detail — bottom-left anchor */}
@@ -228,7 +228,7 @@ export function CaseStudySection() {
           </p>
           <span className="h-px flex-1 bg-[#5B3A35]" />
         </div>
-        <h2 className="mt-3 font-serif-display text-5xl italic text-[#F4E6D8] md:text-6xl">
+        <h2 className="mt-3 font-serif-display text-5xl italic text-[#F4E6D8] md:text-7xl">
           Aadiya Jewels
         </h2>
         <p className="mt-1 text-xl text-[#C99F7A]" style={{ fontFamily: "'Caveat', cursive" }}>
@@ -237,7 +237,7 @@ export function CaseStudySection() {
       </div>
 
       {/* Collage — absolutely arranged on desktop, stacked flow on mobile */}
-      <div className="relative mt-10 flex flex-col items-center gap-12 md:mt-0 md:block md:h-[580px]">
+      <div className="relative mx-auto mt-10 flex w-full max-w-7xl flex-col items-center gap-12 md:mt-4 md:block md:h-[620px]">
         {/* Left cluster — AI-generated content */}
         <div className="md:absolute md:left-0 md:top-8">
           <p className="mb-3 font-serif-display text-sm italic text-[#D8B894]">AI-generated content</p>

@@ -3,8 +3,8 @@ import { useState } from 'react';
 /**
  * Section 2 — "Why me!" bio plate on deep burgundy (#781A1C).
  * Three-column composition: two bio paragraphs left, central portrait
- * (drop-in slot /portfolio-assets/IMG_2187.jpg, feathered so no rectangular
- * frame is visible), two paragraphs right, with dotted hand-drawn arrows
+ * (/portfolio-assets/lavanaya-portrait.jpg), two paragraphs right,
+ * with dotted hand-drawn arrows
  * pointing into the portrait.
  */
 
@@ -47,23 +47,18 @@ function Portrait() {
   const [imgOk, setImgOk] = useState(true);
 
   return (
-    <div className="relative mx-auto h-[320px] w-[240px] md:h-[380px] md:w-[280px]">
+    <div className="relative mx-auto h-[320px] w-[240px] md:h-[460px] md:w-[340px]">
       {/* Graceful fallback — abstract figure in deeper burgundy tones */}
       <div aria-hidden className="absolute inset-x-0 bottom-0 top-4 flex flex-col items-center justify-end">
-        <div className="h-24 w-20 rounded-[48%] bg-[#5C1416]" />
-        <div className="-mt-3 h-52 w-60 rounded-t-[120px] bg-[#4A0F11]" />
+        <div className="h-24 w-20 rounded-[48%] bg-[#5C1416] md:h-28 md:w-24" />
+        <div className="-mt-3 h-52 w-60 rounded-t-[120px] bg-[#4A0F11] md:h-64 md:w-72" />
       </div>
 
       {imgOk && (
         <img
-          src="/portfolio-assets/IMG_2187.jpg"
+          src="/portfolio-assets/lavanaya-portrait.jpg"
           alt="Portrait of Lavanaya Khandelwal"
-          className="absolute inset-0 h-full w-full object-cover object-top"
-          style={{
-            // Feathered cutout treatment — no visible rectangular frame
-            maskImage: 'radial-gradient(ellipse 78% 88% at 50% 42%, black 55%, transparent 78%)',
-            WebkitMaskImage: 'radial-gradient(ellipse 78% 88% at 50% 42%, black 55%, transparent 78%)',
-          }}
+          className="absolute inset-0 h-full w-full object-cover object-[50%_55%]"
           onError={() => setImgOk(false)}
         />
       )}
@@ -77,16 +72,16 @@ function Portrait() {
 
 export function WhyMeSection() {
   return (
-    <section className="relative overflow-hidden bg-[#781A1C] px-6 py-14 md:h-[700px] md:px-12" aria-label="Why me">
-      <h2 className="font-serif-display text-5xl text-[#F8E5D7] md:text-6xl">
+    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-[#781A1C] px-6 py-16 md:px-16" aria-label="Why me">
+      <h2 className="font-serif-display text-5xl text-[#F8E5D7] md:mx-auto md:w-full md:max-w-6xl md:text-7xl">
         Why <em className="italic">me!</em>
       </h2>
 
-      <div className="mt-12 grid items-center gap-12 md:mt-2 md:grid-cols-[1fr_auto_1fr] md:gap-10">
+      <div className="mt-12 grid items-center gap-12 md:mx-auto md:mt-6 md:w-full md:max-w-6xl md:grid-cols-[1fr_auto_1fr] md:gap-16">
         {/* Left column — paragraphs 1 & 2 */}
-        <div className="space-y-6 md:justify-self-end md:pt-20 md:text-right">
+        <div className="space-y-6 md:justify-self-end md:text-right">
           {PARAGRAPHS.slice(0, 2).map((copy) => (
-            <p key={copy.slice(0, 24)} className="max-w-[32ch] font-body text-[15px] leading-relaxed text-[#F3DDD2] md:ml-auto">
+            <p key={copy.slice(0, 24)} className="max-w-[32ch] font-body text-[15px] leading-relaxed text-[#F3DDD2] md:ml-auto md:text-base">
               {copy}
             </p>
           ))}
@@ -95,9 +90,9 @@ export function WhyMeSection() {
         <Portrait />
 
         {/* Right column — paragraphs 3 & 4 */}
-        <div className="space-y-6 md:pt-20">
+        <div className="space-y-6">
           {PARAGRAPHS.slice(2).map((copy) => (
-            <p key={copy.slice(0, 24)} className="max-w-[32ch] font-body text-[15px] leading-relaxed text-[#F3DDD2]">
+            <p key={copy.slice(0, 24)} className="max-w-[32ch] font-body text-[15px] leading-relaxed text-[#F3DDD2] md:text-base">
               {copy}
             </p>
           ))}
