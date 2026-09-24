@@ -134,19 +134,19 @@ My journey began with a background in Business Administration, where I developed
       </section>
 
       {/* 2. FEATURED PROJECTS — EDITORIAL INDEX */}
-      <section className="py-24 lg:py-32">
+      <section className="py-24 lg:py-32 bg-[#F4C9D6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rule-b pb-6 mb-16 lg:mb-24 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="rule-b pb-6 mb-16 lg:mb-24 flex flex-col sm:flex-row sm:items-end justify-between gap-4" style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}>
             <div>
-              <p className="eyebrow text-[#A38D89] mb-3">Selected Works</p>
-              <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1] tracking-tight text-[#F8E5D7]">
+              <p className="eyebrow text-[#705955] mb-3">Selected Works</p>
+              <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1] tracking-tight text-[#3E2723]">
                 Selected{' '}
-                <span className="font-serif-display italic font-normal text-[#F4C9D6]">
+                <span className="font-serif-display italic font-normal text-[#D69589]">
                   Projects
                 </span>
               </h2>
             </div>
-            <p className="eyebrow text-[#A38D89]">FOLIO: 001–003 // CASE STUDIES</p>
+            <p className="eyebrow text-[#705955]">FOLIO: 001–003 // CASE STUDIES</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16 lg:gap-y-14">
@@ -158,19 +158,20 @@ My journey began with a background in Business Administration, where I developed
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: col * 0.06 }}
                 className={`rule-t pt-8 group ${projectColumns[col] ?? ''}`}
+                style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}
               >
                 <div className="flex items-baseline justify-between mb-6">
-                  <span className="index-figure text-7xl text-[#A38D89]/40 leading-none">
+                  <span className="index-figure text-7xl text-[#705955]/40 leading-none">
                     {proj.number}
                   </span>
                   <span className="eyebrow text-[#D69589]">PROJECT {proj.number}</span>
                 </div>
 
                 <div className="mb-6">
-                  <p className="plate-caption mb-2">
+                  <p className="plate-caption mb-2" style={{ color: '#705955' }}>
                     {homeProjectCategories[proj.id] ?? proj.category}
                   </p>
-                  <h3 className="font-serif-display text-3xl text-[#F8E5D7] leading-tight">
+                  <h3 className="font-serif-display text-3xl text-[#3E2723] leading-tight">
                     {homeProjectTitles[proj.id] ?? proj.title}
                   </h3>
                 </div>
@@ -182,27 +183,27 @@ My journey began with a background in Business Administration, where I developed
                 />
 
                 <div className="mt-8 space-y-6">
-                  <div className="rule-t pt-4">
+                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}>
                     <span className="eyebrow text-[#D69589] block mb-2">Brief</span>
-                    <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed whitespace-pre-line">
+                    <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed whitespace-pre-line">
                       {proj.brief}
                     </p>
                   </div>
-                  <div className="rule-t pt-4">
+                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}>
                     <span className="eyebrow text-[#D69589] block mb-2">Research</span>
-                    <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed whitespace-pre-line">
+                    <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed whitespace-pre-line">
                       {proj.research}
                     </p>
                   </div>
-                  <div className="rule-t pt-4">
+                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}>
                     <span className="eyebrow text-[#D69589] block mb-2">Contribution</span>
-                    <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed whitespace-pre-line">
+                    <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed whitespace-pre-line">
                       {proj.contribution}
                     </p>
                   </div>
-                  <div className="rule-t pt-4">
+                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}>
                     <span className="eyebrow text-[#D69589] block mb-2">Learning</span>
-                    <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed whitespace-pre-line">
+                    <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed whitespace-pre-line">
                       {proj.keyLearnings}
                     </p>
                   </div>
@@ -211,7 +212,7 @@ My journey began with a background in Business Administration, where I developed
                 <div className="mt-8">
                   <Link
                     to={`/projects/${proj.slug}`}
-                    className="inline-flex items-center gap-3 eyebrow text-[#F8E5D7] editorial-link group-hover:text-[#F4C9D6] transition-colors"
+                    className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link group-hover:text-[#D69589] transition-colors"
                   >
                     <span>Read Complete Project</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
