@@ -29,8 +29,9 @@ export function CoverSection() {
 
       {/* Masthead — the byline row is locked to the exact width of the
           "PoRtfolio" wordmark: name flush left, year flush right, neither
-          extending past the word itself. */}
-      <div className="relative px-2 sm:px-6">
+          extending past the word itself. Whole lockup sits a touch above
+          optical centre. */}
+      <div className="relative -translate-y-8 px-2 sm:px-6 md:-translate-y-12">
         <div className="inline-block text-center">
           <h1 className="whitespace-nowrap leading-none font-wordmark-serif text-[#3E2723]">
             {/* letter-spacing also lands after the "R", so marginRight of the

@@ -46,7 +46,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-8 gap-y-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-8 gap-y-14 items-stretch">
             {selectedProjects.map((proj, col) => (
               <motion.article
                 key={proj.id}
@@ -54,21 +54,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: col * 0.06 }}
-                className={`rule-t pt-8 group ${projectColumns[col] ?? ''}`}
+                className={`rule-t pt-8 group flex flex-col h-full ${projectColumns[col] ?? ''}`}
                 style={{ borderColor: 'rgba(163, 141, 137, 0.3)' }}
               >
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3 mb-6">
+                {/* 01 — Number row: fixed height so 01/02/03/04 sit on one line */}
+                <div className="flex items-center justify-between gap-x-3 mb-6 min-h-[4rem] shrink-0">
                   <span className="index-figure text-6xl text-[#A38D89]/40 leading-none">
                     {proj.number}
                   </span>
-                  <span className="eyebrow text-[#D69589]">PROJECT {proj.number}</span>
+                  <span className="eyebrow text-[#D69589] shrink-0">PROJECT {proj.number}</span>
                 </div>
 
-                <div className="mb-6">
-                  <p className="plate-caption mb-2">
+                {/* 02 — Category + Title: reserved heights so shorter text gets
+                    padded to match the tallest card, keeping images aligned */}
+                <div className="mb-6 shrink-0">
+                  <p className="plate-caption mb-2 min-h-[2.1rem] flex items-end leading-[1.5]">
                     {homeProjectCategories[proj.id] ?? proj.category}
                   </p>
-                  <h3 className="font-serif-display text-2xl xl:text-3xl text-[#F8E5D7] leading-tight">
+                  <h3 className="font-serif-display text-2xl xl:text-3xl text-[#F8E5D7] leading-tight min-h-[3.75rem] xl:min-h-[4.75rem] flex items-start text-balance">
                     {homeProjectTitles[proj.id] ?? proj.title}
                   </h3>
                 </div>
@@ -76,7 +79,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
                 <ProjectCardMedia
                   image={proj.image}
                   alt={proj.title}
-                  ratio="aspect-[4/5]"
                 />
 
                 <div className="mt-6 space-y-5">
@@ -106,7 +108,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
                   </div>
                 </div>
 
-                <div className="mt-8">
+                <div className="mt-auto pt-8 shrink-0">
                   <Link
                     to={`/projects/${proj.slug}`}
                     className="inline-flex items-center gap-3 eyebrow text-[#F8E5D7] editorial-link group-hover:text-[#D69589] transition-colors"

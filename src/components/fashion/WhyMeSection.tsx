@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { portfolioData } from '../../data/portfolioData';
+import { WashiTape } from '../CustomDoodles';
 
 /**
  * Section 2 — "About me!" plate on soft pink (#FADBD9).
@@ -29,21 +30,34 @@ function Portrait() {
 
   return (
     <div className="relative mx-auto h-[400px] w-[300px] md:h-[540px] md:w-[400px]">
-      <div className="relative mx-auto h-full w-[280px] overflow-hidden md:w-[360px]">
-        {/* Graceful fallback — abstract figure in deeper burgundy tones */}
-        <div aria-hidden className="absolute inset-x-0 bottom-0 top-4 flex flex-col items-center justify-end">
-          <div className="h-24 w-20 rounded-[48%] bg-[#7A2A2E] md:h-28 md:w-24" />
-          <div className="-mt-3 h-52 w-60 rounded-t-[120px] bg-[#5E1F22] md:h-64 md:w-72" />
+      {/* Curio-style polaroid frame: cream card, thin ink rule, hard offset
+          paper shadow, washi-tape tab on top, handwritten caption inside the
+          card below the photo. Same image, same box — only the frame is new. */}
+      <div className="absolute inset-0 rotate-2 rounded-sm border-[1.5px] border-[#3E2723] bg-[#F9F8F2] p-2 pb-0 shadow-[5px_5px_0px_rgba(62,39,35,0.85)]">
+        <div className="pointer-events-none absolute -top-3 left-1/2 z-10 w-max -translate-x-1/2 -rotate-2">
+          <WashiTape color="#D69589" width="w-28" />
         </div>
 
-        {imgOk && (
-          <img
-            src="/portfolio-assets/lavanaya-portrait.jpg"
-            alt="Portrait of Lavanaya Khandelwal"
-            className="absolute inset-0 h-full w-full object-cover object-[50%_45%]"
-            onError={() => setImgOk(false)}
-          />
-        )}
+        <div className="relative h-[calc(100%-3.5rem)] w-full overflow-hidden bg-[#FADBD9]">
+          {/* Graceful fallback — abstract figure in deeper burgundy tones */}
+          <div aria-hidden className="absolute inset-x-0 bottom-0 top-4 flex flex-col items-center justify-end">
+            <div className="h-24 w-20 rounded-[48%] bg-[#7A2A2E] md:h-28 md:w-24" />
+            <div className="-mt-3 h-52 w-60 rounded-t-[120px] bg-[#5E1F22] md:h-64 md:w-72" />
+          </div>
+
+          {imgOk && (
+            <img
+              src="/portfolio-assets/lavanaya-portrait.jpg"
+              alt="Portrait of Lavanaya Khandelwal"
+              className="absolute inset-0 h-full w-full object-cover object-[50%_45%]"
+              onError={() => setImgOk(false)}
+            />
+          )}
+        </div>
+
+        <p className="flex h-14 items-center justify-center font-serif-display text-lg italic text-[#3E2723]">
+          {student.name}
+        </p>
       </div>
 
       {/* Hand-drawn dotted arrow removed — clean gutter beside the portrait */}

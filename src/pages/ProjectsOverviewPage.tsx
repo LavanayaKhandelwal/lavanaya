@@ -96,7 +96,7 @@ export const ProjectsOverviewPage: React.FC = () => {
 
               {/* Right column */}
               <div className="lg:col-span-4 lg:col-start-9 space-y-10">
-                <ProjectCardMedia image={proj.image} alt={proj.title} ratio="aspect-[4/5]" />
+                <ProjectCardMedia image={proj.image} alt={proj.title} />
 
                 <div className="rule-t pt-5">
                   <span className="eyebrow text-[#D69589] block mb-2">CORE FOCUS</span>
