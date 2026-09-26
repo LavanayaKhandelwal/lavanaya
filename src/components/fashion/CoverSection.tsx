@@ -2,7 +2,7 @@ import { portfolioData } from '../../data/portfolioData';
 
 /**
  * Section 1 — Cover plate.
- * Pink gingham plaid photograph (rotated landscape, 50% opacity) over a
+ * Pink gingham plaid photograph (rotated landscape, full opacity) over a
  * near-black ground (#10090B), with the "PoRtfolio" masthead built from three
  * faces — Times New Roman "PoR", Canva Sans "t", and a Moontime-style script
  * "folio" — over an Inter byline locked to the wordmark's width, and the
@@ -16,16 +16,16 @@ export function CoverSection() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#10090B]"
       aria-label="Portfolio cover"
     >
-      {/* Pink gingham plaid photograph — rotated to landscape, 50% opacity */}
+      {/* Pink gingham plaid photograph — rotated to landscape, full opacity */}
       <img
         src="/portfolio-assets/plaid-cover.jpg"
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover opacity-50"
+        className="absolute inset-0 h-full w-full object-cover"
       />
 
       {/* Corner registration tick */}
-      <span aria-hidden className="absolute left-5 top-4 font-body text-lg font-light text-[#F8E5D7]/40">+</span>
+      <span aria-hidden className="absolute left-5 top-4 font-body text-lg font-light text-[#3E2723]/60">+</span>
 
       {/* Masthead — the byline row is locked to the exact width of the
           "PoRtfolio" wordmark: name flush left, year flush right, neither
@@ -48,13 +48,13 @@ export function CoverSection() {
           {/* Byline — name left, year right, spanning the wordmark width */}
           <div className="-mt-16 flex w-full items-baseline justify-between gap-x-4 md:-mt-20">
             <span
-              className="font-inter text-[#D6B9AC]"
+              className="font-inter text-[#3E2723]"
               style={{ fontSize: 'clamp(14px, 1.6vw, 26px)', fontWeight: 400, letterSpacing: '0.02em' }}
             >
               by lavanaya Khandelwal
             </span>
             <span
-              className="font-inter text-[#F8E5D7]"
+              className="font-inter text-[#3E2723]"
               style={{ fontSize: 'clamp(14px, 1.6vw, 26px)', fontWeight: 600, letterSpacing: '0.16em' }}
             >
               2026
@@ -65,15 +65,15 @@ export function CoverSection() {
 
       {/* Base plate — qualification anchored to the bottom edge of the cover */}
       <div className="absolute bottom-6 left-6 right-6 md:bottom-9 md:left-10 md:right-10">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-t border-[#F8E5D7]/20 pt-3">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-t border-[#3E2723]/30 pt-3">
           <span
-            className="font-inter text-[#F8E5D7]/90"
+            className="font-inter text-[#3E2723]"
             style={{ fontSize: 'clamp(10px, 1.05vw, 15px)', fontWeight: 400, letterSpacing: '0.06em' }}
           >
             {student.degree}
           </span>
           <span
-            className="font-inter text-[#F8E5D7]/55"
+            className="font-inter text-[#3E2723]/70"
             style={{ fontSize: 'clamp(10px, 1.05vw, 15px)', fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase' }}
           >
             {student.institution}

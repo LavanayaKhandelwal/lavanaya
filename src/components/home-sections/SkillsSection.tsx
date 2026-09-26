@@ -2,33 +2,45 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { portfolioData } from '../../data/portfolioData';
 
+/**
+ * Skills section.
+ *
+ * Structure is mirrored from the curio skills section: one heading over a
+ * single rule, then one block per skill group split across a 12-column grid
+ * (4-col meta / 8-col skill chips), with every skill rendered as a chip that
+ * sticker-lifts on hover.
+ *
+ * Colour, typefaces and copy stay Lavanaya's: blush band, ivory chip paper,
+ * espresso ink and umber hairlines.
+ */
 export const SkillsSection: React.FC = () => {
   const { skills } = portfolioData;
 
   return (
-    <section id="skills" className="py-24 lg:py-32 bg-[#FADBD9]">
+    <section
+      id="skills"
+      className="pt-12 lg:pt-16 pb-20 lg:pb-28 bg-[#FADBD9] border-b border-[#705955]/15"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="rule-b pb-6 mb-16 lg:mb-24 flex flex-col sm:flex-row sm:items-end justify-between gap-4" style={{ borderColor: 'rgba(112, 89, 85, 0.35)' }}>
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="eyebrow text-[#705955] mb-3">SKILLS</p>
-            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1] tracking-tight text-[#3E2723]">
-              Skills &{' '}
-              <span className="font-serif-display italic font-normal text-[#D69589]">
-                Applied Disciplines
-              </span>
-            </h2>
-          </motion.div>
-          <p className="eyebrow text-[#705955]">Sections 01 — 03</p>
-        </div>
+        {/* SECTION HEADER — heading over a single hairline */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 pb-4 border-b border-[#705955]/15"
+        >
+          <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#3E2723]">
+            Skills &{' '}
+            <span className="font-serif-display italic font-normal text-[#D69589]">
+              Certifications
+            </span>
+          </h2>
+        </motion.div>
 
-        {/* SKILL GROUPS */}
-        <div>
+        {/* SKILL GROUPS — the header hairline rules the first block, so only
+            the blocks after it draw a top rule of their own */}
+        <div className="grid grid-cols-1 gap-10">
           {skills.categories.map((cat, idx) => (
             <motion.div
               key={idx}
@@ -36,40 +48,37 @@ export const SkillsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className={`py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start ${idx !== 0 ? 'rule-t' : ''}`}
-              style={idx !== 0 ? { borderColor: 'rgba(112, 89, 85, 0.35)' } : undefined}
+              className={`relative ${idx !== 0 ? 'border-t border-[#705955]/20 pt-8' : ''}`}
             >
-              {/* Meta column */}
-              <div className="lg:col-span-4 lg:pt-4">
-                <div className="flex items-baseline gap-8 mb-6">
-                  <span className="index-figure text-8xl text-[#705955]/40 leading-none">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                {/* Meta column */}
+                <div className="lg:col-span-4">
+                  <span className="index-figure text-2xl text-[#705955]/40 leading-none block text-left lg:text-right mb-3">
                     0{idx + 1}
                   </span>
-                  <span className="eyebrow text-[#D69589]">{cat.tag}</span>
+
+                  <h3 className="font-serif-display text-3xl sm:text-4xl text-[#3E2723] mb-4 leading-tight">
+                    {cat.name}
+                  </h3>
+
+                  <p className="font-body text-sm text-[#705955] leading-relaxed">
+                    {cat.note}
+                  </p>
                 </div>
 
-                <h3 className="font-serif-display text-3xl sm:text-4xl text-[#3E2723] mb-5 leading-tight">
-                  {cat.name}
-                </h3>
-
-                <p className="font-body text-sm text-[#705955] leading-relaxed">
-                  {cat.note}
-                </p>
-              </div>
-
-              {/* Skills index */}
-              <div className="lg:col-span-8">
-                {cat.skills.map((skill, sIdx) => (
-                  <div key={sIdx} className="rule-t flex items-baseline gap-6 py-3.5 group" style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}>
-                    <span className="font-mono-code text-xs text-[#D69589] w-4 shrink-0">
-                      {String(sIdx + 1).padStart(2, '0')}
-                    </span>
-                    <span className="font-mono-code text-xs sm:text-sm text-[#3E2723] uppercase tracking-wider group-hover:text-[#D69589] transition-colors">
+                {/* Skill chips — max-w-full only caps the longest names on
+                    narrow screens so they wrap inside the box instead of
+                    overflowing; short chips keep their natural size */}
+                <div className="lg:col-span-8 flex flex-wrap gap-3">
+                  {cat.skills.map((skill, sIdx) => (
+                    <span
+                      key={sIdx}
+                      className="max-w-full px-4 py-2.5 bg-[#F9F8F2] rounded-xl border border-[#705955]/20 font-body text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#3E2723] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#705955]/60 hover:shadow-[2px_2px_0px_rgba(112,89,85,0.25)] cursor-default"
+                    >
                       {skill}
                     </span>
-                  </div>
-                ))}
-                <div className="rule-b" style={{ borderColor: 'rgba(112, 89, 85, 0.35)' }} />
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -78,3 +87,4 @@ export const SkillsSection: React.FC = () => {
     </section>
   );
 };
+

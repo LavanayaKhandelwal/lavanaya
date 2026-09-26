@@ -93,6 +93,16 @@ export const portfolioData = {
       "SOCIAL MEDIA GRID"
     ],
 
+    /* Home-page only: the internship band summarises the role in four areas.
+       Kept separate from page1SocialMedia.skillsApplied so the internship
+       detail page keeps its full "Skills Applied" list. */
+    homepageHighlights: [
+      "Content Creation",
+      "Data Management",
+      "AI Content Generation",
+      "Ecommerce & Website Management"
+    ],
+
     page1SocialMedia: {
       title: "01 — SOCIAL MEDIA",
       intro:
@@ -167,7 +177,7 @@ export const portfolioData = {
       id: "proj-1",
       slug: "marketing",
       number: "01",
-      title: "A New Dimension of LifeWear",
+      title: "Uniqlo X Fragnances",
       category: "New Category Introduction",
       discipline: "Market Mapping · SWOT, 5 Forces, STP, 7Ps, Ansoff & BCG · Product & Packaging",
       year: "2025",
@@ -176,6 +186,7 @@ export const portfolioData = {
       rotation: "rotate-1",
       tags: ["UNIQLO", "Fragrance Category Extension", "Market Mapping", "STP · 7Ps · BCG", "Product & Packaging"],
       summary: "The project focused on taking an established fashion brand into a new product category. We chose Uniqlo and explored how its LifeWear philosophy could be extended beyond apparel.",
+      image: "/portfolio-assets/project-uniqlo-lifewear.png",
       brief: "Taking an established fashion brand into a new product category — extending LifeWear beyond apparel.",
       research: "Mapped the market, consumer and competitive landscape to identify where Uniqlo could grow.",
       contribution: "Developed the fragrance concept, product design and packaging — HANA · KAZE · MIZU · SORA (Flower · Wind · Water · Sky).",
@@ -186,7 +197,7 @@ export const portfolioData = {
       slug: "visual-merchandising",
       number: "02",
       title: "A Future in Bloom",
-      category: "Visual Merchandising & Window Display",
+      category: "Window Display & In-Store Experience",
       discipline: "Concept Development · Material Exploration · Spatial Styling · VM Principles",
       year: "2025",
       tagline: "Cover Story × Future Florals — where nature meets technology in a soft, contemporary bloom.",
@@ -194,6 +205,7 @@ export const portfolioData = {
       rotation: "-rotate-1",
       tags: ["Cover Story", "Spring/Summer", "Future Florals", "Material Exploration", "VM Principles"],
       summary: "Where nature meets technology in a soft, contemporary bloom. Contemporary, feminine, trend-led — a brand built around modern, versatile fashion became the canvas for our visual merchandising story.",
+      image: "/portfolio-assets/project-coverstory-bloom.png",
       brief: "From Cover Story's identity to a new expression of florals.",
       research: "Started with the brand, brought in Spring/Summer, and let florals become the link.",
       contribution: "Reimagined florals with holographic surfaces, pastel tones and reflective light.",
@@ -203,8 +215,8 @@ export const portfolioData = {
       id: "proj-3",
       slug: "project-3",
       number: "03",
-      title: "Everyday Athleisure",
-      category: "Fashion Start-Up · Consumer Research & MVP",
+      title: "Athera – Athleisure Wear Brand",
+      category: "Brand Concept & Development",
       discipline: "Consumer Research · Market Gap Analysis · MVP Prototyping",
       year: "2025–2026",
       tagline: "A startup concept built around one simple idea — what if activewear could move with your entire day?",
@@ -212,6 +224,7 @@ export const portfolioData = {
       rotation: "rotate-1",
       tags: ["Fashion Start-Up", "Consumer Pain Points", "MVP", "User Testing", "Iteration"],
       summary: "Activewear that moves with your entire day — a co-ord designed to transition across gym, café, travel and everyday.",
+      image: "/portfolio-assets/project-athleisure-1.png",
       brief: "Bridge the gap — performance, everyday athleisure, casual. Comfort + style + function + versatility.",
       research: "Consumer research, trend research and market gap analysis to pinpoint the opportunity.",
       contribution: "Developed a physical MVP co-ord and refined it around user feedback.",
@@ -221,8 +234,8 @@ export const portfolioData = {
       id: "proj-4",
       slug: "project-4",
       number: "04",
-      title: "Everyday Athleisure",
-      category: "Fashion Start-Up · Consumer Research & MVP",
+      title: "Customer Experience Activation",
+      category: "An Experience by Hunkemöller",
       discipline: "Consumer Research · Market Gap Analysis · MVP Prototyping",
       year: "2025–2026",
       tagline: "A startup concept built around one simple idea — what if activewear could move with your entire day?",
@@ -230,6 +243,7 @@ export const portfolioData = {
       rotation: "rotate-1",
       tags: ["Fashion Start-Up", "Consumer Pain Points", "MVP", "User Testing", "Iteration"],
       summary: "Activewear that moves with your entire day — a co-ord designed to transition across gym, café, travel and everyday.",
+      image: "/portfolio-assets/project-athleisure-2.png",
       brief: "Bridge the gap — performance, everyday athleisure, casual. Comfort + style + function + versatility.",
       research: "Consumer research, trend research and market gap analysis to pinpoint the opportunity.",
       contribution: "Developed a physical MVP co-ord and refined it around user feedback.",
@@ -586,14 +600,14 @@ export const portfolioData = {
     ]
   },
 
-  // 7. CONTACT & INQUIRIES (TODO: replace with real details)
+  // 7. CONTACT & INQUIRIES
   contact: {
-    email: "hello@lavanaya.portfolio",
-    phone: "—",
-    location: "India",
+    email: "lavanaya1811@gmail.com",
+    phone: "9311023608",
+    location: "New Delhi, India",
     availability: "Open to opportunities across fashion marketing, visual merchandising, content creation and photography",
     socials: [
-      { name: "LinkedIn", handle: "Lavanaya Khandelwal", url: "https://www.linkedin.com/" }
+      { name: "LinkedIn", handle: "Lavanaya Khandelwal", url: "https://www.linkedin.com/in/lavanaya-khandelwal?utm_source=share_via&utm_content=profile&utm_medium=member_ios" }
     ]
   }
 };

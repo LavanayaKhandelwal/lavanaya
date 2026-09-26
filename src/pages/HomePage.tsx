@@ -15,15 +15,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
   const { selectedProjects, internship } = portfolioData;
 
   const homeProjectTitles: Record<string, string> = {
-    'proj-1': 'A New Dimension of LifeWear',
+    'proj-1': 'Uniqlo X Fragnances',
     'proj-2': 'A Future in Bloom',
-    'proj-3': 'Everyday Athleisure',
-    'proj-4': 'Everyday Athleisure'
+    'proj-3': 'Athera – Athleisure Wear Brand',
+    'proj-4': 'Customer Experience Activation'
   };
 
   const homeProjectCategories: Record<string, string> = {
-    'proj-3': 'Fashion Start-Up & MVP',
-    'proj-4': 'Fashion Start-Up & MVP'
+    'proj-1': 'New Category Introduction',
+    'proj-2': 'Window Display & In-Store Experience',
+    'proj-3': 'Brand Concept & Development',
+    'proj-4': 'An Experience by Hunkemöller'
   };
 
   /* Four-up editorial row — all cards aligned top so the four projects read
@@ -33,10 +35,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
   return (
     <div>
       {/* 1. FEATURED PROJECTS — EDITORIAL INDEX */}
-      <section className="py-24 lg:py-32 bg-[#FADBD9]">
+      <section className="pt-12 lg:pt-16 pb-24 lg:pb-32 bg-[#3E2723]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 lg:mb-14">
-            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1] tracking-tight text-[#3E2723]">
+            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1] tracking-tight text-[#F8E5D7]">
               Selected{' '}
               <span className="font-serif-display italic font-normal text-[#D69589]">
                 Projects
@@ -53,20 +55,20 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: col * 0.06 }}
                 className={`rule-t pt-8 group ${projectColumns[col] ?? ''}`}
-                style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}
+                style={{ borderColor: 'rgba(163, 141, 137, 0.3)' }}
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3 mb-6">
-                  <span className="index-figure text-6xl text-[#705955]/40 leading-none">
+                  <span className="index-figure text-6xl text-[#A38D89]/40 leading-none">
                     {proj.number}
                   </span>
                   <span className="eyebrow text-[#D69589]">PROJECT {proj.number}</span>
                 </div>
 
                 <div className="mb-6">
-                  <p className="plate-caption mb-2" style={{ color: '#705955' }}>
+                  <p className="plate-caption mb-2">
                     {homeProjectCategories[proj.id] ?? proj.category}
                   </p>
-                  <h3 className="font-serif-display text-2xl xl:text-3xl text-[#3E2723] leading-tight">
+                  <h3 className="font-serif-display text-2xl xl:text-3xl text-[#F8E5D7] leading-tight">
                     {homeProjectTitles[proj.id] ?? proj.title}
                   </h3>
                 </div>
@@ -78,27 +80,27 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
                 />
 
                 <div className="mt-6 space-y-5">
-                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}>
+                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(163, 141, 137, 0.3)' }}>
                     <span className="eyebrow text-[#D69589] block mb-2">Brief</span>
-                    <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed whitespace-pre-line">
+                    <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed whitespace-pre-line">
                       {proj.brief}
                     </p>
                   </div>
-                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}>
+                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(163, 141, 137, 0.3)' }}>
                     <span className="eyebrow text-[#D69589] block mb-2">Research</span>
-                    <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed whitespace-pre-line">
+                    <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed whitespace-pre-line">
                       {proj.research}
                     </p>
                   </div>
-                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}>
+                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(163, 141, 137, 0.3)' }}>
                     <span className="eyebrow text-[#D69589] block mb-2">Contribution</span>
-                    <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed whitespace-pre-line">
+                    <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed whitespace-pre-line">
                       {proj.contribution}
                     </p>
                   </div>
-                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(112, 89, 85, 0.3)' }}>
+                  <div className="rule-t pt-4" style={{ borderColor: 'rgba(163, 141, 137, 0.3)' }}>
                     <span className="eyebrow text-[#D69589] block mb-2">Learning</span>
-                    <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed whitespace-pre-line">
+                    <p className="font-body text-sm text-[#F8E5D7]/80 leading-relaxed whitespace-pre-line">
                       {proj.keyLearnings}
                     </p>
                   </div>
@@ -107,7 +109,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
                 <div className="mt-8">
                   <Link
                     to={`/projects/${proj.slug}`}
-                    className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link group-hover:text-[#D69589] transition-colors"
+                    className="inline-flex items-center gap-3 eyebrow text-[#F8E5D7] editorial-link group-hover:text-[#D69589] transition-colors"
                   >
                     <span>Read Complete Project</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -120,9 +122,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
       </section>
 
       {/* 2. INTERNSHIP FEATURE CALLOUT */}
-      <section className="bg-[#F9F8F2] py-24 lg:py-32">
+      <section className="bg-[#F9F8F2] pt-12 lg:pt-16 pb-12 lg:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="pt-12 pb-12 border-b lg:pt-16 lg:pb-16" style={{ borderColor: 'rgba(62, 39, 35, 0.2)' }}>
+          <div className="pt-6 pb-8 lg:pt-8 lg:pb-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-8 space-y-6">
                 <p className="eyebrow text-[#705955]">Turning Learning Into Experience</p>
@@ -141,7 +143,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
                   {internship.overview}
                 </p>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2 pt-2">
-                  {internship.page1SocialMedia.skillsApplied.slice(0, 5).map((sk, i) => (
+                  {internship.homepageHighlights.map((sk, i) => (
                     <span key={i} className="plate-caption inline-flex items-center gap-3" style={{ color: '#3E2723' }}>
                       <span className="text-[#D69589]">●</span>
                       {sk}
@@ -156,8 +158,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
                   aria-label="View internship experience"
                   className="group inline-flex items-center gap-5 border-t-4 border-[#D69589] pt-6"
                 >
-                  <ArrowRight className="w-10 h-10 text-[#3E2723] transition-transform group-hover:translate-x-1.5" />
-                  <span className="index-figure text-6xl text-[#705955]/40">01</span>
+                  <ArrowRight className="w-20 h-20 text-[#3E2723] transition-transform group-hover:translate-x-1.5" />
                 </Link>
               </div>
             </div>

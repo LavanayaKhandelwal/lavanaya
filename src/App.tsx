@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { Footer } from './components/Footer';
 import { WaitlistModal } from './components/WaitlistModal';
 import { ScrollToTop } from './components/ScrollToTop';
 import { FashionPortfolioPage } from './pages/FashionPortfolioPage';
@@ -81,9 +80,6 @@ function AppShell({
           <Route path="/fashion-portfolio" element={<FashionPortfolioPage />} />
         </Routes>
       </main>
-
-      {/* Editorial Footer */}
-      {!isStandalonePlate && <Footer />}
 
       {/* Studio Inquiry / Dossier Modal */}
       <WaitlistModal

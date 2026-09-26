@@ -68,9 +68,12 @@ export const ContactPage: React.FC = () => {
                   <Phone className="w-3.5 h-3.5 text-[#D69589]" />
                   TELEPHONE &amp; SIGNAL
                 </span>
-                <p className="font-mono-code text-sm text-[#F8E5D7]">
-                  {contact.phone}
-                </p>
+                <a
+                  href={`tel:+91${contact.phone.replace(/\s/g, '')}`}
+                  className="font-mono-code text-sm text-[#F8E5D7] editorial-link"
+                >
+                  +91 {contact.phone}
+                </a>
               </div>
               <div className="rule-b" />
             </div>
