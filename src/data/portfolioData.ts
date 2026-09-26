@@ -7,6 +7,7 @@ export interface StudentBio {
   tagline: string;
   statement: string;
   secondaryStatement: string;
+  currentFocus: string;
   specializations?: string[];
   interests: { heading: string; blurb: string; chips: string[] };
   exploring: { heading: string; blurb: string; chips: string[] };
@@ -45,6 +46,8 @@ export const portfolioData = {
     statement: "From business thinking to fashion, creativity and visual storytelling.",
     secondaryStatement:
       "My journey began with a background in Business Administration, where I developed an understanding of businesses and consumers. I then explored Digital Marketing, which introduced me to the creative side of business. My growing interest in fashion eventually led me to pursue a Master’s in Fashion & Lifestyle Business Management at Pearl Academy.",
+    currentFocus:
+      "Today, I’m drawn to the creative, visual and marketing side of fashion.",
     specializations: [
       "Fashion Marketing",
       "Visual Merchandising",
@@ -165,11 +168,11 @@ export const portfolioData = {
       slug: "marketing",
       number: "01",
       title: "A New Dimension of LifeWear",
-      category: "Fragrance Category Extension & Marketing Strategy",
+      category: "New Category Introduction",
       discipline: "Market Mapping · SWOT, 5 Forces, STP, 7Ps, Ansoff & BCG · Product & Packaging",
       year: "2025",
       tagline: "A new dimension of life wear — UNIQLO × fragrances.",
-      accentColor: "#F4C9D6",
+      accentColor: "#FADBD9",
       rotation: "rotate-1",
       tags: ["UNIQLO", "Fragrance Category Extension", "Market Mapping", "STP · 7Ps · BCG", "Product & Packaging"],
       summary: "The project focused on taking an established fashion brand into a new product category. We chose Uniqlo and explored how its LifeWear philosophy could be extended beyond apparel.",
@@ -187,7 +190,7 @@ export const portfolioData = {
       discipline: "Concept Development · Material Exploration · Spatial Styling · VM Principles",
       year: "2025",
       tagline: "Cover Story × Future Florals — where nature meets technology in a soft, contemporary bloom.",
-      accentColor: "#F4C9D6",
+      accentColor: "#FADBD9",
       rotation: "-rotate-1",
       tags: ["Cover Story", "Spring/Summer", "Future Florals", "Material Exploration", "VM Principles"],
       summary: "Where nature meets technology in a soft, contemporary bloom. Contemporary, feminine, trend-led — a brand built around modern, versatile fashion became the canvas for our visual merchandising story.",
@@ -213,6 +216,24 @@ export const portfolioData = {
       research: "Consumer research, trend research and market gap analysis to pinpoint the opportunity.",
       contribution: "Developed a physical MVP co-ord and refined it around user feedback.",
       keyLearnings: "Don't just build what sounds good. Build → test → listen → improve."
+    },
+    {
+      id: "proj-4",
+      slug: "project-4",
+      number: "04",
+      title: "Everyday Athleisure",
+      category: "Fashion Start-Up · Consumer Research & MVP",
+      discipline: "Consumer Research · Market Gap Analysis · MVP Prototyping",
+      year: "2025–2026",
+      tagline: "A startup concept built around one simple idea — what if activewear could move with your entire day?",
+      accentColor: "#A38D89",
+      rotation: "rotate-1",
+      tags: ["Fashion Start-Up", "Consumer Pain Points", "MVP", "User Testing", "Iteration"],
+      summary: "Activewear that moves with your entire day — a co-ord designed to transition across gym, café, travel and everyday.",
+      brief: "Bridge the gap — performance, everyday athleisure, casual. Comfort + style + function + versatility.",
+      research: "Consumer research, trend research and market gap analysis to pinpoint the opportunity.",
+      contribution: "Developed a physical MVP co-ord and refined it around user feedback.",
+      keyLearnings: "Don't just build what sounds good. Build → test → listen → improve."
     }
   ] as ProjectSummary[],
 
@@ -224,7 +245,7 @@ export const portfolioData = {
       brand: "UNIQLO",
       discipline: "Marketing Strategy & Brand Extension",
       timeline: "Strategic Research & Capstone",
-      accentColor: "#F4C9D6"
+      accentColor: "#FADBD9"
     },
     page1And2: {
       context:
@@ -307,7 +328,7 @@ export const portfolioData = {
       brand: "Cover Story",
       season: "Spring / Summer",
       conceptName: "Future Florals",
-      accentColor: "#F4C9D6",
+      accentColor: "#FADBD9",
       credits: ["COVER STORY X FUTURE FLORALS"],
       intro: ["COVER STORY : Contemporary. Feminine. Trend-led.", "A brand built around modern, versatile fashion became the canvas for our visual merchandising story."]
     },
@@ -348,7 +369,7 @@ export const portfolioData = {
         title: "Colour Board",
         content: "A soft, fresh and light palette that lets the Future Florals concept bloom — pastel tones with a reflective, futuristic edge.",
         palette: [
-          { name: "Soft Blush", hex: "#F4C9D6" },
+          { name: "Soft Blush", hex: "#FADBD9" },
           { name: "Espresso", hex: "#3E2723" },
           { name: "Peach", hex: "#F8E5D7" },
           { name: "Taupe", hex: "#A38D89" },
@@ -542,32 +563,25 @@ export const portfolioData = {
   skills: {
     categories: [
       {
-        name: "Research & Analysis",
-        tag: "RESEARCH",
+        name: "Business Skills",
+        tag: "BUSINESS",
         color: "#D69589",
-        note: "Consumer research · Survey design · Qualitative research",
-        skills: ["Consumer Research", "Survey Design", "Qualitative Research"]
+        note: "Combining creative thinking with a strong understanding of business and commercial perspectives.",
+        skills: ["Market Research", "Marketing Strategy", "Trend Analysis", "Consumer Behaviour", "Fashion Marketing", "Visual Merchandising", "Product Development", "Content Strategy"]
       },
       {
-        name: "Business Thinking",
-        tag: "BUSINESS & STRATEGY",
+        name: "Digital Skills",
+        tag: "DIGITAL",
         color: "#A38D89",
-        note: "Market-gap identification · Trend analysis · Concept development",
-        skills: ["Market-Gap Identification", "Trend Analysis", "Concept Development"]
+        note: "Digital tools and platforms used for creative development, content creation, data analysis, AI-powered ideation, and e-commerce.",
+        skills: ["Canva", "MS Office — Advanced Excel, Word, PowerPoint", "AI Tools — ChatGPT, Claude, Gemini, Pixverse, NotebookLM", "Website Development — Shopify & WordPress", "ERP"]
       },
       {
-        name: "Product Thinking",
-        tag: "PRODUCT",
+        name: "Certifications",
+        tag: "CERTIFICATION",
         color: "#D69589",
-        note: "Fabric sourcing · MVP development · User testing · Iteration",
-        skills: ["Fabric Sourcing", "MVP Development", "User Testing", "Iteration"]
-      },
-      {
-        name: "Working Style",
-        tag: "PROCESS & MIND-SET",
-        color: "#A38D89",
-        note: "Problem solving · Collaboration · Decision making · Adaptability",
-        skills: ["Problem Solving", "Collaboration", "Decision Making", "Adaptability"]
+        note: "Additional learning that has strengthened my professional and technical foundation.",
+        skills: ["Masters in Digital Marketing — DigiPerform", "Advanced MS Excel — FISD"]
       }
     ]
   },

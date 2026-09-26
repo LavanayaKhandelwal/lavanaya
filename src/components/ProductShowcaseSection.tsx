@@ -33,7 +33,7 @@ export const ProductShowcaseSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-4 paper-shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FADBD9] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-4 paper-shadow-sm">
             <Clock className="w-3.5 h-3.5 text-[#F8E5D7]" />
             <span>THE 24-HOUR IDEA LIFECYCLE</span>
           </div>
@@ -72,7 +72,7 @@ export const ProductShowcaseSection: React.FC = () => {
             </div>
 
             {/* Interactive Mode Tabs */}
-            <div className="flex items-center gap-2 bg-[#F4C9D6] p-1 border-[1.5px] border-[#A38D89] rounded-xl">
+            <div className="flex items-center gap-2 bg-[#FADBD9] p-1 border-[1.5px] border-[#A38D89] rounded-xl">
               <button
                 onClick={() => setActiveTab('canvas')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-mono-code uppercase tracking-wider transition-all cursor-pointer ${
@@ -107,10 +107,10 @@ export const ProductShowcaseSection: React.FC = () => {
           </div>
 
           {/* INNER INTERFACE CANVAS (Physical paper-inspired frame) */}
-          <div className="bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-2xl p-4 sm:p-6 min-h-[500px] relative overflow-hidden paper-shadow">
+          <div className="bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-2xl p-4 sm:p-6 min-h-[500px] relative overflow-hidden paper-shadow">
             {/* Corner Stamp */}
             <div className="absolute top-4 right-4 z-10 hidden sm:block">
-              <span className="font-mono-code text-[10px] border border-[#A38D89] px-2 py-0.5 rounded bg-[#F4C9D6] text-[#F8E5D7]">
+              <span className="font-mono-code text-[10px] border border-[#A38D89] px-2 py-0.5 rounded bg-[#FADBD9] text-[#F8E5D7]">
                 ZOOM: 100% • GRID: 24PT
               </span>
             </div>
@@ -124,7 +124,7 @@ export const ProductShowcaseSection: React.FC = () => {
                 {/* Left Side: Intake voice note & transcription */}
                 <div className="lg:col-span-5 space-y-4">
                   {/* Voice Note Artifact Card */}
-                  <div className="bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-xl p-5 paper-shadow -rotate-1 relative">
+                  <div className="bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-xl p-5 paper-shadow -rotate-1 relative">
                     <div className="flex items-center justify-between border-b border-[#A38D89]/15 pb-2.5 mb-3">
                       <div className="flex items-center gap-2">
                         <Mic className="w-4 h-4 text-rose-600 animate-pulse" />
@@ -161,10 +161,10 @@ export const ProductShowcaseSection: React.FC = () => {
                       Cross-referenced with your bookmark on "Hokkaido handmade mulberry paper mills". Sourcing quote available from Kyoto artisanal guild.
                     </p>
                     <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-mono-code bg-[#F4C9D6] border border-[#A38D89] px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-mono-code bg-[#FADBD9] border border-[#A38D89] px-2 py-0.5 rounded">
                         Paper Weight: 180gsm
                       </span>
-                      <span className="text-[10px] font-mono-code bg-[#F4C9D6] border border-[#A38D89] px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-mono-code bg-[#FADBD9] border border-[#A38D89] px-2 py-0.5 rounded">
                         Seeds: Chamomile & Poppies
                       </span>
                     </div>
@@ -173,7 +173,7 @@ export const ProductShowcaseSection: React.FC = () => {
 
                 {/* Right Side: Moodboard & Interactive Pinned Checklist */}
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-xl p-5 paper-shadow">
+                  <div className="bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-xl p-5 paper-shadow">
                     <div className="flex items-center justify-between mb-4 pb-2 border-b border-[#A38D89]/15">
                       <div className="flex items-center gap-2">
                         <Pin className="w-4 h-4 text-[#F8E5D7]" />
@@ -199,7 +199,7 @@ export const ProductShowcaseSection: React.FC = () => {
                         >
                           <div className="flex items-center gap-3">
                             <div className={`w-5 h-5 rounded border border-[#A38D89] flex items-center justify-center ${
-                              note.done ? 'bg-[#3E2723] text-[#F8E5D7]' : 'bg-[#F4C9D6]'
+                              note.done ? 'bg-[#3E2723] text-[#F8E5D7]' : 'bg-[#FADBD9]'
                             }`}>
                               {note.done && <Check className="w-3.5 h-3.5" />}
                             </div>
@@ -274,7 +274,7 @@ export const ProductShowcaseSection: React.FC = () => {
                 animate={{ opacity: 1 }}
                 className="space-y-6"
               >
-                <div className="bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-xl p-6 paper-shadow">
+                <div className="bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-xl p-6 paper-shadow">
                   <div className="flex items-center gap-2 mb-3">
                     <Sparkles className="w-5 h-5 text-[#D69589]" />
                     <h4 className="font-serif-display text-2xl text-[#F8E5D7]">
@@ -286,7 +286,7 @@ export const ProductShowcaseSection: React.FC = () => {
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-[#F4C9D6] border border-[#A38D89] p-4 rounded-xl">
+                    <div className="bg-[#FADBD9] border border-[#A38D89] p-4 rounded-xl">
                       <span className="font-mono-code text-[11px] bg-[#D69589] px-2 py-0.5 rounded border border-[#A38D89] font-bold">
                         VECTOR A: TACTILE
                       </span>
@@ -298,7 +298,7 @@ export const ProductShowcaseSection: React.FC = () => {
                       </ul>
                     </div>
 
-                    <div className="bg-[#F4C9D6] border border-[#A38D89] p-4 rounded-xl">
+                    <div className="bg-[#FADBD9] border border-[#A38D89] p-4 rounded-xl">
                       <span className="font-mono-code text-[11px] bg-[#D69589] px-2 py-0.5 rounded border border-[#A38D89] font-bold">
                         VECTOR B: ESSAYS
                       </span>
@@ -310,7 +310,7 @@ export const ProductShowcaseSection: React.FC = () => {
                       </ul>
                     </div>
 
-                    <div className="bg-[#F4C9D6] border border-[#A38D89] p-4 rounded-xl">
+                    <div className="bg-[#FADBD9] border border-[#A38D89] p-4 rounded-xl">
                       <span className="font-mono-code text-[11px] bg-[#A38D89] px-2 py-0.5 rounded border border-[#A38D89] font-bold">
                         VECTOR C: EVENT
                       </span>
@@ -330,7 +330,7 @@ export const ProductShowcaseSection: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-xl p-6 paper-shadow space-y-4"
+                className="bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-xl p-6 paper-shadow space-y-4"
               >
                 <div className="flex items-center justify-between border-b border-[#A38D89]/15 pb-3">
                   <h4 className="font-serif-display text-2xl text-[#F8E5D7]">
@@ -342,15 +342,15 @@ export const ProductShowcaseSection: React.FC = () => {
                 </div>
 
                 <div className="space-y-3 font-mono-code text-xs">
-                  <div className="p-3 border border-[#A38D89]/30 rounded-lg flex items-center justify-between bg-[#F4C9D6]">
+                  <div className="p-3 border border-[#A38D89]/30 rounded-lg flex items-center justify-between bg-[#FADBD9]">
                     <div>
                       <span className="font-bold text-[#F8E5D7]">MON, MAR 24:</span>
                       <span className="ml-2 text-[#F8E5D7]/80">Receive handmade paper samples from Kyoto</span>
                     </div>
-                    <span className="text-[10px] bg-[#F4C9D6] border border-[#A38D89] px-2 py-0.5 rounded">DELIVERED</span>
+                    <span className="text-[10px] bg-[#FADBD9] border border-[#A38D89] px-2 py-0.5 rounded">DELIVERED</span>
                   </div>
 
-                  <div className="p-3 border border-[#A38D89]/30 rounded-lg flex items-center justify-between bg-[#F4C9D6]">
+                  <div className="p-3 border border-[#A38D89]/30 rounded-lg flex items-center justify-between bg-[#FADBD9]">
                     <div>
                       <span className="font-bold text-[#F8E5D7]">THU, MAR 27:</span>
                       <span className="ml-2 text-[#F8E5D7]/80">Finalize essay draft: "Why the Best Tools Feel Like Paper"</span>
@@ -358,7 +358,7 @@ export const ProductShowcaseSection: React.FC = () => {
                     <span className="text-[10px] bg-[#D69589] border border-[#A38D89] px-2 py-0.5 rounded">IN PROGRESS</span>
                   </div>
 
-                  <div className="p-3 border border-[#A38D89]/30 rounded-lg flex items-center justify-between bg-[#F4C9D6]">
+                  <div className="p-3 border border-[#A38D89]/30 rounded-lg flex items-center justify-between bg-[#FADBD9]">
                     <div>
                       <span className="font-bold text-[#F8E5D7]">SUN, MAR 30:</span>
                       <span className="ml-2 text-[#F8E5D7]/80">Launch waitlist dispatch issue #01</span>

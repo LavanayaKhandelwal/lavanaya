@@ -6,7 +6,7 @@ export const SkillsSection: React.FC = () => {
   const { skills } = portfolioData;
 
   return (
-    <section id="skills" className="py-24 lg:py-32 bg-[#F4C9D6]">
+    <section id="skills" className="py-24 lg:py-32 bg-[#FADBD9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="rule-b pb-6 mb-16 lg:mb-24 flex flex-col sm:flex-row sm:items-end justify-between gap-4" style={{ borderColor: 'rgba(112, 89, 85, 0.35)' }}>
@@ -24,7 +24,7 @@ export const SkillsSection: React.FC = () => {
               </span>
             </h2>
           </motion.div>
-          <p className="eyebrow text-[#705955]">Sections 01 — 04</p>
+          <p className="eyebrow text-[#705955]">Sections 01 — 03</p>
         </div>
 
         {/* SKILL GROUPS */}

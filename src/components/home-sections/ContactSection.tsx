@@ -21,7 +21,7 @@ export const ContactSection: React.FC = () => {
             <p className="eyebrow text-[#A38D89] mb-3">Contact</p>
             <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1] tracking-tight text-[#F8E5D7]">
               Contact &{' '}
-              <span className="font-serif-display italic font-normal text-[#F4C9D6]">
+              <span className="font-serif-display italic font-normal text-[#FADBD9]">
                 Inquiries
               </span>
             </h2>

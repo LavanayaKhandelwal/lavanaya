@@ -123,7 +123,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-mono-code text-xs">
               {vm.page2Brief.howIReachedTheConcept.map((node, nIdx) => (
                 <React.Fragment key={nIdx}>
-                  <span className="px-3 py-1.5 bg-[#F4C9D6] border border-[#A38D89] rounded-lg font-bold text-[#3E2723]">
+                  <span className="px-3 py-1.5 bg-[#FADBD9] border border-[#A38D89] rounded-lg font-bold text-[#3E2723]">
                     {node}
                   </span>
                   {nIdx < vm.page2Brief.howIReachedTheConcept.length - 1 && (
@@ -173,7 +173,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
                 <p className="font-body text-sm text-[#F8E5D7]/85 leading-relaxed mb-5">{vm.page3Boards.moodBoard.content}</p>
                 <div className="flex flex-wrap gap-2 font-mono-code text-xs font-bold text-[#F8E5D7] pt-2 border-t border-[#A38D89]/15">
                   {vm.page3Boards.moodBoard.keywords.map((kw, kIdx) => (
-                    <span key={kIdx} className="px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-[#3E2723]">{kw}</span>
+                    <span key={kIdx} className="px-3 py-1 bg-[#FADBD9] border border-[#A38D89] rounded-full text-[#3E2723]">{kw}</span>
                   ))}
                 </div>
               </div>

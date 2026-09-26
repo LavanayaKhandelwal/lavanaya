@@ -13,7 +13,7 @@ export const CalmerPlaceSection: React.FC = () => {
       messyPos: "top-4 left-6 -rotate-6",
       neatPos: "col-span-1",
       tag: "BOOKMARK",
-      bg: "#F4C9D6",
+      bg: "#FADBD9",
       border: "#3E2723"
     },
     {
@@ -58,13 +58,13 @@ export const CalmerPlaceSection: React.FC = () => {
       messyPos: "bottom-24 left-1/2 -rotate-8",
       neatPos: "col-span-1",
       tag: "SKETCH",
-      bg: "#F4C9D6",
+      bg: "#FADBD9",
       border: "#3E2723"
     }
   ];
 
   return (
-    <section className="py-24 lg:py-36 bg-[#F4C9D6] border-b border-[#A38D89]/15 relative overflow-hidden">
+    <section className="py-24 lg:py-36 bg-[#FADBD9] border-b border-[#A38D89]/15 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Whitespace-heavy Minimal Statement */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -87,7 +87,7 @@ export const CalmerPlaceSection: React.FC = () => {
           <div className="mt-8 flex justify-center">
             <button
               onClick={() => setIsOrganized(!isOrganized)}
-              className="flex items-center gap-3 bg-[#F4C9D6] border-[1.5px] border-[#A38D89] px-6 py-3 rounded-full text-xs font-mono-code uppercase tracking-wider font-bold paper-shadow-hover transition-all cursor-pointer"
+              className="flex items-center gap-3 bg-[#FADBD9] border-[1.5px] border-[#A38D89] px-6 py-3 rounded-full text-xs font-mono-code uppercase tracking-wider font-bold paper-shadow-hover transition-all cursor-pointer"
             >
               {isOrganized ? (
                 <>
@@ -123,7 +123,7 @@ export const CalmerPlaceSection: React.FC = () => {
             {/* Transitioning cards */}
             {!isOrganized ? (
               /* Chaotic pile view */
-              <div className="relative h-[360px] sm:h-[380px] w-full border border-dashed border-[#A38D89]/25 rounded-2xl bg-[#F4C9D6]/40 overflow-hidden">
+              <div className="relative h-[360px] sm:h-[380px] w-full border border-dashed border-[#A38D89]/25 rounded-2xl bg-[#FADBD9]/40 overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
                   <span className="font-serif-display text-4xl sm:text-6xl text-[#F8E5D7] italic">
                     The Creative Junk Drawer
@@ -164,7 +164,7 @@ export const CalmerPlaceSection: React.FC = () => {
                 {deskItems.map((item, idx) => (
                   <div
                     key={item.id}
-                    className="p-4 rounded-xl border-[1.5px] border-[#A38D89] paper-shadow-sm flex flex-col justify-between bg-[#F4C9D6] hover:bg-[#F4C9D6] transition-colors"
+                    className="p-4 rounded-xl border-[1.5px] border-[#A38D89] paper-shadow-sm flex flex-col justify-between bg-[#FADBD9] hover:bg-[#FADBD9] transition-colors"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-2">

@@ -87,11 +87,11 @@ export const PeopleWhoCollectSection: React.FC = () => {
   const selected = profiles.find(p => p.id === activeProfile) || profiles[0];
 
   return (
-    <section id="people-who-collect" className="py-24 lg:py-36 bg-[#F4C9D6] border-b border-[#A38D89]/15 relative">
+    <section id="people-who-collect" className="py-24 lg:py-36 bg-[#FADBD9] border-b border-[#A38D89]/15 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-4 paper-shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FADBD9] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-4 paper-shadow-sm">
             <Heart className="w-3.5 h-3.5 text-rose-600" />
             <span>KINDRED SPIRITS</span>
           </div>
@@ -114,7 +114,7 @@ export const PeopleWhoCollectSection: React.FC = () => {
               className={`px-4 py-2 rounded-xl text-xs font-mono-code uppercase tracking-wider border-[1.5px] transition-all cursor-pointer ${
                 activeProfile === p.id
                   ? 'bg-[#3E2723] text-[#F8E5D7] border-[#A38D89] font-bold paper-shadow'
-                  : 'bg-[#F4C9D6] text-[#F8E5D7]/80 border-[#A38D89]/40 hover:border-[#A38D89]'
+                  : 'bg-[#FADBD9] text-[#F8E5D7]/80 border-[#A38D89]/40 hover:border-[#A38D89]'
               }`}
             >
               {p.title}
@@ -123,7 +123,7 @@ export const PeopleWhoCollectSection: React.FC = () => {
         </div>
 
         {/* ACTIVE CHARACTER SPREAD (Magazine Profile Layout) */}
-        <div className="max-w-5xl mx-auto bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-3xl p-6 sm:p-10 paper-shadow-lg relative overflow-hidden">
+        <div className="max-w-5xl mx-auto bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-3xl p-6 sm:p-10 paper-shadow-lg relative overflow-hidden">
           {/* Top Washi Tape */}
           <div className="absolute -top-3 left-12">
             <WashiTape color={selected.cardColor} width="w-28" />
@@ -157,7 +157,7 @@ export const PeopleWhoCollectSection: React.FC = () => {
                 {selected.quote}
               </blockquote>
 
-              <div className="bg-[#F4C9D6] border border-[#A38D89]/30 rounded-xl p-3.5">
+              <div className="bg-[#FADBD9] border border-[#A38D89]/30 rounded-xl p-3.5">
                 <span className="font-mono-code text-[11px] uppercase font-bold text-[#F8E5D7]/70 block mb-1">
                   OBSERVED HABIT / QUIRK
                 </span>
@@ -174,7 +174,7 @@ export const PeopleWhoCollectSection: React.FC = () => {
                   {selected.sampleItems.map((item, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 bg-[#F4C9D6] border border-[#A38D89]/40 rounded-lg text-xs font-mono-code text-[#F8E5D7]"
+                      className="px-3 py-1 bg-[#FADBD9] border border-[#A38D89]/40 rounded-lg text-xs font-mono-code text-[#F8E5D7]"
                     >
                       • {item}
                     </span>
@@ -185,7 +185,7 @@ export const PeopleWhoCollectSection: React.FC = () => {
 
             {/* Right Card / Scrapbook Vignette */}
             <div className="lg:col-span-5 relative">
-              <div className="bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-2xl p-6 paper-shadow rotate-1 relative">
+              <div className="bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-2xl p-6 paper-shadow rotate-1 relative">
                 <div className="flex items-center justify-between border-b border-[#A38D89]/15 pb-3 mb-4">
                   <span className="font-mono-code text-xs font-bold text-[#F8E5D7]">
                     FIELD PASS

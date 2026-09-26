@@ -17,7 +17,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenWaitlist }) => {
   };
 
   return (
-    <section className="py-24 lg:py-36 bg-[#F4C9D6] relative overflow-hidden">
+    <section className="py-24 lg:py-36 bg-[#FADBD9] relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Soft Green Editorial Billboard Card */}
         <div className="relative bg-[#D69589] border-[2px] border-[#A38D89] rounded-3xl p-8 sm:p-14 lg:p-16 paper-shadow-lg text-center overflow-hidden">
@@ -38,7 +38,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenWaitlist }) => {
           </div>
 
           {/* Metadata Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-6 paper-shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FADBD9] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-6 paper-shadow-sm">
             <FlowerMark size={14} />
             <span>ENROLMENT DISPATCH // BATCH 04</span>
           </div>
@@ -63,7 +63,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenWaitlist }) => {
                   placeholder="enter your email address..."
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-[#F4C9D6] border-[1.5px] border-[#A38D89] px-4 py-3.5 rounded-full font-mono-code text-xs text-[#F8E5D7] placeholder-[#3E2723]/50 focus:outline-hidden focus:ring-2 focus:ring-[#3E2723]"
+                  className="flex-1 bg-[#FADBD9] border-[1.5px] border-[#A38D89] px-4 py-3.5 rounded-full font-mono-code text-xs text-[#F8E5D7] placeholder-[#3E2723]/50 focus:outline-hidden focus:ring-2 focus:ring-[#3E2723]"
                 />
                 <button
                   type="submit"
@@ -76,7 +76,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenWaitlist }) => {
               </form>
             </div>
           ) : (
-            <div className="max-w-md mx-auto mb-6 p-4 bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-2xl paper-shadow">
+            <div className="max-w-md mx-auto mb-6 p-4 bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-2xl paper-shadow">
               <div className="flex items-center justify-center gap-2 text-[#A38D89] font-mono-code text-xs font-bold uppercase mb-1">
                 <Check className="w-4 h-4" />
                 <span>Admission Ticket Reserved!</span>

@@ -17,17 +17,17 @@ export const FlowerMark: React.FC<{ className?: string; size?: number }> = ({
     className={className}
   >
     {/* Abstract hand-drawn 8-petal daisy mark */}
-    <circle cx="16" cy="7" r="4.5" fill="#F4C9D6" stroke="#3E2723" strokeWidth="1.5" />
+    <circle cx="16" cy="7" r="4.5" fill="#FADBD9" stroke="#3E2723" strokeWidth="1.5" />
     <circle cx="22.3" cy="9.7" r="4.5" fill="#A38D89" stroke="#3E2723" strokeWidth="1.5" />
-    <circle cx="25" cy="16" r="4.5" fill="#F4C9D6" stroke="#3E2723" strokeWidth="1.5" />
-    <circle cx="22.3" cy="22.3" r="4.5" fill="#F4C9D6" stroke="#3E2723" strokeWidth="1.5" />
+    <circle cx="25" cy="16" r="4.5" fill="#FADBD9" stroke="#3E2723" strokeWidth="1.5" />
+    <circle cx="22.3" cy="22.3" r="4.5" fill="#FADBD9" stroke="#3E2723" strokeWidth="1.5" />
     <circle cx="16" cy="25" r="4.5" fill="#A38D89" stroke="#3E2723" strokeWidth="1.5" />
-    <circle cx="9.7" cy="22.3" r="4.5" fill="#F4C9D6" stroke="#3E2723" strokeWidth="1.5" />
+    <circle cx="9.7" cy="22.3" r="4.5" fill="#FADBD9" stroke="#3E2723" strokeWidth="1.5" />
     <circle cx="7" cy="16" r="4.5" fill="#A38D89" stroke="#3E2723" strokeWidth="1.5" />
-    <circle cx="9.7" cy="9.7" r="4.5" fill="#F4C9D6" stroke="#3E2723" strokeWidth="1.5" />
+    <circle cx="9.7" cy="9.7" r="4.5" fill="#FADBD9" stroke="#3E2723" strokeWidth="1.5" />
     {/* Center dot */}
     <circle cx="16" cy="16" r="4.8" fill="#3E2723" />
-    <circle cx="16" cy="16" r="2" fill="#F4C9D6" />
+    <circle cx="16" cy="16" r="2" fill="#FADBD9" />
   </svg>
 );
 
@@ -104,7 +104,7 @@ export const WashiTape: React.FC<{
   color?: string; 
   className?: string;
   width?: string;
-}> = ({ color="#F4C9D6", className = "", width = "w-24" }) => (
+}> = ({ color="#FADBD9", className = "", width = "w-24" }) => (
   <div 
     className={`h-6 ${width} border border-[#A38D89]/20 opacity-85 shadow-xs ${className}`}
     style={{ 

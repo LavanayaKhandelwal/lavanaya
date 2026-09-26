@@ -17,7 +17,7 @@ export const ProjectsOverviewPage: React.FC = () => {
             <span>/</span>
             <span className="text-[#F8E5D7] font-semibold">SELECTED PROJECTS</span>
           </div>
-          <span>FOLIO: 001–003 // CASE STUDIES</span>
+          <span>FOLIO: 001–004 // CASE STUDIES</span>
         </div>
 
         {/* Intro */}
@@ -29,7 +29,7 @@ export const ProjectsOverviewPage: React.FC = () => {
             Selected Projects
           </h1>
           <p className="font-body text-base text-[#F8E5D7]/85 leading-loose max-w-3xl mb-8">
-            Three projects across marketing management &amp; brand extension (UNIQLO × fragrances), Spring/Summer visual merchandising (Cover Story × Future Florals), and founding an everyday athleisure startup from consumer research to a physical MVP.
+            Four projects across marketing management &amp; brand extension (UNIQLO × fragrances), Spring/Summer visual merchandising (Cover Story × Future Florals), and founding an everyday athleisure startup from consumer research to a physical MVP.
           </p>
         </div>
 

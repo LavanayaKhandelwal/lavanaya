@@ -42,7 +42,7 @@ export const SurrealCollageSection: React.FC = () => {
   ];
 
   return (
-    <section id="chaos-to-creativity" className="py-24 lg:py-32 bg-[#F4C9D6] border-y border-[#A38D89]/15 relative">
+    <section id="chaos-to-creativity" className="py-24 lg:py-32 bg-[#FADBD9] border-y border-[#A38D89]/15 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Metadata Header */}
         <div className="flex items-center justify-between font-mono-code text-xs text-[#F8E5D7]/50 pb-4 border-b border-[#A38D89]/10 mb-12">
@@ -81,8 +81,8 @@ export const SurrealCollageSection: React.FC = () => {
                     transition={{ type: 'spring', damping: 20 }}
                     className={`relative cursor-pointer rounded-[14px] border-[1.5px] border-[#A38D89] p-6 sm:p-7 transition-all ${
                       isActive
-                        ? 'bg-[#F4C9D6] paper-shadow'
-                        : 'bg-[#F8E5D7] hover:bg-[#F4C9D6] hover:paper-shadow-sm'
+                        ? 'bg-[#FADBD9] paper-shadow'
+                        : 'bg-[#F8E5D7] hover:bg-[#FADBD9] hover:paper-shadow-sm'
                     }`}
                   >
                     {/* Corner pastel color tag */}
@@ -133,7 +133,7 @@ export const SurrealCollageSection: React.FC = () => {
           {/* Right Column (Surreal Collage Visual) */}
           <div className="lg:col-span-6 relative">
             {/* Surreal Collage Art Frame */}
-            <div className="relative bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-3xl p-6 sm:p-8 paper-shadow-lg overflow-hidden">
+            <div className="relative bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-3xl p-6 sm:p-8 paper-shadow-lg overflow-hidden">
               {/* Washi Tape at Top */}
               <div className="absolute -top-3 right-1/4 z-20">
                 <WashiTape color="#D69589" width="w-28" />
@@ -147,7 +147,7 @@ export const SurrealCollageSection: React.FC = () => {
                     FIG. 02 // THE COGNITIVE COLLAGE
                   </span>
                 </div>
-                <span className="font-mono-code text-[11px] text-[#F8E5D7]/60 bg-[#F4C9D6] px-2 py-0.5 border border-[#A38D89] rounded">
+                <span className="font-mono-code text-[11px] text-[#F8E5D7]/60 bg-[#FADBD9] px-2 py-0.5 border border-[#A38D89] rounded">
                   COLLAGE ARCHIVE #77
                 </span>
               </div>
@@ -162,7 +162,7 @@ export const SurrealCollageSection: React.FC = () => {
                 />
 
                 {/* Floating Handwritten Notes on top of artwork */}
-                <div className="absolute top-4 left-4 bg-[#F4C9D6]/95 border border-[#A38D89] px-3 py-1.5 rounded-lg paper-shadow-sm rotate-[-2deg]">
+                <div className="absolute top-4 left-4 bg-[#FADBD9]/95 border border-[#A38D89] px-3 py-1.5 rounded-lg paper-shadow-sm rotate-[-2deg]">
                   <span className="font-hand text-lg text-[#F8E5D7]">
                     "Botanical mind at 2:00 AM"
                   </span>
@@ -177,7 +177,7 @@ export const SurrealCollageSection: React.FC = () => {
 
               {/* Scrapbook Details & Annotations Below Visual */}
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-[#F4C9D6] border border-[#A38D89]/30 p-3.5 rounded-xl">
+                <div className="bg-[#FADBD9] border border-[#A38D89]/30 p-3.5 rounded-xl">
                   <div className="flex items-center gap-1.5 mb-1 text-xs font-mono-code font-bold text-[#F8E5D7]">
                     <HandDrawnStar className="w-3.5 h-3.5 text-amber-600" />
                     <span>SYNAPTIC CLUSTERING</span>
@@ -187,7 +187,7 @@ export const SurrealCollageSection: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="bg-[#F4C9D6] border border-[#A38D89]/30 p-3.5 rounded-xl">
+                <div className="bg-[#FADBD9] border border-[#A38D89]/30 p-3.5 rounded-xl">
                   <div className="flex items-center gap-1.5 mb-1 text-xs font-mono-code font-bold text-[#F8E5D7]">
                     <Sparkles className="w-3.5 h-3.5 text-[#D69589]" />
                     <span>PHYSICALITY IN DIGITAL</span>

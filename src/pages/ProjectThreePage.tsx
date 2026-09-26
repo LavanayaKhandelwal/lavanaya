@@ -33,7 +33,7 @@ export const ProjectThreePage: React.FC = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#3E2723] paper-shadow-sm">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FADBD9] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#3E2723] paper-shadow-sm">
                     <FlowerMark size={14} />
                     <span>PROJECT 3 (START UP) // PAGE 1</span>
                   </div>
@@ -127,7 +127,7 @@ export const ProjectThreePage: React.FC = () => {
                 THE OPPORTUNITY
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 mb-4">
-                <span className="font-mono-code text-xs font-bold bg-[#F4C9D6] text-[#3E2723] px-3 py-1.5 rounded-full uppercase tracking-wider text-center">
+                <span className="font-mono-code text-xs font-bold bg-[#FADBD9] text-[#3E2723] px-3 py-1.5 rounded-full uppercase tracking-wider text-center">
                   {p3.page01.opportunity.label}
                 </span>
                 <span className="font-mono-code text-sm font-bold text-[#F8E5D7]">
@@ -153,7 +153,7 @@ export const ProjectThreePage: React.FC = () => {
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-mono-code text-xs font-bold text-[#F8E5D7] mb-5">
                 {p3.page01.concept.flow.split('→').map((node, nIdx) => (
                   <React.Fragment key={nIdx}>
-                    <span className="px-3 py-1.5 bg-[#F4C9D6] border border-[#A38D89] rounded-lg">{node.trim()}</span>
+                    <span className="px-3 py-1.5 bg-[#FADBD9] border border-[#A38D89] rounded-lg">{node.trim()}</span>
                     {nIdx < p3.page01.concept.flow.split('→').length - 1 && (
                       <span className="text-[#A38D89] font-bold">→</span>
                     )}
@@ -198,7 +198,7 @@ export const ProjectThreePage: React.FC = () => {
         {/* SECTION: DESIGN, MATERIAL & PROTOTYPE */}
         <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative mb-16">
             <div className="absolute -top-3 right-12">
-              <WashiTape color="#F4C9D6" width="w-28" />
+              <WashiTape color="#FADBD9" width="w-28" />
             </div>
 
             <span className="font-mono-code text-xs font-bold text-[#A38D89] uppercase tracking-widest block mb-4">
@@ -214,7 +214,7 @@ export const ProjectThreePage: React.FC = () => {
                   </h2>
                   <div className="flex flex-wrap gap-2.5 font-mono-code text-xs">
                     {p3.page3DesignAndMaterial.design.points.map((pt, i) => (
-                      <span key={i} className="px-4 py-2 bg-[#F4C9D6] border border-[#A38D89] rounded-xl font-bold">
+                      <span key={i} className="px-4 py-2 bg-[#FADBD9] border border-[#A38D89] rounded-xl font-bold">
                         ✦ {pt}
                       </span>
                     ))}
@@ -289,7 +289,7 @@ export const ProjectThreePage: React.FC = () => {
             <div className="p-8 bg-[#A38D89]/30 border-[1.5px] border-[#A38D89] rounded-2xl mb-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-6 space-y-3">
-                  <span className="font-mono-code text-xs font-bold bg-[#F4C9D6] text-[#3E2723] px-3 py-1 rounded-full uppercase inline-block">
+                  <span className="font-mono-code text-xs font-bold bg-[#FADBD9] text-[#3E2723] px-3 py-1 rounded-full uppercase inline-block">
                     {p3.page3DesignAndMaterial.prototype.badge}
                   </span>
                   <h3 className="font-serif-display text-3xl sm:text-5xl text-[#F8E5D7]">
@@ -323,7 +323,7 @@ export const ProjectThreePage: React.FC = () => {
         {/* SECTION: PAGE 02 — BUILD IT. TEST IT. LET USERS SHAPE IT. */}
         <div className="bg-[#3E2723] border-[1.5px] border-[#A38D89]/40 rounded-3xl p-8 sm:p-14 paper-shadow-lg relative">
             <div className="absolute -top-3 right-12">
-              <WashiTape color="#F4C9D6" width="w-28" />
+              <WashiTape color="#FADBD9" width="w-28" />
             </div>
 
             <div className="max-w-4xl mb-10">
@@ -343,7 +343,7 @@ export const ProjectThreePage: React.FC = () => {
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-mono-code text-xs mb-5">
                 {p3.page2SurveyInsights.myApproach.map((app, aIdx) => (
                   <React.Fragment key={aIdx}>
-                    <span className="px-3 py-1.5 bg-[#F4C9D6] border border-[#A38D89] rounded-lg font-bold text-[#3E2723]">
+                    <span className="px-3 py-1.5 bg-[#FADBD9] border border-[#A38D89] rounded-lg font-bold text-[#3E2723]">
                       {app.name}
                     </span>
                     {aIdx < p3.page2SurveyInsights.myApproach.length - 1 && (
@@ -437,7 +437,7 @@ export const ProjectThreePage: React.FC = () => {
                   →
                 </div>
 
-                <div className="md:col-span-1 p-5 bg-[#F4C9D6] border border-[#A38D89] rounded-xl">
+                <div className="md:col-span-1 p-5 bg-[#FADBD9] border border-[#A38D89] rounded-xl">
                   <span className="text-[#A38D89] uppercase text-[10px] block mb-1">ITERATION</span>
                   <strong className="text-sm text-[#F8E5D7]">
                     {p3.page4FeedbackAndIteration.feedbackLoop.iteration}

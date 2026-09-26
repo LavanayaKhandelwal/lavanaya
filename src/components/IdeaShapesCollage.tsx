@@ -26,7 +26,7 @@ export const IdeaShapesCollage: React.FC = () => {
       subtitle: 'Recorded on Olivetti Lettera 32',
       snippet: 'Digital screens make everything feel transient. Physical stationery gives weight to intention. What if software could possess weight?',
       tag: 'WRITING',
-      accentColor: '#F4C9D6',
+      accentColor: '#FADBD9',
       rotation: '-rotate-1'
     },
     {
@@ -45,7 +45,7 @@ export const IdeaShapesCollage: React.FC = () => {
       title: 'Architectural Shadow Study',
       subtitle: 'Brutalist concrete overhang at dawn',
       tag: 'VISUAL SCRAP',
-      accentColor: '#F4C9D6',
+      accentColor: '#FADBD9',
       rotation: '-rotate-2'
     },
     {
@@ -91,11 +91,11 @@ export const IdeaShapesCollage: React.FC = () => {
       });
 
   return (
-    <section id="idea-shapes" className="py-24 lg:py-36 bg-[#F4C9D6] border-b border-[#A38D89]/15 relative overflow-hidden">
+    <section id="idea-shapes" className="py-24 lg:py-36 bg-[#FADBD9] border-b border-[#A38D89]/15 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header & Central Statement */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-6 paper-shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FADBD9] border border-[#A38D89] rounded-full text-xs font-mono-code uppercase tracking-widest text-[#F8E5D7] mb-6 paper-shadow-sm">
             <FlowerMark size={14} />
             <span>UNIVERSAL MEDIUMS OF CREATIVITY</span>
           </div>
@@ -128,7 +128,7 @@ export const IdeaShapesCollage: React.FC = () => {
                 className={`px-3.5 py-1.5 rounded-full text-xs font-mono-code tracking-wider uppercase border-[1.5px] transition-all cursor-pointer ${
                   filter === tab.id
                     ? 'bg-[#3E2723] text-[#F8E5D7] border-[#A38D89] paper-shadow-sm font-bold'
-                    : 'bg-[#F4C9D6] text-[#F8E5D7]/80 border-[#A38D89]/40 hover:border-[#A38D89]'
+                    : 'bg-[#FADBD9] text-[#F8E5D7]/80 border-[#A38D89]/40 hover:border-[#A38D89]'
                 }`}
               >
                 {tab.label}
@@ -147,7 +147,7 @@ export const IdeaShapesCollage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className={`relative bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-2xl p-6 paper-shadow-hover ${item.rotation} cursor-pointer group`}
+              className={`relative bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-2xl p-6 paper-shadow-hover ${item.rotation} cursor-pointer group`}
             >
               {/* Paper Clip or Washi Tape top accent */}
               {index % 2 === 0 ? (

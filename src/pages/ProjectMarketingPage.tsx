@@ -35,7 +35,7 @@ export const ProjectMarketingPage: React.FC = () => {
                 {pm.cover.title}
               </h1>
 
-              <p className="font-serif-display text-2xl sm:text-3xl text-[#F4C9D6] italic leading-snug">
+              <p className="font-serif-display text-2xl sm:text-3xl text-[#FADBD9] italic leading-snug">
                 {pm.cover.subtitle}
               </p>
 
@@ -104,6 +104,54 @@ export const ProjectMarketingPage: React.FC = () => {
                 <span>Aligned with UNIQLO LifeWear core philosophy &amp; global store architecture</span>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Link to detailed Mapping Opportunity Slide */}
+        <section className="mb-16 lg:mb-24">
+          <div className="rule-t pt-8 max-w-2xl">
+            <Link
+              to="/projects/marketing/mapping-opportunity"
+              className="inline-flex items-center gap-3 eyebrow text-[#D69589] editorial-link hover:text-[#F8E5D7]"
+            >
+              <span>VIEW DETAILED SLIDE →</span>
+              <span>MAPPING THE OPPORTUNITY</span>
+            </Link>
+            <p className="plate-caption mt-2 text-left">
+              Full 16:9 strategy slide with market, consumer & competitive analysis
+            </p>
+          </div>
+        </section>
+
+        {/* Link to Bringing Concept to Life Slide */}
+        <section className="mb-16 lg:mb-24">
+          <div className="rule-t pt-8 max-w-2xl">
+            <Link
+              to="/projects/marketing/bringing-concept-to-life"
+              className="inline-flex items-center gap-3 eyebrow text-[#D69589] editorial-link hover:text-[#F8E5D7]"
+            >
+              <span>VIEW DETAILED SLIDE →</span>
+              <span>BRINGING THE CONCEPT TO LIFE</span>
+            </Link>
+            <p className="plate-caption mt-2 text-left">
+              Full 16:9 case study slide documenting the college product-pitch activation
+            </p>
+          </div>
+        </section>
+
+        {/* Link to Making Idea Real Slide */}
+        <section className="mb-16 lg:mb-24">
+          <div className="rule-t pt-8 max-w-2xl">
+            <Link
+              to="/projects/marketing/making-idea-real"
+              className="inline-flex items-center gap-3 eyebrow text-[#D69589] editorial-link hover:text-[#F8E5D7]"
+            >
+              <span>VIEW DETAILED SLIDE →</span>
+              <span>MAKING THE IDEA REAL</span>
+            </Link>
+            <p className="plate-caption mt-2 text-left">
+              Full portrait portfolio slide documenting concept-to-product development
+            </p>
           </div>
         </section>
 

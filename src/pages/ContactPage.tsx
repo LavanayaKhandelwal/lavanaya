@@ -88,12 +88,12 @@ export const ContactPage: React.FC = () => {
                     className="rule-t py-5 flex items-center justify-between gap-4 group"
                   >
                     <div>
-                      <p className="font-mono-code text-xs font-bold text-[#F8E5D7] uppercase tracking-wider group-hover:text-[#F4C9D6] transition-colors">
+                      <p className="font-mono-code text-xs font-bold text-[#F8E5D7] uppercase tracking-wider group-hover:text-[#FADBD9] transition-colors">
                         {soc.name}
                       </p>
                       <p className="plate-caption mt-1">{soc.handle}</p>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-[#A38D89] group-hover:text-[#F4C9D6] transition-colors" />
+                    <ExternalLink className="w-4 h-4 text-[#A38D89] group-hover:text-[#FADBD9] transition-colors" />
                   </a>
                 ))}
                 <div className="rule-b" />

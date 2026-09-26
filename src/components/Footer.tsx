@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-12">
           <div>
             <div className="eyebrow text-[#A38D89] mb-3">Portfolio — Index</div>
-            <Link to="/" className="font-display text-4xl sm:text-5xl text-[#F8E5D7] tracking-tight hover:text-[#F4C9D6] transition-colors">
+            <Link to="/" className="font-display text-4xl sm:text-5xl text-[#F8E5D7] tracking-tight hover:text-[#FADBD9] transition-colors">
               {portfolioData.student.name}
             </Link>
           </div>

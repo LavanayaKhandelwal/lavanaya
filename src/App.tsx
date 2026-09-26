@@ -10,6 +10,9 @@ import { InternshipExperiencePage } from './pages/InternshipExperiencePage';
 import { InternshipLearningsPage } from './pages/InternshipLearningsPage';
 import { ProjectsOverviewPage } from './pages/ProjectsOverviewPage';
 import { ProjectMarketingPage } from './pages/ProjectMarketingPage';
+import { MappingOpportunitySlide } from './pages/MappingOpportunitySlide';
+import { BringingConceptToLifeSlide } from './pages/BringingConceptToLifeSlide';
+import { MakingIdeaRealSlide } from './pages/MakingIdeaRealSlide';
 import { ProjectVisualMerchandisingPage } from './pages/ProjectVisualMerchandisingPage';
 import { ProjectThreePage } from './pages/ProjectThreePage';
 import { SkillsPage } from './pages/SkillsPage';
@@ -67,8 +70,12 @@ function AppShell({
           <Route path="/internship/learnings" element={<InternshipLearningsPage />} />
           <Route path="/projects" element={<ProjectsOverviewPage />} />
           <Route path="/projects/marketing" element={<ProjectMarketingPage />} />
+          <Route path="/projects/marketing/mapping-opportunity" element={<MappingOpportunitySlide />} />
+          <Route path="/projects/marketing/bringing-concept-to-life" element={<BringingConceptToLifeSlide />} />
+          <Route path="/projects/marketing/making-idea-real" element={<MakingIdeaRealSlide />} />
           <Route path="/projects/visual-merchandising" element={<ProjectVisualMerchandisingPage />} />
           <Route path="/projects/project-3" element={<ProjectThreePage />} />
+          <Route path="/projects/project-4" element={<ProjectThreePage />} />
           <Route path="/skills" element={<SkillsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/fashion-portfolio" element={<FashionPortfolioPage />} />

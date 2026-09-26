@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderProps> = () => {
       : 'text-[#F8E5D7]/70 hover:text-[#F8E5D7] transition-colors';
 
   return (
-    <header className="sticky top-0 z-40 bg-[#F4C9D6]/90 backdrop-blur-md border-b border-[#A38D89]/10">
+    <header className="sticky top-0 z-40 bg-[#FADBD9]/90 backdrop-blur-md border-b border-[#A38D89]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand identity (Left) */}
         <Link to="/" className="flex items-center gap-2.5">
@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = () => {
 
       {/* Mobile drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#F4C9D6] border-b border-[#A38D89]/15 px-6 pt-4 pb-6 space-y-3 font-mono-code text-xs">
+        <div className="md:hidden bg-[#FADBD9] border-b border-[#A38D89]/15 px-6 pt-4 pb-6 space-y-3 font-mono-code text-xs">
           {navItems.map((item) => (
             <NavLink
               key={item.to}

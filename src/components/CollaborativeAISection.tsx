@@ -182,7 +182,7 @@ export const CollaborativeAISection: React.FC = () => {
               className={`px-4 py-2 rounded-xl text-xs font-mono-code uppercase tracking-wider border-[1.5px] transition-all cursor-pointer ${
                 selectedPresetId === preset.id && !customSubmitted
                   ? 'bg-[#3E2723] text-[#F8E5D7] border-[#A38D89] font-bold paper-shadow-sm'
-                  : 'bg-[#F4C9D6] text-[#F8E5D7] border-[#A38D89]/30 hover:border-[#A38D89]'
+                  : 'bg-[#FADBD9] text-[#F8E5D7] border-[#A38D89]/30 hover:border-[#A38D89]'
               }`}
             >
               {preset.title}
@@ -194,7 +194,7 @@ export const CollaborativeAISection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Human Unstructured Thought Dump (Paper Notebook style) */}
           <div className="lg:col-span-5 relative">
-            <div className="bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-2xl p-6 sm:p-7 paper-shadow relative">
+            <div className="bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-2xl p-6 sm:p-7 paper-shadow relative">
               {/* Washi Tape Header */}
               <div className="absolute -top-3 left-8">
                 <WashiTape color="#D69589" width="w-24" />
@@ -226,7 +226,7 @@ export const CollaborativeAISection: React.FC = () => {
             </div>
 
             {/* Quick Interactive Prompt Try-Out Box */}
-            <div className="mt-6 bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-xl p-4 paper-shadow-sm">
+            <div className="mt-6 bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-xl p-4 paper-shadow-sm">
               <form onSubmit={handleCustomSubmit}>
                 <label className="block font-mono-code text-xs font-bold uppercase text-[#F8E5D7] mb-1.5">
                   Try unravelling your own chaotic thought:
@@ -237,7 +237,7 @@ export const CollaborativeAISection: React.FC = () => {
                     placeholder="e.g., Launching a brutalist coffee roaster in Lisbon..."
                     value={customInput}
                     onChange={(e) => setCustomInput(e.target.value)}
-                    className="flex-1 bg-[#F4C9D6] border border-[#A38D89] rounded-lg px-3 py-2 text-xs font-mono-code text-[#F8E5D7] placeholder-[#3E2723]/40 focus:outline-hidden focus:ring-1 focus:ring-[#3E2723]"
+                    className="flex-1 bg-[#FADBD9] border border-[#A38D89] rounded-lg px-3 py-2 text-xs font-mono-code text-[#F8E5D7] placeholder-[#3E2723]/40 focus:outline-hidden focus:ring-1 focus:ring-[#3E2723]"
                   />
                   <button
                     type="submit"
@@ -252,7 +252,7 @@ export const CollaborativeAISection: React.FC = () => {
 
           {/* Right Column: Curio Synthesized Editorial Breakdown */}
           <div className="lg:col-span-7 relative">
-            <div className="bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-2xl p-6 sm:p-8 paper-shadow-lg relative">
+            <div className="bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-2xl p-6 sm:p-8 paper-shadow-lg relative">
               {/* Paper Clip */}
               <div className="absolute -top-3 right-8">
                 <PaperClip className="w-5 h-8 text-[#F8E5D7]" />
@@ -275,7 +275,7 @@ export const CollaborativeAISection: React.FC = () => {
                   {currentPreset.curioOutput.moodTags.map((tag) => (
                     <span
                       key={tag}
-                      className="hidden sm:inline-block text-[10px] font-mono-code px-2 py-0.5 bg-[#F4C9D6] border border-[#A38D89]/30 rounded text-[#F8E5D7]/70"
+                      className="hidden sm:inline-block text-[10px] font-mono-code px-2 py-0.5 bg-[#FADBD9] border border-[#A38D89]/30 rounded text-[#F8E5D7]/70"
                     >
                       {tag}
                     </span>
@@ -302,7 +302,7 @@ export const CollaborativeAISection: React.FC = () => {
                   {currentPreset.curioOutput.clusters.map((cluster, i) => (
                     <div
                       key={i}
-                      className="border-[1.5px] border-[#A38D89] rounded-xl p-4 bg-[#F4C9D6] paper-shadow-sm"
+                      className="border-[1.5px] border-[#A38D89] rounded-xl p-4 bg-[#FADBD9] paper-shadow-sm"
                     >
                       <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-[#A38D89]/15">
                         <span 

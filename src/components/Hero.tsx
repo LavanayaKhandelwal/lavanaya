@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenWaitlist }) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4C9D6] border border-[#A38D89] rounded-full text-xs font-mono-code tracking-widest uppercase text-[#F8E5D7] mb-6 paper-shadow-sm"
+            className="inline-flex items-center gap-2 px-3 py-1 bg-[#FADBD9] border border-[#A38D89] rounded-full text-xs font-mono-code tracking-widest uppercase text-[#F8E5D7] mb-6 paper-shadow-sm"
           >
             <FlowerMark size={14} />
             <span>A NEW WAY TO WORK WITH YOUR IDEAS</span>
@@ -107,7 +107,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenWaitlist }) => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="w-full lg:w-[680px] bg-[#F4C9D6] border-[1.5px] border-[#A38D89] rounded-2xl p-4 sm:p-6 paper-shadow-lg mx-auto lg:ml-auto lg:mr-8 relative z-20 mt-4 lg:mt-6"
+            className="w-full lg:w-[680px] bg-[#FADBD9] border-[1.5px] border-[#A38D89] rounded-2xl p-4 sm:p-6 paper-shadow-lg mx-auto lg:ml-auto lg:mr-8 relative z-20 mt-4 lg:mt-6"
           >
             {/* Top window bar */}
             <div className="flex items-center justify-between border-b border-[#A38D89]/15 pb-3 mb-4">
@@ -128,7 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenWaitlist }) => {
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-3.5">
               {/* Left Column in mockup */}
               <div className="sm:col-span-7 space-y-3">
-                <div className="p-3.5 bg-[#F4C9D6] border border-[#A38D89]/40 rounded-xl">
+                <div className="p-3.5 bg-[#FADBD9] border border-[#A38D89]/40 rounded-xl">
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="font-mono-code text-[11px] uppercase tracking-wider text-[#F8E5D7]/60">
                       RAW VOICE THOUGHT (11:42 PM)
@@ -151,10 +151,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenWaitlist }) => {
                     Identified connection with your Kyoto lacquerware bookmark (Nov 2) and Nordic tallow wax study. Suggesting material test matrix:
                   </p>
                   <div className="flex flex-wrap gap-1.5 mt-2">
-                    <span className="text-[10px] font-mono-code px-2 py-0.5 bg-[#F4C9D6] border border-[#A38D89]/30 rounded">
+                    <span className="text-[10px] font-mono-code px-2 py-0.5 bg-[#FADBD9] border border-[#A38D89]/30 rounded">
                       #brass-patina
                     </span>
-                    <span className="text-[10px] font-mono-code px-2 py-0.5 bg-[#F4C9D6] border border-[#A38D89]/30 rounded">
+                    <span className="text-[10px] font-mono-code px-2 py-0.5 bg-[#FADBD9] border border-[#A38D89]/30 rounded">
                       #wabi-sabi
                     </span>
                     <span className="text-[10px] font-mono-code px-2 py-0.5 bg-[#D69589] border border-[#A38D89]/40 rounded">
@@ -166,7 +166,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenWaitlist }) => {
 
               {/* Right Column in mockup */}
               <div className="sm:col-span-5 space-y-2.5">
-                <div className="border border-[#A38D89]/30 rounded-xl overflow-hidden bg-[#F4C9D6] p-2">
+                <div className="border border-[#A38D89]/30 rounded-xl overflow-hidden bg-[#FADBD9] p-2">
                   <div className="h-28 bg-[#A38D89] rounded-lg overflow-hidden relative">
                     <img
                       src="/src/assets/images/curated_moodboard_art_1789788458713.jpg"
@@ -258,7 +258,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenWaitlist }) => {
               "What if we made the catalog feel like a 1970s library card index?"
             </p>
             <div className="mt-3 text-right">
-              <span className="font-mono-code text-[10px] bg-[#F4C9D6] border border-[#A38D89] px-2 py-0.5 rounded">
+              <span className="font-mono-code text-[10px] bg-[#FADBD9] border border-[#A38D89] px-2 py-0.5 rounded">
                 CURIO REPLIED: YES
               </span>
             </div>
@@ -269,7 +269,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenWaitlist }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="hidden sm:block absolute bottom-6 left-12 w-64 bg-[#F4C9D6] border-[1.5px] border-[#A38D89] p-3 pb-4 paper-shadow rotate-3 z-30"
+            className="hidden sm:block absolute bottom-6 left-12 w-64 bg-[#FADBD9] border-[1.5px] border-[#A38D89] p-3 pb-4 paper-shadow rotate-3 z-30"
           >
             <div className="relative">
               <div className="h-32 bg-[#A38D89] border border-[#A38D89]/30 rounded overflow-hidden">

@@ -1,70 +1,85 @@
+import { portfolioData } from '../../data/portfolioData';
+
 /**
  * Section 1 — Cover plate.
- * Near-black tartan plaid ground (#10090B) with the "PoRtfolio" masthead:
- * high-contrast serif "PoRt" overlapped by a handwritten script "folio",
- * warm italic byline, and a bold sans "2026" anchored bottom-right.
- * Hard top/bottom edges — no fades, no gradients outside the plaid weave.
+ * Pink gingham plaid photograph (rotated landscape, 50% opacity) over a
+ * near-black ground (#10090B), with the "PoRtfolio" masthead built from three
+ * faces — Times New Roman "PoR", Canva Sans "t", and a Moontime-style script
+ * "folio" — over an Inter byline locked to the wordmark's width, and the
+ * qualification anchored as a base plate along the bottom edge.
  */
 export function CoverSection() {
+  const { student } = portfolioData;
+
   return (
     <section
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#10090B]"
       aria-label="Portfolio cover"
     >
-      {/* Tartan plaid weave — near-black with burgundy + neutral threads */}
-      <div
+      {/* Pink gingham plaid photograph — rotated to landscape, 50% opacity */}
+      <img
+        src="/portfolio-assets/plaid-cover.jpg"
+        alt=""
         aria-hidden
-        className="absolute inset-0"
-        style={{
-          backgroundImage: [
-            'repeating-linear-gradient(0deg, rgba(120,26,28,0.30) 0px, rgba(120,26,28,0.30) 2px, transparent 2px, transparent 46px)',
-            'repeating-linear-gradient(0deg, rgba(74,42,46,0.38) 0px, rgba(74,42,46,0.38) 8px, transparent 8px, transparent 92px)',
-            'repeating-linear-gradient(90deg, rgba(120,26,28,0.30) 0px, rgba(120,26,28,0.30) 2px, transparent 2px, transparent 52px)',
-            'repeating-linear-gradient(90deg, rgba(74,42,46,0.38) 0px, rgba(74,42,46,0.38) 8px, transparent 8px, transparent 96px)',
-            'repeating-linear-gradient(90deg, rgba(248,229,215,0.045) 0px, rgba(248,229,215,0.045) 1px, transparent 1px, transparent 118px)',
-            'repeating-linear-gradient(0deg, rgba(248,229,215,0.045) 0px, rgba(248,229,215,0.045) 1px, transparent 1px, transparent 132px)',
-          ].join(', '),
-        }}
-      />
-      {/* Slight diagonal threads to keep the weave tactile */}
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-60"
-        style={{
-          backgroundImage:
-            'repeating-linear-gradient(45deg, rgba(214,149,137,0.05) 0px, rgba(214,149,137,0.05) 1px, transparent 1px, transparent 160px)',
-        }}
+        className="absolute inset-0 h-full w-full object-cover opacity-50"
       />
 
-      {/* Corner registration ticks */}
+      {/* Corner registration tick */}
       <span aria-hidden className="absolute left-5 top-4 font-body text-lg font-light text-[#F8E5D7]/40">+</span>
-      <span aria-hidden className="absolute bottom-4 left-5 font-body text-lg font-light text-[#F8E5D7]/40">+</span>
 
-      {/* Masthead */}
-      <div className="relative px-6 text-center">
-        <h1 className="leading-none">
-          <span className="font-serif-display tracking-tight text-[#F8E5D7]" style={{ fontSize: 'clamp(84px, 16vw, 230px)' }}>
-            PoRt
-          </span>
-          <span
-            className="relative -top-2 -ml-5 italic font-bold text-[#F4C9D6] md:-top-4 md:-ml-9"
-            style={{ fontFamily: "'Caveat', cursive", fontWeight: 700, fontSize: 'clamp(72px, 13vw, 195px)' }}
-          >
-            folio
-          </span>
-        </h1>
-        <p
-          className="mt-6 text-[#D6B9AC] md:mt-8"
-          style={{ fontFamily: "'Caveat', cursive", fontSize: 'clamp(24px, 3vw, 40px)' }}
-        >
-          by lavanaya Khandelwal
-        </p>
+      {/* Masthead — the byline row is locked to the exact width of the
+          "PoRtfolio" wordmark: name flush left, year flush right, neither
+          extending past the word itself. */}
+      <div className="relative px-2 sm:px-6">
+        <div className="inline-block text-center">
+          <h1 className="whitespace-nowrap leading-none font-wordmark-serif text-[#3E2723]">
+            {/* letter-spacing also lands after the "R", so marginRight of the
+                same value neutralises it and the join can be tuned on its own */}
+            <span style={{ fontSize: 'clamp(88px, 27vw, 470px)', letterSpacing: '-0.12em', marginRight: '0.12em' }}>PoR</span>
+            <span className="font-wordmark-sans" style={{ fontSize: 'clamp(68px, 21.5vw, 360px)', marginLeft: '-0.02em' }}>t</span>
+            <span
+              className="font-wordmark-script italic"
+              style={{ fontSize: 'clamp(84px, 25.5vw, 450px)', marginLeft: '-0.08em' }}
+            >
+              folio
+            </span>
+          </h1>
+
+          {/* Byline — name left, year right, spanning the wordmark width */}
+          <div className="-mt-16 flex w-full items-baseline justify-between gap-x-4 md:-mt-20">
+            <span
+              className="font-inter text-[#D6B9AC]"
+              style={{ fontSize: 'clamp(14px, 1.6vw, 26px)', fontWeight: 400, letterSpacing: '0.02em' }}
+            >
+              by lavanaya Khandelwal
+            </span>
+            <span
+              className="font-inter text-[#F8E5D7]"
+              style={{ fontSize: 'clamp(14px, 1.6vw, 26px)', fontWeight: 600, letterSpacing: '0.16em' }}
+            >
+              2026
+            </span>
+          </div>
+        </div>
       </div>
 
-      {/* Year anchor */}
-      <span className="absolute bottom-8 right-10 font-body font-extrabold tracking-[0.18em] text-[#F8E5D7]" style={{ fontSize: 'clamp(20px, 2.2vw, 34px)' }}>
-        2026
-      </span>
+      {/* Base plate — qualification anchored to the bottom edge of the cover */}
+      <div className="absolute bottom-6 left-6 right-6 md:bottom-9 md:left-10 md:right-10">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-t border-[#F8E5D7]/20 pt-3">
+          <span
+            className="font-inter text-[#F8E5D7]/90"
+            style={{ fontSize: 'clamp(10px, 1.05vw, 15px)', fontWeight: 400, letterSpacing: '0.06em' }}
+          >
+            {student.degree}
+          </span>
+          <span
+            className="font-inter text-[#F8E5D7]/55"
+            style={{ fontSize: 'clamp(10px, 1.05vw, 15px)', fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase' }}
+          >
+            {student.institution}
+          </span>
+        </div>
+      </div>
     </section>
   );
 }

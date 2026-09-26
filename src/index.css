@@ -5,11 +5,11 @@
     --bg: #3E2723;
     --surface: #705955;
     --card: #F8E5D7;
-    --card-muted: #F4C9D6;
+    --card-muted: #FADBD9;
     --ink: #F8E5D7;
     --ink-muted: #A38D89;
     --accent: #D69589;
-    --accent-hover: #F4C9D6;
+    --accent-hover: #FADBD9;
   }
 
   html {
@@ -37,6 +37,33 @@
 
 .font-body {
   font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Neutral UI face, used for editorial bylines */
+.font-inter {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* High-fashion editorial italic (Bodoni-style) */
+.font-editorial {
+  font-family: 'Bodoni Moda', 'DM Serif Display', Georgia, serif;
+}
+
+/* ————— Cover wordmark: PoR + t + folio —————
+   Moontime and Canva Sans are Canva-exclusive faces, so each stack requests
+   them first and falls back to the closest freely available match. Dropping
+   licensed files into /public/fonts + an @font-face rule activates them. */
+
+.font-wordmark-serif {
+  font-family: 'Times New Roman', Times, 'Tinos', serif;
+}
+
+.font-wordmark-sans {
+  font-family: 'Canva Sans', 'Poppins', 'DM Sans', system-ui, sans-serif;
+}
+
+.font-wordmark-script {
+  font-family: 'Moontime', 'Sacramento', 'Parisienne', cursive;
 }
 
 /* ————— Editorial micro-labels ————— */
@@ -98,13 +125,13 @@
 }
 
 .editorial-link:hover {
-  text-decoration-color: #F4C9D6;
+  text-decoration-color: #FADBD9;
 }
 
 /* ————— Selection & scrollbar ————— */
 
 ::selection {
-  background: #F4C9D6;
+  background: #FADBD9;
   color: #3E2723;
 }
 
