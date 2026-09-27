@@ -44,16 +44,17 @@ export const BringingConceptToLifeSlide: React.FC<{ embedded?: boolean }> = ({ e
                 ].map((item, idx) => (
                   <React.Fragment key={item.label}>
                     <div className="relative flex flex-col items-center">
-                      <div className="w-[43px] h-[43px] rounded-full bg-[#EAE5DC] flex items-center justify-center overflow-hidden">
+                      {/* At 43px the full frame cannot hold anything, so the
+                          circle carries the same wordless treatment at icon
+                          scale: a hairline ring, nothing inside. The step name
+                          sits below it as a caption. */}
+                      <div className="w-[43px] h-[43px] rounded-full border border-[#705955]/28 flex items-center justify-center overflow-hidden">
                         <img
                           src={item.src}
                           alt={item.alt}
                           className="w-full h-full object-cover opacity-60"
-                          onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }}
+                          onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
-                        <div className="hidden absolute inset-0 flex items-center justify-center text-[#55524C] font-mono-code text-[10px] uppercase tracking-[0.1em]">
-                          {item.label}
-                        </div>
                       </div>
                       <span className="font-mono-code text-[8px] sm:text-[9px] uppercase tracking-[0.1em] text-[#373631] mt-1.5">
                         {item.label}

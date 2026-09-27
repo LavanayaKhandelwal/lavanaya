@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft } from 'lucide-react';
+import { ProjectHero } from '../components/ProjectHero';
 import { MappingOpportunitySection } from '../components/marketing/MappingOpportunitySection';
 import { ConceptToLifeSection } from '../components/marketing/ConceptToLifeSection';
 import { ProjectLearnedSection } from '../components/marketing/ProjectLearnedSection';
+import { SlidePhoto } from '../components/SlidePhoto';
 import { portfolioData } from '../data/portfolioData';
 
 export const ProjectMarketingPage: React.FC = () => {
@@ -13,48 +13,15 @@ export const ProjectMarketingPage: React.FC = () => {
   return (
     <div className="min-h-screen pt-0 pb-16 lg:pb-24 bg-[#F9F8F2]">
       {/* COVER — full-bleed hero, image spans the entire viewport width */}
-      <section className="mb-14 lg:mb-20">
-        <div className="relative flex h-[75svh] min-h-[560px] max-h-[1100px] items-end overflow-hidden sm:min-h-[620px] lg:h-[100svh] lg:min-h-[640px] lg:items-center">
-          <img
-            src="/portfolio-assets/project-marketing-hero.jpg"
-            alt="UNIQLO LifeWear fragrance product family staged against Japanese store architecture"
-            className="absolute inset-0 h-full w-full object-cover object-[52%_45%] lg:object-center"
-            loading="eager"
-            fetchPriority="high"
-          />
-          {/* Scrims: cream wash so the headline reads as brown ink on light, product family stays clear on the right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#F9F8F2]/95 via-[#F9F8F2]/78 to-[#F9F8F2]/10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#F9F8F2] via-[#F9F8F2]/45 to-transparent lg:bg-gradient-to-t lg:from-[#F9F8F2]/70 lg:via-transparent lg:to-transparent" />
-
-          {/* Home button — overlaid on the hero background */}
-          <div className="absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-[#F9F8F2]/85 to-transparent px-4 pt-5 pb-6 sm:px-6 lg:px-8">
-            <Link to="/" className="inline-flex items-center gap-2 eyebrow text-[#705955] hover:text-[#3E2723]">
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>HOME</span>
-            </Link>
-          </div>
-
-          <div className="relative w-full px-4 pb-12 pt-14 sm:px-6 lg:px-8 lg:py-16">
-            <div className="max-w-xl space-y-5 lg:max-w-[44ch]">
-              <p className="eyebrow text-[#705955] border-l-2 border-[#D69589] pl-4">
-                MARKETING MANAGEMENT PROJECT
-              </p>
-
-              <p className="eyebrow text-[#705955] border-l-2 border-[#D69589] pl-4">
-                PAGE 1
-              </p>
-
-              <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-[#3E2723] leading-[1] tracking-tight drop-shadow-[0_2px_16px_rgba(249,248,242,0.9)]">
-                A NEW DIMENSION OF LIFEWEAR
-              </h1>
-
-              <p className="font-body text-sm sm:text-base text-[#3E2723]/80 leading-loose">
-                The project focused on taking an established fashion brand into a new product category. We chose Uniqlo and explored how its LifeWear philosophy could be extended beyond apparel.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProjectHero
+        image="/portfolio-assets/project-marketing-hero.jpg"
+        alt="UNIQLO LifeWear fragrance product family staged against Japanese store architecture"
+        eyebrow="MARKETING MANAGEMENT PROJECT"
+        pageLabel="PAGE 1"
+        title="A NEW DIMENSION OF LIFEWEAR"
+        intro={pm.page1And2.context.split('\n\n')[0]}
+        imageClassName="object-[52%_45%] lg:object-center"
+      />
 
       {/* PAGE 2 — MAPPING THE OPPORTUNITY */}
       <div className="px-5 sm:px-8 lg:px-12">
@@ -99,9 +66,10 @@ export const ProjectMarketingPage: React.FC = () => {
 
             <div className="lg:col-span-4 lg:col-start-9 lg:sticky lg:top-24">
               <div className="plate-light p-2">
-                <img
+                <SlidePhoto
                   src="/portfolio-assets/Screenshot 2026-09-15 at 7.50.52 PM.png"
                   alt="4 Variants Minimalist Bottle Packaging"
+                  label="Fragrance variants — Hana Kaze Mizu Sora"
                   className="w-full h-auto object-cover"
                 />
               </div>

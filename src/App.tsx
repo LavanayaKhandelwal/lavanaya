@@ -14,6 +14,7 @@ import { BringingConceptToLifeSlide } from './pages/BringingConceptToLifeSlide';
 import { MakingIdeaRealSlide } from './pages/MakingIdeaRealSlide';
 import { ProjectVisualMerchandisingPage } from './pages/ProjectVisualMerchandisingPage';
 import { ProjectThreePage } from './pages/ProjectThreePage';
+import { ProjectFourPage } from './pages/ProjectFourPage';
 import { SkillsPage } from './pages/SkillsPage';
 import { ContactPage } from './pages/ContactPage';
 import { ambientSound } from './utils/ambientAudio';
@@ -73,7 +74,7 @@ function AppShell({
           <Route path="/projects/marketing/making-idea-real" element={<MakingIdeaRealSlide />} />
           <Route path="/projects/visual-merchandising" element={<ProjectVisualMerchandisingPage />} />
           <Route path="/projects/project-3" element={<ProjectThreePage />} />
-          <Route path="/projects/project-4" element={<ProjectThreePage />} />
+          <Route path="/projects/project-4" element={<ProjectFourPage />} />
           <Route path="/skills" element={<SkillsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/fashion-portfolio" element={<FashionPortfolioPage />} />

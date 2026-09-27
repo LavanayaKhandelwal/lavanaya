@@ -397,11 +397,14 @@ export const portfolioData = {
         ]
       }
     },
+    /**
+     * PAGE 03 ("Making the Unexpected") and PAGE 04 ("Learning Through the
+     * Process") now carry their copy inline — it is the single source of truth
+     * for those pages. The two records below are the earlier drafts those
+     * pages replaced and nothing renders them; kept for reference only.
+     */
     page4BehindTheDisplay: {
-      narration: [
-        "Holographic sheets were transformed into layered petals, while wire and foam provided structure and dimension. Organza added softness, and lighting enhanced the reflective surfaces.",
-        "Each floral element was constructed, assembled and positioned to create the final display. The mannequin remained the focal point, framed by florals, texture and light."
-      ],
+      narration: [],
       steps: [
         {
           imageIndex: "Image 1",
@@ -461,9 +464,13 @@ export const portfolioData = {
       whatILearned: "Future Florals translated nature into a contemporary, futuristic retail environment."
     }
   },
-
   // 5. PROJECT 3: START UP (EVERYDAY ATHLEISURE)
   projectThree: {
+    // `cover` and `page01` are reference-only. PAGE 01 is now the landscape
+    // specification board built in
+    // components/marketing/EverydayAthleisurePageOne, which inlined this copy
+    // and replaced the full-bleed cover and the credits strip. Kept for wording
+    // reference; nothing reads it.
     cover: {
       title: "Everyday Athleisure",
       conceptSubtitle: "A startup concept built around one simple idea: What if activewear could move with your entire day?",

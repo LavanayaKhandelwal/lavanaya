@@ -79,6 +79,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
                 <ProjectCardMedia
                   image={proj.image}
                   alt={proj.title}
+                  label={`Project ${proj.number} — ${homeProjectTitles[proj.id] ?? proj.title}`}
                 />
 
                 <div className="mt-6 space-y-5">
