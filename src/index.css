@@ -49,6 +49,20 @@
   font-family: 'Bodoni Moda', 'DM Serif Display', Georgia, serif;
 }
 
+/* Hand-drawn annotation — the designer's own hand on the page. Caveat is
+   already in the Google Fonts request in index.html; Sacramento backs it up. */
+.font-hand {
+  font-family: 'Caveat', 'Sacramento', cursive;
+  font-weight: 400;
+}
+
+/* Brush script — the large display handwriting, where a marker pen is too
+   small a gesture. Sacramento is already requested in index.html. */
+.font-script {
+  font-family: 'Sacramento', 'Caveat', cursive;
+  font-weight: 400;
+}
+
 /* ————— Cover wordmark: PoR + t + folio —————
    Moontime and Canva Sans are Canva-exclusive faces, so each stack requests
    them first and falls back to the closest freely available match. Dropping

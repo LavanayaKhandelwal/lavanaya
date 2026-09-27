@@ -1,0 +1,40 @@
+import React from 'react';
+
+export interface ProjectSectionHeaderProps {
+  /** Page marker, e.g. PAGE 3 — VISUAL BOARDS */
+  eyebrow: string;
+  title: string;
+  /** One-paragraph lead under the title. */
+  lead?: string;
+  /**
+   * Run the block edge to edge: drop the `max-w-4xl` measure cap and pull the
+   * air out of it. Project 3 uses this — its cover, blush bands and closing
+   * wave are all full bleed, so a header capped at 896px with 24px of air
+   * under the title would strand the marker and read as a separate object.
+   */
+  fullWidth?: boolean;
+}
+
+/**
+ * Section header used across the project pages, matching Project 1's own
+ * rhythm: a hairline, a taupe page marker, a display heading and an optional
+ * lead paragraph. On cream and on the blush band alike.
+ */
+export const ProjectSectionHeader: React.FC<ProjectSectionHeaderProps> = ({
+  eyebrow,
+  title,
+  lead,
+  fullWidth = false,
+}) => {
+  return (
+    <div
+      className={`rule-b-light ${fullWidth ? 'pb-2 mb-6' : 'pb-6 mb-12 lg:mb-14 max-w-4xl'}`}
+    >
+      <p className="eyebrow text-[#705955] mb-3">{eyebrow}</p>
+      <h2 className="font-display text-4xl sm:text-5xl text-[#3E2723] tracking-tight mb-4">
+        {title}
+      </h2>
+      {lead && <p className="font-body text-base text-[#3E2723]/80 leading-loose">{lead}</p>}
+    </div>
+  );
+};
