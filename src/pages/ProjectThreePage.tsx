@@ -14,7 +14,7 @@ export const ProjectThreePage: React.FC = () => {
         {/* Top Breadcrumb */}
         <div className="flex items-center justify-between font-mono-code text-xs text-[#F8E5D7]/50 pb-4 border-b border-[#A38D89]/10 mb-12">
           <div className="flex items-center gap-2">
-            <Link to="/projects" className="hover:text-[#F8E5D7] flex items-center gap-1">
+            <Link to="/projects/marketing" className="hover:text-[#F8E5D7] flex items-center gap-1">
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>PROJECTS</span>
             </Link>

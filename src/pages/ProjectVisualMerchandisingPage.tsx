@@ -21,7 +21,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
         {/* Folio rule */}
         <div className="rule-b pb-4 mb-14 flex items-center justify-between eyebrow text-[#A38D89]">
           <div className="flex items-center gap-2">
-            <Link to="/projects" className="hover:text-[#F8E5D7] flex items-center gap-1">
+            <Link to="/projects/marketing" className="hover:text-[#F8E5D7] flex items-center gap-1">
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>PROJECTS</span>
             </Link>

@@ -67,7 +67,6 @@ function AppShell({
           <Route path="/about" element={<AboutPage />} />
           <Route path="/internship/experience" element={<InternshipExperiencePage />} />
           <Route path="/internship/learnings" element={<InternshipLearningsPage />} />
-          <Route path="/projects" element={<ProjectsOverviewPage />} />
           <Route path="/projects/marketing" element={<ProjectMarketingPage />} />
           <Route path="/projects/marketing/mapping-opportunity" element={<MappingOpportunitySlide />} />
           <Route path="/projects/marketing/bringing-concept-to-life" element={<BringingConceptToLifeSlide />} />

@@ -236,18 +236,24 @@ export const portfolioData = {
       number: "04",
       title: "Customer Experience Activation",
       category: "An Experience by Hunkemöller",
-      discipline: "Consumer Research · Market Gap Analysis · MVP Prototyping",
+      discipline: "Brand Research · Experience Concept Development · Activation Planning · On-Ground Execution",
       year: "2025–2026",
-      tagline: "A startup concept built around one simple idea — what if activewear could move with your entire day?",
+      tagline: "Interactive and personalised brand experiences — moving a customer from seeing the brand to taking part in it.",
       accentColor: "#A38D89",
-      rotation: "rotate-1",
-      tags: ["Fashion Start-Up", "Consumer Pain Points", "MVP", "User Testing", "Iteration"],
-      summary: "Activewear that moves with your entire day — a co-ord designed to transition across gym, café, travel and everyday.",
-      image: "/portfolio-assets/project-athleisure-2.png",
-      brief: "Bridge the gap — performance, everyday athleisure, casual. Comfort + style + function + versatility.",
-      research: "Consumer research, trend research and market gap analysis to pinpoint the opportunity.",
-      contribution: "Developed a physical MVP co-ord and refined it around user feedback.",
-      keyLearnings: "Don't just build what sounds good. Build → test → listen → improve."
+      rotation: "-rotate-1",
+      tags: ["Hunkemöller", "Customer Experience Activation", "Personalisation", "Interactive Touchpoints", "Event Execution"],
+      summary:
+        "The project focused on creating a customer experience activation for Hunkemöller built around interactive and personalised brand experiences — touchpoints that let customers engage with the brand directly, rather than only see it.",
+      // Cover plate for this project is still to come. Drop a 16:10 image at
+      // /portfolio-assets/project-hunkemoller.png and re-add the `image` field.
+      brief:
+        "Developed a customer experience activation for Hunkemöller focused on interactive and personalised brand experiences.",
+      research:
+        "Researched Hunkemöller’s brand identity and customer engagement to identify opportunities for interactive activations.",
+      contribution:
+        "Contributed to concept development, planning and execution of the event activations.",
+      keyLearnings:
+        "Gained experience in customer interaction and event execution, and understood how interactive touchpoints strengthen brand connection."
     }
   ] as ProjectSummary[],
 

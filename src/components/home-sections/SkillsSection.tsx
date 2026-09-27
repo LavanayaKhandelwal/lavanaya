@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { RevealWords } from '../TypewriterEyebrow';
 import { portfolioData } from '../../data/portfolioData';
 
 /**
@@ -30,12 +31,10 @@ export const SkillsSection: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="mb-8 pb-4 border-b border-[#705955]/15"
         >
-          <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#3E2723]">
-            Skills &{' '}
-            <span className="font-serif-display italic font-normal text-[#D69589]">
-              Certifications
-            </span>
-          </h2>
+          <RevealWords
+            words={[{ text: 'Skills &' }, { text: 'Certifications', italic: true }]}
+            className="font-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#3E2723]"
+          />
         </motion.div>
 
         {/* SKILL GROUPS — the header hairline rules the first block, so only

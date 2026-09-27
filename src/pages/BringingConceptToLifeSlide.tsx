@@ -1,9 +1,12 @@
 import React from 'react';
+import { SlidePhoto } from '../components/SlidePhoto';
 
-export const BringingConceptToLifeSlide: React.FC = () => {
+export const BringingConceptToLifeSlide: React.FC<{ embedded?: boolean }> = ({ embedded = false }) => {
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-8 lg:p-12 bg-[#F5F1E8]">
-      <div className="w-full max-w-7xl aspect-[16/9] bg-[#F5F1E8] relative font-body text-[#151515]">
+    <div className={embedded ? 'w-full bg-[#F5F1E8]' : 'min-h-screen flex items-center justify-center p-4 sm:p-8 lg:p-12 bg-[#F5F1E8]'}>
+      <div
+        className={`w-full aspect-[16/9] bg-[#F5F1E8] relative font-body text-[#151515] ${embedded ? '' : 'max-w-7xl'}`}
+      >
         {/* Subtle paper texture */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 400 400%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.03%22/%3E%3C/svg%3E')] pointer-events-none" />
 
@@ -69,11 +72,11 @@ export const BringingConceptToLifeSlide: React.FC = () => {
 
             {/* Bottom Photo - Students testing fragrances - IMAGE PLACEHOLDER */}
             <div className="relative mt-auto w-full aspect-[2.8/1] min-h-[135px] max-h-[145px] overflow-hidden bg-[#EDE9E1]">
-              <img
+              <SlidePhoto
                 src="/portfolio-assets/04_students_testing_fragrances.jpg"
                 alt="College students gathered around a table testing and smelling fragrance products with multiple perfume bottles and product boxes displayed"
+                label="Students Testing Fragrances"
                 className="w-full h-full object-cover"
-                onError={(e) => { e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 150%22%3E%3Crect fill=%22%23EDE9E1%22 width=%22100%25%22 height=%22100%25%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui%22 font-size=%2212%22 fill=%22%23A89A87%22%3EStudents Testing Fragrances%3C/text%3E%3C/svg%3E'; }}
               />
             </div>
           </div>
@@ -85,21 +88,21 @@ export const BringingConceptToLifeSlide: React.FC = () => {
             
             {/* Top Photo - Woman presenting at booth - IMAGE PLACEHOLDER */}
             <div className="relative flex-0-0 aspect-[1.1/1] min-h-[185px] max-h-[195px] overflow-hidden bg-[#EDE9E1]">
-              <img
+              <SlidePhoto
                 src="/portfolio-assets/04_presenter_at_booth.jpg"
                 alt="Young woman in black blazer presenting fragrance products at college product-pitch booth with students gathered around"
+                label="Presenter At Booth"
                 className="w-full h-full object-cover"
-                onError={(e) => { e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 350 350%22%3E%3Crect fill=%22%23EDE9E1%22 width=%22100%25%22 height=%22100%25%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui%22 font-size=%2212%22 fill=%22%23A89A87%22%3EPresenter at Booth%3C/text%3E%3C/svg%3E'; }}
               />
             </div>
 
             {/* Middle Photo - Students testing fragrances - IMAGE PLACEHOLDER */}
             <div className="relative flex-0-0 aspect-[1.3/1] min-h-[145px] max-h-[155px] overflow-hidden bg-[#EDE9E1]">
-              <img
+              <SlidePhoto
                 src="/portfolio-assets/04_students_interacting.jpg"
                 alt="College students actively testing fragrance products at presentation table with multiple bottles and white packaging"
+                label="Students Interacting"
                 className="w-full h-full object-cover"
-                onError={(e) => { e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 350 280%22%3E%3Crect fill=%22%23EDE9E1%22 width=%22100%25%22 height=%22100%25%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui%22 font-size=%2212%22 fill=%22%23A89A87%22%3EStudents Interacting%3C/text%3E%3C/svg%3E'; }}
               />
             </div>
 
@@ -121,11 +124,11 @@ export const BringingConceptToLifeSlide: React.FC = () => {
             
             {/* Top Photo - Students at booth - IMAGE PLACEHOLDER */}
             <div className="relative flex-0-0 aspect-[1.6/1] min-h-[112px] max-h-[120px] overflow-hidden bg-[#EDE9E1]">
-              <img
+              <SlidePhoto
                 src="/portfolio-assets/04_students_at_booth.jpg"
                 alt="College students interacting with fragrance booth and testing perfume products"
+                label="Students At Booth"
                 className="w-full h-full object-cover"
-                onError={(e) => { e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 350 220%22%3E%3Crect fill=%22%23EDE9E1%22 width=%22100%25%22 height=%22100%25%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui%22 font-size=%2212%22 fill=%22%23A89A87%22%3EStudents at Booth%3C/text%3E%3C/svg%3E'; }}
               />
             </div>
 
@@ -143,11 +146,11 @@ export const BringingConceptToLifeSlide: React.FC = () => {
 
             {/* Feedback Document Image - IMAGE PLACEHOLDER */}
             <div className="relative flex-0-0 aspect-[1.4/1] min-h-[150px] max-h-[160px] overflow-hidden bg-[#FDFBF7]">
-              <img
+              <SlidePhoto
                 src="/portfolio-assets/04_feedback_documents.jpg"
                 alt="Printed feedback forms and review sheets spread across a table with handwritten responses"
+                label="Feedback Documents"
                 className="w-full h-full object-cover"
-                onError={(e) => { e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 220%22%3E%3Crect fill=%22%23FDFBF7%22 width=%22100%25%22 height=%22100%25%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui%22 font-size=%2212%22 fill=%22%23A89A87%22%3EFeedback Documents%3C/text%3E%3C/svg%3E'; }}
               />
             </div>
 

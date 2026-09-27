@@ -115,6 +115,55 @@
   border: 1px solid rgba(163, 141, 137, 0.3);
 }
 
+/* ————— Light-ground variants (Project 1) —————
+   Same editorial rules, plate and caption geometry, re-pointed at the home
+   page's light palette: cream / blush grounds, taupe hairlines. Scoped by
+   class name so the rest of the site keeps its existing colours. */
+
+.rule-t-light {
+  border-top: 1px solid rgba(112, 89, 85, 0.22);
+}
+
+.rule-b-light {
+  border-bottom: 1px solid rgba(112, 89, 85, 0.22);
+}
+
+.rule-l-light {
+  border-left: 1px solid rgba(112, 89, 85, 0.22);
+}
+
+.plate-light {
+  background-color: #FDFCF8;
+  border: 1px solid rgba(112, 89, 85, 0.28);
+}
+
+.plate-caption-light {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.675rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #705955;
+}
+
+/* Organic oval frame — a closed, asymmetric figure for image slots, so the
+   shape never reads as a plain circle. Percentages keep it fluid at any size. */
+.oval-frame {
+  border-radius: 62% 38% 44% 56% / 48% 58% 42% 52%;
+}
+
+/* Extremely subtle warm paper grain for light editorial grounds */
+.paper-grain-light {
+  position: relative;
+}
+
+.paper-grain-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox=%220 0 400 400%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.03%22/%3E%3C/svg%3E");
+}
+
 /* Quiet serif link underline used across editorial CTA text */
 .editorial-link {
   text-decoration: underline;
@@ -128,7 +177,52 @@
   text-decoration-color: #FADBD9;
 }
 
+/* ————— Typewriter caret ————— */
+
+.typewriter-caret {
+  display: inline-block;
+  margin-left: 2px;
+  color: #D69589;
+  animation: caret-blink 1s steps(2, start) infinite;
+}
+
+@keyframes caret-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ————— Polaroid hover jiggle ————— */
+
+@keyframes portrait-jiggle {
+  0%, 100% { translate: 0 0; }
+  20%      { translate: -5px 0; }
+  40%      { translate:  5px 0; }
+  60%      { translate: -3px 0; }
+  80%      { translate:  2px 0; }
+}
+
+/* Animates the `translate` property only, so it composes with the card's
+   Tailwind `rotate-2` tilt instead of clobbering it the way a `transform`
+   shorthand (or Framer's whileHover x) would. */
+@media (prefers-reduced-motion: no-preference) {
+  .portrait-card:hover {
+    animation: portrait-jiggle 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  }
+}
+
 /* ————— Selection & scrollbar ————— */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
 ::selection {
   background: #FADBD9;

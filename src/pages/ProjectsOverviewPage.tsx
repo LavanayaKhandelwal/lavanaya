@@ -29,7 +29,7 @@ export const ProjectsOverviewPage: React.FC = () => {
             Selected Projects
           </h1>
           <p className="font-body text-base text-[#F8E5D7]/85 leading-loose max-w-3xl mb-8">
-            Four projects across marketing management &amp; brand extension (UNIQLO × fragrances), Spring/Summer visual merchandising (Cover Story × Future Florals), and founding an everyday athleisure startup from consumer research to a physical MVP.
+            Four projects across marketing management &amp; brand extension (UNIQLO × fragrances), Spring/Summer visual merchandising (Cover Story × Future Florals), founding an everyday athleisure startup from consumer research to a physical MVP, and a customer experience activation built for Hunkemöller.
           </p>
         </div>
 

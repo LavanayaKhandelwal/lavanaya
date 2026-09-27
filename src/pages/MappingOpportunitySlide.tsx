@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { SlidePhoto } from '../components/SlidePhoto';
 
-export const MappingOpportunitySlide: React.FC = () => {
+export const MappingOpportunitySlide: React.FC<{ embedded?: boolean }> = ({ embedded = false }) => {
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-8 lg:p-12 bg-[#F4F0E8]">
-      <div className="w-full max-w-7xl aspect-[16/9] bg-[#F4F0E8] relative font-body text-[#171715]">
+    <div className={embedded ? 'w-full bg-[#F4F0E8]' : 'min-h-screen flex items-center justify-center p-4 sm:p-8 lg:p-12 bg-[#F4F0E8]'}>
+      <div
+        className={`w-full aspect-[16/9] bg-[#F4F0E8] relative font-body text-[#171715] ${embedded ? '' : 'max-w-7xl'}`}
+      >
         {/* Slide Background with subtle texture */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 400 400%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.03%22/%3E%3C/svg%3E')] pointer-events-none" />
 
@@ -43,11 +44,11 @@ export const MappingOpportunitySlide: React.FC = () => {
               
               {/* Header Image - Fragrance Still Life - IMAGE PLACEHOLDER */}
               <div className="relative w-[32%] aspect-[3.2/1] min-w-[200px] max-w-[280px] overflow-hidden">
-                <img
+                <SlidePhoto
                   src="/portfolio-assets/02_fragrance_still_life.jpg"
                   alt="Minimal Japanese-inspired fragrance still life with small fragrance bottle on warm cream surface beside delicate white flowers and thin branches"
+                  label="Fragrance Still Life"
                   className="w-full h-full object-cover"
-                  onError={(e) => { e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 100%22%3E%3Crect fill=%22%23F5F1E9%22 width=%22100%25%22 height=%22100%25%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui%22 font-size=%2211%22 fill=%22%23A89A87%22%3EFragrance Still Life%3C/text%3E%3C/svg%3E'; }}
                 />
               </div>
             </div>
@@ -102,11 +103,11 @@ export const MappingOpportunitySlide: React.FC = () => {
 
               {/* Background Image - City Skyline - IMAGE PLACEHOLDER */}
               <div className="absolute bottom-0 right-0 w-[55%] h-[65%] opacity-40 pointer-events-none">
-                <img
+                <SlidePhoto
                   src="/portfolio-assets/02_city_skyline.jpg"
                   alt="Modern Indian metropolitan skyline viewed through atmospheric haze with waterfront and high-rise buildings"
+                  label="City Skyline"
                   className="w-full h-full object-cover"
-                  onError={(e) => { e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%23E5E9E9%22 width=%22100%25%22 height=%22100%25%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui%22 font-size=%2211%22 fill=%22%23A89A87%22%3ECity Skyline%3C/text%3E%3C/svg%3E'; }}
                 />
               </div>
             </section>
@@ -124,11 +125,11 @@ export const MappingOpportunitySlide: React.FC = () => {
               <div className="grid grid-cols-[48%_52%] gap-3 h-[calc(100%-40px)] min-h-0">
                 {/* Image - Editorial Lifestyle - IMAGE PLACEHOLDER */}
                 <div className="relative aspect-[0.9/1] overflow-hidden">
-                  <img
+                  <SlidePhoto
                     src="/portfolio-assets/02_consumer_lifestyle.jpg"
                     alt="Young Asian couple standing outdoors in minimal neutral clothing, soft neutral outdoor environment with natural diffused daylight"
+                    label="Consumer Lifestyle"
                     className="w-full h-full object-cover"
-                    onError={(e) => { e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 220%22%3E%3Crect fill=%22%23F5F1E9%22 width=%22100%25%22 height=%22100%25%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui%22 font-size=%2211%22 fill=%22%23A89A87%22%3EConsumer Lifestyle%3C/text%3E%3C/svg%3E'; }}
                   />
                 </div>
 
@@ -205,11 +206,11 @@ export const MappingOpportunitySlide: React.FC = () => {
 
               {/* Background Image - Japanese Botanical - IMAGE PLACEHOLDER */}
               <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[35%] h-[70%] opacity-60 pointer-events-none">
-                <img
+                <SlidePhoto
                   src="/portfolio-assets/02_japanese_botanical.jpg"
                   alt="Delicate flowering branch with small white blossoms against pale neutral background, Japanese botanical photography"
+                  label="Japanese Botanical"
                   className="w-full h-full object-cover"
-                  onError={(e) => { e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 350%22%3E%3Crect fill=%22%23F5F1E9%22 width=%22100%25%22 height=%22100%25%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui%22 font-size=%2211%22 fill=%22%23A89A87%22%3EJapanese Botanical%3C/text%3E%3C/svg%3E'; }}
                 />
               </div>
             </section>
@@ -287,11 +288,11 @@ export const MappingOpportunitySlide: React.FC = () => {
 
                 {/* Brand Fit Image - Sunlight on cream fabric with botanical shadows - IMAGE PLACEHOLDER */}
                 <div className="relative aspect-[1/1] min-h-[160px] overflow-hidden">
-                  <img
+                  <SlidePhoto
                     src="/portfolio-assets/02_brand_fit_sunlight.jpg"
                     alt="Soft sunlight falling across cream fabric with delicate flowering branches casting shadows, minimal Japanese editorial still life"
+                    label="Brand Fit Sunlight"
                     className="w-full h-full object-cover"
-                    onError={(e) => { e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 300%22%3E%3Crect fill=%22%23EEE9E0%22 width=%22100%25%22 height=%22100%25%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui%22 font-size=%2211%22 fill=%22%23A89A87%22%3EBrand Fit Image%3C/text%3E%3C/svg%3E'; }}
                   />
                 </div>
               </div>

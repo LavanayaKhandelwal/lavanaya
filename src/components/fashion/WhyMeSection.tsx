@@ -33,7 +33,7 @@ function Portrait() {
       {/* Curio-style polaroid frame: cream card, thin ink rule, hard offset
           paper shadow, washi-tape tab on top, handwritten caption inside the
           card below the photo. Same image, same box — only the frame is new. */}
-      <div className="absolute inset-0 rotate-2 rounded-sm border-[1.5px] border-[#3E2723] bg-[#F9F8F2] p-2 pb-0 shadow-[5px_5px_0px_rgba(62,39,35,0.85)]">
+      <div className="portrait-card absolute inset-0 rotate-2 rounded-sm border-[1.5px] border-[#3E2723] bg-[#F9F8F2] p-2 pb-0 shadow-[5px_5px_0px_rgba(62,39,35,0.85)]">
         <div className="pointer-events-none absolute -top-3 left-1/2 z-10 w-max -translate-x-1/2 -rotate-2">
           <WashiTape color="#D69589" width="w-28" />
         </div>
@@ -120,17 +120,18 @@ export function WhyMeSection() {
         </div>
       </div>
 
-      {/* Lace trim — a fixed-height window cropped around the lace band itself
-          (band centre ≈ 67% of the 2172×724 asset), so the whole band shows
-          while the transparent padding above/below stays cropped out. vw
-          heights keep the full band visible at any viewport width. Full-bleed
-          (100vw) so the pattern keeps running past the viewport. */}
-      <div className="relative -mx-6 mt-8 h-[10vw] w-screen max-w-none overflow-hidden md:-mx-16 md:h-[7vw]" style={{ left: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
+      {/* Lace trim — separator between About me and Selected Projects. The
+          new asset is 1672×941 with the lace sitting in the bottom band
+          (~84%–100%), so object-position anchors to the bottom edge; the
+          wrapper height is cropped to roughly that band's aspect so the
+          pattern shows full-size while the transparent top stays out.
+          Full-bleed (100vw) so the trim keeps running past the viewport. */}
+      <div className="relative -mx-6 mt-8 h-[14vw] max-h-40 min-h-16 w-screen max-w-none overflow-hidden md:-mx-16 md:h-[10vw]" style={{ left: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
         <img
           src="/portfolio-assets/lace-border.png"
           alt=""
           aria-hidden
-          className="absolute inset-0 h-full w-full object-cover object-[50%_67%]"
+          className="absolute inset-0 h-full w-full object-cover object-bottom"
         />
       </div>
     </section>

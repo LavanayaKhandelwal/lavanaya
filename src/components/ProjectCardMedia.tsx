@@ -9,9 +9,14 @@ interface ProjectCardMediaProps {
 export const ProjectCardMedia: React.FC<ProjectCardMediaProps> = ({ image, alt = '', ratio = 'aspect-[16/10]' }) => {
   if (image) {
     return (
-      <figure className="plate">
+      <figure className="plate transition-all duration-300 group-hover:border-[#D69589]/50 group-hover:shadow-[4px_4px_0px_rgba(214,149,137,0.25)]">
         <div className={`${ratio} overflow-hidden bg-[#3E2723]`}>
-          <img src={image} alt={alt} className="w-full h-full object-cover" />
+          <img
+            src={image}
+            alt={alt}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          />
         </div>
       </figure>
     );

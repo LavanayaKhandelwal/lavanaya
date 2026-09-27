@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>05 — What the Project Taught Me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&family=Jost:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    background: #EAE6DD;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- scaling container: 1cqw = 12px at the 1200px design width ---- */
+  .slide {
+    width: min(1200px, 100%);
+    container-type: inline-size;
+  }
+
+  .canvas {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    background: #F7F4EE;
+    padding: 3.333cqw;
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+  }
+
+  /* extremely subtle warm paper grain */
+  .canvas::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 9;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+
+  /* ============ HEADER ============ */
+  header {
+    height: 28%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-shrink: 0;
+  }
+
+  .marker {
+    display: flex;
+    align-items: center;
+    gap: 0.833cqw;
+  }
+
+  .marker span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.917cqw;
+    letter-spacing: 0.125cqw;
+    color: #3F3D38;
+    text-transform: uppercase;
+  }
+
+  .marker i {
+    display: block;
+    width: 2.5cqw;
+    height: 1px;
+    background: #C5C0B7;
+  }
+
+  h1 {
+    margin-top: 1.5cqw;
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 3.25cqw;
+    line-height: 0.98;
+    color: #171716;
+    text-align: left;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    display: block;
+  }
+
+  .head-right {
+    display: flex;
+    align-items: center;
+    gap: 0.833cqw;
+    margin-top: 0.35cqw;
+  }
+
+  .statement {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.5cqw;
+    letter-spacing: 0.125cqw;
+    line-height: 1.55;
+    color: #55524B;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  .head-right i {
+    display: block;
+    width: 4.583cqw;
+    height: 1px;
+    background: #C8C3BA;
+    flex-shrink: 0;
+  }
+
+  /* ============ CARDS ============ */
+  .cards {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1.417cqw;
+    min-height: 0;
+  }
+
+  .card {
+    position: relative;
+    flex: 1 1 0;
+    height: 25cqw;
+    border-radius: 1.167cqw;
+    padding: 1.5cqw;
+    display: flex;
+    flex-direction: column;
+    /* border: none; */
+  }
+
+  .circle {
+    position: absolute;
+    top: -3.5cqw;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 11.667cqw;
+    height: 11.667cqw;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .circle svg { display: block; width: 100%; height: 100%; }
+
+  .numrow {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.667cqw;
+  }
+
+  .num {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 1.917cqw;
+    line-height: 1;
+  }
+
+  .numrow i {
+    display: block;
+    width: 3.167cqw;
+    height: 1px;
+    background: #C9C4BA;
+  }
+
+  .card h3 {
+    margin-top: 5.17cqw;
+    font-family: 'Jost', 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.917cqw;
+    letter-spacing: 0.167cqw;
+    line-height: 1.45;
+    text-transform: uppercase;
+    color: #282722;
+    text-align: left;
+  }
+
+  .card .desc {
+    margin-top: auto;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.833cqw;
+    line-height: 1.5;
+    color: #5A5750;
+    text-align: left;
+  }
+
+  /* per-card accent + tint */
+  .c1 { background: #F0F1E9; }
+  .c1 .num { color: #7C8667; }
+  .c2 { background: #F5ECE9; }
+  .c2 .num { color: #C98F87; }
+  .c3 { background: #E9EEF0; }
+  .c3 .num { color: #6D8998; }
+  .c4 { background: #F3EDE3; }
+  .c4 .num { color: #B39A68; }
+
+  /* ============ FOOTER ============ */
+  footer {
+    height: 8%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .foot-left {
+    display: flex;
+    align-items: center;
+    gap: 0.833cqw;
+  }
+
+  footer span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.5cqw;
+    letter-spacing: 0.15cqw;
+    color: #77736B;
+    text-transform: uppercase;
+  }
+
+  .foot-left i {
+    display: block;
+    width: 5cqw;
+    height: 1px;
+    background: #C8C3BA;
+  }
+
+  /* ============ TABLET ============ */
+  @media (max-width: 1100px) and (min-width: 768px) {
+    h1 { font-size: 32px; }
+    .card .desc { font-size: 9px; }
+    .cards { gap: 12px; }
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 767px) {
+    body { padding: 14px; align-items: flex-start; }
+
+    .canvas {
+      aspect-ratio: auto;
+      padding: 24px;
+      gap: 0;
+    }
+
+    header {
+      height: auto;
+      flex-direction: column;
+      gap: 18px;
+      padding-bottom: 56px;
+    }
+
+    h1 { font-size: 30px; margin-top: 14px; }
+
+    .head-right { margin-top: 0; align-self: flex-start; }
+    .statement { font-size: 7px; letter-spacing: 1.5px; text-align: left; }
+    .head-right i { width: 44px; }
+
+    .marker span { font-size: 11px; letter-spacing: 1.5px; }
+    .marker i { width: 30px; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 46px 14px;
+      align-items: stretch;
+    }
+
+    .card { height: auto; min-height: 230px; padding: 16px; border-radius: 12px; }
+
+    .circle { width: 86px; height: 86px; top: -30px; }
+
+    .num { font-size: 20px; }
+    .numrow i { width: 30px; }
+
+    .card h3 { margin-top: 30px; font-size: 10px; letter-spacing: 2px; }
+    .card .desc { font-size: 9px; line-height: 1.5; }
+
+    footer {
+      height: auto;
+      margin-top: 40px;
+      padding-top: 16px;
+    }
+
+    footer span { font-size: 6px; letter-spacing: 1.8px; }
+    .foot-left i { width: 60px; }
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="canvas">
+
+    <!-- ================= HEADER ================= -->
+    <header>
+      <div class="head-left">
+        <div class="marker"><span>05</span><i></i></div>
+        <h1>What the Project<em>Taught Me</em></h1>
+      </div>
+
+      <div class="head-right">
+        <p class="statement">
+          NEW PERSPECTIVES<br />
+          BETTER QUESTIONS.<br />
+          BIGGER THINKING.
+        </p>
+        <i></i>
+      </div>
+    </header>
+
+    <!-- ================= CARDS ================= -->
+    <section class="cards">
+
+      <!-- CARD 01 — MARKET RESEARCH -->
+      <article class="card c1">
+        <div class="circle">
+          <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="140" height="140" fill="#F2F0EA" />
+            <!-- laptop keyboard corner, upper-left -->
+            <g transform="translate(-12,-7)">
+              <rect width="56" height="38" rx="5" fill="#E6E3DA" />
+              <g fill="#D3CFC5">
+                <rect x="6" y="7" width="7" height="5" rx="1" /><rect x="16" y="7" width="7" height="5" rx="1" /><rect x="26" y="7" width="7" height="5" rx="1" /><rect x="36" y="7" width="7" height="5" rx="1" />
+                <rect x="6" y="16" width="7" height="5" rx="1" /><rect x="16" y="16" width="7" height="5" rx="1" /><rect x="26" y="16" width="7" height="5" rx="1" /><rect x="36" y="16" width="7" height="5" rx="1" />
+                <rect x="6" y="25" width="7" height="5" rx="1" /><rect x="16" y="25" width="7" height="5" rx="1" /><rect x="26" y="25" width="7" height="5" rx="1" /><rect x="36" y="25" width="7" height="5" rx="1" />
+              </g>
+            </g>
+            <!-- back paper: printed line graph -->
+            <g transform="rotate(5 96 36)">
+              <rect x="62" y="6" width="70" height="54" fill="#FDFCFA" />
+              <rect x="68" y="13" width="30" height="4" rx="2" fill="#CFCCC3" />
+              <polyline points="68,50 81,40 92,44 104,27 116,31 127,19" fill="none" stroke="#9A968C" stroke-width="1.6" />
+            </g>
+            <!-- front paper: bar chart + text lines -->
+            <g transform="rotate(-4 70 96)">
+              <rect x="24" y="50" width="86" height="90" fill="#FFFFFF" />
+              <rect x="33" y="59" width="46" height="5" rx="2" fill="#C9C5BB" />
+              <g fill="#D8D4CA">
+                <rect x="33" y="76" width="9" height="26" />
+                <rect x="46" y="67" width="9" height="35" />
+                <rect x="59" y="84" width="9" height="18" />
+                <rect x="72" y="71" width="9" height="31" />
+                <rect x="85" y="88" width="9" height="14" />
+              </g>
+              <g fill="#EAE7E0">
+                <rect x="33" y="114" width="66" height="3" />
+                <rect x="33" y="122" width="54" height="3" />
+                <rect x="33" y="130" width="60" height="3" />
+              </g>
+            </g>
+            <!-- black magnifying glass -->
+            <g>
+              <rect x="90" y="86" width="11" height="41" rx="5.5" fill="#1C1B1A" transform="rotate(-45 95.5 106.5)" />
+              <circle cx="62" cy="72" r="27" fill="#FFFFFF" fill-opacity="0.35" stroke="#1C1B1A" stroke-width="7" />
+              <path d="M47 60 a22 22 0 0 1 15 -9" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="3" fill="none" stroke-linecap="round" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="numrow"><span class="num">01</span><i></i></div>
+        <h3>MARKET RESEARCH</h3>
+        <p class="desc">Learned how to research market trends, industry growth and competitors to understand the opportunity for a new product.</p>
+      </article>
+
+      <!-- CARD 02 — STRATEGIC BRAND EXTENSION -->
+      <article class="card c2">
+        <div class="circle">
+          <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="fabg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#F3ECE2" />
+                <stop offset="1" stop-color="#E2D7C7" />
+              </linearGradient>
+              <filter id="foldsoft" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" />
+              </filter>
+            </defs>
+            <rect width="140" height="140" fill="url(#fabg)" />
+            <!-- soft fabric folds -->
+            <g filter="url(#foldsoft)" opacity="0.55">
+              <path d="M-10 38 C30 24 60 58 96 40 C120 28 140 36 150 30 L150 58 C120 68 96 60 66 76 C36 90 8 74 -10 86 Z" fill="#E8DFD1" />
+              <path d="M-10 96 C26 84 62 112 100 96 C124 87 142 94 150 90 L150 122 L-10 134 Z" fill="#DBCFBD" />
+              <path d="M-10 10 C28 0 58 26 92 14 L150 2 L150 -12 L-10 -12 Z" fill="#EFE8DC" />
+            </g>
+            <!-- soft hand / finger detail, right edge -->
+            <g filter="url(#foldsoft)" opacity="0.9">
+              <path d="M118 94 c11 -9 23 -11 34 -7 l0 36 c-14 5 -26 1 -34 -9 z" fill="#E7C7A8" />
+            </g>
+            <!-- red UNIQLO logo card -->
+            <g transform="rotate(-4 71 75)">
+              <rect x="42" y="46" width="58" height="58" rx="2" fill="#E21B23" />
+              <text x="71" y="73" text-anchor="middle" font-family="Jost, 'Arial Narrow', Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" letter-spacing="1">UNI</text>
+              <text x="71" y="93" text-anchor="middle" font-family="Jost, 'Arial Narrow', Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" letter-spacing="1">QLO</text>
+            </g>
+            <!-- warm daylight lift -->
+            <rect width="140" height="140" fill="#FFFFFF" opacity="0.05" />
+          </svg>
+        </div>
+
+        <div class="numrow"><span class="num">02</span><i></i></div>
+        <h3>STRATEGIC BRAND<br />EXTENSION</h3>
+        <p class="desc">Learned how to evaluate whether a new product category fits an existing brand identity and positioning.</p>
+      </article>
+
+      <!-- CARD 03 — CONSUMER ANALYSIS -->
+      <article class="card c3">
+        <div class="circle">
+          <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="warmw" cx="50%" cy="36%" r="78%">
+                <stop offset="0" stop-color="#F1E9DD" />
+                <stop offset="1" stop-color="#DBCEBB" />
+              </radialGradient>
+              <filter id="bl26" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="2.6" />
+              </filter>
+              <filter id="bl11" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="1.1" />
+              </filter>
+              <g id="fig">
+                <circle cx="0" cy="-14" r="9" />
+                <path d="M-17 24 C-17 2 17 2 17 24 Z" />
+              </g>
+            </defs>
+            <rect width="140" height="140" fill="url(#warmw)" />
+            <!-- softly blurred surrounding consumer groups -->
+            <g filter="url(#bl26)" fill="#CBB9A4" opacity="0.8">
+              <use href="#fig" transform="translate(24,72) scale(1.1)" />
+              <use href="#fig" transform="translate(116,66) scale(1.15)" />
+              <use href="#fig" transform="translate(46,44) scale(0.8)" />
+              <use href="#fig" transform="translate(98,40) scale(0.85)" />
+              <use href="#fig" transform="translate(70,26) scale(0.65)" opacity="0.7" />
+              <use href="#fig" transform="translate(8,44) scale(0.7)" opacity="0.6" />
+              <use href="#fig" transform="translate(132,44) scale(0.7)" opacity="0.6" />
+            </g>
+            <!-- central target consumer, darker, clearer -->
+            <g filter="url(#bl11)" fill="#6F5B4B">
+              <use href="#fig" transform="translate(70,96) scale(1.55)" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="numrow"><span class="num">03</span><i></i></div>
+        <h3>CONSUMER ANALYSIS</h3>
+        <p class="desc">Learned how to understand target consumers, their preferences and usage needs while developing a product concept.</p>
+      </article>
+
+      <!-- CARD 04 — PRODUCT LAUNCH PLANNING -->
+      <article class="card c4">
+        <div class="circle">
+          <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="wallg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F5EFE4" />
+                <stop offset="1" stop-color="#E9E1D3" />
+              </linearGradient>
+              <filter id="leafblur" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="2.4" />
+              </filter>
+              <filter id="glasssoft" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="0.5" />
+              </filter>
+            </defs>
+            <rect width="140" height="140" fill="url(#wallg)" />
+            <!-- leaf shadows cast on wall -->
+            <g filter="url(#leafblur)" fill="#B4A992" opacity="0.45">
+              <ellipse cx="116" cy="26" rx="14" ry="6" transform="rotate(-30 116 26)" />
+              <ellipse cx="99" cy="44" rx="12" ry="5.5" transform="rotate(-18 99 44)" />
+              <ellipse cx="127" cy="52" rx="13" ry="6" transform="rotate(24 127 52)" />
+              <ellipse cx="108" cy="66" rx="11" ry="5" transform="rotate(-8 108 66)" />
+            </g>
+            <!-- muted botanical branch, upper-right -->
+            <g stroke="#9DA487" stroke-width="2" fill="none" stroke-linecap="round">
+              <path d="M146 6 C128 14 116 26 110 40" />
+            </g>
+            <g fill="#A7AE90" opacity="0.95">
+              <ellipse cx="132" cy="12" rx="7" ry="3.5" transform="rotate(-34 132 12)" />
+              <ellipse cx="121" cy="22" rx="6.5" ry="3.2" transform="rotate(-20 121 22)" />
+              <ellipse cx="114" cy="34" rx="6" ry="3" transform="rotate(-10 114 34)" />
+              <ellipse cx="139" cy="24" rx="6" ry="3" transform="rotate(30 139 24)" />
+            </g>
+            <!-- pale stone block -->
+            <polygon points="24,94 40,82 132,82 116,94" fill="#EFE9DD" />
+            <rect x="24" y="94" width="92" height="46" fill="#E5DCCD" />
+            <rect x="24" y="94" width="92" height="2" fill="#DAD1C0" />
+            <!-- minimal rectangular fragrance bottle -->
+            <g filter="url(#glasssoft)">
+              <rect x="56" y="40" width="34" height="42" rx="2" fill="#FFFFFF" fill-opacity="0.62" stroke="#D9D2C4" stroke-width="1" />
+              <rect x="58" y="60" width="30" height="20" rx="1" fill="#F2EDE1" fill-opacity="0.9" />
+              <rect x="63" y="28" width="20" height="13" rx="3" fill="#F8F5EC" stroke="#E3DCCE" stroke-width="0.8" />
+              <rect x="61" y="45" width="4" height="30" rx="2" fill="#FFFFFF" fill-opacity="0.5" />
+            </g>
+            <!-- warm sunlight lift -->
+            <path d="M0 0 L86 0 L30 140 L0 140 Z" fill="#FFFFFF" opacity="0.12" />
+          </svg>
+        </div>
+
+        <div class="numrow"><span class="num">04</span><i></i></div>
+        <h3>PRODUCT LAUNCH<br />PLANNING</h3>
+        <p class="desc">Learned how different elements like pricing, distribution, promotion and rollout come together to plan a product launch.</p>
+      </article>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <div class="foot-left">
+        <span>MARKETING MANAGEMENT</span>
+        <i></i>
+      </div>
+      <span>PROJECT 01</span>
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>
