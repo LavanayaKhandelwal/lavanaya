@@ -9,6 +9,8 @@ interface LearningCard {
   src: string;
   alt: string;
   label: string;
+  /** Pulls the photo back inside its oval. 1 = flush with the frame. */
+  scale?: number;
 }
 
 const cards: LearningCard[] = [
@@ -27,6 +29,7 @@ const cards: LearningCard[] = [
     src: '/portfolio-assets/05_brand_extension.jpg',
     alt: 'Close-up of cream fabric with the red Uniqlo logo card placed on the textile',
     label: 'Brand Extension',
+    scale: 0.7,
   },
   {
     num: '03',
@@ -50,38 +53,23 @@ const cards: LearningCard[] = [
  * PAGE 05 — What the Project Taught Me.
  *
  * Four tinted cards, each with an oval photograph breaking the top edge, in the
- * learning areas the project covered. The oval slots are pending files: drop
- * each photo into /public/portfolio-assets under the filename above and it
- * fills in on its own.
+ * learning areas the project covered.
  */
 export const ProjectLearnedSection: React.FC = () => {
   return (
     <section className="paper-grain-light">
-      {/* Header — section marker, title, standing statement */}
+      {/* Header — section marker and title */}
       <div className="mb-14 lg:mb-20">
         <div className="flex items-center gap-4 mb-8">
           <span className="eyebrow text-[#3E2723]">05</span>
           <span className="block h-px w-8 lg:w-12 bg-[#705955]/30" aria-hidden="true" />
         </div>
 
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-[#3E2723]">
-            What the Project
-            <br />
-            <span className="font-editorial italic">Taught Me</span>
-          </h2>
-
-          <div className="flex items-start gap-5 lg:pt-3">
-            <p className="eyebrow text-xs text-[#705955] leading-[1.6]">
-              NEW PERSPECTIVES
-              <br />
-              BETTER QUESTIONS.
-              <br />
-              BIGGER THINKING.
-            </p>
-            <span className="mt-2 block h-px w-10 lg:w-14 bg-[#705955]/30" aria-hidden="true" />
-          </div>
-        </div>
+        <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-[#3E2723]">
+          What the Project
+          <br />
+          <span className="font-editorial italic">Taught Me</span>
+        </h2>
       </div>
 
       {/* Four learning cards, ovals breaking the top edge */}
@@ -93,7 +81,7 @@ export const ProjectLearnedSection: React.FC = () => {
           >
             {/* Organic oval breaks the top edge — about a quarter of it hangs above the card */}
             <div className="absolute left-1/2 -top-8 sm:-top-11 lg:-top-14 w-36 h-32 sm:w-52 sm:h-44 lg:w-68 lg:h-56 -translate-x-1/2">
-              <OvalPhoto src={card.src} alt={card.alt} label={card.label} />
+              <OvalPhoto src={card.src} alt={card.alt} label={card.label} scale={card.scale} />
             </div>
 
             <div className="flex items-center gap-3">

@@ -18,7 +18,8 @@ export const ProjectMarketingPage: React.FC = () => {
         alt="UNIQLO LifeWear fragrance product family staged against Japanese store architecture"
         eyebrow="MARKETING MANAGEMENT PROJECT"
         pageLabel="PAGE 1"
-        title="A NEW DIMENSION OF LIFEWEAR"
+        title={'A NEW DIMENSION\nOF LIFEWEAR'}
+        subtitle="UNIQLO X FRAGRANCES"
         intro={pm.page1And2.context.split('\n\n')[0]}
         imageClassName="object-[52%_45%] lg:object-center"
       />
@@ -67,16 +68,21 @@ export const ProjectMarketingPage: React.FC = () => {
             <div className="lg:col-span-4 lg:col-start-9 lg:sticky lg:top-24">
               <div className="plate-light p-2">
                 <SlidePhoto
-                  src="/portfolio-assets/Screenshot 2026-09-15 at 7.50.52 PM.png"
-                  alt="4 Variants Minimalist Bottle Packaging"
+                  src="/portfolio-assets/03_fragrance_variants.jpg"
+                  alt="The four minimalist bottle variants — Hana, Kaze, Mizu and Sora"
                   label="Fragrance variants — Hana Kaze Mizu Sora"
                   className="w-full h-auto object-cover"
                 />
               </div>
-              <p className="font-mono-code text-xs font-bold text-[#3E2723] text-center mt-3">
-                HANA · KAZE · MIZU · SORA
-              </p>
-              <p className="plate-caption-light text-center">Flower · Wind · Water · Sky</p>
+
+              <div className="plate-light p-2 mt-8">
+                <SlidePhoto
+                  src="/portfolio-assets/03_fragrance_variants_detail.jpg"
+                  alt="Close detail of the Hana, Kaze, Mizu and Sora fragrance bottle range"
+                  label="Variant range — Hana Kaze Mizu Sora"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
             </div>
           </div>
         </section>

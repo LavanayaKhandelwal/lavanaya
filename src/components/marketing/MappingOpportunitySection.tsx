@@ -48,16 +48,6 @@ export const MappingOpportunitySection: React.FC = () => {
         </p>
       </div>
 
-      {/* Lead plate-light */}
-      <div className="plate-light p-2 mb-16">
-        <SlidePhoto
-          src="/portfolio-assets/02_fragrance_still_life.jpg"
-          alt="Minimal Japanese-inspired fragrance still life with a small fragrance bottle on a warm cream surface beside delicate white flowers and thin branches"
-          label="Fragrance Still Life"
-          className="w-full h-auto object-cover aspect-[3.2/1]"
-        />
-      </div>
-
       {/* 01 Market · 02 Consumer · 03 Competitive */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-14 gap-y-16 mb-16">
         <div className="rule-t-light pt-8">
@@ -77,8 +67,8 @@ export const MappingOpportunitySection: React.FC = () => {
 
           <div className="plate-light p-2 mt-8">
             <SlidePhoto
-              src="/portfolio-assets/02_city_skyline.jpg"
-              alt="Modern Indian metropolitan skyline viewed through atmospheric haze with waterfront and high-rise buildings"
+              src="/portfolio-assets/02_market_potential.jpg"
+              alt="Fragrance industry growth figures for the Indian market, presented as printed charts and market data"
               label="City Skyline"
               className="w-full h-auto object-cover aspect-[16/10]"
             />
@@ -94,10 +84,11 @@ export const MappingOpportunitySection: React.FC = () => {
 
           <div className="plate-light p-2 mt-8">
             <SlidePhoto
-              src="/portfolio-assets/02_consumer_lifestyle.jpg"
-              alt="Young Asian couple standing outdoors in minimal neutral clothing, soft neutral outdoor environment with natural diffused daylight"
+              src="/portfolio-assets/02_consumer.jpg"
+              alt="Target consumer profile for the fragrance concept, showing the millennial and Gen Z audience"
               label="Consumer Lifestyle"
               className="w-full h-auto object-cover aspect-[16/10]"
+              style={{ objectPosition: '50% 0%' }}
             />
           </div>
         </div>
@@ -137,8 +128,8 @@ export const MappingOpportunitySection: React.FC = () => {
 
           <div className="plate-light p-2 mt-8">
             <SlidePhoto
-              src="/portfolio-assets/02_japanese_botanical.jpg"
-              alt="Delicate flowering branch with small white blossoms against a pale neutral background, Japanese botanical photography"
+              src="/portfolio-assets/02_competitive_space.jpg"
+              alt="Competitive landscape showing where Zara and H&M sit in fragrance and where Uniqlo currently sits in apparel"
               label="Japanese Botanical"
               className="w-full h-auto object-cover aspect-[16/10]"
             />
@@ -170,8 +161,8 @@ export const MappingOpportunitySection: React.FC = () => {
 
           <div className="plate-light p-2 mt-10">
             <SlidePhoto
-              src="/portfolio-assets/02_brand_fit_sunlight.jpg"
-              alt="Soft sunlight falling across cream fabric with delicate flowering branches casting shadows, minimal Japanese editorial still life"
+              src="/portfolio-assets/02_brand_fit.jpg"
+              alt="Brand fit between Uniqlo Lifewear values of comfort, functionality and simplicity and the proposed FEELWEAR fragrance line"
               label="Brand Fit Sunlight"
               className="w-full h-auto object-cover aspect-[16/9]"
             />

@@ -137,7 +137,7 @@ export const ConceptToLifeSection: React.FC = () => {
           {/* Wide event photograph — grows so both columns share a baseline */}
           <figure className="mt-5 lg:mt-6 flex-1 min-h-[13rem] lg:min-h-[16rem] rounded-[3px] overflow-hidden">
             <SlidePhoto
-              src="/portfolio-assets/04_students_testing_fragrances.jpg"
+              src="/portfolio-assets/04_event_2.jpg"
               alt="College students gathered around a fragrance product presentation table, testing and smelling fragrance samples"
               label="Students Testing Fragrances"
               className="w-full h-full object-cover"
@@ -153,8 +153,8 @@ export const ConceptToLifeSection: React.FC = () => {
           <div className="grid grid-cols-[2fr_1fr_1fr] gap-4 lg:gap-6">
             <figure className="h-48 sm:h-60 lg:h-[22rem] rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
               <SlidePhoto
-                src="/portfolio-assets/04_presenter_at_booth.jpg"
-                alt="Student presenter in a dark blazer standing behind a presentation table with fragrance bottles and boxes at the college pitch booth"
+                src="/portfolio-assets/04_event_1.jpg"
+                alt="Students at the college fragrance pitch booth, smelling samples and engaging with the product concept"
                 label="Presenter At Booth"
                 className="w-full h-full object-cover"
               />
@@ -204,6 +204,7 @@ export const ConceptToLifeSection: React.FC = () => {
                 alt="Printed Uniqlo fragrance feedback forms and review sheets arranged across a desk"
                 label="Feedback Documents"
                 className="w-full h-full object-cover"
+                style={{ objectPosition: '50% 100%' }}
               />
             </figure>
           </div>

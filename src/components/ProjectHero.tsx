@@ -64,7 +64,9 @@ export const ProjectHero: React.FC<ProjectHeroProps> = ({
         </div>
 
         <div className="relative w-full px-4 pb-12 pt-14 sm:px-6 lg:px-8 lg:py-16">
-          <div className="max-w-xl space-y-5 lg:max-w-[44ch]">
+          {/* Measure lives on the prose, not the wrapper — the display heading
+              needs the full column or it wraps mid-phrase at lg. */}
+          <div className="max-w-xl space-y-5 lg:max-w-[62rem]">
             <p className="eyebrow text-[#705955] border-l-2 border-[#D69589] pl-4">
               {eyebrow}
             </p>
@@ -73,18 +75,18 @@ export const ProjectHero: React.FC<ProjectHeroProps> = ({
               {pageLabel}
             </p>
 
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-[#3E2723] leading-[1] tracking-tight">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-[#3E2723] leading-[1] tracking-tight whitespace-pre-line">
               {title}
             </h1>
 
             {subtitle && (
-              <p className="rule-l border-[#D69589] pl-6 font-serif-display text-2xl sm:text-3xl italic text-[#3E2723]/80 leading-snug">
+              <p className="rule-l border-[#D69589] pl-6 font-serif-display text-2xl sm:text-3xl italic text-[#3E2723]/80 leading-snug lg:max-w-[34ch]">
                 {subtitle}
               </p>
             )}
 
             {intro && (
-              <p className="font-body text-sm sm:text-base text-[#3E2723]/80 leading-loose">
+              <p className="font-body text-sm sm:text-base text-[#3E2723]/80 leading-loose lg:max-w-[52ch]">
                 {intro}
               </p>
             )}
