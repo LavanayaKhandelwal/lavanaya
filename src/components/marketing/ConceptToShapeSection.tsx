@@ -75,24 +75,25 @@ const TIMELINE_PHOTOS: StagePhoto[] = [
  * height ladder — and the three frames simply divide that box evenly, so the
  * section's proportions are untouched. Only the contents of the box changed.
  *
- * The three photographs follow the first three stages of the timeline they sit
- * beside: the brand, then Spring / Summer, then florals.
+ * The three frames are the project's own boards — trend, mood, colour — each
+ * centred, since all three are wide and near-square in proportion and the frame
+ * is far wider still.
  */
 const STAGE_FRAMES: StagePhoto[] = [
   {
-    src: '/portfolio-assets/project-coverstory-bloom.png',
-    alt: 'Cover Story — the brand the concept grew out of',
-    position: '50% 45%',
+    src: '/portfolio-assets/project2-trend-board.jpg',
+    alt: 'Trend board — future floral direction and reference imagery for the season',
+    position: '50% 50%',
   },
   {
-    src: '/portfolio-assets/BRAND BOOK  - 16.png',
-    alt: 'Spring / Summer mood board collage',
-    position: '50% 35%',
+    src: '/portfolio-assets/project2-mood-board.jpg',
+    alt: 'Mood board — feminine, dreamy and soft with a futuristic edge',
+    position: '50% 50%',
   },
   {
-    src: '/portfolio-assets/1e36b3dd-85f2-438b-b90a-e7143dbd03cd.jpg',
-    alt: 'Holographic sheets cut into layered petals',
-    position: '60% 45%',
+    src: '/portfolio-assets/project2-colour-board.jpg',
+    alt: 'Colour board — blush, lavender and sky blue swatch matrix',
+    position: '50% 50%',
   },
 ];
 
