@@ -52,7 +52,7 @@ import { SlidePhoto } from '../SlidePhoto';
  * it fills the same frame. Nothing is invented in place of a missing photo.
  */
 
-const TITLE_LINES = ['ATHLEISURE'] as const;
+const TITLE_LINES = ['EVERYDAY', 'ATHLEISURE'] as const;
 const HERO_DESCRIPTION = 'A startup concept built around one simple idea:';
 const HERO_ANNOTATION = ['Comfort', 'meets', 'style'];
 
@@ -95,6 +95,13 @@ const NOTICED_IMAGES = [
     label: 'What I noticed — 02',
     rotation: '1.5deg',
     tapeRotate: 5,
+  },
+  {
+    src: '/portfolio-assets/03_noticed_03.jpg',
+    alt: 'Activewear built for one setting only, not for moving between them',
+    label: 'What I noticed — 03',
+    rotation: '-1deg',
+    tapeRotate: -6,
   },
 ];
 
@@ -325,40 +332,12 @@ export const EverydayAthleisurePageOne: React.FC = () => {
         </div>
       </section>
 
-      {/* ——— Lifestyle polaroids — their own full-width row ———————— */}
-      <section className="rule-t-light pt-14 pb-16 lg:pt-20 lg:pb-24">
-        <div className="flex flex-wrap justify-center gap-5 sm:gap-6 lg:gap-8">
-          {POLAROIDS.map((shot, i) => (
-            <figure
-              key={shot.label}
-              className="relative w-[calc(50%-0.625rem)] sm:w-[calc((100%-4.5rem)/4)] lg:w-[calc((100%-6rem)/4)] bg-[#FDFCF8] p-2.5 pb-9 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)]"
-              style={{ transform: `rotate(${shot.rotation})` }}
-            >
-              <Slot
-                src={shot.src}
-                alt={shot.alt}
-                label={shot.label}
-                className="aspect-[4/5]"
-                position="top"
-              />
-              <figcaption className="absolute inset-x-0 bottom-2 text-center font-hand text-[1.0625rem] leading-none text-[#3E2723]">
-                {shot.label}
-              </figcaption>
-              <Tape
-                className="-top-2.5 left-1/2 -translate-x-1/2 w-14 h-5"
-                rotate={i % 2 === 0 ? -4 : 5}
-              />
-            </figure>
-          ))}
-        </div>
-      </section>
-
       {/* ——— Mid ———————————————————————————————————————————— */}
       <section className="rule-t-light pt-16 pb-20 lg:pt-24 lg:pb-28">
         <div className="space-y-10 lg:space-y-14">
           {/* WHAT I NOTICED — cream paper brush. Copy left, the four complaints right. */}
           <div className="relative p-8 lg:p-12 bg-[#FDFCF8] rounded-[44px_28px_40px_24px] lg:-rotate-[0.4deg]">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-9 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-9 lg:gap-14 items-center">
               <div className="max-w-xl">
                 <h2 className="eyebrow text-[#3E2723]">{NOTICED_HEADING}</h2>
 
@@ -370,42 +349,46 @@ export const EverydayAthleisurePageOne: React.FC = () => {
                     </React.Fragment>
                   ))}
                 </p>
+
+                {/* The four complaints, under the copy */}
+                <div className="mt-8 grid grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+                  {PAIN_POINTS.map((point) => (
+                    <IconDisc
+                      key={point.label.join('-')}
+                      label={point.label}
+                      discClassName="w-14 h-14 lg:w-[4.25rem] lg:h-[4.25rem] bg-[#FADBD9]"
+                      iconClassName="text-[0.6875rem] tracking-[0.14em]"
+                    >
+                      {point.icon}
+                    </IconDisc>
+                  ))}
+                </div>
               </div>
 
-              <div className="grid grid-cols-4 gap-4 sm:gap-6 lg:gap-9">
-                {PAIN_POINTS.map((point) => (
-                  <IconDisc
-                    key={point.label.join('-')}
-                    label={point.label}
-                    discClassName="w-14 h-14 lg:w-[4.25rem] lg:h-[4.25rem] bg-[#FADBD9]"
-                    iconClassName="text-[0.6875rem] tracking-[0.14em]"
+              {/* Three image slots, right column, side by side. Each wears a
+                  hairline border so the plate reads as mounted rather than
+                  floating. The column is 37rem so each plate comes out at the
+                  same ~182px it was when two shared a 24rem column. */}
+              <div className="grid grid-cols-3 gap-4 sm:gap-5 w-full lg:w-[37rem]">
+                {NOTICED_IMAGES.map((shot) => (
+                  <figure
+                    key={shot.label}
+                    className="relative bg-[#FDFCF8] p-2 pb-5 border border-[#705955]/35 shadow-[0_8px_20px_-14px_rgba(62,39,35,0.3)]"
+                    style={{ transform: `rotate(${shot.rotation})` }}
                   >
-                    {point.icon}
-                  </IconDisc>
+                    <Slot
+                      src={shot.src}
+                      alt={shot.alt}
+                      label={shot.label}
+                      className="aspect-[3/4]"
+                    />
+                    <Tape
+                      className="-top-2.5 left-1/2 -translate-x-1/2 w-11 h-4"
+                      rotate={shot.tapeRotate}
+                    />
+                  </figure>
                 ))}
               </div>
-            </div>
-
-            {/* Two image slots — centred, under the copy and the four complaints */}
-            <div className="mt-9 lg:mt-10 mx-auto grid grid-cols-2 gap-4 sm:gap-5 w-full max-w-[22rem] lg:max-w-[26rem]">
-              {NOTICED_IMAGES.map((shot) => (
-                <figure
-                  key={shot.label}
-                  className="relative bg-[#FDFCF8] p-2 pb-5 shadow-[0_8px_20px_-14px_rgba(62,39,35,0.3)]"
-                  style={{ transform: `rotate(${shot.rotation})` }}
-                >
-                  <Slot
-                    src={shot.src}
-                    alt={shot.alt}
-                    label={shot.label}
-                    className="aspect-[3/4]"
-                  />
-                  <Tape
-                    className="-top-2.5 left-1/2 -translate-x-1/2 w-11 h-4"
-                    rotate={shot.tapeRotate}
-                  />
-                </figure>
-              ))}
             </div>
           </div>
 
@@ -522,6 +505,47 @@ export const EverydayAthleisurePageOne: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Lifestyle polaroids — the three moments THE CONCEPT names above,
+              shown. Placed here rather than near the cover so the photographs
+              land directly beneath the GYM › CAFÉ › TRAVEL discs. */}
+          <div className="grid grid-cols-2 sm:grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-4 sm:gap-x-6 lg:gap-x-8">
+            {POLAROIDS.map((shot, i) => (
+              <React.Fragment key={shot.label}>
+                <figure
+                  className="relative bg-[#FDFCF8] p-2.5 pb-9 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)]"
+                  style={{ transform: `rotate(${shot.rotation})` }}
+                >
+                  <Slot
+                    src={shot.src}
+                    alt={shot.alt}
+                    label={shot.label}
+                    className="aspect-[4/5]"
+                    position="top"
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-2 text-center font-hand text-[1.0625rem] leading-none text-[#3E2723]">
+                    {shot.label}
+                  </figcaption>
+                  <Tape
+                    className="-top-2.5 left-1/2 -translate-x-1/2 w-14 h-5"
+                    rotate={i % 2 === 0 ? -4 : 5}
+                  />
+                </figure>
+
+                {/* The transition marker, matching the GYM › CAFÉ › TRAVEL
+                    discs in THE CONCEPT directly above. Hidden on mobile,
+                    where the plates run two-up and there is no gap to sit in. */}
+                {i < POLAROIDS.length - 1 && (
+                  <span
+                    className="hidden sm:flex self-center font-body text-4xl lg:text-5xl leading-none text-[#D69589]"
+                    aria-hidden="true"
+                  >
+                    &#8250;
+                  </span>
+                )}
+              </React.Fragment>
+            ))}
           </div>
 
           {/* PROCESS — three image slots, no heading. Separate files on

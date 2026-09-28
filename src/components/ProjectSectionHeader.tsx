@@ -13,6 +13,13 @@ export interface ProjectSectionHeaderProps {
    * under the title would strand the marker and read as a separate object.
    */
   fullWidth?: boolean;
+  /**
+   * Draw the hairline under the header. On by default. The Internship key
+   * learnings band turns it off — its four rows already carry their own
+   * top rules, so a closing rule as well doubled the lines and read as a
+   * fifth row.
+   */
+  rule?: boolean;
 }
 
 /**
@@ -25,10 +32,11 @@ export const ProjectSectionHeader: React.FC<ProjectSectionHeaderProps> = ({
   title,
   lead,
   fullWidth = false,
+  rule = true,
 }) => {
   return (
     <div
-      className={`rule-b-light ${fullWidth ? 'pb-2 mb-6' : 'pb-6 mb-12 lg:mb-14 max-w-4xl'}`}
+      className={`${rule ? 'rule-b-light' : ''} ${fullWidth ? 'pb-2 mb-6' : 'pb-6 mb-12 lg:mb-14 max-w-4xl'}`}
     >
       <p className="eyebrow text-[#705955] mb-3">{eyebrow}</p>
       <h2 className="font-display text-4xl sm:text-5xl text-[#3E2723] tracking-tight mb-4">

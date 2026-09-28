@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
 import { ProjectHero } from '../components/ProjectHero';
 import { ProjectSectionHeader } from '../components/ProjectSectionHeader';
 import { SlidePhoto } from '../components/SlidePhoto';
@@ -255,9 +253,9 @@ export const InternshipExperiencePage: React.FC = () => {
         {/* PAGE 4 — KEY LEARNINGS (blush band) */}
         <section
           id="internship-learnings"
-          className="bg-[#FADBD9] -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-16 lg:py-20 mb-20 lg:mb-24 scroll-mt-24"
+          className="bg-[#FADBD9] -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-10 lg:py-14 mb-12 lg:mb-16 scroll-mt-24"
         >
-          <ProjectSectionHeader eyebrow="PAGE 4 — KEY LEARNINGS" title="Key Learnings" />
+          <ProjectSectionHeader fullWidth rule={false} eyebrow="PAGE 4 — KEY LEARNINGS" title="Key Learnings" />
 
           <div>
             {internship.learningOutcomes.map((l) => (
@@ -267,7 +265,7 @@ export const InternshipExperiencePage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45 }}
-                className="rule-t-light grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-8 items-baseline"
+                className="rule-t-light grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-5 items-baseline"
               >
                 <div className="md:col-span-2">
                   <span className="index-figure text-5xl text-[#705955]/60">{l.number}</span>
@@ -284,37 +282,7 @@ export const InternshipExperiencePage: React.FC = () => {
             ))}
             <div className="rule-b-light" />
           </div>
-
-          <div className="mt-12">
-            <Link
-              to="/internship/learnings"
-              className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link"
-            >
-              <span>Read the four learning outcomes in full →</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </section>
-
-        {/* Footer — next project */}
-        <div className="rule-t-light pt-6 flex flex-wrap items-center justify-between gap-6">
-          <div className="flex items-center gap-5">
-            <span className="eyebrow text-[#705955]">NEXT PROJECT</span>
-            <span className="block h-px w-10 lg:w-16 bg-[#705955]/30" aria-hidden="true" />
-          </div>
-
-          <span className="eyebrow text-[#705955]">PROJECT 01 — MARKETING (UNIQLO)</span>
-        </div>
-
-        <div className="mt-8 flex justify-end">
-          <Link
-            to="/projects/marketing"
-            className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link"
-          >
-            <span>View UNIQLO Fragrance Case Study</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
       </div>
     </div>
   );

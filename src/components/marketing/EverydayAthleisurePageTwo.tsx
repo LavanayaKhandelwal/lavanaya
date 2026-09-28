@@ -56,7 +56,7 @@ import { SlidePhoto } from '../SlidePhoto';
 const BRAND = 'EVERYDAY ATHLEISURE';
 const PAGE_COUNTER = '02 / 02';
 
-const TITLE_LINES = ['BUILD IT. TEST IT.', 'LET USERS SHAPE IT.'] as const;
+const TITLE_LINES = ['BUILD IT. TEST IT. LET USERS SHAPE IT.'] as const;
 
 const PROCESS = [
   { label: 'Sketch', icon: 'pencil' },
@@ -271,13 +271,8 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
               <span className="block h-px w-11 bg-[#A38D89]" aria-hidden="true" />
             </div>
 
-            <h1 className="mt-6 font-display text-[clamp(2.25rem,4.6vw,3.5rem)] leading-[0.96] tracking-[-0.01em] text-[#3E2723]">
-              {TITLE_LINES.map((line) => (
-                <React.Fragment key={line}>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
+            <h1 className="mt-6 font-display text-[clamp(2rem,3.9vw,3rem)] leading-[1.05] tracking-[-0.01em] text-[#3E2723]">
+              {TITLE_LINES[0]}
             </h1>
           </div>
 
@@ -431,7 +426,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
       </section>
 
       {/* ——— Band B2 — skills applied — full width ——————————————— */}
-      <section className="rule-t-light pt-14 pb-16 lg:pt-20 lg:pb-24">
+      <section className="rule-t-light pt-10 pb-8 lg:pt-14 lg:pb-10">
         <div className="relative bg-[#FADBD9]/50 rounded-[24px_36px_20px_34px] p-8 lg:p-14">
           <p className="eyebrow leading-[1.5] text-[#3E2723]">
             WHAT I BUILT BEYOND
@@ -443,7 +438,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
             SKILLS APPLIED
           </h2>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             {SKILLS.map((skill) => (
               <div key={skill.title} className="rounded-[18px] bg-[#FDFCF8] p-6 lg:p-7">
                 <span className="flex items-center justify-center w-14 h-14 rounded-full bg-[#705955] text-[#F9F8F2]">
@@ -469,7 +464,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
       </section>
 
       {/* ——— Band C — iterate ————————————————————————————————————— */}
-      <section className="rule-t-light pt-14 pb-16 lg:pt-20 lg:pb-24">
+      <section className="rule-t-light pt-10 pb-8 lg:pt-14 lg:pb-10">
         <div>
           {/* SO I ITERATED */}
           <div>
@@ -478,7 +473,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
               USER FEEDBACK &#8594; PRODUCT DECISION
             </p>
 
-            <div className="mt-8 space-y-4">
+            <div className="mt-5 space-y-3">
               {ITERATION_ROWS.map((row) => (
                 <div key={row.problem} className="flex flex-wrap items-center gap-3 sm:gap-4">
                   <span className="rounded-full bg-[#FADBD9] px-4 py-2 eyebrow text-[0.625rem] tracking-[0.12em] text-[#3E2723]">
@@ -499,7 +494,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
               ))}
             </div>
 
-            <p className="mt-8 font-body text-xs leading-[1.5] text-[#3E2723]/70 max-w-[54ch]">
+            <p className="mt-5 font-body text-xs leading-[1.5] text-[#3E2723]/70 max-w-[54ch]">
               {ITERATION_FOOTER}
             </p>
           </div>
@@ -507,7 +502,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
       </section>
 
       {/* ——— Band D — what I take forward ————————————————————— */}
-      <section className="rule-t-light pt-14 pb-20 lg:pt-20 lg:pb-28">
+      <section className="rule-t-light pt-10 pb-14 lg:pt-14 lg:pb-20">
         <div className="relative bg-[#FADBD9] rounded-[20px_36px_18px_32px] p-8 lg:p-14">
           <p className="eyebrow text-[#3E2723]">WHAT I TAKE FORWARD</p>
 
