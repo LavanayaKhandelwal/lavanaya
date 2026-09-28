@@ -350,7 +350,7 @@ export const portfolioData = {
       conceptName: "Future Florals",
       accentColor: "#FADBD9",
       credits: ["COVER STORY X FUTURE FLORALS"],
-      intro: ["COVER STORY : Contemporary. Feminine. Trend-led.", "A brand built around modern, versatile fashion became the canvas for our visual merchandising story."]
+      intro: ["COVER STORY : Contemporary. Feminine. Trend-led.", "The project focused on taking an established fashion brand into a new product category. We chose Uniqlo and explored how its LifeWear philosophy could be extended beyond apparel."]
     },
     page2Brief: {
       briefTitle: "Where the Concept Took Shape",

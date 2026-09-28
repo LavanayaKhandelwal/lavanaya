@@ -36,39 +36,44 @@ const COST_DESCRIPTION =
 const PROCESS_CARDS = [
   {
     label: 'MATERIALS',
-    src: '/portfolio-assets/1e36b3dd-85f2-438b-b90a-e7143dbd03cd.jpg',
+    src: '/portfolio-assets/project2-materials.jpg',
     alt: 'Translucent holographic material, layered into petals',
     position: '50% 45%',
   },
   {
     label: 'CONSTRUCTION',
-    src: '/portfolio-assets/6fa49fa5-d790-4c76-9f00-69ca01bfcdc2.jpg',
+    src: '/portfolio-assets/project2-construction.jpg',
     alt: 'Wire and foam armature giving the florals structure',
     position: '50% 50%',
   },
   {
     label: 'INSTALLATION',
-    src: '/portfolio-assets/project-visual-merchandising-hero.png',
+    src: '/portfolio-assets/project2-installation.jpg',
     alt: 'The finished display in the Cover Story storefront',
     position: '50% 45%',
   },
 ];
 
-/** Three frames documenting the finished installation, unequal widths. */
+/**
+ * Three frames documenting the finished installation, unequal widths.
+ *
+ * Shot portrait; the slots below are wide, so `object-cover` keeps a
+ * horizontal band and the frames are centred on it.
+ */
 const INSTALLATION_STRIP = [
   {
-    src: '/portfolio-assets/DD05B299-B533-4126-B54A-3B48CD3AA413.jpg',
-    alt: 'The mannequin framed by florals, texture and light',
-    position: '50% 40%',
+    src: '/portfolio-assets/project2-bottom-1.jpg',
+    alt: 'The finished Future Florals display in the Cover Story storefront',
+    position: '50% 50%',
   },
   {
-    src: '/portfolio-assets/7eee7676-2ce8-4667-9ef7-abf624ba1833.jpg',
-    alt: 'Organza softening the holographic surfaces',
-    position: '50% 45%',
+    src: '/portfolio-assets/project2-bottom-2.jpg',
+    alt: 'The display photographed from a second angle',
+    position: '50% 50%',
   },
   {
-    src: '/portfolio-assets/97e20f9d-778d-44a3-bc5f-d32b6c39b7a3.jpg',
-    alt: 'Lighting enhancing the reflective petals',
+    src: '/portfolio-assets/project2-bottom-3.jpg',
+    alt: 'Close detail of the reflective floral surfaces',
     position: '50% 50%',
   },
 ];
@@ -153,7 +158,10 @@ export const MakingTheUnexpectedSection: React.FC = () => {
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-[#3E2723] uppercase">
             {HEADING_LEAD}
             <br />
-            <span className="font-editorial italic">{HEADING_TAIL}</span>
+            {/* Set like the home page's project index figures — the same upright
+                DM Serif Display `.index-figure` the 01/02/03/04 numerals use,
+                in place of the italic editorial face. */}
+            <span className="index-figure uppercase">{HEADING_TAIL}</span>
           </h2>
 
           <p className="mt-5 max-w-[42ch] font-body text-base text-[#3E2723]/80 leading-loose">
@@ -232,7 +240,12 @@ export const MakingTheUnexpectedSection: React.FC = () => {
 
         <div className="grid grid-cols-[1.45fr_1fr_1fr] gap-2 lg:gap-3 h-[144px] lg:h-[188px]">
           {INSTALLATION_STRIP.map((frame) => (
-            <div key={frame.src} className="min-w-0">
+            /* `h-full min-h-0` gives the chain below a definite height to
+               resolve against. Without it the grid item is auto-height, every
+               `h-full` underneath collapses to auto, and each frame falls back
+               to its photograph's own aspect ratio — which would blow past the
+               strip's declared height instead of cropping to it. */
+            <div key={frame.src} className="min-w-0 h-full min-h-0">
               <div className="plate-light p-2 h-full">
                 <div className="h-full overflow-hidden">
                   <SlidePhoto
