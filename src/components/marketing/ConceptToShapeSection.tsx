@@ -219,19 +219,6 @@ export const ConceptToShapeSection: React.FC = () => {
                 </div>
               ))}
             </div>
-
-            {/* Five swatches from the project's own colour board. The band is
-                the plate white — a blush tint would vanish into the pink. */}
-            <ul className="flex flex-col justify-center gap-2.5 lg:gap-3 shrink-0 self-stretch bg-[#FDFCF8]/70 px-2.5 lg:px-3 py-4">
-              {vm.page3Boards.colourBoard.palette.map((colour) => (
-                <li
-                  key={colour.name}
-                  className="w-4 h-4 lg:w-[1.125rem] lg:h-[1.125rem] rounded-full ring-1 ring-[#705955]/28"
-                  style={{ backgroundColor: colour.hex }}
-                  title={colour.name}
-                />
-              ))}
-            </ul>
           </div>
         </div>
       </div>

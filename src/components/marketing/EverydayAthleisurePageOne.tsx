@@ -8,7 +8,6 @@ import {
   Plane,
   Search,
   Shirt,
-  Sun,
   Target,
   TrendingUp,
 } from 'lucide-react';
@@ -53,9 +52,8 @@ import { SlidePhoto } from '../SlidePhoto';
  * it fills the same frame. Nothing is invented in place of a missing photo.
  */
 
-const TITLE_LINES = ['EVERYDAY', 'ATHLEISURE'] as const;
+const TITLE_LINES = ['ATHLEISURE'] as const;
 const HERO_DESCRIPTION = 'A startup concept built around one simple idea:';
-const HERO_QUESTION = ['What if activewear could move', 'with you your entire day?'];
 const HERO_ANNOTATION = ['Comfort', 'meets', 'style'];
 
 const NOTICED_HEADING = 'WHAT I NOTICED';
@@ -72,13 +70,7 @@ const CONCEPT_LABEL = 'THE CONCEPT';
 const CONCEPT_TITLE = ['ONE OUTFIT.', 'MULTIPLE MOMENTS.'];
 const CONCEPT_DESCRIPTION = 'A co-ord designed to transition across:';
 
-const FIRST_PRODUCT_LABEL = 'THE FIRST PRODUCT';
-const FIRST_PRODUCT_TITLE = ['Structured full-sleeve', 'crop top + relaxed jogger'];
-const FIRST_PRODUCT_CAPTION = 'My first physical MVP.';
-
 const WORKED_WITH_HEADING = 'WHAT I WORKED WITH';
-
-const BOARD_ANNOTATION = ['Same energy.', 'Different settings.'];
 
 /* ——— Image slots ——————————————————————————————————————————————— */
 
@@ -89,19 +81,63 @@ const HERO_PHOTO = {
   position: '50% 45%',
 };
 
+const NOTICED_IMAGES = [
+  {
+    src: '/portfolio-assets/03_noticed_01.jpg',
+    alt: 'Activewear fit sitting too tight on the body',
+    label: 'What I noticed — 01',
+    rotation: '-1.5deg',
+    tapeRotate: -4,
+  },
+  {
+    src: '/portfolio-assets/03_noticed_02.jpg',
+    alt: 'Activewear cut too revealing to wear beyond the gym',
+    label: 'What I noticed — 02',
+    rotation: '1.5deg',
+    tapeRotate: 5,
+  },
+];
+
 const POLAROIDS = [
   { label: 'GYM', rotation: '-3deg', src: '/portfolio-assets/03_athleisure_gym.jpg', alt: 'In the olive athleisure co-ord beside gym equipment' },
   { label: 'CAFÉ', rotation: '2deg', src: '/portfolio-assets/03_athleisure_cafe.jpg', alt: 'In the olive athleisure co-ord seated at a café with a coffee' },
   { label: 'TRAVEL', rotation: '-2deg', src: '/portfolio-assets/03_athleisure_travel.jpg', alt: 'In the olive athleisure co-ord walking through an airport with luggage' },
-  { label: 'EVERYDAY', rotation: '4deg', src: '/portfolio-assets/03_athleisure_everyday.jpg', alt: 'In the olive athleisure co-ord walking outdoors in an urban setting' },
 ];
 
 const MOMENTS = [
   { label: 'GYM', icon: Dumbbell },
   { label: 'CAFÉ', icon: Coffee },
   { label: 'TRAVEL', icon: Plane },
-  { label: 'EVERYDAY', icon: Sun },
 ];
+
+/**
+ * The three process stages, each with its own image slot. The aspect ratio on
+ * each is the source file's own, so nothing is cropped: 406x655, 1312x1199,
+ * 847x1280.
+ */
+const PROCESS_SLOTS = [
+  {
+    label: 'Sketches',
+    src: '/portfolio-assets/03_process_sketches.jpg',
+    alt: 'Fashion technical sketches of the co-ord',
+    frame: 'aspect-[406/655]',
+    tapeRotate: -5,
+  },
+  {
+    label: 'Material',
+    src: '/portfolio-assets/03_process_material.jpg',
+    alt: 'The chosen fabric',
+    frame: 'aspect-[1312/1199]',
+    tapeRotate: 4,
+  },
+  {
+    label: 'Physical MVP',
+    src: '/portfolio-assets/03_process_mvp.jpg',
+    alt: 'The first physical prototype of the co-ord',
+    frame: 'aspect-[847/1280]',
+    tapeRotate: -3,
+  },
+] as const;
 
 const METHOD = [
   { label: ['Consumer', 'Research'], icon: Search },
@@ -135,19 +171,6 @@ const PAIN_POINTS = [
 ];
 
 /* ——— Hand-drawn furniture ——————————————————————————————————————— */
-
-/** Freehand underline beneath the hero question. */
-const HandUnderline: React.FC<{ className?: string }> = ({ className = '' }) => (
-  <svg viewBox="0 0 220 16" className={className} fill="none" aria-hidden="true" preserveAspectRatio="none">
-    <path
-      d="M3 11.5C42 6.5 96 3.5 217 6"
-      stroke="#3E2723"
-      strokeWidth="2"
-      strokeLinecap="round"
-      opacity="0.85"
-    />
-  </svg>
-);
 
 /** Small hand-drawn heart under the hero annotation. */
 const HeartMark: React.FC = () => (
@@ -186,13 +209,6 @@ const HandArrow: React.FC<{ className?: string; flip?: boolean }> = ({ className
   </svg>
 );
 
-/** Hand-drawn underline for the first-product caption. */
-const ShortUnderline: React.FC = () => (
-  <svg viewBox="0 0 170 14" className="w-[150px] lg:w-[190px] h-3" fill="none" aria-hidden="true" preserveAspectRatio="none">
-    <path d="M4 9.5C48 4 108 2.5 166 6.5" stroke="#3E2723" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
-  </svg>
-);
-
 /** A strip of beige masking tape, rotated. */
 const Tape: React.FC<{ className?: string; rotate?: number }> = ({ className = '', rotate = 0 }) => (
   <span
@@ -200,25 +216,6 @@ const Tape: React.FC<{ className?: string; rotate?: number }> = ({ className = '
     className={`pointer-events-none absolute block h-6 w-20 bg-[#E8DFC8]/70 ${className}`}
     style={{ transform: `rotate(${rotate}deg)`, boxShadow: 'inset 0 0 0 1px rgba(62,39,35,0.06)' }}
   />
-);
-
-/**
- * Large hand-drawn botanical line illustration bleeding off the left edge.
- * Thin, organic, taupe — the spec's sage line work re-pointed at the palette.
- */
-const BotanicalLine: React.FC = () => (
-  <svg
-    viewBox="0 0 200 520"
-    className="pointer-events-none absolute -left-16 lg:-left-24 top-0 h-full w-auto"
-    fill="none"
-    aria-hidden="true"
-    style={{ opacity: 0.8 }}
-  >
-    <path d="M96 8C70 74 112 128 84 196c-22 54 8 96-10 152-14 44-46 74-52 158" stroke="#705955" strokeWidth="1.6" strokeLinecap="round" />
-    <path d="M92 66c22 6 40-4 52-24M86 132c-24 2-40-12-48-34M84 200c24 4 44-8 56-30M80 274c-26 0-42-16-48-40M76 344c26 6 46-8 58-32M70 412c-24 2-40-12-48-34" stroke="#705955" strokeWidth="1.4" strokeLinecap="round" />
-    <path d="M144 42c-16-8-24-22-22-38 16 2 26 16 22 38ZM38 98c-4-18 4-34 20-42 8 16 0 34-20 42ZM140 170c-18-6-28-20-28-38 18 0 30 14 28 38ZM32 234c-6-18 2-34 18-44 10 16 2 36-18 44ZM134 312c-18-8-26-24-24-42 18 2 28 18 24 42ZM34 378c-4-18 4-34 20-44 8 18 0 36-20 44Z" stroke="#705955" strokeWidth="1.3" strokeLinejoin="round" />
-    <path d="M40 500c-14-10-18-28-10-44 16 6 22 26 10 44ZM120 470c16-6 30 0 40 14-12 12-30 8-40-14Z" stroke="#705955" strokeWidth="1.3" strokeLinejoin="round" />
-  </svg>
 );
 
 /* ——— Small parts ——————————————————————————————————————————————— */
@@ -288,8 +285,6 @@ export const EverydayAthleisurePageOne: React.FC = () => {
           {/* One wash, sized to the copy — the site's cover treatment. */}
           <div className="absolute inset-x-0 bottom-0 h-[82%] bg-gradient-to-t from-[#F9F8F2] via-[#F9F8F2]/78 to-transparent lg:inset-y-0 lg:left-0 lg:right-auto lg:top-0 lg:h-full lg:w-[56%] lg:bg-gradient-to-r lg:from-[#F9F8F2] lg:via-[#F9F8F2]/84 lg:to-transparent" />
 
-          <BotanicalLine />
-
           <div className="relative w-full px-5 py-12 sm:px-5 sm:py-14 lg:px-6 lg:py-16">
             <div className="max-w-xl lg:max-w-[46ch]">
               <div className="flex items-center gap-4">
@@ -298,10 +293,10 @@ export const EverydayAthleisurePageOne: React.FC = () => {
               </div>
 
               <h1 className="mt-6 font-display text-[clamp(2.5rem,5.4vw,4.75rem)] leading-[0.9] tracking-[-0.02em] text-[#3E2723]">
-                {TITLE_LINES.map((line) => (
+                {TITLE_LINES.map((line, i) => (
                   <React.Fragment key={line}>
                     {line}
-                    <br />
+                    {i < TITLE_LINES.length - 1 && <br />}
                   </React.Fragment>
                 ))}
               </h1>
@@ -309,17 +304,6 @@ export const EverydayAthleisurePageOne: React.FC = () => {
               <p className="mt-6 font-body text-sm tracking-[0.02em] text-[#3E2723]">
                 {HERO_DESCRIPTION}
               </p>
-
-              <p className="mt-5 font-hand text-[1.75rem] sm:text-[2.125rem] leading-[1.15] text-[#3E2723] -rotate-3 origin-left">
-                {HERO_QUESTION.map((line) => (
-                  <React.Fragment key={line}>
-                    {line}
-                    <br />
-                  </React.Fragment>
-                ))}
-              </p>
-
-              <HandUnderline className="mt-2 ml-1 h-3.5 w-[200px] -rotate-[5deg]" />
             </div>
           </div>
 
@@ -343,21 +327,19 @@ export const EverydayAthleisurePageOne: React.FC = () => {
 
       {/* ——— Lifestyle polaroids — their own full-width row ———————— */}
       <section className="rule-t-light pt-14 pb-16 lg:pt-20 lg:pb-24">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
+        <div className="flex flex-wrap justify-center gap-5 sm:gap-6 lg:gap-8">
           {POLAROIDS.map((shot, i) => (
             <figure
               key={shot.label}
-              className="relative bg-[#FDFCF8] p-2.5 pb-9 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)]"
-              style={{
-                transform: `rotate(${shot.rotation})`,
-                marginTop: i % 2 === 0 ? '0' : '0.75rem',
-              }}
+              className="relative w-[calc(50%-0.625rem)] sm:w-[calc((100%-4.5rem)/4)] lg:w-[calc((100%-6rem)/4)] bg-[#FDFCF8] p-2.5 pb-9 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)]"
+              style={{ transform: `rotate(${shot.rotation})` }}
             >
               <Slot
                 src={shot.src}
                 alt={shot.alt}
                 label={shot.label}
                 className="aspect-[4/5]"
+                position="top"
               />
               <figcaption className="absolute inset-x-0 bottom-2 text-center font-hand text-[1.0625rem] leading-none text-[#3E2723]">
                 {shot.label}
@@ -402,6 +384,28 @@ export const EverydayAthleisurePageOne: React.FC = () => {
                   </IconDisc>
                 ))}
               </div>
+            </div>
+
+            {/* Two image slots — centred, under the copy and the four complaints */}
+            <div className="mt-9 lg:mt-10 mx-auto grid grid-cols-2 gap-4 sm:gap-5 w-full max-w-[22rem] lg:max-w-[26rem]">
+              {NOTICED_IMAGES.map((shot) => (
+                <figure
+                  key={shot.label}
+                  className="relative bg-[#FDFCF8] p-2 pb-5 shadow-[0_8px_20px_-14px_rgba(62,39,35,0.3)]"
+                  style={{ transform: `rotate(${shot.rotation})` }}
+                >
+                  <Slot
+                    src={shot.src}
+                    alt={shot.alt}
+                    label={shot.label}
+                    className="aspect-[3/4]"
+                  />
+                  <Tape
+                    className="-top-2.5 left-1/2 -translate-x-1/2 w-11 h-4"
+                    rotate={shot.tapeRotate}
+                  />
+                </figure>
+              ))}
             </div>
           </div>
 
@@ -488,10 +492,11 @@ export const EverydayAthleisurePageOne: React.FC = () => {
               {/* Technical fashion illustration + its two handwritten notes */}
               <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-8 items-start">
                 <Slot
-                  src="/portfolio-assets/03_tech_sketch_coord.png"
+                  src="/portfolio-assets/03_tech_sketch_coord.jpg"
                   alt="Fashion technical illustration — front view of the structured long-sleeve cropped top with relaxed wide-leg jogger trousers"
                   label="Technical sketch — crop top & jogger"
                   className="w-[190px] lg:w-[260px] h-[265px] lg:h-[360px]"
+                  position="top"
                 />
 
                 <div className="space-y-8 pt-3">
@@ -518,98 +523,53 @@ export const EverydayAthleisurePageOne: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* PROCESS — three image slots, no heading. Separate files on
+               purpose, so these never resolve to the photos used above. */}
+          <div className="relative p-8 lg:p-12 bg-[#FDFCF8] rounded-[3px]">
+            <div className="grid grid-cols-3 items-end gap-3 sm:gap-5 lg:gap-6">
+              {PROCESS_SLOTS.map((slot) => (
+                <figure
+                  key={slot.label}
+                  className="relative bg-[#FDFCF8] p-2.5 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)]"
+                >
+                  <Slot
+                    src={slot.src}
+                    alt={slot.alt}
+                    label={`${slot.label} — process`}
+                    className={slot.frame}
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-2 text-center font-hand text-[1.0625rem] leading-none text-[#3E2723]">
+                    {slot.label}
+                  </figcaption>
+                  <Tape
+                    className="-top-2.5 left-1/2 -translate-x-1/2 w-14 h-5"
+                    rotate={slot.tapeRotate}
+                  />
+                </figure>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ——— Bottom ————————————————————————————————————————— */}
-      <section className="rule-t-light pt-16 pb-8 lg:pt-24 lg:pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-[38fr_24fr_35fr] gap-10 lg:gap-8 items-start">
-          {/* Concept board — overlapping paper, sketch, swatches, detail, flower */}
-          <div className="relative">
-            <div className="absolute -left-2 -top-2 h-24 w-32 bg-[#FADBD9]/40 rotate-[-4deg]" aria-hidden="true" />
-            <div className="absolute right-4 -top-1 h-16 w-24 bg-[#FDFCF8] rotate-[3deg] shadow-[0_8px_20px_-14px_rgba(62,39,35,0.3)]" aria-hidden="true" />
+      {/* ——— WHAT I WORKED WITH — its own full-width band, built on the
+           THE OPPORTUNITY treatment: blush wash, organic radius, slight tilt,
+           label left and the five methods as a pill row on the right. ————— */}
+      <section className="pt-14 pb-8 lg:pt-20 lg:pb-12">
+        <div className="relative p-8 lg:p-12 bg-[#FADBD9]/50 rounded-[24px_44px_28px_40px] lg:-rotate-[0.4deg]">
+          <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-9 lg:gap-16 items-center">
+            <p className="eyebrow text-[#3E2723]">{WORKED_WITH_HEADING}</p>
 
-            <Slot
-              src="/portfolio-assets/03_design_flat_front_back.png"
-              alt="Hand-drawn fashion technical flats — front and back views of the athleisure co-ord"
-              label="Fashion flats — front & back"
-              className="relative w-[42%] h-[210px] lg:h-[260px]"
-            />
-
-            <Slot
-              src="/portfolio-assets/03_fabric_swatches.jpg"
-              alt="Fabric swatches in olive green, sage, cream and grey-green"
-              label="Fabric swatches"
-              className="absolute left-[36%] bottom-0 w-[34%] h-[86px] lg:h-[104px]"
-            />
-
-            <Slot
-              src="/portfolio-assets/03_product_detail.jpg"
-              alt="Close crop of the olive-green cropped top meeting the relaxed jogger waistband"
-              label="Product detail — crop top & waistband"
-              className="absolute right-0 top-2 w-[40%] h-[150px] lg:h-[186px] shadow-[0_10px_24px_-14px_rgba(62,39,35,0.3)]"
-            />
-
-            <Slot
-              src="/portfolio-assets/03_white_flower.jpg"
-              alt="A single delicate white flower in the foreground"
-              label="White flower"
-              className="absolute left-[42%] bottom-6 w-[20%] h-[70px] lg:h-[86px]"
-            />
-
-            <p className="relative mt-6 font-hand text-[1.5rem] leading-[1.1] text-[#3E2723] -rotate-[8deg] origin-left inline-block">
-              {BOARD_ANNOTATION.map((line) => (
-                <React.Fragment key={line}>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
-            </p>
-
-            <Tape className="left-[6%] top-1" rotate={-4} />
-            <Tape className="left-[30%] bottom-16 w-16" rotate={5} />
-            <Tape className="right-[6%] top-0" rotate={-7} />
-          </div>
-
-          {/* The first product */}
-          <div className="relative">
-            <Slot
-              src="/portfolio-assets/03_first_product_mvp.jpg"
-              alt="Torso and waist crop of the structured olive-green crop top with the relaxed joggers"
-              label="The first product — physical MVP"
-              className="h-[210px] lg:h-[260px] shadow-[0_10px_24px_-14px_rgba(62,39,35,0.3)]"
-            />
-
-            <p className="eyebrow mt-5 block text-[#3E2723]">{FIRST_PRODUCT_LABEL}</p>
-            <h3 className="mt-3 font-display text-[1.125rem] sm:text-[1.25rem] leading-[1.2] text-[#3E2723]">
-              {FIRST_PRODUCT_TITLE.map((line) => (
-                <React.Fragment key={line}>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
-            </h3>
-
-            <p className="mt-4 font-hand text-[1.375rem] leading-none text-[#3E2723] -rotate-3 origin-left inline-block">
-              {FIRST_PRODUCT_CAPTION}
-            </p>
-            <ShortUnderline />
-          </div>
-
-          {/* WHAT I WORKED WITH — soft blush panel, 40px radius */}
-          <div className="bg-[#FADBD9] rounded-[40px] p-7 lg:p-9">
-            <h2 className="eyebrow text-center text-[#3E2723]">{WORKED_WITH_HEADING}</h2>
-
-            <div className="mt-7 grid grid-cols-5 gap-2">
+            <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-4">
               {METHOD.map((item) => (
-                <IconDisc
+                <span
                   key={item.label.join('-')}
-                  label={item.label}
-                  discClassName="w-12 h-12 lg:w-[3.125rem] lg:h-[3.125rem] bg-[#FDFCF8] border border-[#A38D89]"
-                  iconClassName="text-[0.5625rem] lg:text-[0.625rem] tracking-[0.1em] leading-[1.2]"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-[#FDFCF8] pl-3 pr-4 py-2 eyebrow text-[#3E2723] whitespace-nowrap"
                 >
-                  <item.icon className="w-[18px] h-[18px] lg:w-5 lg:h-5" strokeWidth={1.5} />
-                </IconDisc>
+                  <item.icon className="w-4 h-4 flex-shrink-0 text-[#A38D89]" strokeWidth={1.5} />
+                  {item.label.join(' ')}
+                </span>
               ))}
             </div>
           </div>
