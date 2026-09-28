@@ -18,6 +18,8 @@ export interface ProjectHeroProps {
   intro?: string;
   /** Extra classes for the cover <img>, e.g. a responsive object-position. */
   imageClassName?: string;
+  /** Extra classes for the intro paragraph, e.g. justify or a tighter measure. */
+  introClassName?: string;
 }
 
 /**
@@ -38,6 +40,7 @@ export const ProjectHero: React.FC<ProjectHeroProps> = ({
   subtitle,
   intro,
   imageClassName = '',
+  introClassName = '',
 }) => {
   return (
     <section className="mb-14 lg:mb-20">
@@ -86,7 +89,9 @@ export const ProjectHero: React.FC<ProjectHeroProps> = ({
             )}
 
             {intro && (
-              <p className="font-body text-sm sm:text-base text-[#3E2723]/80 leading-loose lg:max-w-[52ch]">
+              <p
+                className={`font-body text-sm sm:text-base text-[#3E2723]/80 leading-loose whitespace-pre-line lg:max-w-[52ch] ${introClassName}`}
+              >
                 {intro}
               </p>
             )}

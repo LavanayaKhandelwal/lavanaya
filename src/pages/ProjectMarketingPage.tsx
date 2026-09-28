@@ -21,6 +21,7 @@ export const ProjectMarketingPage: React.FC = () => {
         title={'A NEW DIMENSION\nOF LIFEWEAR'}
         subtitle="UNIQLO X FRAGRANCES"
         intro={pm.page1And2.context.split('\n\n')[0]}
+        introClassName="text-justify"
         imageClassName="object-[52%_45%] lg:object-center"
       />
 

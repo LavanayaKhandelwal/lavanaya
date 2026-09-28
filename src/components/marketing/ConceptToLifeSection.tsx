@@ -134,50 +134,59 @@ export const ConceptToLifeSection: React.FC = () => {
             ))}
           </div>
 
-          {/* Wide event photograph — grows so both columns share a baseline */}
+          {/* Main event photograph — grows so both columns share a baseline. Held a
+              little above centre so the top of the tall frame is not cut. */}
           <figure className="mt-5 lg:mt-6 flex-1 min-h-[13rem] lg:min-h-[16rem] rounded-[3px] overflow-hidden">
             <SlidePhoto
               src="/portfolio-assets/04_event_2.jpg"
               alt="College students gathered around a fragrance product presentation table, testing and smelling fragrance samples"
               label="Students Testing Fragrances"
               className="w-full h-full object-cover"
+              style={{ objectPosition: '50% 25%' }}
             />
           </figure>
         </div>
 
         {/* ——— Right column: case-study grid ——— */}
         <div className="flex flex-col gap-5 lg:gap-6">
-          {/* Event photographs — the presenter holds the left half with the
-              product display directly beneath it, the interaction slot is
-              split into two. The metric fills the space opposite. */}
+          {/* Event photographs — the first holds the left column and runs two rows
+              down so its portrait frame reads whole, the other two split the top row
+              beside it. The metric and feedback documents stack opposite, with the
+              product display closing the left column. */}
           <div className="grid grid-cols-[2fr_1fr_1fr] gap-4 lg:gap-6">
-            <figure className="h-48 sm:h-60 lg:h-[22rem] rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
+            {/* First event photograph — spans the two rows beneath its neighbours so
+                the portrait shot reads whole. Top edge stays flush with the other
+                two; object-contain keeps the full frame visible and the plate fill
+                carries the slack. */}
+            <figure className="col-start-1 row-start-1 row-span-2 h-48 sm:h-60 lg:h-auto rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
               <SlidePhoto
                 src="/portfolio-assets/04_event_1.jpg"
                 alt="Students at the college fragrance pitch booth, smelling samples and engaging with the product concept"
                 label="Presenter At Booth"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </figure>
             <figure className="h-48 sm:h-60 lg:h-[22rem] rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
               <SlidePhoto
-                src="/portfolio-assets/04_students_interacting.jpg"
+                src="/portfolio-assets/04_students_interacting.png"
                 alt="Students gathered around the fragrance display, smelling samples and discussing the product concept"
                 label="Students Interacting"
                 className="w-full h-full object-cover"
+                style={{ objectPosition: '50% 25%' }}
               />
             </figure>
             <figure className="h-48 sm:h-60 lg:h-[22rem] rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
               <SlidePhoto
                 src="/portfolio-assets/04_students_at_booth.jpg"
                 alt="Group of college students gathered at the fragrance product pitch booth during the college activation"
+                style={{ objectPosition: '50% 25%' }}
                 label="Students At Booth"
                 className="w-full h-full object-cover"
               />
             </figure>
 
-            {/* Product display — runs the full height of the two rows below the presenter */}
-            <figure className="col-start-1 row-start-2 row-span-2 rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
+            {/* Product display — now the third row, beneath the extended first photograph */}
+            <figure className="col-start-1 row-start-3 h-32 sm:h-44 lg:h-56 rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
               <SlidePhoto
                 src="/portfolio-assets/04_product_display.jpg"
                 alt="Fragrance bottles and cream packaging arranged on the product display table at the pitch booth"
@@ -186,7 +195,7 @@ export const ConceptToLifeSection: React.FC = () => {
               />
             </figure>
 
-            {/* Metric — right-aligned opposite the product display */}
+            {/* Metric — right-aligned opposite the extended photograph */}
             <div className="col-start-2 col-span-2 row-start-2 flex flex-col justify-center text-right py-6">
               <p className="font-display text-5xl sm:text-6xl lg:text-7xl leading-none tracking-tight text-[#3E2723]">
                 25–30+
@@ -196,8 +205,7 @@ export const ConceptToLifeSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Feedback documentation — directly beneath the metric, clear of
-                the product display */}
+            {/* Feedback documentation — beside the product display, beneath the metric */}
             <figure className="col-start-2 col-span-2 row-start-3 h-32 sm:h-44 lg:h-56 rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
               <SlidePhoto
                 src="/portfolio-assets/04_feedback_documents.jpg"

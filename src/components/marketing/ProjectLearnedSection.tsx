@@ -27,9 +27,9 @@ const cards: LearningCard[] = [
     title: 'STRATEGIC BRAND\nEXTENSION',
     body: 'Learned how to evaluate whether a new product category fits an existing brand identity and positioning.',
     src: '/portfolio-assets/05_brand_extension.jpg',
-    alt: 'Close-up of cream fabric with the red Uniqlo logo card placed on the textile',
+    alt: 'Uniqlo LifeWear brand identity, the red square logo mark against the brand’s minimal packaging',
     label: 'Brand Extension',
-    scale: 0.7,
+    scale: 1.4,
   },
   {
     num: '03',
