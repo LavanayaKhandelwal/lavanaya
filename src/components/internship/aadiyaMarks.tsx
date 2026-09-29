@@ -41,6 +41,19 @@ export const SOCIAL_SHEET = { width: 1600, height: 900 } as const;
 export const COMMERCE_SHEET = { width: 1536, height: 1024 } as const;
 
 /**
+ * The width Tailwind's `lg` breakpoint sits at.
+ *
+ * The boards need to know whether the window is wide enough to centre a sheet
+ * in a full screen or narrow enough to have the section hug it, and that
+ * decision has to agree with the classes on the frame. Duplicating the number
+ * in JS and in a class name is how the two drift apart — a breakpoint gets
+ * raised in the CSS and the boards keep centring on screens that should hug.
+ * So the number lives here once, and the frames' `lg:` prefix is the CSS half
+ * of the same agreement.
+ */
+const WIDE_FROM = 1024;
+
+/**
  * Measures the space the board has been given and returns the single scale
  * factor that fits the sheet inside it without ever enlarging past 1:1.
  *
@@ -48,6 +61,22 @@ export const COMMERCE_SHEET = { width: 1536, height: 1024 } as const;
  * sits centred with dark space either side, which is what a mounted print does.
  * A ResizeObserver does the measuring so the board re-fits on rotation and on
  * the mobile URL bar collapsing, neither of which fire a window resize event.
+ *
+ * `hug` exists because these two boards are sections of one scrolling page
+ * rather than pages of their own, and a section that claims a whole screen
+ * each is only affordable when one of them is the whole page. A 16:9 sheet on a
+ * phone is 219 pixels tall inside an 844-pixel screen, so a full-height section
+ * around it spends 625 pixels on letterbox — and with two boards stacked that
+ * is 1209 pixels of scrolling through nothing to reach 480 pixels of work. In
+ * hug mode the frame takes the board's own height, the width alone decides the
+ * scale, and the section ends where the artwork does. The board is exactly as
+ * large either way; only the padding around it changes.
+ *
+ * The decision is made from the width the hook has already measured rather than
+ * from a breakpoint read at render time, because a value read once during
+ * render is stale the moment the window crosses that width — the scale would
+ * keep updating on resize while the framing it belongs to did not. Measuring
+ * both from the same number keeps them in step on every resize.
  */
 export function useBoardScale(
   sheetWidth: number,
@@ -62,8 +91,10 @@ export function useBoardScale(
 
     const measure = () => {
       const { width, height } = frame.getBoundingClientRect();
-      if (width === 0 || height === 0) return;
-      setScale(Math.min(width / sheetWidth, height / sheetHeight, 1));
+      if (width === 0) return;
+      const byWidth = width / sheetWidth;
+      const byHeight = width < WIDE_FROM ? Number.POSITIVE_INFINITY : height / sheetHeight;
+      setScale(Math.min(byWidth, byHeight, 1));
     };
 
     measure();
@@ -197,12 +228,19 @@ export const SketchArrow: React.FC<SketchArrowProps> = ({
   );
 };
 
-export const SparkBurst: React.FC<{ size?: number; colour?: string; className?: string }> = ({
-  size = 26,
-  colour = '#20232C',
-  className = '',
-}) => (
-  <svg viewBox="-12 -12 24 24" width={size} height={size} className={className} aria-hidden="true" focusable="false">
+export const SparkBurst: React.FC<{
+  size?: number;
+  colour?: string;
+  className?: string;
+}> = ({ size = 26, colour = '#20232C', className = '' }) => (
+  <svg
+    viewBox="-12 -12 24 24"
+    width={size}
+    height={size}
+    className={className}
+    aria-hidden="true"
+    focusable="false"
+  >
     <g stroke={colour} strokeWidth="1.2" strokeLinecap="round">
       <line x1="0" y1="-11" x2="0" y2="-4" />
       <line x1="0" y1="4" x2="0" y2="11" />
@@ -214,12 +252,19 @@ export const SparkBurst: React.FC<{ size?: number; colour?: string; className?: 
   </svg>
 );
 
-export const SketchHeart: React.FC<{ size?: number; colour?: string; className?: string }> = ({
-  size = 15,
-  colour = '#26303B',
-  className = '',
-}) => (
-  <svg viewBox="0 0 24 22" width={size} height={size * 0.92} className={className} aria-hidden="true" focusable="false">
+export const SketchHeart: React.FC<{
+  size?: number;
+  colour?: string;
+  className?: string;
+}> = ({ size = 15, colour = '#26303B', className = '' }) => (
+  <svg
+    viewBox="0 0 24 22"
+    width={size}
+    height={size * 0.92}
+    className={className}
+    aria-hidden="true"
+    focusable="false"
+  >
     <path
       d="M12 20.6C12 20.6 3 15.1 3 9.3 3 6.4 5.2 4 8 4c1.6 0 3.1.8 4 2.1C12.9 4.8 14.4 4 16 4c2.8 0 5 2.4 5 5.3 0 5.8-9 11.3-9 11.3Z"
       fill="none"
