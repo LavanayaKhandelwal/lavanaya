@@ -117,35 +117,6 @@ const MOMENTS = [
   { label: 'TRAVEL', icon: Plane },
 ];
 
-/**
- * The three process stages, each with its own image slot. The aspect ratio on
- * each is the source file's own, so nothing is cropped: 406x655, 1312x1199,
- * 847x1280.
- */
-const PROCESS_SLOTS = [
-  {
-    label: 'Sketches',
-    src: '/portfolio-assets/03_process_sketches.jpg',
-    alt: 'Fashion technical sketches of the co-ord',
-    frame: 'aspect-[406/655]',
-    tapeRotate: -5,
-  },
-  {
-    label: 'Material',
-    src: '/portfolio-assets/03_process_material.jpg',
-    alt: 'The chosen fabric',
-    frame: 'aspect-[1312/1199]',
-    tapeRotate: 4,
-  },
-  {
-    label: 'Physical MVP',
-    src: '/portfolio-assets/03_process_mvp.jpg',
-    alt: 'The first physical prototype of the co-ord',
-    frame: 'aspect-[847/1280]',
-    tapeRotate: -3,
-  },
-] as const;
-
 const METHOD = [
   { label: ['Consumer', 'Research'], icon: Search },
   { label: ['Trend', 'Research'], icon: TrendingUp },
@@ -548,32 +519,6 @@ export const EverydayAthleisurePageOne: React.FC = () => {
             ))}
           </div>
 
-          {/* PROCESS — three image slots, no heading. Separate files on
-               purpose, so these never resolve to the photos used above. */}
-          <div className="relative p-8 lg:p-12 bg-[#FDFCF8] rounded-[3px]">
-            <div className="grid grid-cols-3 items-end gap-3 sm:gap-5 lg:gap-6">
-              {PROCESS_SLOTS.map((slot) => (
-                <figure
-                  key={slot.label}
-                  className="relative bg-[#FDFCF8] p-2.5 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)]"
-                >
-                  <Slot
-                    src={slot.src}
-                    alt={slot.alt}
-                    label={`${slot.label} — process`}
-                    className={slot.frame}
-                  />
-                  <figcaption className="absolute inset-x-0 bottom-2 text-center font-hand text-[1.0625rem] leading-none text-[#3E2723]">
-                    {slot.label}
-                  </figcaption>
-                  <Tape
-                    className="-top-2.5 left-1/2 -translate-x-1/2 w-14 h-5"
-                    rotate={slot.tapeRotate}
-                  />
-                </figure>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
