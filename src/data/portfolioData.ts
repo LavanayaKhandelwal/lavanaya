@@ -103,6 +103,32 @@ export const portfolioData = {
       "Ecommerce & Website Management"
     ],
 
+    /* THE PALETTE — these five are not sampled from the brand's own materials
+       and they are not a colour board lifted off a photograph. They are the
+       exact hex values the social media board is painted with, read straight
+       out of SocialBoard.tsx: the sheet ground, the yellow of three of its four
+       washes, the pink of the fourth, the navy the headings are set in, and the
+       slate the paragraph is set in. It is the palette the work was presented
+       in rather than a claim about the brand's own, and it is labelled that way
+       on the page.
+
+       The rose #B64F73 is deliberately absent. It carried the handwritten
+       annotations until they were removed, and a swatch for a colour nothing on
+       the board now uses would be a palette entry describing work that is not
+       there. */
+    palette: {
+      title: "The Palette",
+      content:
+        "The colour the social media work is built and presented in — a blush ground, a pale yellow and a deeper pink for the washes behind the sheets, and two inks for the type.",
+      swatches: [
+        { name: "Blush Ground", hex: "#F8DDE5" },
+        { name: "Pale Yellow", hex: "#F7E8A8" },
+        { name: "Soft Pink", hex: "#F4BFD0" },
+        { name: "Ink Navy", hex: "#071326" },
+        { name: "Slate Body", hex: "#394252" }
+      ]
+    },
+
     page1SocialMedia: {
       title: "01 — SOCIAL MEDIA",
       intro:
