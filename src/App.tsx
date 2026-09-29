@@ -6,6 +6,7 @@ import { FashionPortfolioPage } from './pages/FashionPortfolioPage';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { InternshipExperiencePage } from './pages/InternshipExperiencePage';
+import { InternshipCommercePage } from './pages/InternshipCommercePage';
 import { InternshipLearningsPage } from './pages/InternshipLearningsPage';
 import { ProjectsOverviewPage } from './pages/ProjectsOverviewPage';
 import { ProjectMarketingPage } from './pages/ProjectMarketingPage';
@@ -65,7 +66,11 @@ function AppShell({
             </>
           } />
           <Route path="/about" element={<AboutPage />} />
+          {/* The internship is two boards, one per half of the role. The social
+              media board is first because that is the order the route names
+              them in and the order the onward link chains them. */}
           <Route path="/internship/experience" element={<InternshipExperiencePage />} />
+          <Route path="/internship/ecommerce" element={<InternshipCommercePage />} />
           <Route path="/internship/learnings" element={<InternshipLearningsPage />} />
           <Route path="/projects/marketing" element={<ProjectMarketingPage />} />
           <Route path="/projects/marketing/mapping-opportunity" element={<MappingOpportunitySlide />} />

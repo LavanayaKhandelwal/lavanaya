@@ -1,289 +1,279 @@
 import React from 'react';
-import { motion } from 'motion/react';
-import { ProjectHero } from '../components/ProjectHero';
-import { ProjectSectionHeader } from '../components/ProjectSectionHeader';
-import { SlidePhoto } from '../components/SlidePhoto';
-import { portfolioData } from '../data/portfolioData';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import {
+  Annotation,
+  SectionLabel,
+  SketchArrow,
+  SparkBurst,
+  SOCIAL_SHEET,
+  useBoardScale,
+} from '../components/internship/aadiyaMarks';
+import { AiCollage, ContentCalendar, PhoneMockups } from '../components/internship/aadiyaProcess';
+import { AnalyticsLaptop, PostCarousel, SocialGrid } from '../components/internship/aadiyaResults';
 
 /**
- * INTERNSHIP — AADIYA JEWELS
+ * INTERNSHIP — AADIYA JEWELS, PAGE ONE.
  *
- * Rebuilt on the same light system as the project pages: full-bleed cover, cream
- * ground, blush band, taupe hairlines, plate-light imagery, no side padding.
+ * A single landscape board, 1600 by 900, scaled to the window as one object.
+ * It is not a scrolling page and it is not a dashboard. Everything on it is
+ * positioned in stage pixels against a fixed sheet, because the composition it
+ * is built from is a portfolio spread: a title and a measure of copy in the top
+ * left, six pieces of work hung on a grid across the rest of it, and the whole
+ * thing sitting on pink paper with a few brush marks and three handwritten
+ * notes on top.
+ *
+ * IT IS THE FIRST OF TWO BOARDS. The second covers the same internship's
+ * e-commerce and website management work and lives at its own route, so each
+ * board keeps a whole screen to itself and neither is half a scroll. The link
+ * to the next one is below the board rather than on it, because this board's
+ * brief asks for no extra text and a link is extra text.
+ *
+ * What replaced it was a long scroll: a full-bleed cover, a credits strip, a
+ * social section, an e-commerce section and a learnings band. That was four
+ * pages of website pretending to be one case study. This is the case study.
+ *
+ * THE READING ORDER IS LEFT TO RIGHT AND TOP TO BOTTOM, and the grid is the
+ * reason for that. The three objects along the top are the process — planned,
+ * generated, published. The three along the bottom are the evidence — the feed
+ * as it shipped, the posts as they were designed, and the numbers they moved.
+ * The title and the copy sit in the space the process does not need, which is
+ * why they are at the far left and nothing else is above them.
  */
-export const InternshipExperiencePage: React.FC = () => {
-  const { internship } = portfolioData;
 
-  const workedOnBlocks = (items: { id: string; title: string; desc: string }[]) =>
-    items.map((item) => (
-      <div key={item.id} className="rule-t-light pt-5">
-        <span className="font-mono-code text-xs text-[#D69589] font-bold uppercase tracking-[0.16em] block mb-2">
-          {item.id}.
-        </span>
-        <h3 className="font-display text-xl text-[#3E2723] mb-2">{item.title}</h3>
-        <p className="font-body text-xs text-[#3E2723]/75 leading-relaxed">{item.desc}</p>
-      </div>
-    ));
+/* ————————————————————————————————————————————————————————————
+   THE PAPER.
 
-  const skillsList = (skills: string[]) =>
-    skills.map((skill) => (
-      <span
-        key={skill}
-        className="px-3 py-1.5 bg-[#FADBD9] border border-[#705955]/30 rounded-full font-mono-code text-[0.6875rem] uppercase tracking-[0.14em] text-[#3E2723] inline-flex"
-      >
-        {skill}
-      </span>
-    ));
+   Four washes, laid down before anything else and blurred well past the point
+   where an edge could be found. Three are the pale yellow from the palette and
+   one is a larger pink across the top right. They are set with an inline radius
+   rather than a class because a four-value percentage radius is not something
+   worth fighting the scanner over, and an organic blob needs eight numbers.
+
+   The grain is a single fractal-noise tile over the whole sheet at low opacity.
+   It is underneath the content rather than on top of it, so nothing in the
+   artwork is ever dulled by it.
+   ———————————————————————————————————————————————————————————— */
+
+const WASHES = [
+  { left: -70, top: -60, w: 560, h: 320, colour: '#F7E8A8', opacity: 0.7, rotate: -8 },
+  { left: -90, top: 330, w: 420, h: 300, colour: '#F7E8A8', opacity: 0.65, rotate: 14 },
+  { left: 880, top: -140, w: 760, h: 480, colour: '#F4BFD0', opacity: 0.45, rotate: -6 },
+  { left: 1060, top: 590, w: 660, h: 440, colour: '#F7E8A8', opacity: 0.8, rotate: 10 },
+] as const;
+
+const GRAIN =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='1600' height='900' filter='url(%23n)'/%3E%3C/svg%3E\")";
+
+const Board: React.FC = () => (
+  <>
+    {WASHES.map((wash, index) => (
+      <div
+        key={index}
+        className="pointer-events-none absolute"
+        style={{
+          left: wash.left,
+          top: wash.top,
+          width: wash.w,
+          height: wash.h,
+          background: wash.colour,
+          opacity: wash.opacity,
+          transform: `rotate(${wash.rotate}deg)`,
+          borderRadius: '42% 58% 55% 45% / 48% 40% 62% 52%',
+          filter: 'blur(48px)',
+        }}
+      />
+    ))}
+    <div
+      className="pointer-events-none absolute inset-0 opacity-[0.14] mix-blend-multiply"
+      style={{ backgroundImage: GRAIN, backgroundSize: '600px 600px' }}
+    />
+  </>
+);
+
+const SocialBoard: React.FC = () => {
+  const { frameRef, scale } = useBoardScale(SOCIAL_SHEET.width, SOCIAL_SHEET.height);
 
   return (
-    <div className="min-h-screen pb-16 lg:pb-24 bg-[#F9F8F2]">
-      {/* COVER — full-bleed hero, image spans the entire viewport width */}
-      <ProjectHero
-        image="/portfolio-assets/B7E707CC-CED2-43AE-A2AD-C2B28D50CD10.jpg"
-        alt="Aadiya Jewels studio campaign and jewellery showcase photographed for social content"
-        eyebrow="FINE JEWELLERY BRAND INTERNSHIP"
-        pageLabel="PAGE 1"
-        title={internship.company}
-        subtitle={internship.role}
-        intro={internship.overview}
-      />
+    <div
+      ref={frameRef}
+      className="w-full h-svh flex items-center justify-center overflow-hidden bg-[#10090B]"
+    >
+      <div
+        style={{
+          width: SOCIAL_SHEET.width,
+          height: SOCIAL_SHEET.height,
+          transform: `scale(${scale})`,
+          transformOrigin: 'center center',
+        }}
+        className="relative shrink-0 overflow-hidden bg-[#F8DDE5] shadow-[0_40px_90px_-30px_rgba(0,0,0,0.8)]"
+      >
+        <Board />
 
-      <div className="px-5 sm:px-8 lg:px-12">
-        {/* Cover credits strip */}
-        <section className="rule-b-light py-6 mb-20 lg:mb-28 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 font-mono-code text-xs">
-          <div>
-            <span className="text-[#705955] block text-[10px] uppercase mb-1.5">COMPANY</span>
-            <span className="font-bold text-[#3E2723]">{internship.company}</span>
+        {/* ————— HEADER ————— */}
+        <div className="absolute inset-x-[48px] top-[40px] flex items-center justify-between">
+          <div className="flex items-center gap-5">
+            <span className="font-body text-[11px] uppercase tracking-[4px] text-[#071326]">
+              INTERNSHIP EXPERIENCE
+            </span>
+            <span className="h-px w-[350px] bg-[#5F6871]" />
           </div>
-          <div>
-            <span className="text-[#705955] block text-[10px] uppercase mb-1.5">ROLE</span>
-            <span className="font-bold text-[#3E2723]">{internship.role}</span>
+          <div className="flex items-center gap-5">
+            <span className="font-body text-[10px] uppercase tracking-[4px] text-[#071326]">
+              AADIYA JEWELS
+            </span>
+            <span className="h-px w-[60px] bg-[#5F6871]" />
           </div>
-          <div>
-            <span className="text-[#705955] block text-[10px] uppercase mb-1.5">PERIOD</span>
-            <span className="font-bold text-[#3E2723]">{internship.period}</span>
-          </div>
-          <div>
-            <span className="text-[#705955] block text-[10px] uppercase mb-1.5">LOCATION</span>
-            <span className="font-bold text-[#3E2723]">{internship.location}</span>
-          </div>
-        </section>
+        </div>
 
-        {/* PAGE 2 — SOCIAL MEDIA */}
-        <section id="social-media" className="scroll-mt-24 mb-24 lg:mb-32">
-          <ProjectSectionHeader
-            eyebrow="PAGE 2 — SOCIAL MEDIA"
-            title="From concept to content"
-            lead={internship.page1SocialMedia.intro}
-          />
-
-          {/* Content types strip */}
-          <div className="flex flex-wrap gap-2 mb-10">
-            {internship.contentTypes.map((ct) => (
-              <span
-                key={ct}
-                className="px-3 py-1.5 bg-[#FADBD9] border border-[#705955]/30 rounded-full font-mono-code text-[0.6875rem] uppercase tracking-[0.14em] text-[#3E2723] inline-flex"
-              >
-                {ct}
-              </span>
-            ))}
-          </div>
-
-          <p className="eyebrow text-[#3E2723] rule-b-light pb-3 mb-8 block">
-            VIDEOS &amp; REEL PRODUCTION INCLUDED
-          </p>
-
-          {/* Media showcase */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-x-10 gap-y-12 items-start">
-            {/* Reel 1 */}
-            <div className="md:col-span-5">
-              <div className="plate-light p-2">
-                <div className="aspect-[3/4] overflow-hidden">
-                  <SlidePhoto
-                    src="/portfolio-assets/f54639f8-2182-461e-bc6b-63ce3787f763.jpg"
-                    alt="Aadiya Jewels reel still"
-                    label="Jewellery reel 01"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <p className="plate-caption-light mt-3 mb-1">
-                Jewellery Reel 01 — Aesthetic &amp; Product Styling
-              </p>
-              <p className="font-body text-xs text-[#3E2723]/75">
-                Shot on set, edited, color graded and published for Aadiya Jewels social handle.
-              </p>
-            </div>
-
-            {/* Reel 2 + stills */}
-            <div className="md:col-span-7 space-y-10">
-              <div>
-                <div className="plate-light p-2">
-                  <div className="aspect-video overflow-hidden">
-                    <SlidePhoto
-                      src="/portfolio-assets/B7E707CC-CED2-43AE-A2AD-C2B28D50CD10.jpg"
-                      alt="Aadiya Jewels studio campaign still"
-                      label="Studio campaign showcase"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <p className="plate-caption-light mt-3 mb-1">
-                  Studio Campaign &amp; Jewellery Showcase
-                </p>
-                <p className="font-body text-xs text-[#3E2723]/75">
-                  Highlighting brilliance, luxury finishes, and craftsmanship through video capture.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-8">
-                <div>
-                  <div className="plate-light p-2">
-                    <div className="aspect-[4/5] overflow-hidden">
-                      <SlidePhoto
-                        src="/portfolio-assets/WhatsApp Image 2026-09-13 at 19.42.18.jpeg"
-                        alt="Jewellery on-set photography"
-                        label="Macro jewellery styling"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <p className="plate-caption-light mt-2">Macro Jewellery Styling</p>
-                </div>
-                <div className="md:mt-10 lg:mt-16">
-                  <div className="plate-light p-2">
-                    <div className="aspect-[4/5] overflow-hidden">
-                      <SlidePhoto
-                        src="/portfolio-assets/WhatsApp Image 2026-09-13 at 19.42.18 (1).jpeg"
-                        alt="Product photography framing"
-                        label="Product photography framing"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <p className="plate-caption-light mt-2">Product Photography Framing</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* What I Worked On */}
-          <div className="mt-16 lg:mt-20">
-            <p className="eyebrow text-[#3E2723] rule-b-light pb-3 mb-8 block">WHAT I WORKED ON</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
-              {workedOnBlocks(internship.page1SocialMedia.whatIWorkedOn)}
-            </div>
-          </div>
-
-          {/* Skills Applied */}
-          <div className="mt-14">
-            <p className="eyebrow text-[#3E2723] rule-b-light pb-3 mb-6 block">SKILLS APPLIED</p>
-            <div className="flex flex-wrap gap-2">{skillsList(internship.page1SocialMedia.skillsApplied)}</div>
-          </div>
-        </section>
-
-        {/* PAGE 3 — E-COMMERCE */}
-        <section id="ecommerce" className="scroll-mt-24 mb-24 lg:mb-32">
-          <ProjectSectionHeader
-            eyebrow="PAGE 3 — E-COMMERCE"
-            title="From product to online store"
-            lead={internship.page2Ecommerce.intro}
-          />
-
-          <p className="eyebrow text-[#705955] mb-8 block">
-            Website Banners &amp; Storefront Visuals Designed for Aadiya Jewels
-          </p>
-
-          <div className="plate-light p-2 mb-4">
-            <SlidePhoto
-              src="/portfolio-assets/Screenshot 2026-09-13 at 6.31.18 PM.png"
-              alt="Aadiya Jewels Desktop Website Hero Banner"
-              label="E-commerce desktop hero banner"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-3 plate-caption-light">
-            <span className="text-[#3E2723]">E-Commerce Desktop Hero Banner</span>
-            <span>Designed for seasonal homepage campaign</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14">
-            <div>
-              <div className="plate-light p-2">
-                <SlidePhoto
-                  src="/portfolio-assets/Screenshot 2026-09-13 at 6.34.14 PM.png"
-                  alt="Collection promotional banner"
-                  label="Jewellery collection banner"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <p className="plate-caption-light mt-3">Jewellery Collection Category Banner</p>
-            </div>
-
-            <div className="md:mt-16">
-              <div className="plate-light p-2">
-                <SlidePhoto
-                  src="/portfolio-assets/Screenshot 2026-09-13 at 6.31.58 PM.png"
-                  alt="Shopify product listing layout"
-                  label="Shopify product listing"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <p className="plate-caption-light mt-3">
-                Shopify Product Listing &amp; Catalogue Management
-              </p>
-            </div>
-          </div>
-
-          {/* What I Worked On */}
-          <div className="mt-16 lg:mt-20">
-            <p className="eyebrow text-[#3E2723] rule-b-light pb-3 mb-8 block">WHAT I WORKED ON</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
-              {workedOnBlocks(internship.page2Ecommerce.whatIWorkedOn)}
-            </div>
-          </div>
-
-          {/* Skills Applied */}
-          <div className="mt-14">
-            <p className="eyebrow text-[#3E2723] rule-b-light pb-3 mb-6 block">SKILLS APPLIED</p>
-            <div className="flex flex-wrap gap-2">{skillsList(internship.page2Ecommerce.skillsApplied)}</div>
-          </div>
-        </section>
-
-        {/* PAGE 4 — KEY LEARNINGS (blush band) */}
-        <section
-          id="internship-learnings"
-          className="bg-[#FADBD9] -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-10 lg:py-14 mb-12 lg:mb-16 scroll-mt-24"
+        {/* ————— TITLE AND COPY ————— */}
+        {/* The title's size, leading and tracking are set inline rather than
+            through classes. They are the single most specific numbers on the
+            whole board and they are the numbers most likely to be argued with
+            later; inline styles put them next to the copy rather than in a
+            stylesheet, so an edit to the board is one edit. */}
+        <h1
+          className="font-serif-display absolute text-[#071326]"
+          style={{
+            left: 48,
+            top: 110,
+            fontSize: '72px',
+            lineHeight: 0.88,
+            letterSpacing: '-0.5px',
+            fontWeight: 400,
+          }}
         >
-          <ProjectSectionHeader fullWidth rule={false} eyebrow="PAGE 4 — KEY LEARNINGS" title="Key Learnings" />
+          Social
+          <br />
+          Media
+        </h1>
 
-          <div>
-            {internship.learningOutcomes.map((l) => (
-              <motion.div
-                key={l.number}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45 }}
-                className="rule-t-light grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-5 items-baseline"
-              >
-                <div className="md:col-span-2">
-                  <span className="index-figure text-5xl text-[#705955]/60">{l.number}</span>
-                </div>
-                <div className="md:col-span-3">
-                  <span className="font-body text-sm sm:text-base font-medium uppercase tracking-[0.12em] text-[#3E2723]">
-                    {l.title}
-                  </span>
-                </div>
-                <div className="md:col-span-7">
-                  <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed">{l.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-            <div className="rule-b-light" />
-          </div>
-        </section>
+        <p
+          className="font-body absolute text-[#394252]"
+          style={{ left: 48, top: 333, width: 300, fontSize: '14px', lineHeight: 1.55 }}
+        >
+          Managed the end-to-end social media content process, from planning and shooting to
+          editing, scheduling and publishing. Created engaging reels, posts and stories aligned
+          with the brand's identity and product communication.
+        </p>
+
+        {/* ————— SECTION 01, THE CALENDAR ————— */}
+        <SectionLabel style={{ position: 'absolute', left: 400, top: 118 }}>
+          MAIN FEED CONTENT CALENDAR
+        </SectionLabel>
+
+        <Annotation
+          size={18}
+          style={{ position: 'absolute', left: 664, top: 92, transform: 'rotate(-8deg)' }}
+        >
+          {'planned\nwith purpose'}
+        </Annotation>
+
+        <SketchArrow
+          viewBox="0 0 90 62"
+          className="absolute"
+          style={{ left: 636, top: 128, width: 90, height: 62 }}
+          from={[80, 4]}
+          to={[34, 54]}
+          bow={[82, 36]}
+          colour="#25232B"
+        />
+
+        <ContentCalendar style={{ left: 400, top: 146 }} />
+
+        {/* ————— SECTION 02, THE MOODBOARD ————— */}
+        <SectionLabel style={{ position: 'absolute', left: 850, top: 118 }}>
+          AI CONTENT GENERATION
+        </SectionLabel>
+
+        <AiCollage style={{ left: 850, top: 146 }} />
+
+        <span className="absolute" style={{ left: 830, top: 452 }}>
+          <SparkBurst size={14} colour="#20232C" />
+        </span>
+        <Annotation
+          size={15}
+          colour="#2D2630"
+          style={{ position: 'absolute', left: 852, top: 452, transform: 'rotate(-8deg)' }}
+        >
+          {'ideas\nto\nvisuals'}
+        </Annotation>
+
+        {/* ————— SECTION 03, THE PHONES ————— */}
+        <SectionLabel style={{ position: 'absolute', left: 1200, top: 118 }}>
+          REELS &amp; STORIES
+        </SectionLabel>
+
+        <PhoneMockups style={{ left: 1200, top: 146 }} />
+
+        {/* ————— THE BOTTOM ROW, ALL THREE LABELS ON ONE LINE ————— */}
+        <SectionLabel style={{ position: 'absolute', left: 48, top: 472 }}>
+          SOCIAL MEDIA GRID
+        </SectionLabel>
+        <SectionLabel style={{ position: 'absolute', left: 470, top: 472 }}>
+          CREATIVE POSTS &amp; CAROUSELS
+        </SectionLabel>
+        <SectionLabel style={{ position: 'absolute', left: 970, top: 472 }}>
+          FINAL DASHBOARD
+        </SectionLabel>
+
+        <SocialGrid style={{ left: 48, top: 494 }} />
+        <PostCarousel style={{ left: 470, top: 508 }} />
+        <AnalyticsLaptop style={{ left: 970, top: 500 }} />
+
+        {/* ————— THE LAST ANNOTATION —————
+            It sits above the laptop's top right corner rather than beside its
+            middle, because beside the middle there is no room: the laptop runs
+            to 1454 and the board ends at 1600, which is 146px, and a
+            three-line note in the script face wants closer to a hundred. The
+            arrow therefore comes down from it and lands just above the lid
+            rather than crossing the screen to point at it. */}
+        <Annotation
+          size={17}
+          colour="#B64F73"
+          style={{ position: 'absolute', left: 1452, top: 386, transform: 'rotate(-7deg)' }}
+        >
+          {'growth\nin every\npost'}
+        </Annotation>
+
+        <SketchArrow
+          viewBox="0 0 96 92"
+          className="absolute"
+          style={{ left: 1360, top: 400, width: 96, height: 92 }}
+          from={[90, 40]}
+          to={[28, 84]}
+          bow={[88, 58]}
+          colour="#B64F73"
+        />
       </div>
     </div>
   );
 };
+
+/**
+ * The route's outermost piece. The board is exactly one screen tall, so the
+ * onward link needs a strip of its own below it rather than a corner of the
+ * board itself — a link sitting on the artwork would be a seventh thing on a
+ * sheet that was specified as six.
+ *
+ * The strip carries the next board's own subject rather than the word "next",
+ * because a reader who is deciding whether to scroll wants to know what is
+ * below rather than that something is.
+ */
+export const InternshipExperiencePage: React.FC = () => (
+  <div className="min-h-screen bg-[#10090B]">
+    <SocialBoard />
+
+    <div className="px-5 sm:px-5 lg:px-6 pb-16 lg:pb-24">
+      <div className="flex justify-end">
+        <Link
+          to="/internship/ecommerce"
+          className="inline-flex items-center gap-3 eyebrow text-[#F8DDE5] editorial-link"
+        >
+          <span>Read: E-commerce &amp; Website Management</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </Link>
+      </div>
+    </div>
+  </div>
+);
