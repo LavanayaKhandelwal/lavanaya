@@ -18,31 +18,34 @@
 
 /** The social media board. */
 const SOCIAL = {
-  /* THE TWO STORY FRAMES — photographs with words on them, so they sit behind
-     a headline rather than in a frame of their own. */
-  campaign: 'B7E707CC-CED2-43AE-A2AD-C2B28D50CD10.jpg',
-  onSet: 'WhatsApp Image 2026-09-13 at 19.42.18.jpeg',
+  /* THE CONTENT CALENDAR — a photograph of the real planning sheet rather than
+     a drawn one, for the same reason as the dashboard below it. */
+  calendar: 'main-feed-calendar.jpeg',
 
-  /* THE MOODBOARD — one poster and its four supporting portraits. */
-  moodboardA: 'ab8c971a-1e07-45cd-947a-d32f6efd5760.jpg',
-  moodboardB: 'IMG_2187.jpg',
-  moodboardC: 'IMG_4453.jpg',
-  moodboardD: '1e36b3dd-85f2-438b-b90a-e7143dbd03cd.jpg',
-  moodboardPoster: '7eee7676-2ce8-4667-9ef7-abf624ba1833.jpg',
+  /* THE MOODBOARD — the AI generated pieces, shown as two prints side by side. */
+  aiContent1: 'ai-content-1.jpeg',
+  aiContent2: 'ai-content-2.jpeg',
 
-  /* THE FINISHED GRID — seven of the nine cells. The other two are type. */
-  feedF: 'DD05B299-B533-4126-B54A-3B48CD3AA413.jpg',
-  feedG: 'f72aff62-4ccf-4668-9ba7-1a88dc9a9eab.jpg',
-  feedH: 'fd32a56c-60ee-495e-9112-003dac0cdadf.jpg',
-  feedI: '97e20f9d-778d-44a3-bc5f-d32b6c39b7a3.jpg',
-  feedJ: '60e2e5dc-94d5-4c36-a798-a176fa769a23.jpg',
-  feedK: '6fa49fa5-d790-4c76-9f00-69ca01bfcdc2.jpg',
-  feedL: '9AAD1595-B7E8-40F4-AD30-BF62C7373754.png',
+  /* THE FINISHED GRID — the whole feed in one picture rather than nine cells
+     assembled here, because the grid is the deliverable and a screenshot of it
+     is the honest way to show a deliverable. */
+  feedGrid: 'social-media-grid.jpeg',
 
-  /* THE DESIGNED POSTS — three photographs, against three type cards. */
-  postM: 'A1D6E649-37CB-4F73-A5B0-6FF10CC24097.png',
-  postN: 'EEF3BC4D-F53C-4AFC-8F8B-2F3A5F62AFEC.png',
-  postO: '52DB6628-A69B-4915-8182-B6897445A143.png',
+  /* THE DESIGNED POSTS — the seven designed pieces, laid out four over three.
+     Six are portrait and one is square; all are cropped to the same cell so the
+     grid keeps one clean edge. */
+  post1: 'post-1.jpeg',
+  post2: 'post-2.jpeg',
+  post3: 'post-3.jpeg',
+  post4: 'post-4.jpeg',
+  post5: 'post-5.jpeg',
+  post6: 'post-6.jpeg',
+  post7: 'post-7.jpeg',
+
+  /* THE FINAL DASHBOARD — a photograph of the real reporting view rather than a
+     drawn one. It is the only object on this board that is not built, because
+     it is the one thing that is evidence rather than illustration. */
+  dashboard: 'final-dashboard.jpeg',
 } as const;
 
 /** The e-commerce board, which reaches further down the same folder. */

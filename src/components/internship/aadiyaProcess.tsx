@@ -1,5 +1,5 @@
 import React from 'react';
-import { BoardPhoto, SketchArrow, SketchHeart, SparkBurst } from './aadiyaMarks';
+import { SketchArrow } from './aadiyaMarks';
 import { photo, type PhotoKey } from './photos';
 
 /**
@@ -21,179 +21,94 @@ import { photo, type PhotoKey } from './photos';
 /* ————————————————————————————————————————————————————————————
    SECTION 01 — THE CONTENT CALENDAR.
 
-   A printed sheet, spiral bound on the left, turned two degrees anticlockwise
-   on the desk. Everything about it is sized against the brief: 410 by 280, a
-   one pixel warm grey edge, a soft paper shadow, eight metal loops.
+   A photograph of the real planning sheet, framed as a print laid on the paper.
 
-   The schedule itself is invented in shape and honest in spirit — four content
-   types across seven days, coloured where something was planned. The blocks are
-   deterministic rather than random, so the same page renders the same calendar
-   on every load; a calendar that reshuffles itself is not a calendar.
+   This was previously drawn: a spiral-bound page with an invented schedule, four
+   content types across seven days, deterministic so it would not reshuffle on
+   every load. That was a mock-up of a calendar rather than the calendar, and
+   the plan is the first thing the internship actually produced. The file is
+   1206 by 670, so it is set by width and the height follows the aspect.
+
+   There is no spiral binding and no two-degree rotation. The photograph already
+   carries whatever the sheet physically looked like, and adding a desk tilt on
+   top of that would be inventing a second surface.
    ———————————————————————————————————————————————————————————— */
 
-const DAYS = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'] as const;
-
-/** One per content type. Zero is a day left empty on purpose. */
-const ROWS = [
-  { label: 'Product Posts', week: [0, 1, 0, 1, 1, 0, 1] },
-  { label: 'Reels', week: [1, 0, 1, 0, 0, 1, 0] },
-  { label: 'Stories', week: [1, 1, 0, 1, 0, 1, 1] },
-  { label: 'Campaigns', week: [0, 0, 0, 1, 0, 0, 0] },
-] as const;
-
-const BLOCK_TINTS = ['#F2B5CA', '#F6E5A8', '#F8CDD9'] as const;
-
 export const ContentCalendar: React.FC<{ style?: React.CSSProperties }> = ({ style }) => (
-  <div
-    style={style}
-    className="absolute w-[410px] h-[280px] bg-[#FFF6EE] border border-[#E2D5CC] shadow-[0_18px_34px_-18px_rgba(112,66,80,0.45),0_2px_6px_rgba(112,66,80,0.10)]"
-  >
-    {/* The whole sheet sits two degrees off square on the desk. */}
-    <div className="absolute inset-0" style={{ transform: 'rotate(-2deg)' }}>
-      {/* SPIRAL BINDING — eight loops down a shaded strip, each one punched
-          through a hole. The strip is a shade darker than the sheet because
-          paper stacks where it is bound. */}
-      <div className="absolute inset-y-0 left-0 w-[22px] bg-[#F1E7E0] border-r border-[#E4D8CF]">
-        {Array.from({ length: 8 }, (_, i) => (
-          <div
-            key={i}
-            className="absolute left-0 flex items-center"
-            style={{ top: `${(i + 0.5) * (100 / 8)}%`, transform: 'translateY(-50%)' }}
-          >
-            <span className="block h-[4px] w-[15px] rounded-full border border-[#C5B7AF] bg-[#FBF7F4]" />
-            <span className="block h-[1px] w-[7px] bg-[#DCCFC6]" />
-          </div>
-        ))}
-      </div>
-
-      {/* THE PRINTED PAGE */}
-      <div className="absolute inset-y-0 left-[22px] right-0 flex flex-col px-4 pt-3 pb-3">
-        <div className="flex items-baseline justify-between shrink-0">
-          <span className="font-body text-[13px] font-medium text-[#2A2A32]">APRIL 2025</span>
-          <span className="font-body text-[7px] uppercase tracking-[1.4px] text-[#9A8C84]">
-            MAIN FEED
-          </span>
-        </div>
-
-        {/* The table. The label column is 64px and the seven day columns split
-            what is left, so the grid lines land on the same places whatever
-            the day names happen to be. */}
-        <div className="mt-2.5 flex-1 grid grid-rows-[11px_repeat(4,1fr)] border border-[#E6DED6] bg-[#FFF9F5]">
-          <div className="grid grid-cols-[64px_repeat(7,1fr)] border-b border-[#E6DED6]">
-            <span />
-            {DAYS.map((day) => (
-              <span
-                key={day}
-                className="border-l border-[#E6DED6] font-body text-[7px] font-medium tracking-[0.5px] text-[#9A8C84] flex items-center justify-center"
-              >
-                {day}
-              </span>
-            ))}
-          </div>
-
-          {ROWS.map((row, rowIndex) => (
-            <div
-              key={row.label}
-              className="grid grid-cols-[64px_repeat(7,1fr)] border-b border-[#E6DED6] last:border-b-0"
-            >
-              <span className="font-body text-[7px] uppercase tracking-[0.4px] text-[#6E6058] flex items-center pr-1.5">
-                {row.label}
-              </span>
-              {row.week.map((filled, dayIndex) => (
-                <span key={dayIndex} className="border-l border-[#E6DED6] flex items-center justify-center p-[3px]">
-                  {filled ? (
-                    <span
-                      className="block h-full w-full"
-                      style={{ background: BLOCK_TINTS[(rowIndex + dayIndex) % BLOCK_TINTS.length] }}
-                    />
-                  ) : null}
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+  <div style={style} className="absolute w-[410px] h-[228px]">
+    <img
+      src={photo('calendar')}
+      alt="Aadiya Jewels April 2025 content calendar for the main Instagram feed, showing the planned posts, reels, stories and campaigns for each day of the week"
+      className="h-full w-full border border-[#D9C3CC] object-cover shadow-[0_16px_30px_-18px_rgba(112,66,80,0.45)]"
+    />
   </div>
 );
 
 /* ————————————————————————————————————————————————————————————
    SECTION 02 — THE MOODBOARD.
 
-   One tall poster and four small portraits, tight enough to read as a single
-   pasted-together thing. The poster carries the only long piece of type in the
-   collage, set over the photograph rather than beside it, because the poster is
-   the one image here that was designed rather than shot.
+   Two AI generated pieces, printed and set side by side. That is the whole
+   section: no poster, no supporting grid, no type laid over the photograph.
+
+   The earlier version here was one tall poster with a gradient over its bottom
+   third and four small portraits beside it, which described the work rather than
+   showing it. Two pieces is also what the work produced, so the collage was one
+   image too busy to read at the size the board gives this column.
+
+   Both files are portrait and close to the same size — 728 by 1280 and 730 by
+   1280 — so they are set by height and the widths land within two pixels of each
+   other without either being cropped to fit.
    ———————————————————————————————————————————————————————————— */
 
-const MOODBOARD_SMALL: ReadonlyArray<{ key: PhotoKey; alt: string }> = [
-  { key: 'moodboardA', alt: 'Aadiya Jewels social content photograph' },
-  { key: 'moodboardB', alt: 'Aadiya Jewels social content photograph' },
-  { key: 'moodboardC', alt: 'Aadiya Jewels social content photograph' },
-  { key: 'moodboardD', alt: 'Aadiya Jewels social content photograph' },
+const AI_CONTENT: ReadonlyArray<{ key: PhotoKey; alt: string }> = [
+  {
+    key: 'aiContent1',
+    alt: 'AI generated Aadiya Jewels social content, styled product composition',
+  },
+  {
+    key: 'aiContent2',
+    alt: 'AI generated Aadiya Jewels social content, styled product composition',
+  },
 ];
 
 export const AiCollage: React.FC<{ style?: React.CSSProperties }> = ({ style }) => (
-  <div style={style} className="absolute flex items-start gap-2">
-    {/* THE POSTER — 145 by 300, the tallest object in the collage. */}
-    <div className="relative w-[145px] h-[300px] overflow-hidden bg-[#F3D3D8]">
-      <BoardPhoto
-        src={photo('moodboardPoster')}
-        alt="Aadiya Jewels editorial poster photograph"
-        className="absolute inset-0"
-        loading="eager"
+  <div style={style} className="absolute flex items-start gap-3">
+    {AI_CONTENT.map((item) => (
+      <img
+        key={item.key}
+        src={photo(item.key)}
+        alt={item.alt}
+        className="h-[288px] w-auto border border-[#D9C3CC] object-contain shadow-[0_16px_30px_-18px_rgba(112,66,80,0.45)]"
       />
-      <span className="absolute inset-0 bg-gradient-to-t from-[#F6DCD6]/92 via-[#F6DCD6]/35 to-transparent" />
-      <p className="font-editorial absolute bottom-3 left-3 text-[15px] leading-[1.12] text-[#70404C]">
-        Where
-        <br />
-        elegance
-        <br />
-        meets
-        <br />
-        everyday
-      </p>
-    </div>
-
-    {/* THE FOUR PORTRAITS — two by two, gapped by four pixels, the same
-        height as the poster so the collage has one clean bottom edge. */}
-    <div className="grid grid-cols-2 gap-1">
-      {MOODBOARD_SMALL.map((item) => (
-        <BoardPhoto
-          key={item.key}
-          src={photo(item.key)}
-          alt={item.alt}
-          className="w-[68px] h-[148px]"
-        />
-      ))}
-    </div>
+    ))}
   </div>
 );
 
 /* ————————————————————————————————————————————————————————————
    SECTION 03 — TWO PHONES.
 
-   Drawn rather than photographed, because a photographed phone mockup always
-   arrives with its own screen content already burned into it, and the point
-   here is that the screen is ours. The body is a black rounded rectangle with
-   a hole punch, a speaker slot, two side buttons and a shadow; the screen is
-   the story frame — the photograph, a warm wash, a headline, a progress bar
-   and the brand line at the foot.
+   Drawn frames, real video inside. The bodies are black rounded rectangles with
+   a hole punch, side buttons and a shadow; the screens carry the actual reel
+   and the actual story rather than a still with a headline laid over it.
 
-   They lean against each other, one turned out and one turned in, which is the
-   only thing on this board that is purely a decision about how it looks.
+   The two files are portrait and not the same portrait: the reel is 720 by 976
+   and the story is 1080 by 1920, which is 9 by 16. Both are asked to cover the
+   screen rather than sit inside it, because letterboxing a vertical video in a
+   taller frame would put black bars on the one object that is meant to prove the
+   work was vertical. Muted, looping and inline so they play without a click and
+   without handing the browser a speaker.
    ———————————————————————————————————————————————————————————— */
 
 type PhoneProps = {
   rotation: number;
   offsetY: number;
-  wash: string;
-  headline: string;
-  photoKey: PhotoKey;
-  heart?: boolean;
+  video: string;
+  alt: string;
 };
 
-const Phone: React.FC<PhoneProps> = ({ rotation, offsetY, wash, headline, photoKey, heart }) => (
+const VIDEO_DIR = '/portfolio-assets/';
+
+const Phone: React.FC<PhoneProps> = ({ rotation, offsetY, video, alt }) => (
   <div className="relative" style={{ transform: `translateY(${offsetY}px) rotate(${rotation}deg)` }}>
     {/* SIDE BUTTONS — drawn on the frame so the device has a thickness edge
         that is not just a border. */}
@@ -206,37 +121,16 @@ const Phone: React.FC<PhoneProps> = ({ rotation, offsetY, wash, headline, photoK
       <span className="pointer-events-none absolute inset-[3px] z-20 rounded-[12px] bg-gradient-to-br from-white/12 via-transparent to-white/5" />
 
       <div className="relative h-full w-full overflow-hidden rounded-[12px] bg-[#2A1C18]">
-        <BoardPhoto
-          src={photo(photoKey)}
-          alt="Aadiya Jewels story frame photograph"
-          className="absolute inset-0"
-          imgClassName="opacity-90"
+        <video
+          src={`${VIDEO_DIR}${video}`}
+          aria-label={alt}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <span className="absolute inset-0" style={{ background: wash }} />
-
-        {/* PROGRESS SEGMENTS — two stories in a row, the first nearly done. */}
-        <div className="absolute top-[7px] left-[8px] right-[8px] flex gap-[3px]">
-          <span className="h-[2px] flex-1 rounded-full bg-white/85" />
-          <span className="h-[2px] flex-1 rounded-full bg-white/35" />
-        </div>
-
-        {/* HEADLINE — the line the story is actually about. */}
-        <p className="font-editorial absolute left-[10px] top-[92px] text-[19px] leading-[1.06] text-[#FFF3D5]">
-          {headline}
-        </p>
-
-        {heart ? (
-          <span className="absolute right-[12px] bottom-[54px]">
-            <SketchHeart size={13} colour="#FFF3D5" />
-          </span>
-        ) : null}
-
-        <div className="absolute inset-x-0 bottom-0 flex items-center justify-between px-[10px] py-[9px]">
-          <span className="font-body text-[5.5px] uppercase tracking-[2.2px] text-[#FFF3D5]/90">
-            AADIYA JEWELS
-          </span>
-          <span className="h-[9px] w-[9px] rounded-full border border-[#FFF3D5]/70" />
-        </div>
       </div>
 
       {/* HOLE PUNCH */}
@@ -250,38 +144,14 @@ export const PhoneMockups: React.FC<{ style?: React.CSSProperties }> = ({ style 
     <Phone
       rotation={-4}
       offsetY={6}
-      wash="linear-gradient(180deg, rgba(74,44,28,0.62) 0%, rgba(52,30,20,0.50) 100%)"
-      headline={'Timeless\nElegance'}
-      photoKey="campaign"
+      video="reel.mp4"
+      alt="Aadiya Jewels Instagram reel"
     />
     <Phone
       rotation={7}
       offsetY={-8}
-      wash="linear-gradient(180deg, rgba(96,74,58,0.50) 0%, rgba(66,44,36,0.62) 100%)"
-      headline={'Small\ndetails\nBig\nstories'}
-      photoKey="onSet"
-      heart
+      video="story.mp4"
+      alt="Aadiya Jewels Instagram story"
     />
-
-    {/* DRAWN MARKS AROUND THE DEVICES — the brief asks for rays and sparks
-        scattered loosely, so they sit outside the two devices and never over
-        a screen. */}
-    <SketchArrow
-      viewBox="0 0 70 70"
-      className="absolute -left-[46px] top-[4px] h-[70px] w-[70px]"
-      from={[62, 4]}
-      to={[10, 40]}
-      bow={[58, 34]}
-      colour="#20232C"
-    />
-    <span className="absolute -top-[14px] left-[52px]">
-      <SparkBurst size={22} colour="#20232C" />
-    </span>
-    <span className="absolute right-[16px] -top-[20px]">
-      <SparkBurst size={15} colour="#20232C" />
-    </span>
-    <span className="absolute -right-[30px] top-[118px]">
-      <SparkBurst size={18} colour="#20232C" />
-    </span>
   </div>
 );

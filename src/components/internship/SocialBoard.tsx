@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Annotation,
-  SectionLabel,
-  SketchArrow,
-  SparkBurst,
-  SOCIAL_SHEET,
-  useBoardScale,
-} from './aadiyaMarks';
+import { SectionLabel, SOCIAL_SHEET, useBoardScale } from './aadiyaMarks';
 import { AiCollage, ContentCalendar, PhoneMockups } from './aadiyaProcess';
 import { AnalyticsLaptop, PostCarousel, SocialGrid } from './aadiyaResults';
 
@@ -197,7 +190,7 @@ export const SocialBoard: React.FC = () => {
             className="font-body absolute text-[#394252]"
             style={{
               left: 48,
-              top: 333,
+              top: 258,
               width: 300,
               fontSize: '14px',
               lineHeight: 1.55,
@@ -213,28 +206,6 @@ export const SocialBoard: React.FC = () => {
             MAIN FEED CONTENT CALENDAR
           </SectionLabel>
 
-          <Annotation
-            size={18}
-            style={{
-              position: 'absolute',
-              left: 664,
-              top: 92,
-              transform: 'rotate(-8deg)',
-            }}
-          >
-            {'planned\nwith purpose'}
-          </Annotation>
-
-          <SketchArrow
-            viewBox="0 0 90 62"
-            className="absolute"
-            style={{ left: 636, top: 128, width: 90, height: 62 }}
-            from={[80, 4]}
-            to={[34, 54]}
-            bow={[82, 36]}
-            colour="#25232B"
-          />
-
           <ContentCalendar style={{ left: 400, top: 146 }} />
 
           {/* ————— SECTION 02, THE MOODBOARD ————— */}
@@ -244,28 +215,12 @@ export const SocialBoard: React.FC = () => {
 
           <AiCollage style={{ left: 850, top: 146 }} />
 
-          <span className="absolute" style={{ left: 830, top: 452 }}>
-            <SparkBurst size={14} colour="#20232C" />
-          </span>
-          <Annotation
-            size={15}
-            colour="#2D2630"
-            style={{
-              position: 'absolute',
-              left: 852,
-              top: 452,
-              transform: 'rotate(-8deg)',
-            }}
-          >
-            {'ideas\nto\nvisuals'}
-          </Annotation>
-
           {/* ————— SECTION 03, THE PHONES ————— */}
-          <SectionLabel style={{ position: 'absolute', left: 1200, top: 118 }}>
+          <SectionLabel style={{ position: 'absolute', left: 1300, top: 118 }}>
             REELS &amp; STORIES
           </SectionLabel>
 
-          <PhoneMockups style={{ left: 1200, top: 146 }} />
+          <PhoneMockups style={{ left: 1300, top: 146 }} />
 
           {/* ————— THE BOTTOM ROW, ALL THREE LABELS ON ONE LINE ————— */}
           <SectionLabel style={{ position: 'absolute', left: 48, top: 472 }}>
@@ -274,43 +229,13 @@ export const SocialBoard: React.FC = () => {
           <SectionLabel style={{ position: 'absolute', left: 470, top: 472 }}>
             CREATIVE POSTS &amp; CAROUSELS
           </SectionLabel>
-          <SectionLabel style={{ position: 'absolute', left: 970, top: 472 }}>
+          <SectionLabel style={{ position: 'absolute', left: 1046, top: 472 }}>
             FINAL DASHBOARD
           </SectionLabel>
 
           <SocialGrid style={{ left: 48, top: 494 }} />
           <PostCarousel style={{ left: 470, top: 508 }} />
-          <AnalyticsLaptop style={{ left: 970, top: 500 }} />
-
-          {/* ————— THE LAST ANNOTATION —————
-            It sits above the laptop's top right corner rather than beside its
-            middle, because beside the middle there is no room: the laptop runs
-            to 1454 and the board ends at 1600, which is 146px, and a
-            three-line note in the script face wants closer to a hundred. The
-            arrow therefore comes down from it and lands just above the lid
-            rather than crossing the screen to point at it. */}
-          <Annotation
-            size={17}
-            colour="#B64F73"
-            style={{
-              position: 'absolute',
-              left: 1452,
-              top: 386,
-              transform: 'rotate(-7deg)',
-            }}
-          >
-            {'growth\nin every\npost'}
-          </Annotation>
-
-          <SketchArrow
-            viewBox="0 0 96 92"
-            className="absolute"
-            style={{ left: 1360, top: 400, width: 96, height: 92 }}
-            from={[90, 40]}
-            to={[28, 84]}
-            bow={[88, 58]}
-            colour="#B64F73"
-          />
+          <AnalyticsLaptop style={{ left: 1046, top: 500 }} />
         </div>
       </div>
     </div>
