@@ -36,7 +36,68 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
   return (
     <MotionConfig reducedMotion="user">
     <div>
-      {/* 1. FEATURED PROJECTS — EDITORIAL INDEX */}
+      {/* 1. INTERNSHIP FEATURE CALLOUT */}
+      <section className="bg-[#F9F8F2] pt-12 lg:pt-16 pb-12 lg:pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="pt-6 pb-8 lg:pt-8 lg:pb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="lg:col-span-8 space-y-6"
+              >
+                <TypewriterEyebrow
+                  text="TURNING LEARNING INTO EXPERIENCE"
+                  className="eyebrow text-[#705955]"
+                />
+                <RevealWords
+                  words={[
+                    { text: internship.company },
+                    { text: 'Internship', italic: true },
+                  ]}
+                  className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1] tracking-tight text-[#3E2723]"
+                />
+                {/* inline color: .plate-caption is unlayered CSS, so it outranks
+                    Tailwind's text-* utilities */}
+                <p className="plate-caption tracking-[0.22em]" style={{ color: '#705955' }}>
+                  {internship.role}
+                </p>
+                <p className="font-body text-base leading-loose max-w-2xl" style={{ color: 'rgba(62, 39, 35, 0.8)' }}>
+                  {internship.overview}
+                </p>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 pt-2">
+                  {internship.homepageHighlights.map((sk, i) => (
+                    <span key={i} className="plate-caption inline-flex items-center gap-3 transition-all duration-200 hover:-translate-y-0.5 cursor-default" style={{ color: '#3E2723' }}>
+                      <span className="text-[#D69589]">●</span>
+                      {sk}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="lg:col-span-4 flex items-center justify-start lg:justify-end"
+              >
+                <Link
+                  to="/internship/experience"
+                  aria-label="View internship experience"
+                  className="group flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#F9F8F2] text-[#3E2723] border-[1.5px] border-[#3E2723] hover:bg-[#3E2723] hover:text-[#F9F8F2] transition-all duration-300 hover:-translate-y-1 hover:rotate-6 hover:shadow-[4px_4px_0px_rgba(214,149,137,0.5)]"
+                >
+                  <ArrowRight className="w-10 h-10 sm:w-12 sm:h-12 group-hover:translate-x-1.5 transition-transform duration-300" />
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. FEATURED PROJECTS — EDITORIAL INDEX */}
       <section className="pt-12 lg:pt-16 pb-24 lg:pb-32 bg-[#3E2723]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 lg:mb-14">
@@ -120,67 +181,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenInquiry }) => {
                 </div>
               </motion.article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 2. INTERNSHIP FEATURE CALLOUT */}
-      <section className="bg-[#F9F8F2] pt-12 lg:pt-16 pb-12 lg:pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="pt-6 pb-8 lg:pt-8 lg:pb-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="lg:col-span-8 space-y-6"
-              >
-                <TypewriterEyebrow
-                  text="TURNING LEARNING INTO EXPERIENCE"
-                  className="eyebrow text-[#705955]"
-                />
-                <RevealWords
-                  words={[
-                    { text: internship.company },
-                    { text: 'Internship', italic: true },
-                  ]}
-                  className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1] tracking-tight text-[#3E2723]"
-                />
-                {/* inline color: .plate-caption is unlayered CSS, so it outranks
-                    Tailwind's text-* utilities */}
-                <p className="plate-caption tracking-[0.22em]" style={{ color: '#705955' }}>
-                  {internship.role}
-                </p>
-                <p className="font-body text-base leading-loose max-w-2xl" style={{ color: 'rgba(62, 39, 35, 0.8)' }}>
-                  {internship.overview}
-                </p>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 pt-2">
-                  {internship.homepageHighlights.map((sk, i) => (
-                    <span key={i} className="plate-caption inline-flex items-center gap-3 transition-all duration-200 hover:-translate-y-0.5 cursor-default" style={{ color: '#3E2723' }}>
-                      <span className="text-[#D69589]">●</span>
-                      {sk}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-                className="lg:col-span-4 flex items-center justify-start lg:justify-end"
-              >
-                <Link
-                  to="/internship/experience"
-                  aria-label="View internship experience"
-                  className="group flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#F9F8F2] text-[#3E2723] border-[1.5px] border-[#3E2723] hover:bg-[#3E2723] hover:text-[#F9F8F2] transition-all duration-300 hover:-translate-y-1 hover:rotate-6 hover:shadow-[4px_4px_0px_rgba(214,149,137,0.5)]"
-                >
-                  <ArrowRight className="w-10 h-10 sm:w-12 sm:h-12 group-hover:translate-x-1.5 transition-transform duration-300" />
-                </Link>
-              </motion.div>
-            </div>
           </div>
         </div>
       </section>
