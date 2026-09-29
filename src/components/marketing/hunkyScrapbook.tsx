@@ -26,39 +26,54 @@ import { SlidePhoto } from '../SlidePhoto';
  * bug report.
  */
 
-export const BRAND = 'hunkemöller';
 export const CATEGORY = 'CUSTOMER EXPERIENCE ACTIVATION';
 
 export const PINK = '#D69589';
 export const WINE = '#7A2A2E';
 export const INK = '#3E2723';
 
-/** The Hunkemöller infinity mark, set under the wordmark. */
-export const InfinityMark: React.FC<{ className?: string }> = ({ className = '' }) => (
-  <svg viewBox="0 0 64 26" className={className} fill="none" aria-hidden="true">
-    <path
-      d="M32 13c-5.2-6.6-9.6-9.9-15-9.9-4.6 0-7.6 3-7.6 6.6 0 3.5 3 6.2 7.6 6.2 10.4 0 18.6-12.2 24-12.2 2.6 0 4 1.5 4 3.4s-1.4 3.4-4 3.4c-5.4 0-13.6-12.2-24-12.2"
-      stroke={INK}
-      strokeWidth="2.6"
-      strokeLinecap="round"
-    />
-  </svg>
-);
-
 /**
- * The client wordmark: the name in an elegant lowercase fashion serif with the
- * infinity symbol tucked directly beneath it. `align` decides whether the pair
- * reads as a centred lockup or hangs off the left margin.
+ * The client lockup, as one supplied asset.
+ *
+ * This replaces a drawn wordmark-plus-infinity-symbol pair: the name used to
+ * be set in an editorial serif with a hand-drawn infinity SVG tucked beneath
+ * it. The supplied file already carries both the symbol and the name, so both
+ * are gone — there is no text and no vector mark left in the DOM.
+ *
+ * SIZE. The source is 1916x303 — a 6.32:1 horizontal lockup, not the old
+ * 165x88 stacked block. The old wordmark line alone was 28px tall and about
+ * 165px wide, so a 176px default reproduces that line's footprint almost
+ * exactly and the symbol now sits inside the same lockup rather than below it.
+ * The title block therefore gets shorter, which is the correct consequence of
+ * the new asset's proportions, not a spacing change.
+ *
+ * `size` overrides that default and takes a width utility as a literal string.
+ * It has to be a literal: the class is interpolated into the img's className,
+ * so Tailwind resolves it by scanning source text at build time and a value
+ * computed at runtime would emit no CSS at all. The default is unchanged, so
+ * page two keeps the original footprint.
+ *
+ * The file was trimmed to its alpha bounds before use. As supplied it was
+ * 1967x799, of which 63% was fully transparent padding, so any box sized from
+ * the file's own ratio would have reserved roughly 2.5x the height the artwork
+ * actually needs. The box below is therefore `aspect-[1916/303]`, the trimmed
+ * file's exact ratio, which makes `object-contain` fill it edge to edge and
+ * leaves no dead space in the layout.
  */
-export const BrandMark: React.FC<{ className?: string; align?: 'center' | 'left' }> = ({
-  className = '',
-  align = 'center',
-}) => (
-  <div className={`flex flex-col ${align === 'center' ? 'items-center' : 'items-start'} ${className}`}>
-    <p className="font-editorial text-[1.75rem] leading-none tracking-[0.01em] text-[#3E2723]">
-      {BRAND}
-    </p>
-    <InfinityMark className="mt-1 w-14" />
+export const BrandMark: React.FC<{
+  className?: string;
+  align?: 'center' | 'left';
+  /** Width utility for the lockup, as a source literal. Defaults to 176px. */
+  size?: string;
+}> = ({ className = '', align = 'center', size = 'w-44' }) => (
+  <div className={`flex ${align === 'center' ? 'justify-center' : 'justify-start'} ${className}`}>
+    <img
+      src="/portfolio-assets/04_hunkemoller_logo.png"
+      alt="Hunkemöller"
+      width={1916}
+      height={303}
+      className={`h-auto ${size} aspect-[1916/303] object-contain`}
+    />
   </div>
 );
 
@@ -278,16 +293,31 @@ export const Print: React.FC<{
   </figure>
 );
 
-/** A wordless photo plate. */
+/**
+ * A wordless photo plate.
+ *
+ * `position` is the crop lever: it lands on `objectPosition`, so with the
+ * default `object-cover` a plate whose art is taller than the ratio it is given
+ * can keep its top and give up its bottom (`position="top"`), or the reverse.
+ * Same mechanism as the local Slot in EverydayAthleisurePageOne.
+ */
 export const Slot: React.FC<{
   src: string;
   alt: string;
   label: string;
   className?: string;
   radius?: string;
-}> = ({ src, alt, label, className = '', radius = 'rounded-[3px]' }) => (
+  position?: string;
+}> = ({ src, alt, label, className = '', radius = 'rounded-[3px]', position }) => (
   <div className={`overflow-hidden ${className}`}>
-    <SlidePhoto src={src} alt={alt} label={label} className="w-full h-full object-cover" frameRadius={radius} />
+    <SlidePhoto
+      src={src}
+      alt={alt}
+      label={label}
+      className="w-full h-full object-cover"
+      style={position ? { objectPosition: position } : undefined}
+      frameRadius={radius}
+    />
   </div>
 );
 
