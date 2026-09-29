@@ -321,23 +321,56 @@ export const HunkyHideawayPage: React.FC = () => {
             because they are told to fill the row. */}
         <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-x-10 lg:gap-x-8 gap-y-12 lg:gap-y-14 items-stretch">
           {ACTIVATIONS.map((block) => (
-            <ExperienceBox key={block.number} block={block} />
+            <ExperienceBox
+              key={block.number}
+              block={block}
+              /* Card 03 is pinned explicitly. The link below 02 is a grid item
+                 of its own, so once it takes column two of row two the
+                 auto-placement cursor is already past it and card 03 would
+                 otherwise drop into row two beside the link instead of
+                 finishing the top row. */
+              className={block.number === '03' ? 'lg:col-start-3 lg:row-start-1' : undefined}
+            />
           ))}
+
+          {/* The strategy deck, linked from below card 02 and outside it.
+
+              It is a sibling of the cards in the same grid rather than a child
+              of card 02, which is the only way to sit below the card without
+              being inside it — the card is a flex column that fills the row, so
+              anything appended inside it lands on the pink.
+
+              lg:col-start-2 lg:row-start-2 places it directly under the second
+              card. The grid's own gap-y-14 supplies the space above it, so
+              there is no margin here; the row is otherwise empty and the link
+              sits alone under the middle column.
+
+              justify-self-center, so the link is centred within that column
+              rather than hanging off its left edge. It was justify-self-start
+              first, which put the text directly under the card's left border
+              and made it read as a caption belonging to the card above it.
+
+              On a phone the grid is one column, so the link simply follows the
+              three cards in source order — still after card 02's content, still
+              outside any card, just no longer specifically under the middle
+              one because there is no middle one.
+
+              The href is a Google Drive folder rather than a file, so it opens
+              the deck's folder. rel=noopener with target=_blank: the target is
+              a third-party origin and this must not hand it a window handle.
+              The underline is the site's own editorial-link treatment, which is
+              what the onward link on the next page uses. */}
+          <a
+            href="https://drive.google.com/drive/folders/1O_FnWQoBbshh4yd6wSFmYnCCDhPOg7yl"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lg:col-start-2 lg:row-start-2 justify-self-center inline-flex items-center gap-2 font-editorial italic text-[1.125rem] leading-tight text-[#7A2A2E] editorial-link"
+          >
+            Hunkemoller&rsquo;s CX Stratergy
+          </a>
         </div>
       </section>
 
-      {/* Page mark — the onward link lives in ProjectFourPage, below page two */}
-      <div className="px-5 sm:px-5 lg:px-6">
-        <div className="rule-t-light pt-6 flex flex-wrap items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <span className="eyebrow text-[#705955]">{CATEGORY}</span>
-            <span className="block h-px w-10 lg:w-16 bg-[#705955]/30" aria-hidden="true" />
-          </div>
-
-          <span className="eyebrow text-[#705955]">PROJECT 04</span>
-        </div>
-
-      </div>
     </div>
   );
 };
@@ -385,7 +418,14 @@ export const HunkyHideawayPage: React.FC = () => {
  * page no longer raises, since none of the three is rendered. Git holds the
  * removed strings if any of them is wanted back.
  */
-const ExperienceBox: React.FC<{ block: (typeof ACTIVATIONS)[number] }> = ({ block }) => (
+const ExperienceBox: React.FC<{
+  block: (typeof ACTIVATIONS)[number];
+  /* Applied to the article itself, so it stays a direct grid item. The grid
+     placement for card 03 has to live on the article, not on a wrapper — a
+     wrapper would break h-full, which resolves against the wrapper rather than
+     against the stretched row. */
+  className?: string;
+}> = ({ block, className = '' }) => (
   /* THE DIVIDER IS THE CARD'S FOOT, and that is load-bearing rather than
      incidental. It began as a rule under a closing line of text; the text went
      and the rule was left holding the bottom of the box, and it was briefly
@@ -457,7 +497,7 @@ const ExperienceBox: React.FC<{ block: (typeof ACTIVATIONS)[number] }> = ({ bloc
      the grid, so the corners that hang outward are not clipped. The band 2
      section does carry overflow-hidden, but only because it once held the
      bottom-left wash, and the grid sits far inside that section's padding. */
-  <article className="relative flex h-full flex-col border-x border-t border-[#705955]/22 bg-[#FADBD9] px-7 pt-8 shadow-[0_16px_38px_-30px_rgba(62,39,35,0.5)] sm:px-9 sm:pt-10">
+  <article className={`relative flex h-full flex-col border-x border-t border-[#705955]/22 bg-[#FADBD9] px-7 pt-8 shadow-[0_16px_38px_-30px_rgba(62,39,35,0.5)] sm:px-9 sm:pt-10 ${className}`}>
     {/* `in` rather than a plain read, because card 02 has no corner key at
         all and TypeScript narrows this union to members that declare it. Same
         guard the photo's optional position uses a few lines below. */}
