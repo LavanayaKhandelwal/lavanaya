@@ -127,11 +127,14 @@ type Shot = Photo & {
   /**
    * Classes for the cell itself rather than for the plate inside it.
    *
-   * Every cell in the strip carries one from lg up: a cell can be told what
-   * shape it is, but a plate cannot be told to be the height of the cell it is
-   * in. Below lg the strip is two columns of two, so the cells size themselves
-   * from their own plates and this holds only the shape of the pair in column
-   * two — CELL is the lg half of the same declaration.
+   * Every cell in the strip carries one from lg up, and from lg it says two
+   * things: that the cell claims no shape of its own, and that it is the box
+   * its plates are pinned to. The row's height is set by the learnings panel
+   * beside the strip, never by a plate, so a cell only has to take the share of
+   * that height its column is given — which is what CELL is. Below lg the strip
+   * is two columns of two, so a cell is the only thing in its row and sizes
+   * itself from its own plate; there the declaration holds only the shape of
+   * the pair in column two.
    */
   readonly cell?: string;
   /**
@@ -148,26 +151,34 @@ type Shot = Photo & {
 };
 
 /**
- * The shape every cell in the strip takes from lg up: 232 wide to 367 tall.
+ * What every cell in the strip declares from lg up: no shape of its own, and a
+ * box its plate can be pinned to.
  *
- * From lg the four cells sit side by side, and this is what makes them agree on
- * a height — each cell could otherwise be as tall as its own plate, which is
- * right below lg, where the strip is two columns of two and a cell is the only
- * thing in its row. Across the row, agreeing matters: the row has to end where
- * the last line of the learnings beside it ends, which is not a line any one
- * plate can find on its own.
+ * There is no ratio here on purpose. The strip has to end on the last line of
+ * the learnings beside it — "Learned to coordinate with my team while managing
+ * a live customer-facing activation." — and that line is not a fixed distance
+ * below the strip's top. It is 367px at 1512, 386px at 1440, 449px at 1280 and
+ * 270px at 1728, because the panel is a column that gets wider and shorter as
+ * the viewport does. One ratio can only be right at one of those widths, and
+ * was: at 1512 it was exact and at 1440 it left the plates 37px short of the
+ * line. So the strip takes the room it is given instead of a shape of its own —
+ * see the note on the strip — and what a cell declares are the two classes that
+ * make that possible:
  *
- * Written as a shape and not as a height because the strip is fluid. At 1512 a
- * column of it is 232px wide and the room between the strip's top and that last
- * line — "Learned to coordinate with my team while managing a live
- * customer-facing activation." — is 367px. Held as a ratio, every narrower
- * width keeps the same composition instead of inheriting an arbitrary pixel
- * height it did not earn.
+ *   aspect-auto   the cell has no ratio; its height is the row's
+ *   relative      the cell is the box its plate is positioned against
+ *
+ * From lg the plates are taken out of the flow and pinned to these cells, so
+ * the row's height can only come from the learnings panel. An in-flow plate
+ * would bring its own picture's height with it, the strip would become the
+ * tallest thing in the row, and the row would grow to fit the plates instead of
+ * the plates filling the row: measured, that put the strip's bottom 95px past
+ * the line it is meant to meet and pushed the whole page down by the same 95.
  *
  * The literal has to appear as written for Tailwind v4 to compile it — see the
  * note on `Plate` — which is why this is a plain string and not a prefix.
  */
-const CELL = 'lg:aspect-auto';
+const CELL = 'lg:aspect-auto lg:relative';
 
 const SHOTS: readonly Shot[] = [
   { id: 'shot_1', src: '/portfolio-assets/04_takeaway_01.jpg', w: 960, h: 1280, alt: 'Photograph from the Hunkemöller activation, 1 of 6' },
@@ -185,12 +196,14 @@ const SHOTS: readonly Shot[] = [
    * was written for: a cell can be told what shape it is, but a plate cannot be
    * told to be the height of the cell it is in. Left to measure itself, this
    * cell adds the two plates' heights together instead — and the lower plate's
-   * file is a portrait, so the sum comes out at 462px where 368px was wanted,
-   * which pushes the row down and leaves a 94px hole under the three columns
-   * beside it. Pinning the cell at that shape takes the decision away from the
-   * plates: the landscape keeps its own height, the crop takes what is left
-   * after the gutter, and the two of them come to the height the other three
-   * columns are. */
+   * file is a portrait, so the sum comes out at 462px against the 367 the room
+   * allows, which pushes the row down and leaves the plates hanging past the
+   * line the three columns beside them end on. CELL takes that decision away
+   * from the plates: the cell claims no shape, it is simply the share of the
+   * row's height its column is given, the landscape keeps its own height at the
+   * top of it, and the crop — drawn out of the flow — takes what is left after
+   * the gutter, so the two of them come to the height the other three columns
+   * are. */
   {
     id: 'shot_6',
     src: '/portfolio-assets/04_takeaway_06.jpg',
@@ -206,42 +219,48 @@ const SHOTS: readonly Shot[] = [
      * landscape one: a strip column wide and whatever height the landscape
      * above has not used. Nothing about that is aspect-ratio's work — a
      * portrait source in a landscape frame can only be filled by cropping, so
-     * the box is flex-1 min-h-0 object-cover and the extra picture is cut away
-     * rather than squeezed. The file's own width and height attributes are still
-     * 960 and 1280, so the browser reserves the real shape and nothing lies
-     * about what was supplied.
+     * the plate is object-cover and the extra picture is cut away rather than
+     * squeezed. The file's own width and height attributes are still 960 and
+     * 1280, so nothing lies about what was supplied.
      *
-     * That crop is worth stating plainly: covering a 0.750 source to the 1.08
-     * box this cell leaves keeps about 70% of the frame's rows and cuts the
-     * other 30% away, top and bottom. Nothing is stretched — the proportions
-     * are honest — and most of the frame survives, but what is left is still a
-     * horizontal band through the middle of a portrait. Handing the cell's
-     * leftover height to this plate rather than to the landscape above it is
-     * what keeps that band as deep as it can be: the taller the frame, the more
-     * of the portrait is left in it, which is why the row growing taller to
-     * reach the learnings beside it is good news for this plate in particular.
+     * That crop is worth stating plainly: covering a 0.750 source into a frame
+     * shaped like this one keeps part of the frame's rows and cuts the rest
+     * away, top and bottom. Nothing is stretched — the proportions are honest —
+     * and what is left is a horizontal band through the middle of a portrait.
+     * Giving this plate the cell's leftover height rather than the landscape
+     * above it is what keeps that band as deep as it can be: the taller the
+     * frame, the more of the portrait survives in it, which is why the strip
+     * reaching down to the learnings is good news for this plate in particular
+     * — 215px of the cell's 367 at 1512, against the 160 its own proportions
+     * used to leave it.
      *
-     * min-h-0 is not decoration and not a duplicate of flex-1. An image's
-     * automatic minimum height is its own content height, which here is the
-     * 310px the file comes to at this width, so without it the plate refuses to
-     * shrink to the 216px left for it and stands at its full height instead: it
-     * runs 94px out of the bottom of its own cell and past the line the three
-     * portraits beside it end on. Measured, not assumed. */
+     * The box is flex-1 min-h-0 below lg, so the plate fills whatever is left
+     * of the cell and can also be less than its own 310px, which an image's
+     * automatic minimum height would otherwise refuse: measured, without
+     * min-h-0 the plate stands at full height, runs out of the bottom of its
+     * cell, and sits past the line the three portraits beside it end on. From lg
+     * the plate is absolute inset-0 inside that box instead, which fills the box
+     * to its last pixel and takes the plate out of the flow so the pair cannot
+     * claim a height of its own — see the note on CELL for what that claim costs:
+     * the stack came to 462px against a 367px room, the row grew to fit it, and
+     * the strip's bottom ended up 95px past the line with the whole page pushed
+     * down by the same 95. */
     under: {
       id: 'shot_3_replacement',
       src: '/portfolio-assets/04_takeaway_03_replacement.jpg',
       w: 960,
       h: 1280,
       alt: 'Photograph from the Hunkemöller activation, cropped to match the frame beneath the rotated shot',
-      box: 'flex-1 min-h-0 lg:h-0 object-cover',
+      box: 'h-full w-full object-cover lg:absolute lg:inset-0',
     },
   },
 
   /* COLUMNS THREE AND FOUR. One plate each, and neither needs a box of its
-   * own: both files are 960x1280, a portrait at 0.750, and h-auto sizes the
-   * box straight off that. What they do carry is CELL, the shape all four
-   * columns agree on from lg up, which is what lets the row keep going down
-   * past the height their own proportions would have ended at. */
+   * own below lg: both files are 960x1280, a portrait at 0.750, and h-auto
+   * sizes the box straight off that. What they do carry is CELL, and from lg
+   * the plate carries `fill` as well, which pins it to the cell — the cell's
+   * height being the row's, and the row's being the learnings panel's, that is
+   * what lets the row go down past the height their own proportions end at. */
   { id: 'shot_4', src: '/portfolio-assets/04_takeaway_04.jpg', w: 960, h: 1280, alt: 'Photograph from the Hunkemöller activation, 4 of 6', place: 'sm:col-start-3 sm:row-start-1', cell: CELL },
   { id: 'shot_5', src: '/portfolio-assets/04_takeaway_05.jpg', w: 960, h: 1280, alt: 'Photograph from the Hunkemöller activation, 5 of 6', place: 'sm:col-start-4 sm:row-start-1', cell: CELL },
 
@@ -257,9 +276,9 @@ const SHOTS: readonly Shot[] = [
    *
    * No box override, because below lg none is needed. The file is 960x1280, a
    * portrait at 0.750, and h-auto sizes its box straight off that at its own
-   * proportions with no crop and no letterbox. At lg the cell is the taller
-   * CELL shape instead, so the plate fills it with object-cover and about 8% of
-   * the frame goes off each side — see the note on `Plate`. */
+   * proportions with no crop and no letterbox. From lg the plate carries
+   * `fill`, so it takes the whole cell the row gives it and object-cover trims
+   * the sides — about 8% off each at 1512 — see the note on `Plate`. */
   { id: 'shot_3', src: '/portfolio-assets/04_takeaway_03.jpg', w: 960, h: 1280, alt: 'Photograph from the Hunkemöller activation, 3 of 6', place: 'sm:col-start-1 sm:row-start-1', cell: CELL },
 ] as const;
 
@@ -304,16 +323,21 @@ const REST_SHOTS = SHOTS.slice(2);
  * Eager is for the pair beside the heading, which is the first thing on the
  * page after the lockup; everything else in the section waits for the scroll.
  *
- * `fill` is for the cells that grew. From lg a cell in the strip is the CELL
- * shape, and a 0.750 portrait is not that shape: at 1512 the cell is 368px tall
- * where the portrait's own proportions come to 310px, so a plate left on h-auto
- * would sit in its cell at its own height and leave the other 58px as blush.
- * Filled, the plate takes the cell's whole height and object-cover trims the
- * surplus off the sides, which is the same bargain the WhatsApp crop makes, for
- * the same reason: the frame is the shape the layout needs and the picture
- * inside it is cropped rather than squeezed. Below lg the two classes are
- * switched off and every plate is back on its own proportions, because there a
- * cell is only as tall as its plate and there is nothing to fill.
+ * `fill` is for the plates in the strip. From lg a cell there has no height of
+ * its own — it is simply the share of the row the column is given, and the row
+ * is as tall as the learnings panel beside it (367px at 1512, where the
+ * portrait's own proportions come to 310px) — so a plate left on h-auto would
+ * sit in its cell at its own height and leave the difference as blush. Filled,
+ * the plate is absolute inset-0: it takes the cell to its last pixel on both
+ * axes and object-cover trims the surplus off the sides, which is the same
+ * bargain the WhatsApp crop makes, for the same reason: the frame is the shape
+ * the layout needs and the picture inside it is cropped rather than squeezed.
+ * Being out of the flow is the other half of it — a plate in the flow brings
+ * its own picture's height with it, the row grows to fit the plates instead of
+ * the plates filling the row, and the page is pushed down by the difference
+ * (measured at 1512: +95px). Below lg the classes are switched off and every
+ * plate is back in the flow on its own proportions, because there a cell is
+ * only as tall as its plate and there is nothing to fill.
  */
 const Plate: React.FC<{ photo: Photo; loading?: 'eager' | 'lazy'; fill?: boolean }> = ({
   photo,
@@ -328,7 +352,7 @@ const Plate: React.FC<{ photo: Photo; loading?: 'eager' | 'lazy'; fill?: boolean
     loading={loading}
     decoding="async"
     className={`block w-full border border-[#705955]/25 ${
-      fill ? 'max-lg:h-auto lg:h-0 lg:flex-1 lg:min-h-0 lg:object-cover' : (photo.box ?? 'h-auto')
+      fill ? 'max-lg:h-auto lg:absolute lg:inset-0 lg:h-full lg:w-full lg:object-cover' : (photo.box ?? 'h-auto')
     }`}
   />
 );
@@ -362,9 +386,31 @@ export const WhatITookAwayPage: React.FC = () => {
               so the two-column composition and the panel's own left padding
               are unchanged. The left column is simply short now — type at the
               top, cream below it — which is what a text-only introduction
-              looks like beside a tall list. */}
+              looks like beside a tall list.
+
+              lg:pb-[4.375rem] is the panel's own lg:py-[4.375rem] written into
+              this column as well, and it is load-bearing: with the same 70px
+              under both columns, their content boxes end on the same line, so
+              whatever is left for the strip is exactly the distance from the
+              strip's top to the last line of the learnings. The strip fills
+              that distance and its bottom lands on that line — that is the
+              whole alignment, and it holds at any width because both ends move
+              with the same row. */}
           <div className="lg:col-span-8 flex flex-col lg:pb-[4.375rem]">
-            <BrandMark align="left" />
+            {/* lg:mt-4 puts the lockup 16px lower in the column, and lg:-mt-4
+                on the grid below takes that 16px straight back out again, so
+                the two cancel everywhere beneath it. The margin is above the
+                lockup rather than in front of the section's padding, so the
+                only things that move are the lockup itself — down 16 — and
+                whatever is measured from it. The lead pair keeps its top, the
+                strip keeps its top and its 10px from the pair, and the row's
+                height is still the learnings panel's, so the page is the same
+                height it was. Without the matching negative margin the whole
+                column would follow the lockup down: the pair hangs off the
+                lockup's bottom, the pair sets the floor the text block and the
+                strip are measured from, and 16px above the lockup would be 16px
+                on every image in the strip and 16px off their height. */}
+            <BrandMark align="left" className="lg:mt-4" />
 
             {/* The introduction and the two photographs sit side by side from lg
                 up, so the photographs land in the empty right-hand side of this
@@ -393,7 +439,7 @@ export const WhatITookAwayPage: React.FC = () => {
                 heading begins to crowd, and the only way to make the pictures
                 materially bigger than this is to give the section back to one
                 column and stack them — which puts the empty space back. */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-8 lg:items-end">
+            <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-8 lg:items-end lg:-mt-4">
               <div className="lg:col-span-5">
                 <h1 className="mt-9 font-editorial text-[clamp(2.5rem,4.6vw,3.1875rem)] leading-[0.91] tracking-[-0.01em] text-[#7A2A2E]">
                   {HEADING[0]}
@@ -403,7 +449,17 @@ export const WhatITookAwayPage: React.FC = () => {
 
                 <span className="block h-px w-[130px] bg-[#705955]/55 mt-6" aria-hidden="true" />
 
-                <p className="mt-6 w-full max-w-[270px] font-body text-sm leading-[1.5] text-[#3E2723]/85">
+                {/* lg:mb-3 lifts the paragraph 12px off the images below it —
+                    it was sitting on a 10px line with the strip, which reads as
+                    the type resting on the photograph rather than beside it.
+                    The block is bottom-aligned to the floor the lead pair sets,
+                    so the margin lifts the whole stack: the rule and the
+                    heading come up with the paragraph, by the same 12. That is
+                    the direction the eye wants anyway — the lockup has come
+                    down 16 above it, so the gap between the two closes by 28.
+                    Below lg nothing is lifted: there the paragraph has the
+                    strip's mt-12 under it already. */}
+                <p className="mt-6 w-full max-w-[270px] font-body text-sm leading-[1.5] text-[#3E2723]/85 lg:mb-3">
                   {INTRO}
                 </p>
               </div>
@@ -464,19 +520,36 @@ export const WhatITookAwayPage: React.FC = () => {
                 of the repositioning, because the strip still starts and ends on
                 the same two edges it did before.
 
-                The row's height comes from CELL rather than from any one file.
-                With all four cells on that shape the plates reach down to the
-                last line of the learnings beside them — 368px at 1512, against
-                the 295px their own proportions come to — so the section no
-                longer ends with the pictures stopping short and a band of blush
-                under them. The strip also carries no top margin from lg up: it
-                starts on the line where the lead pair and the introduction
-                end, which is what puts the plate in column one against the
-                bottom of the paragraph above it, and what closes the 370px of
-                empty column that used to sit between them. Below lg the two
-                are stacked in a single column and the strip keeps its mt-12,
-                because there it is a second block of pictures rather than the
-                same row.
+                The row's height comes from the learnings panel beside the
+                strip, not from any one file. The column carries the same 70px
+                of bottom padding the panel carries, so the two content boxes
+                end on the same line, and the strip takes what is left above
+                that line — flex-1, with min-h-0 so it can never claim more than
+                it is given and a 464px ceiling so a very wide panel cannot
+                squeeze the plates into ribbons. Nothing else is in the sum: from
+                lg the plates are pinned out of the flow, so the strip cannot
+                feed a height back into the row. Measured at the top width, the
+                strip is 367px deep and its bottom sits on the line with
+                "Learned to coordinate with my team while managing a live
+                customer-facing activation." — delta zero — and the page is
+                exactly as tall as it was before any of this, so nothing below
+                the section moved.
+
+                The depth does change with the window, and it has to: the panel
+                gets wider and shorter as the viewport does, so the line it ends
+                on is 386px from the strip's top at 1440, 449px at 1280 and
+                270px at 1728. The strip tracks that line rather than a shape of
+                its own, which is what makes the meeting exact at every width
+                instead of at one.
+
+                The strip's top margin from lg up is 10px — the same ten as its
+                gutters. The lead pair and the introduction end on the line
+                above it, and the strip starts below that line with its own
+                gutter, so the two blocks of photographs are separated rather
+                than meeting: image 02 and image 05 used to touch with nothing
+                between them. Below lg the gap widens back to mt-12, because
+                there the strip is a second block of pictures rather than the
+                continuation of a row.
 
                 Each cell is a column rather than a bare plate, which is what
                 lets column two hold two photographs and still leave nothing
@@ -490,16 +563,17 @@ export const WhatITookAwayPage: React.FC = () => {
                 of the frame's rows now, against 46%. Nothing is stretched — the
                 crop stays a crop. */}
 
-            <div className="mt-12 grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:mt-0 lg:flex-1 lg:min-h-0 lg:max-h-[29rem]">
+            <div className="mt-12 grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:mt-2.5 lg:flex-1 lg:min-h-0 lg:max-h-[29rem]">
               {REST_SHOTS.map((shot) => (
                 // One cell per column, and the cell is a flex column so that a
                 // second plate can be hung under the first: stretched to the
-                // row's own height, an `under` plate that is flex-1 takes up
-                // the difference and the two fill the column. A cell with a
-                // single plate is a flex column with one child, and from lg
-                // that child is filled rather than sized by its own file — the
-                // cell is the taller CELL shape, so there is a difference for
-                // it to fill.
+                // row's own height, the plate's box is flex-1 and takes up
+                // what is left once the landscape and the gutter are out of the
+                // way. A cell with a single plate is a flex column with one
+                // child, and from lg that child is pinned to the cell rather
+                // than sized by its own file — the cell's height is the row's
+                // and the row's is the learnings panel's, so there is a height
+                // for it to take.
                 //
                 // self-stretch is written out rather than inherited from the
                 // grid, where it is the default. It is the same value twice, so
@@ -514,7 +588,30 @@ export const WhatITookAwayPage: React.FC = () => {
                   }`}
                 >
                   <Plate photo={shot} fill={!shot.under} />
-                  {shot.under && <Plate photo={shot.under} />}
+                  {shot.under && (
+                    // The under plate sits in a box of its own rather than being
+                    // a second flex child of the cell. From lg the plate inside
+                    // is taken out of the flow and pinned to this box, which is
+                    // what keeps the pair from claiming a height: an in-flow
+                    // plate brings its own picture's height with it, and a
+                    // column-two stack of 143 + 10 + 309 comes to 462 where the
+                    // room to the learnings' last line is 367 — the strip would
+                    // then be the tallest thing in the row and would push the
+                    // whole page down by the difference. An absolutely
+                    // positioned plate contributes no height at all, so the
+                    // row's height comes from the learnings panel and the strip
+                    // simply takes what is left. Out of the flow it can no
+                    // longer be sized by the gutter above it, which is why the
+                    // box exists: the cell's own gap-2.5 still separates the two
+                    // plates, and the box takes the rest of the cell.
+                    //
+                    // Below lg nothing is taken out of the flow and this is an
+                    // ordinary wrapper with a full-height plate in it, which is
+                    // the plate and the leftover of the cell as before.
+                    <div className="relative flex-1 min-h-0">
+                      <Plate photo={shot.under} />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

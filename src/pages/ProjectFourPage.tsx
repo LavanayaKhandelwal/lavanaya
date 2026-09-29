@@ -21,6 +21,15 @@ import { WhatITookAwayPage } from '../components/marketing/WhatITookAwayPage';
  * belongs after the last page rather than the first. A `.bg-[#F9F8F2]` wrapper
  * still sits behind both so the blush ground of page 01 covers the palette's
  * own cream rather than the body colour.
+ *
+ * The padding under the link is deliberately small — pb-6, lg:pb-8 — and not
+ * the pb-16/lg:pb-24 it started with. This is the last thing on the route, so
+ * whatever sits under it is empty page: at 96px the board ended and the window
+ * filled with a further hundred pixels of blank cream under a single line of
+ * type, which reads as a mistake rather than as breathing room. Thirty-two
+ * pixels is enough to keep the link off the bottom edge of the viewport and
+ * stop there; the section above carries its own py-16, so the air between the
+ * photographs and the link is already accounted for.
  */
 export const ProjectFourPage: React.FC = () => {
   return (
@@ -28,7 +37,7 @@ export const ProjectFourPage: React.FC = () => {
       <HunkyHideawayPage />
       <WhatITookAwayPage />
 
-      <div className="px-5 sm:px-5 lg:px-6 pb-16 lg:pb-24">
+      <div className="px-5 sm:px-5 lg:px-6 pb-6 lg:pb-8">
         <div className="flex justify-end">
           <Link
             to="/projects/marketing"
