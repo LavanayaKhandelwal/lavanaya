@@ -101,7 +101,7 @@ export const ProjectLearnedSection: React.FC = () => {
       </div>
 
       {/* Footer — project marks, then the onward link */}
-      <div className="rule-t-light mt-16 lg:mt-24 pt-6 flex flex-wrap items-center justify-between gap-6">
+      <div className="rule-t-light mt-8 lg:mt-10 pt-4 flex flex-wrap items-center justify-between gap-6">
         <div className="flex items-center gap-5">
           <span className="eyebrow text-[#705955]">MARKETING MANAGEMENT</span>
           <span className="block h-px w-10 lg:w-16 bg-[#705955]/30" aria-hidden="true" />
@@ -110,7 +110,7 @@ export const ProjectLearnedSection: React.FC = () => {
         <span className="eyebrow text-[#705955]">PROJECT 01</span>
       </div>
 
-      <div className="mt-8 flex justify-end">
+      <div className="mt-4 flex justify-end">
         <Link
           to="/projects/visual-merchandising"
           className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link"

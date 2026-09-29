@@ -79,21 +79,32 @@ const TIMELINE_PHOTOS: StagePhoto[] = [
  * centred, since all three are wide and near-square in proportion and the frame
  * is far wider still.
  */
-const STAGE_FRAMES: StagePhoto[] = [
+interface FramePhoto extends StagePhoto {
+  number: string;
+  tag: string;
+}
+
+const STAGE_FRAMES: FramePhoto[] = [
   {
     src: '/portfolio-assets/project2-trend-board.jpg',
     alt: 'Trend board — future floral direction and reference imagery for the season',
     position: '50% 50%',
+    number: '01',
+    tag: 'TREND BOARD',
   },
   {
     src: '/portfolio-assets/project2-mood-board.jpg',
     alt: 'Mood board — feminine, dreamy and soft with a futuristic edge',
     position: '50% 50%',
+    number: '02',
+    tag: 'MOOD BOARD',
   },
   {
     src: '/portfolio-assets/project2-colour-board.jpg',
     alt: 'Colour board — blush, lavender and sky blue swatch matrix',
     position: '50% 50%',
+    number: '03',
+    tag: 'COLOUR BOARD',
   },
 ];
 
@@ -107,6 +118,7 @@ export const ConceptToShapeSection: React.FC = () => {
     designInsight,
     conceptSummary,
   } = vm.page2Brief;
+  const { colourBoard } = vm.page3Boards;
 
   /* The page breaks "Where the Concept Took Shape" after the concept, so the
      second line can carry the italic. Split on the last two words. */
@@ -125,7 +137,7 @@ export const ConceptToShapeSection: React.FC = () => {
   return (
     /* The negative margins cancel the page's side padding so the pink runs
        edge to edge, and the inner wrapper puts that padding back. */
-    <section className="paper-grain-light relative -mx-5 sm:-mx-8 lg:-mx-12 bg-[#FADBD9] mb-24 lg:mb-32">
+    <section className="paper-grain-light relative -mx-5 sm:-mx-8 lg:-mx-12 bg-[#FADBD9]">
       {/* No ink rule on this band. Project 1 opens a page with the full-bleed
           ink bar — see ConceptToLifeSection — but it only ever sits on the cream
           ground with margin above and below it. Here the band begins the
@@ -203,23 +215,75 @@ export const ConceptToShapeSection: React.FC = () => {
             </ol>
           </div>
 
-          {/* ——— Right column: three horizontal frames, spread the full
-                   height of the section ——— */}
-          <div className="flex items-stretch gap-3 lg:gap-5">
-            <div className="flex-1 min-w-0 flex flex-col gap-1.5 lg:gap-2 h-[78vw] min-h-[420px] sm:h-[58vw] lg:h-[660px] xl:h-[740px]">
+          {/* ——— Right column: three horizontal frames in designed border boxes with gaps ——— */}
+          <div className="flex items-stretch">
+            <div className="flex-1 min-w-0 flex flex-col gap-4 lg:gap-5 h-[84vw] min-h-[460px] sm:h-[62vw] lg:h-[700px] xl:h-[780px]">
               {STAGE_FRAMES.map((frame) => (
-                <div key={frame.src} className="flex-1 min-h-0 overflow-hidden">
-                  <SlidePhoto
-                    src={frame.src}
-                    alt={frame.alt}
-                    label={frame.alt}
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: frame.position }}
-                  />
+                <div
+                  key={frame.src}
+                  className="group relative flex-1 min-h-0 p-2 sm:p-2.5 bg-[#FDFCF8] border-[1.5px] border-[#705955]/35 rounded-lg shadow-[0_4px_16px_rgba(62,39,35,0.06)] hover:border-[#3E2723] hover:shadow-[0_8px_24px_rgba(62,39,35,0.12)] transition-all duration-300 flex flex-col"
+                >
+                  <div className="relative flex-1 min-h-0 w-full overflow-hidden rounded-md border border-[#705955]/20 bg-[#F8E5D7]/30">
+                    <SlidePhoto
+                      src={frame.src}
+                      alt={frame.alt}
+                      label={frame.alt}
+                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
+                      style={{ objectPosition: frame.position }}
+                    />
+                    <div className="absolute top-2.5 left-2.5 z-10 px-2.5 py-1 bg-[#3E2723]/90 text-[#FDFCF8] font-body text-[10px] tracking-widest uppercase font-semibold rounded-xs shadow-xs pointer-events-none backdrop-blur-xs">
+                      {frame.number} / {frame.tag}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
+        </div>
+
+        {/* ——— The palette, pulled out of the colour board and set as itself.
+                 The colour board is one of the three frames above, but a board
+                 is only ever a photograph of the decision; these five swatches
+                 are the decision — the exact values, named, in the order they
+                 were chosen. `page3Boards.colourBoard` had been sitting in the
+                 data unrendered until this strip, which is why the board above
+                 read as an anonymous image. ——— */}
+        <div className="rule-t-light mt-10 lg:mt-14 pt-7 lg:pt-9">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+            <span className="eyebrow text-[#3E2723]">THE PALETTE</span>
+            <span className="eyebrow text-[#705955]">
+              {colourBoard.palette.length.toString().padStart(2, '0')} COLOURS
+            </span>
+          </div>
+
+          <p className="mt-4 max-w-[62ch] font-body text-sm text-[#3E2723]/80 leading-relaxed">
+            {colourBoard.content}
+          </p>
+
+          {/* Five swatches. The mounts are the same framed cards the boards
+              directly above now use — white ground, taupe hairline, rounded,
+              one soft shadow — so the strip reads as part of that column's
+              language rather than a separate component. The mount also does
+              real work here: the Soft Blush swatch is the pink of this band's
+              own ground, and without it the swatch would dissolve into it. */}
+          <ul className="mt-6 lg:mt-7 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4">
+            {colourBoard.palette.map((swatch) => (
+              <li key={swatch.hex}>
+                <div className="p-2 bg-[#FDFCF8] border-[1.5px] border-[#705955]/35 rounded-lg shadow-[0_4px_16px_rgba(62,39,35,0.06)] hover:border-[#3E2723] hover:shadow-[0_8px_24px_rgba(62,39,35,0.12)] transition-all duration-300">
+                  <div
+                    className="h-20 lg:h-24 2xl:h-28 rounded-md border border-[#705955]/20"
+                    style={{ backgroundColor: swatch.hex }}
+                    role="img"
+                    aria-label={`${swatch.name} swatch, ${swatch.hex}`}
+                  />
+                </div>
+                <p className="mt-2.5 eyebrow text-[#3E2723]">{swatch.name}</p>
+                <p className="mt-1 font-mono-code text-[0.6875rem] tracking-[0.08em] text-[#705955]">
+                  {swatch.hex.toUpperCase()}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

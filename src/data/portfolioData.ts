@@ -244,6 +244,7 @@ export const portfolioData = {
       tags: ["Hunkemöller", "Customer Experience Activation", "Personalisation", "Interactive Touchpoints", "Event Execution"],
       summary:
         "The project focused on creating a customer experience activation for Hunkemöller built around interactive and personalised brand experiences — touchpoints that let customers engage with the brand directly, rather than only see it.",
+      image: "/portfolio-assets/project-hunkemoller.png",
       // Cover plate for this project is still to come. Drop a 16:10 image at
       // /portfolio-assets/project-hunkemoller.png and re-add the `image` field.
       brief:

@@ -58,7 +58,7 @@ const SKILLS = [
 
 export const LearningThroughProcessSection: React.FC = () => {
   return (
-    <section className="paper-grain-light pt-8 pb-10 mb-24 lg:pt-12 lg:pb-14 lg:mb-32">
+    <section className="paper-grain-light pt-8 pb-10 lg:pt-12 lg:pb-14">
       {/* ——— Top metadata, closed with Project 1's header rule ——— */}
       <div className="flex items-center gap-6 lg:gap-11">
         <span className="eyebrow text-[#3E2723]">04 / 04</span>

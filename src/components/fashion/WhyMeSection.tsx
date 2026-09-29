@@ -128,7 +128,7 @@ export function WhyMeSection() {
           Full-bleed (100vw) so the trim keeps running past the viewport. */}
       <div className="relative -mx-6 mt-8 h-[14vw] max-h-40 min-h-16 w-screen max-w-none overflow-hidden md:-mx-16 md:h-[10vw]" style={{ left: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
         <img
-          src="/portfolio-assets/lace-border.png"
+          src="/portfolio-assets/new-border.png"
           alt=""
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover object-bottom"

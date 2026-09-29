@@ -61,8 +61,6 @@ const Arrow = () => (
   </svg>
 );
 
-const footerNav = ['Product Pitch', 'Audience Interaction', 'Feedback Collection', 'Iteration'];
-
 /**
  * PAGE 04 — BRINGING THE CONCEPT TO LIFE.
  *
@@ -78,7 +76,7 @@ export const ConceptToLifeSection: React.FC = () => {
   return (
     <section className="paper-grain-light">
       {/* Top bar — full-bleed, spans the viewport */}
-      <div className="-mx-5 sm:-mx-8 lg:-mx-12 mb-8 lg:mb-10 h-3.5 bg-[#3E2723]" aria-hidden="true" />
+      <div className="-mx-5 sm:-mx-8 lg:-mx-12 h-3.5 bg-[#3E2723]" aria-hidden="true" />
 
       <div className="grid grid-cols-1 lg:grid-cols-[40fr_60fr] gap-8 lg:gap-6">
         {/* ——— Left column: narrative ——— */}
@@ -244,16 +242,9 @@ export const ConceptToLifeSection: React.FC = () => {
 
       {/* Footer navigation line */}
       <div className="rule-t-light mt-8 lg:mt-10 pt-4 flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-5">
-        {footerNav.map((item, idx) => (
-          <React.Fragment key={item}>
-            <span className="font-body text-[0.625rem] tracking-[0.04em] text-[#3E2723]/80">{item}</span>
-            {idx < footerNav.length - 1 && (
-              <span className="text-[0.625rem] text-[#705955]" aria-hidden="true">
-                &bull;
-              </span>
-            )}
-          </React.Fragment>
-        ))}
+        <span className="font-body text-[0.625rem] tracking-[0.04em] text-[#3E2723]/80">05 / 05</span>
+        <span className="font-body text-[0.625rem] text-[#705955]" aria-hidden="true">&bull;</span>
+        <span className="font-body text-[0.625rem] tracking-[0.04em] text-[#3E2723]/80">NEXT: WHAT THE PROJECT TAUGHT ME</span>
       </div>
     </section>
   );

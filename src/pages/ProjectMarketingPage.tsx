@@ -29,8 +29,8 @@ export const ProjectMarketingPage: React.FC = () => {
       <div className="px-5 sm:px-8 lg:px-12">
         <MappingOpportunitySection />
 
-        {/* DESIGN DECISIONS — blush band, mirroring the home page's section rhythm */}
-        <section className="bg-[#FADBD9] -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 py-16 lg:py-20 mb-16 lg:mb-20">
+        {/* PAGE 3 — THE ESSENCE OF JAPANESE SIMPLICITY */}
+        <section className="bg-[#FADBD9] -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 pt-16 lg:pt-20 pb-10 lg:pb-12">
           <div className="rule-b-light pb-6 mb-14 max-w-4xl">
             <p className="eyebrow text-[#705955] mb-3">PAGE 3 — THE ESSENCE OF JAPANESE SIMPLICITY</p>
             <h2 className="font-display text-4xl sm:text-5xl text-[#3E2723] tracking-tight mb-4">
@@ -88,10 +88,8 @@ export const ProjectMarketingPage: React.FC = () => {
           </div>
         </section>
 
-        {/* PAGE 4 — BRINGING THE CONCEPT TO LIFE */}
-        <section className="mb-24 lg:mb-32">
-          <ConceptToLifeSection />
-        </section>
+        {/* PAGE 04 — BRINGING THE CONCEPT TO LIFE */}
+        <ConceptToLifeSection />
 
         {/* PAGE 05 — WHAT THE PROJECT TAUGHT ME */}
         <ProjectLearnedSection />
