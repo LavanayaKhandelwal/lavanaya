@@ -16,7 +16,6 @@ export const Header: React.FC<HeaderProps> = () => {
   const navItems = [
     { to: '/projects', label: 'Projects' },
     { to: '/about', label: 'About' },
-    { to: '/skills', label: 'Skills' },
     { to: '/contact', label: 'Contact' }
   ];
 

@@ -91,6 +91,9 @@ const ITERATION_ROWS = [
 const ITERATION_FOOTER =
   'I chose to persevere with the core idea and refine the product around user feedback.';
 
+/** The handwritten note under the cut-out sticker, one line per array entry. */
+const STICKER_NOTE = ['Bottom fabric', 'too thick'];
+
 const SKILLS = [
   {
     title: 'Research & Analysis',
@@ -119,8 +122,26 @@ const SKILLS = [
  * each is the source file's own, so nothing is cropped: 406x655, 1312x1199,
  * 847x1280. They sit directly under FROM IDEA TO MVP — the step list above,
  * the photographs of three of those steps below.
+ *
+ * The row is items-end, so the two portrait plates share a caption baseline.
+ * Material is the odd one out — 1312x1199 is landscape, so it is far shorter
+ * than its neighbours and would otherwise hang off the bottom edge — and
+ * carries `align` to opt itself back to the vertical centre of the row.
+ *
+ * Typed rather than left to `as const`, because an inferred literal union
+ * would only carry `align` on the one member that has it, and reading it off
+ * the other two fails to compile.
  */
-const PROCESS_SLOTS = [
+type ProcessSlot = {
+  label: string;
+  src: string;
+  alt: string;
+  frame: string;
+  tapeRotate: number;
+  align?: string;
+};
+
+const PROCESS_SLOTS: ProcessSlot[] = [
   {
     label: 'Sketches',
     src: '/portfolio-assets/03_process_sketches.jpg',
@@ -134,6 +155,7 @@ const PROCESS_SLOTS = [
     alt: 'The chosen fabric',
     frame: 'aspect-[1312/1199]',
     tapeRotate: 4,
+    align: 'self-center',
   },
   {
     label: 'Physical MVP',
@@ -142,7 +164,7 @@ const PROCESS_SLOTS = [
     frame: 'aspect-[847/1280]',
     tapeRotate: -3,
   },
-] as const;
+];
 
 /* ——— Icons with no lucide equivalent ————————————————————————————— */
 
@@ -212,17 +234,54 @@ const RoughRule: React.FC<{ className?: string }> = ({ className = '' }) => (
   </svg>
 );
 
+/**
+ * Curved hand-drawn arrow, pointing left by default. Identical to the one on
+ * page one — the two pages each carry their own copy of the small furniture
+ * (Tape, Slot, IconDisc) rather than sharing a module, so this follows suit.
+ */
+const HandArrow: React.FC<{ className?: string }> = ({ className = '' }) => (
+  <svg viewBox="0 0 70 40" className={className} fill="none" aria-hidden="true">
+    <path
+      d="M64 6C44 4 20 12 11 24"
+      stroke="#D69589"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+    />
+    <path
+      d="M6 15.5c-1.4 4-1.2 8.2 1.2 11.4M4 26.5c4.3.6 8.3-.7 10.6-4"
+      stroke="#D69589"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 /* ——— Small parts ——————————————————————————————————————————————— */
 
-/** A wordless photo plate at an explicit size, for collage placement. */
+/**
+ * A wordless photo plate at an explicit size, for collage placement.
+ *
+ * `fit="contain"` makes cropping structurally impossible: the whole file is
+ * always visible, and if the frame's ratio ever drifts from the source the
+ * image letterboxes into the spare space instead of losing its edges. The two
+ * fit keywords are written out literally rather than interpolated, because
+ * Tailwind's scanner only sees class names that appear in the source text.
+ */
 const Slot: React.FC<{
   src: string;
   alt: string;
   label: string;
   className?: string;
-}> = ({ src, alt, label, className = '' }) => (
+  fit?: 'cover' | 'contain';
+}> = ({ src, alt, label, className = '', fit = 'cover' }) => (
   <div className={`overflow-hidden ${className}`}>
-    <SlidePhoto src={src} alt={alt} label={label} className="w-full h-full object-cover" />
+    <SlidePhoto
+      src={src}
+      alt={alt}
+      label={label}
+      className={`w-full h-full ${fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+    />
   </div>
 );
 
@@ -296,13 +355,18 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
       <section className="relative rule-t-light pt-12 pb-14 lg:pt-16 lg:pb-20">
         <div className="relative">
           {/* Title */}
-          <div>
-            <div className="flex items-center gap-4">
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-4">
               <span className="eyebrow text-[#3E2723]">PROJECT</span>
               <span className="block h-px w-11 bg-[#A38D89]" aria-hidden="true" />
             </div>
 
-            <h1 className="mt-6 font-display text-[clamp(2rem,3.9vw,3rem)] leading-[1.05] tracking-[-0.01em] text-[#3E2723]">
+            {/* The site selection highlight, inverted and made permanent: an
+                espresso block behind pink type. inline-block so the block
+                spans the words rather than the full column, and
+                box-decoration-break so a wrapped line gets its own block
+                instead of one tall rect spanning both. */}
+            <h1 className="mt-6 inline-block bg-[#3E2723] px-3 py-1 font-display text-[clamp(2rem,3.9vw,3rem)] leading-[1.05] tracking-[-0.01em] text-[#FADBD9] [box-decoration-break:clone]">
               {TITLE_LINES[0]}
             </h1>
           </div>
@@ -339,28 +403,41 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
           {/* PROCESS — three image slots, no heading. Separate files on purpose,
                so these never resolve to the photos used above. Each frame is on
                its source ratio and the row is items-end, so the captions sit on
-               one baseline across three different heights. */}
+               one baseline across three different heights. The › separators
+               match the GYM › CAFÉ › TRAVEL row on page one; self-center
+               overrides items-end so they centre on the plates rather than
+               riding the caption baseline. */}
           <div className="relative mt-9 lg:mt-12 p-8 lg:p-12 bg-[#FDFCF8] rounded-[3px]">
-            <div className="grid grid-cols-3 items-end gap-3 sm:gap-5 lg:gap-6">
-              {PROCESS_SLOTS.map((slot) => (
-                <figure
-                  key={slot.label}
-                  className="relative bg-[#FDFCF8] p-2.5 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)]"
-                >
-                  <Slot
-                    src={slot.src}
-                    alt={slot.alt}
-                    label={`${slot.label} — process`}
-                    className={slot.frame}
-                  />
-                  <figcaption className="absolute inset-x-0 bottom-2 text-center font-hand text-[1.0625rem] leading-none text-[#3E2723]">
-                    {slot.label}
-                  </figcaption>
-                  <Tape
-                    className="-top-2.5 left-1/2 -translate-x-1/2 w-14 h-5"
-                    rotate={slot.tapeRotate}
-                  />
-                </figure>
+            <div className="grid grid-cols-3 sm:grid-cols-[1fr_auto_1fr_auto_1fr] items-end gap-4 sm:gap-x-6 lg:gap-x-8">
+              {PROCESS_SLOTS.map((slot, i) => (
+                <React.Fragment key={slot.label}>
+                  <figure
+                    className={`relative bg-[#FDFCF8] p-2.5 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)] ${slot.align ?? ''}`}
+                  >
+                    <Slot
+                      src={slot.src}
+                      alt={slot.alt}
+                      label={`${slot.label} — process`}
+                      className={slot.frame}
+                    />
+                    <figcaption className="absolute inset-x-0 bottom-2 text-center font-hand text-[1.0625rem] leading-none text-[#3E2723]">
+                      {slot.label}
+                    </figcaption>
+                    <Tape
+                      className="-top-2.5 left-1/2 -translate-x-1/2 w-14 h-5"
+                      rotate={slot.tapeRotate}
+                    />
+                  </figure>
+
+                  {i < PROCESS_SLOTS.length - 1 && (
+                    <span
+                      className="hidden sm:flex self-center font-body text-4xl lg:text-5xl leading-none text-[#D69589]"
+                      aria-hidden="true"
+                    >
+                      &#8250;
+                    </span>
+                  )}
+                </React.Fragment>
               ))}
             </div>
           </div>
@@ -465,22 +542,80 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
             </div>
           </div>
 
-          {/* SURVEY INSIGHTS — cols 7–12, back near its original position.
-              The plate is capped at 340px and left-aligned in the track, so
-              the empty remainder of the column reads as margin. */}
-          <div className="lg:col-start-7 lg:col-span-6 w-full max-w-[340px]">
-            <p className="eyebrow text-[#3E2723]">SURVEY INSIGHTS</p>
+          {/* SURVEY INSIGHTS — cols 7–12. Two plates side by side, each on its
+              own source ratio: 494x863 and 1024x1536, both portrait. The grid
+              is items-center so the shorter plate sits against the middle of
+              the taller one rather than a shared edge. Both are width-driven
+              and use fit="contain", so nothing is ever cropped. */}
+          <div className="lg:col-start-7 lg:col-span-6 w-full">
+            <div className="grid grid-cols-[1.1fr_1.15fr] items-center gap-4 sm:gap-5">
+              {/* SURVEY INSIGHTS, overlaid on the plate rather than sat above
+                  it. No fill behind it — the type sits straight on the photo.
+                  The pt clears the Tape, which hangs over the top 10px of the
+                  figure. */}
+              <figure className="relative translate-x-2 bg-[#FDFCF8] p-2.5 shadow-[0_14px_32px_-18px_rgba(62,39,35,0.34)]">
+                <Slot
+                  src="/portfolio-assets/03_survey_insights.jpg"
+                  alt="The refined olive athleisure co-ord after the feedback round"
+                  label="Survey insights — the refined co-ord"
+                  className="aspect-[494/863]"
+                  fit="contain"
+                />
+                <Tape className="-top-2.5 left-1/2 -translate-x-1/2 w-16" rotate={-5} />
 
-            {/* One vertical plate */}
-            <figure className="relative mt-6 bg-[#FDFCF8] p-2.5 -rotate-[1.5deg] shadow-[0_14px_32px_-18px_rgba(62,39,35,0.34)] w-full max-w-[340px]">
-              <Slot
-                src="/portfolio-assets/03_survey_insights.jpg"
-                alt="The refined olive athleisure co-ord after the feedback round"
-                label="Survey insights — the refined co-ord"
-                className="aspect-[2/3]"
-              />
-              <Tape className="-top-2.5 left-1/2 -translate-x-1/2 w-16" rotate={-5} />
-            </figure>
+                {/* One line, in the same hand as the sticker note below, so the
+                    two read as a matched pair. nowrap keeps it on one line; the
+                    size is held down because the hand face runs narrow and the
+                    plate is only ~245px wide inside its padding. */}
+                <h2 className="absolute inset-x-0 top-0 whitespace-nowrap px-4 pt-16 text-center font-hand text-[1.375rem] leading-[1.05] tracking-[-0.01em] text-[#3E2723] lg:text-[1.75rem]">
+                  SURVEY INSIGHTS
+                </h2>
+              </figure>
+
+              {/* A deliberate sticker, not a plate. The source is a cut-out
+                  with a real alpha channel, so it needs no card behind it —
+                  the transparent areas show the page cream, and the white
+                  die-cut border is built from eight offset drop-shadows in
+                  the transparent colour. Those come first so they stack into
+                  the border; the soft grey shadow comes last so it casts from
+                  the finished white-bordered shape rather than the bare image. */}
+              <div className="flex flex-col items-end">
+                <figure className="relative rotate-[1.2deg] [filter:drop-shadow(-2px_0_0_#fff)_drop-shadow(2px_0_0_#fff)_drop-shadow(0_-2px_0_#fff)_drop-shadow(0_2px_0_#fff)_drop-shadow(-2px_-2px_0_#fff)_drop-shadow(2px_2px_0_#fff)_drop-shadow(-2px_2px_0_#fff)_drop-shadow(2px_-2px_0_#fff)_drop-shadow(0_8px_12px_rgba(62,39,35,0.28))]">
+                  <Slot
+                    src="/portfolio-assets/03_after_survey_insights.png"
+                    alt="The co-ord after the survey feedback round"
+                    label="After the feedback round"
+                    className="aspect-[1024/1536]"
+                    fit="contain"
+                  />
+                </figure>
+
+                {/* The note that earned the cut-out, pinned to the bottom
+                    right of the sticker. rotate-90 turns the default
+                    left-pointing arrow to point up, so its head sits against
+                    the sticker and the tail runs down to the words. */}
+                <div className="-mt-8 flex flex-col items-end gap-1.5">
+                  <HandArrow className="-translate-x-16 w-9 h-5 rotate-90 shrink-0" />
+
+                  {/* The site's own ::selection pair — #FADBD9 behind #3E2723,
+                      straight out of index.css — held permanently instead of
+                      only while the cursor is over it. One inline-block per
+                      line, so each line carries its own mark sized to its own
+                      text rather than one slab spanning both; the p's leading
+                      is what opens the gap between the two marks. */}
+                  <p className="font-hand text-[1.25rem] leading-[1.5] text-[#3E2723] -rotate-[2deg] origin-bottom-right text-right">
+                    {STICKER_NOTE.map((line) => (
+                      <React.Fragment key={line}>
+                        <span className="inline-block bg-[#FADBD9] px-2 text-[#3E2723]">
+                          {line}
+                        </span>
+                        <br />
+                      </React.Fragment>
+                    ))}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -533,16 +668,29 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
               USER FEEDBACK &#8594; PRODUCT DECISION
             </p>
 
-            <div className="mt-5 space-y-3">
+            {/* The three feedback → decision pairs now read left to right as
+                three parallel columns instead of stacking downward, so the
+                iteration lands as one horizontal sweep. Nothing added — the
+                same ITERATION_ROWS, same labels, same footer below. */}
+            <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
               {ITERATION_ROWS.map((row) => (
-                <div key={row.problem} className="flex flex-wrap items-center gap-3 sm:gap-4">
-                  <span className="rounded-full bg-[#FADBD9] px-4 py-2 eyebrow text-[0.625rem] tracking-[0.12em] text-[#3E2723]">
+                <div key={row.problem} className="flex flex-col gap-2.5">
+                  <span className="rounded-2xl bg-[#FADBD9] px-4 py-2 eyebrow text-[0.625rem] tracking-[0.12em] text-[#3E2723]">
                     {row.problem}
                   </span>
-                  <span className="eyebrow text-[#D69589] leading-none" aria-hidden="true">
+
+                  {/* The same → glyph used across the page, turned a quarter
+                      turn. The pair stacks now rather than running left to
+                      right, so the connector has to point down to still carry
+                      the reading from feedback to decision. */}
+                  <span
+                    className="self-start eyebrow text-[#D69589] leading-none rotate-90"
+                    aria-hidden="true"
+                  >
                     &#8594;
                   </span>
-                  <span className="rounded-full bg-[#FDFCF8] border border-[#705955]/28 px-4 py-2 eyebrow text-[0.625rem] tracking-[0.12em] text-[#3E2723]">
+
+                  <span className="rounded-2xl bg-[#FDFCF8] border border-[#705955]/28 px-4 py-2 eyebrow text-[0.625rem] tracking-[0.12em] text-[#3E2723]">
                     {row.decision.map((line) => (
                       <React.Fragment key={line}>
                         {line}
@@ -554,7 +702,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
               ))}
             </div>
 
-            <p className="mt-5 font-body text-xs leading-[1.5] text-[#3E2723]/70 max-w-[54ch]">
+            <p className="mt-5 whitespace-nowrap font-body text-xs leading-[1.5] text-[#3E2723]/70">
               {ITERATION_FOOTER}
             </p>
           </div>
@@ -562,21 +710,25 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
       </section>
 
       {/* ——— Band D — what I take forward ————————————————————— */}
-      <section className="rule-t-light pt-10 pb-14 lg:pt-14 lg:pb-20">
+      <section className="rule-t-light pt-10 pb-2 lg:pt-14 lg:pb-4">
         <div className="relative bg-[#FADBD9] rounded-[20px_36px_18px_32px] p-8 lg:p-14">
           <p className="eyebrow text-[#3E2723]">WHAT I TAKE FORWARD</p>
 
-          <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-10 items-start">
-            <div className="lg:col-span-7">
-              <h2 className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.05] text-[#7A2A2E]">
-                IDEA &#8594; EVIDENCE &#8594; ITERATION
-              </h2>
-              <p className="mt-6 font-body text-sm leading-[1.5] text-[#3E2723]/80 max-w-[46ch]">
-                Don’t just build what sounds good.
-                <br />
-                Build &#8594; test &#8594; listen &#8594; improve.
-              </p>
-            </div>
+          {/* No column grid here. It was a 12-col wrapper holding one 7-col
+              child, so five tracks — ~460px of empty panel at desktop — sat
+              to the right of the content doing nothing. The heading now spans
+              the panel's own measure, which is also wide enough to hold it on a
+              single line; the paragraph keeps its 46ch cap, so the reading
+              measure is unchanged. */}
+          <div className="mt-6">
+            <h2 className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.05] text-[#7A2A2E]">
+              IDEA &#8594; EVIDENCE &#8594; ITERATION
+            </h2>
+            <p className="mt-6 font-body text-sm leading-[1.5] text-[#3E2723]/80 max-w-[46ch]">
+              Don’t just build what sounds good.
+              <br />
+              Build &#8594; test &#8594; listen &#8594; improve.
+            </p>
           </div>
         </div>
       </section>

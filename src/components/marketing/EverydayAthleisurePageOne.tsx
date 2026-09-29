@@ -282,29 +282,21 @@ export const EverydayAthleisurePageOne: React.FC = () => {
               <p className="mt-6 font-body text-sm tracking-[0.02em] text-[#3E2723]">
                 {HERO_DESCRIPTION}
               </p>
+
+              {/* The handwritten note. It used to float over the photo's upper
+                  right, detached from the copy — but it is the answer to the
+                  sentence above, so it belongs in the stack under the heading. */}
+              <p className="mt-2.5 flex items-center gap-2.5 font-hand text-[1.375rem] sm:text-[1.625rem] leading-[1.1] text-[#3E2723]">
+                {HERO_ANNOTATION.join(' ')}
+                <HeartMark />
+              </p>
             </div>
           </div>
-
-          {/* The handwritten note, upper-right of the photograph */}
-          <div className="pointer-events-none absolute right-5 top-20 flex flex-col items-center gap-1 sm:right-5 sm:top-24 lg:right-6 lg:top-28">
-            <p className="font-hand text-[1.375rem] sm:text-[1.625rem] leading-[1.1] text-[#3E2723] -rotate-[8deg] origin-bottom-right">
-              {HERO_ANNOTATION.map((line) => (
-                <React.Fragment key={line}>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
-            </p>
-            <HeartMark />
-          </div>
-
-          <Tape className="-left-3 top-14 lg:left-3" />
-          <Tape className="-right-3 bottom-24 lg:right-3" rotate={-5} />
         </div>
       </section>
 
       {/* ——— Mid ———————————————————————————————————————————— */}
-      <section className="rule-t-light pt-16 pb-20 lg:pt-24 lg:pb-28">
+      <section className="rule-t-light pt-16 pb-8 lg:pt-24 lg:pb-10">
         <div className="space-y-10 lg:space-y-14">
           {/* WHAT I NOTICED — cream paper brush. Copy left, the four complaints right. */}
           <div className="relative p-8 lg:p-12 bg-[#FDFCF8] rounded-[44px_28px_40px_24px] lg:-rotate-[0.4deg]">
@@ -453,9 +445,14 @@ export const EverydayAthleisurePageOne: React.FC = () => {
                   position="top"
                 />
 
-                <div className="space-y-8 pt-3">
+                <div className="pt-3">
                   <div className="relative">
-                    <p className="font-hand text-[1.5rem] leading-[1.15] text-[#3E2723] rotate-[-2deg] origin-left">
+                    {/* Lifted with a transform, not a margin: a negative
+                        margin-top here would collapse out of this wrapper and
+                        drag the arrow up with it. A transform moves the text
+                        only and leaves the wrapper — and the arrow anchored to
+                        it — exactly where it is. */}
+                    <p className="-translate-y-8 font-hand text-[1.5rem] leading-[1.15] text-[#3E2723] rotate-[-2deg] origin-left">
                       Structured top
                       <br />
                       for shape + style
@@ -463,15 +460,20 @@ export const EverydayAthleisurePageOne: React.FC = () => {
                     <HandArrow className="absolute -left-14 top-0 w-12 h-7 rotate-[150deg]" />
                   </div>
 
-                  <div className="relative">
-                    <p className="font-hand text-[1.5rem] leading-[1.15] text-[#3E2723] rotate-[-2deg] origin-left">
+                  <div className="relative mt-20">
+                    <p className="mt-14 translate-x-2 font-hand text-[1.5rem] leading-[1.15] text-[#3E2723] rotate-[-2deg] origin-left">
                       Relaxed bottoms
                       <br />
                       for movement +
                       <br />
                       comfort
                     </p>
-                    <HandArrow className="absolute -left-14 top-1 w-12 h-7 rotate-[150deg]" />
+                    {/* Pivoted on the arrowhead rather than the element's
+                        centre, so left/top place the tip itself rather than
+                        the box. top-2.5 is mid-cap-height of the first line;
+                        the x offsets track the note's own nudge so the two
+                        stay put relative to each other. */}
+                    <HandArrow className="absolute -left-2 top-2.5 w-12 h-7 rotate-[150deg] origin-[7%_52%]" />
                   </div>
                 </div>
               </div>
@@ -525,7 +527,7 @@ export const EverydayAthleisurePageOne: React.FC = () => {
       {/* ——— WHAT I WORKED WITH — its own full-width band, built on the
            THE OPPORTUNITY treatment: blush wash, organic radius, slight tilt,
            label left and the five methods as a pill row on the right. ————— */}
-      <section className="pt-14 pb-8 lg:pt-20 lg:pb-12">
+      <section className="pt-2 pb-8 lg:pt-4 lg:pb-12">
         <div className="relative p-8 lg:p-12 bg-[#FADBD9]/50 rounded-[24px_44px_28px_40px] lg:-rotate-[0.4deg]">
           <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-9 lg:gap-16 items-center">
             <p className="eyebrow text-[#3E2723]">{WORKED_WITH_HEADING}</p>
