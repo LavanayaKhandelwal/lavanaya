@@ -174,7 +174,7 @@ export const BoardPhoto: React.FC<{
   alt,
   className = '',
   imgClassName = '',
-  plate = '#EFD3D9',
+  plate = '#FDFCF8',
   loading = 'lazy',
   width = 1600,
   height = 1600,
@@ -280,7 +280,7 @@ export const SparkBurst: React.FC<{
   size?: number;
   colour?: string;
   className?: string;
-}> = ({ size = 26, colour = '#20232C', className = '' }) => (
+}> = ({ size = 26, colour = '#3E2723', className = '' }) => (
   <svg
     viewBox="-12 -12 24 24"
     width={size}
@@ -304,7 +304,7 @@ export const SketchHeart: React.FC<{
   size?: number;
   colour?: string;
   className?: string;
-}> = ({ size = 15, colour = '#26303B', className = '' }) => (
+}> = ({ size = 15, colour = '#3E2723', className = '' }) => (
   <svg
     viewBox="0 0 24 22"
     width={size}
@@ -350,7 +350,7 @@ export const SectionLabel: React.FC<{
   /** Ink, from the board's own palette. */
   colour?: string;
   style?: React.CSSProperties;
-}> = ({ children, colour = '#071326', style }) => (
+}> = ({ children, colour = '#705955', style }) => (
   <p style={style} className="font-body text-[11px] font-medium uppercase tracking-[3px]">
     <span style={{ color: colour }}>{children}</span>
   </p>
@@ -372,7 +372,7 @@ export const Annotation: React.FC<{
   colour?: string;
   style?: React.CSSProperties;
   className?: string;
-}> = ({ children, size = 18, colour = '#20202A', style, className = '' }) => (
+}> = ({ children, size = 18, colour = '#3E2723', style, className = '' }) => (
   <p
     style={{ fontSize: `${size}px`, color: colour, lineHeight: 1.12, ...style }}
     className={`font-hand whitespace-pre-line ${className}`}

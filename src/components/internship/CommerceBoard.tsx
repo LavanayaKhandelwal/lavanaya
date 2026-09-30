@@ -246,7 +246,7 @@ const InterfaceCard: React.FC<{
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.15 }}
     transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-    className="group flex h-full flex-col overflow-hidden rounded-md border border-[#DDD5C8] bg-[var(--c-bg)] p-4 shadow-[0_2px_8px_rgba(80,70,55,0.08)] transition-all duration-300 hover:-translate-y-1 hover:aj-shadow sm:p-5"
+    className="group flex h-full flex-col overflow-hidden rounded-md border border-[#705955]/20 bg-[#FDFCF8] p-4 shadow-[0_2px_8px_rgba(112,89,85,0.12)] transition-all duration-300 hover:-translate-y-1 hover:aj-shadow sm:p-5"
   >
     <SectionLabel colour="var(--c-ink)">{label}</SectionLabel>
     <p className="mt-2.5 font-body text-[0.8125rem] leading-relaxed text-[var(--c-ink)]/80">

@@ -55,7 +55,7 @@ export const WebsiteLaptop: React.FC<{ style?: React.CSSProperties }> = ({ style
         hinge, the base, the corners — and a rectangle behind it never could. */}
     <div className="drop-shadow-[0_18px_24px_rgba(60,63,58,0.3)]">
       <div className="relative h-[390px] w-[654px]">
-        <div className="absolute inset-x-[9.25%] top-[3.68%] bottom-[10.02%] overflow-hidden rounded-[4px] bg-[#FFFBF6]">
+        <div className="absolute inset-x-[9.25%] top-[3.68%] bottom-[10.02%] overflow-hidden rounded-[4px] bg-[#FDFCF8]">
           {/* The desktop homepage, 1600 by 1000 in a cutout of ratio 1.5837 —
               about one percent cropped off the sides, which is edge pixels of
               a full-page screenshot. The frame is the machine; this is the
@@ -65,7 +65,7 @@ export const WebsiteLaptop: React.FC<{ style?: React.CSSProperties }> = ({ style
             alt="Screenshot of the Aadiya Jewels desktop homepage, with the navigation, an Everyday Gold Jewellery hero and a model wearing emerald jewellery"
             width={1600}
             height={1000}
-            plate="#FFFBF6"
+            plate="#FDFCF8"
             className="h-full"
             loading="eager"
           />
@@ -110,7 +110,7 @@ export const WebsitePhone: React.FC<{ style?: React.CSSProperties }> = ({ style 
       {/* GLOSS */}
       <span className="pointer-events-none absolute inset-[3px] z-20 rounded-[12px] bg-gradient-to-br from-white/12 via-transparent to-white/5" />
 
-      <div className="relative h-full w-full overflow-hidden rounded-[12px] bg-[#FFFBF6]">
+      <div className="relative h-full w-full overflow-hidden rounded-[12px] bg-[#FDFCF8]">
         {/* The screen is the real file, not a drawing of it. The frame around
             it — buttons, gloss, hole punch — is still drawn, because a frame
             is a structure and the screen is the thing itself. */}
@@ -119,7 +119,7 @@ export const WebsitePhone: React.FC<{ style?: React.CSSProperties }> = ({ style 
           alt="Screenshot of the Aadiya Jewels mobile site's Shop by Category screen, with Earrings, Bracelets, Rings and Pendants tiles"
           width={640}
           height={1280}
-          plate="#FFFBF6"
+          plate="#FDFCF8"
           className="h-full"
           loading="eager"
         />

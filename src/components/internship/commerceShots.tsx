@@ -69,7 +69,7 @@ export const CataloguePair: React.FC = () => (
         alt="Screenshot of the silver catalogue spreadsheet, with SKU, stone, vendor, design, dimension, weight and price columns"
         width={1206}
         height={481}
-        plate="#F1DFD2"
+        plate="#FDFCF8"
         className="h-full"
         loading="eager"
       />
@@ -80,7 +80,7 @@ export const CataloguePair: React.FC = () => (
         alt="Screenshot of the gold pendant catalogue spreadsheet, with product photographs beside SKUs, materials, colours and weights"
         width={1600}
         height={681}
-        plate="#F1DFD2"
+        plate="#FDFCF8"
         className="h-full"
         loading="eager"
       />
@@ -121,7 +121,7 @@ export const BannerPair: React.FC = () => (
         alt="First website banner design, a wide campaign image for the homepage"
         width={1206}
         height={585}
-        plate="#F1DFD2"
+        plate="#FDFCF8"
         className="h-full"
         loading="eager"
       />
@@ -132,7 +132,7 @@ export const BannerPair: React.FC = () => (
         alt="Second website banner design, a second campaign image at a different proportion to the first"
         width={1206}
         height={660}
-        plate="#F1DFD2"
+        plate="#FDFCF8"
         className="h-full"
         loading="eager"
       />
@@ -165,7 +165,7 @@ export const BackendPair: React.FC = () => (
         alt="Screenshot of the Shopify products table, with the sidebar and product rows showing status, inventory, category and vendor columns"
         width={1206}
         height={497}
-        plate="#F1DFD2"
+        plate="#FDFCF8"
         className="h-full"
         loading="eager"
       />
@@ -176,7 +176,7 @@ export const BackendPair: React.FC = () => (
         alt="Screenshot of the Shopify edit page for Green Onyx Baguette Drop Earrings, showing the title, description, media grid and product organisation sidebar"
         width={1206}
         height={954}
-        plate="#F1DFD2"
+        plate="#FDFCF8"
         className="h-full"
         loading="eager"
       />
@@ -266,7 +266,7 @@ export const OtherPage: React.FC = () => (
         alt="Full-page screenshot of a further Aadiya Jewels website page in mobile proportions, with a site header, two campaign images side by side, a two-column text section and two large product tiles below"
         width={648}
         height={1280}
-        plate="#F1DFD2"
+        plate="#FDFCF8"
         className="h-full"
         loading="eager"
         imgClassName="object-contain!"

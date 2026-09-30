@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { Mail, MapPin, Phone, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Phone, Linkedin, Download } from 'lucide-react';
 import { portfolioData } from '../../data/portfolioData';
 
 /**
@@ -107,6 +107,23 @@ export const ContactSection: React.FC = () => {
                 </span>
               </motion.a>
             ))}
+
+            <motion.a
+              initial={revealInitial}
+              whileInView={revealWhileInView}
+              viewport={{ once: true }}
+              transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : 0.27 }}
+              href="https://drive.google.com/drive/folders/1aLpe3kiK4BZkfIPav7x9KKTFRxnh9sKZ"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex min-h-11 items-center gap-3 font-mono-code text-lg text-[#F8E5D7]/80 hover:text-[#F8E5D7] hover:underline underline-offset-4 decoration-[#D69589] transition-colors"
+            >
+              <Download
+                aria-hidden="true"
+                className="w-6 h-6 text-[#F8E5D7]/60 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:text-[#F8E5D7]"
+              />
+              <span>Resume</span>
+            </motion.a>
           </div>
         </div>
       </div>

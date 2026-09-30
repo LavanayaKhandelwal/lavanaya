@@ -39,7 +39,7 @@ export const ContentCalendar: React.FC<{ style?: React.CSSProperties }> = ({ sty
     <img
       src={photo('calendar')}
       alt="Aadiya Jewels April 2025 content calendar for the main Instagram feed, showing the planned posts, reels, stories and campaigns for each day of the week"
-      className="h-full w-full border border-[#D9C3CC] object-cover shadow-[0_16px_30px_-18px_rgba(112,66,80,0.45)]"
+      className="h-full w-full border border-[#705955]/25 object-cover shadow-[0_16px_30px_-18px_rgba(112,89,85,0.45)]"
     />
   </div>
 );
@@ -78,7 +78,7 @@ export const AiCollage: React.FC<{ style?: React.CSSProperties }> = ({ style }) 
         key={item.key}
         src={photo(item.key)}
         alt={item.alt}
-        className="h-[288px] w-auto border border-[#D9C3CC] object-contain shadow-[0_16px_30px_-18px_rgba(112,66,80,0.45)]"
+        className="h-[288px] w-auto border border-[#705955]/25 object-contain shadow-[0_16px_30px_-18px_rgba(112,89,85,0.45)]"
       />
     ))}
   </div>
@@ -120,7 +120,7 @@ const Phone: React.FC<PhoneProps> = ({ rotation, offsetY, video, alt }) => (
       {/* GLOSS — a single soft diagonal sheen across the glass. */}
       <span className="pointer-events-none absolute inset-[3px] z-20 rounded-[12px] bg-gradient-to-br from-white/12 via-transparent to-white/5" />
 
-      <div className="relative h-full w-full overflow-hidden rounded-[12px] bg-[#2A1C18]">
+      <div className="relative h-full w-full overflow-hidden rounded-[12px] bg-[#FDFCF8]">
         <video
           src={`${VIDEO_DIR}${video}`}
           aria-label={alt}

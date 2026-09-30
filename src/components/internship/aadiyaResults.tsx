@@ -45,7 +45,7 @@ export const SocialGrid: React.FC<{ style?: React.CSSProperties }> = ({ style })
     <img
       src={photo('feedGrid')}
       alt="The Aadiya Jewels Instagram grid as it shipped, nine posts laid out in three rows"
-      className="h-full w-full border border-[#D9C3CC] object-cover shadow-[0_16px_30px_-18px_rgba(112,66,80,0.45)]"
+      className="h-full w-full border border-[#705955]/25 object-cover shadow-[0_16px_30px_-18px_rgba(112,89,85,0.45)]"
     />
   </div>
 );
@@ -83,7 +83,7 @@ export const PostCarousel: React.FC<{ style?: React.CSSProperties }> = ({ style 
             key={key}
             src={photo(key)}
             alt="Aadiya Jewels designed social media post"
-            className="h-[166px] w-[130px] border border-[#D9C3CC] object-cover shadow-[0_12px_24px_-16px_rgba(112,66,80,0.45)]"
+            className="h-[166px] w-[130px] border border-[#705955]/25 object-cover shadow-[0_12px_24px_-16px_rgba(112,89,85,0.45)]"
           />
         ))}
       </div>
@@ -114,7 +114,7 @@ export const AnalyticsLaptop: React.FC<{ style?: React.CSSProperties }> = ({ sty
     <img
       src={photo('dashboard')}
       alt="Instagram insights for Aadiya Jewels, 1 to 30 April 2025, showing reach, engagement and follower growth"
-      className="h-full w-full border border-[#D9C3CC] object-cover shadow-[0_16px_30px_-18px_rgba(40,16,28,0.55)]"
+      className="h-full w-full border border-[#705955]/25 object-cover shadow-[0_16px_30px_-18px_rgba(62,39,35,0.45)]"
     />
   </div>
 );

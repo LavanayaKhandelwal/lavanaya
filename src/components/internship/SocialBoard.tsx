@@ -111,10 +111,10 @@ const H3 = 520;
 
 const washes = (h: number) =>
   [
-    { left: -70, top: -60, w: 560, h: 320, colour: '#F7E8A8', opacity: 0.7, rotate: -8 },
-    { left: -90, top: h - 370, w: 420, h: 300, colour: '#F7E8A8', opacity: 0.65, rotate: 14 },
-    { left: 880, top: -140, w: 760, h: 480, colour: '#F4BFD0', opacity: 0.45, rotate: -6 },
-    { left: 1060, top: h - 270, w: 660, h: 440, colour: '#F7E8A8', opacity: 0.8, rotate: 10 },
+    { left: -70, top: -60, w: 560, h: 320, colour: '#F8E5D7', opacity: 0.8, rotate: -8 },
+    { left: -90, top: h - 370, w: 420, h: 300, colour: '#F8E5D7', opacity: 0.7, rotate: 14 },
+    { left: 880, top: -140, w: 760, h: 480, colour: '#D69589', opacity: 0.32, rotate: -6 },
+    { left: 1060, top: h - 270, w: 660, h: 440, colour: '#F8E5D7', opacity: 0.85, rotate: 10 },
   ] as const;
 
 const GRAIN =
@@ -294,7 +294,7 @@ const Sheet: React.FC<{ h: number; scale: number; children: React.ReactNode }> =
         transform: `scale(${scale})`,
         transformOrigin: 'top left',
       }}
-      className="absolute left-0 top-0 overflow-hidden bg-[#F8DDE5]"
+      className="absolute left-0 top-0 overflow-hidden bg-[#FADBD9]"
     >
       <Paper h={h} />
       {children}
@@ -331,16 +331,16 @@ export const SocialBoard: React.FC = () => {
           {/* The running head. The first sheet only. */}
           <div className="absolute inset-x-[48px] top-[40px] flex items-center justify-between">
             <div className="flex items-center gap-5">
-              <span className="font-body text-[11px] uppercase tracking-[4px] text-[#071326]">
+              <span className="font-body text-[11px] uppercase tracking-[4px] text-[#3E2723]">
                 INTERNSHIP EXPERIENCE
               </span>
-              <span className="h-px w-[350px] bg-[#5F6871]" />
+              <span className="h-px w-[350px] bg-[#705955]/40" />
             </div>
             <div className="flex items-center gap-5">
-              <span className="font-body text-[10px] uppercase tracking-[4px] text-[#071326]">
+              <span className="font-body text-[10px] uppercase tracking-[4px] text-[#3E2723]">
                 AADIYA JEWELS
               </span>
-              <span className="h-px w-[60px] bg-[#5F6871]" />
+              <span className="h-px w-[60px] bg-[#705955]/40" />
             </div>
           </div>
 
@@ -355,7 +355,7 @@ export const SocialBoard: React.FC = () => {
           >
             <div style={{ width: BAND_W - (CALENDAR.w * (H1 / CALENDAR.h)) - COL_GAP }}>
               <h1
-                className="font-serif-display text-[#071326]"
+                className="font-serif-display text-[#3E2723]"
                 style={{
                   fontSize: `${TITLE_PX}px`,
                   lineHeight: 0.88,
@@ -369,7 +369,7 @@ export const SocialBoard: React.FC = () => {
               </h1>
 
               <p
-                className="font-body text-[#394252]"
+                className="font-body text-[#3E2723]/80"
                 style={{ marginTop: 28, fontSize: `${PARA_PX}px`, lineHeight: 1.55 }}
               >
                 Managed the end-to-end social media content process, from planning and shooting to

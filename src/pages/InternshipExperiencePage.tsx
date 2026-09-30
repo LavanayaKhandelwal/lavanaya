@@ -56,7 +56,7 @@ import { KeyLearningsBand } from '../components/internship/KeyLearningsBand';
  */
 
 export const InternshipExperiencePage: React.FC = () => (
-  <main className="bg-[#10090B]">
+  <main className="bg-[#F9F8F2]">
     <SocialBoard />
     <CommerceBoard />
     <KeyLearningsBand />
