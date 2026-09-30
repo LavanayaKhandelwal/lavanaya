@@ -60,12 +60,12 @@ export const ProjectLearnedSection: React.FC = () => {
     <section className="paper-grain-light">
       {/* Header — section marker and title */}
       <div className="mb-14 lg:mb-20">
-        <div className="flex items-center gap-4 mb-8">
+        <div className="reveal flex items-center gap-4 mb-8">
           <span className="eyebrow text-[#3E2723]">05</span>
           <span className="block h-px w-8 lg:w-12 bg-[#705955]/30" aria-hidden="true" />
         </div>
 
-        <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-[#3E2723]">
+        <h2 className="reveal reveal-d1 font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-[#3E2723]">
           What the Project
           <br />
           <span className="font-editorial italic">Taught Me</span>
@@ -74,10 +74,15 @@ export const ProjectLearnedSection: React.FC = () => {
 
       {/* Four learning cards, ovals breaking the top edge */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-5 lg:gap-x-6 gap-y-16 lg:gap-y-20">
-        {cards.map((card) => (
+        {cards.map((card, i) => (
           <article
             key={card.num}
-            className="relative rounded-[14px] bg-[#FADBD9]/50 px-5 sm:px-6 lg:px-7 pt-28 sm:pt-40 lg:pt-48 pb-6 sm:pb-7 flex flex-col justify-between gap-6 min-h-[26rem] sm:min-h-[30rem] lg:min-h-[34rem]"
+            /* Each card rises on its own beat — d1–d4 by position, capped at
+               four because the grid is four wide and a fifth beat would arrive
+               after the row has already been read. */
+            className={`reveal hover-lift relative rounded-[14px] bg-[#FADBD9]/50 px-5 sm:px-6 lg:px-7 pt-28 sm:pt-40 lg:pt-48 pb-6 sm:pb-7 flex flex-col justify-between gap-6 min-h-[26rem] sm:min-h-[30rem] lg:min-h-[34rem] ${
+              i === 0 ? '' : i === 1 ? 'reveal-d1' : i === 2 ? 'reveal-d2' : 'reveal-d3'
+            }`}
           >
             {/* Organic oval breaks the top edge — about a quarter of it hangs above the card */}
             <div className="absolute left-1/2 -top-8 sm:-top-11 lg:-top-14 w-36 h-32 sm:w-52 sm:h-44 lg:w-68 lg:h-56 -translate-x-1/2">

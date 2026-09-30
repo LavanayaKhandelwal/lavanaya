@@ -206,6 +206,111 @@
   text-decoration-color: #FADBD9;
 }
 
+/* ————— Scroll reveals and hover motion —————
+   Two classes of movement, both written on the CSS `translate`/`scale`
+   properties rather than `transform`, for the same reason the Polaroid jiggle
+   below is: a property-specific animation composes with a `transform` the
+   element already carries — the social sheets are inline-scaled, several plates
+   are rotated for their tilt — instead of overwriting it.
+
+   `.reveal` is inert until `AppShell` puts `motion-ready` on <html>, which only
+   happens once the IntersectionObserver in utils/scrollReveal is actually
+   watching. If the script fails to run, or the reader has reduced motion
+   switched on, every element simply stays where it was authored: a reveal
+   system must never be able to hide content it cannot later show. Both blocks
+   sit inside `prefers-reduced-motion: no-preference`, so the reduced-motion
+   rule near the end of this file is a backstop and not the mechanism.
+
+   The observer adds `.reveal-in`; `.reveal-d1`–`.reveal-d4` stagger the
+   children of a row so a grid of cards arrives one after another rather than as
+   a single slab. */
+
+@media (prefers-reduced-motion: no-preference) {
+  html.motion-ready .reveal {
+    opacity: 0;
+    translate: 0 18px;
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      translate 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* For a block that carries its own `transform` whose value matters at rest —
+     a scaled board, a rotated plate — where a mid-flight translate would read as
+     the artwork sliding on its own mount. Arrival is lightness alone. */
+  html.motion-ready .reveal-fade {
+    opacity: 0;
+    transition: opacity 0.9s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  html.motion-ready .reveal-in {
+    opacity: 1;
+    translate: none;
+  }
+
+  .reveal-d1 { --reveal-delay: 90ms; }
+  .reveal-d2 { --reveal-delay: 180ms; }
+  .reveal-d3 { --reveal-delay: 270ms; }
+  .reveal-d4 { --reveal-delay: 360ms; }
+}
+
+/* Hover: 3px of rise, one warm hairline, a photograph that leans 3% closer, an
+   arrow that steps toward where it points. All are small on purpose — these are
+   printed pages, not stickers, and the movement should be discoverable rather
+   than announced. `@media (hover: hover)` keeps the whole thing off touch
+   devices, where a :hover state sticks after a tap. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  /* ONE transition declaration shared by every hover class below. Declaring it
+     per class would mean an element carrying two of them — a plate that both
+     lifts and warms — gets whichever rule comes last, and the other property
+     would snap instead of moving. */
+  .hover-lift,
+  .hover-warm {
+    transition:
+      translate 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+  }
+
+  .hover-lift:hover {
+    translate: 0 -3px;
+  }
+
+  .hover-warm:hover {
+    border-color: rgba(214, 149, 137, 0.55);
+  }
+
+  /* Only for a frame that already clips: the photograph grows inside the
+     hairline rather than pushing past it. */
+  .hover-zoom img {
+    transition: scale 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hover-zoom:hover img {
+    scale: 1.035;
+  }
+
+  .hover-arrow,
+  .hover-arrow-back {
+    transition: color 0.3s ease;
+  }
+
+  .hover-arrow svg,
+  .hover-arrow-back svg {
+    transition: translate 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* The arrow steps toward where it points, so a back link steps left. */
+  .hover-arrow:hover svg {
+    translate: 4px 0;
+  }
+
+  .hover-arrow-back:hover svg {
+    translate: -4px 0;
+  }
+}
+
 /* ————— Typewriter caret ————— */
 
 .typewriter-caret {

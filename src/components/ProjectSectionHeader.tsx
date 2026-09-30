@@ -38,11 +38,15 @@ export const ProjectSectionHeader: React.FC<ProjectSectionHeaderProps> = ({
     <div
       className={`${rule ? 'rule-b-light' : ''} ${fullWidth ? 'pb-2 mb-6' : 'pb-6 mb-12 lg:mb-14 max-w-4xl'}`}
     >
-      <p className="eyebrow text-[#705955] mb-3">{eyebrow}</p>
-      <h2 className="font-display text-4xl sm:text-5xl text-[#3E2723] tracking-tight mb-4">
+      {/* The three lines arrive in the order they are read — marker, heading,
+          lead — 90ms apart. It is the one animation every section header on
+          every project page shares, so the page has a single rhythm for
+          arriving rather than one per file. index.css `.reveal`. */}
+      <p className="reveal eyebrow text-[#705955] mb-3">{eyebrow}</p>
+      <h2 className="reveal reveal-d1 font-display text-4xl sm:text-5xl text-[#3E2723] tracking-tight mb-4">
         {title}
       </h2>
-      {lead && <p className="font-body text-base text-[#3E2723]/80 leading-loose">{lead}</p>}
+      {lead && <p className="reveal reveal-d2 font-body text-base text-[#3E2723]/80 leading-loose">{lead}</p>}
     </div>
   );
 };
