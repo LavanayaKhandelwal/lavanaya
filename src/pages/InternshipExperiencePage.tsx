@@ -1,156 +1,55 @@
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
 import { SocialBoard } from '../components/internship/SocialBoard';
 import { CommerceBoard } from '../components/internship/CommerceBoard';
-import { portfolioData } from '../data/portfolioData';
 
 /**
  * INTERNSHIP — AADIYA JEWELS.
  *
- * Two boards, one page, one scroll. The social media work is the first section
- * and the e-commerce and website management work is the second, and they are
- * sections rather than pages because they are one piece of work told in two
- * halves — one internship, one brand, one set of photographs. Splitting them
- * across two routes asked the reader to decide up front which half of a single
- * job they cared about, which is a question the work itself should answer by
- * being read all the way through.
+ * Two sections, one page, one scroll. The social media work is the first and the
+ * e-commerce and website management work is the second, and they are sections
+ * rather than pages because they are one piece of work told in two halves — one
+ * internship, one brand, one set of photographs. Splitting them across two routes
+ * asked the reader to decide up front which half of a single job they cared
+ * about, which is a question the work itself should answer by being read all the
+ * way through.
  *
- * Every composition on this page is a fixed sheet scaled to fit, so scrolling
- * moves between complete compositions rather than between scroll regions.
- * Nothing on any sheet is reachable by scrolling within it: these are
- * art-directed layouts with absolute pixel positions in them, and a reader who
- * resizes the window gets the same sheet smaller rather than a different
- * arrangement of it.
+ * THE TWO HALVES ARE NOT BUILT THE SAME WAY, and that is because the work in them
+ * is not the same kind of work rather than because the page ran out of attention
+ * halfway down.
  *
- * THE SOCIAL HALF IS THREE SHEETS, NOT ONE. It was a single 1600x900 board,
- * and holding a title, a measure of copy and six prints in 900 pixels meant every
- * print was set to 176 tall — half the size it was drawn at — with two of them
- * spread across a 1504-pixel measure and nothing in between. Splitting it into
- * one sheet per band took the prints to 440 and 520 tall. The e-commerce board
- * below is still a single sheet, and the two halves are no longer the same size
- * on screen; that is a real inconsistency and the honest fix is to rebalance the
- * e-commerce sheet against the new social ones, which is a job of its own.
+ * The social half is three fixed sheets, 1600 wide, flush with each other and
+ * with the edges of the window, with every part of them placed: a running head,
+ * six prints, a hand-drawn annotation set. The sheets are a continuous surface
+ * rather than three boards on a background, so nothing separates them and the
+ * pink runs edge to edge. Nothing on a sheet is reachable by scrolling within it.
+ * These are art-directed layouts with absolute pixel positions in them, and a
+ * reader who resizes the window gets the same sheet smaller rather than a
+ * different arrangement of it.
  *
- * THE SOCIAL SHEETS RUN FULL BLEED AND THE E-COMMERCE BOARD DOES NOT. Those
- * three sheets fill the width of the window edge to edge, so no page ground shows
- * between them, above them or beside them — see `SocialBoard`. This board is one
- * object on a dark page, so it is fitted and centred with ground either side,
- * which is what a mounted print looks like. The two treatments are not a
- * contradiction: the sheets are a continuous surface and a surface has no mount,
- * while a single object does.
+ * The e-commerce half is a fluid section that reflows. Seven columns of website
+ * beside five of prose at the large breakpoint; a four-across card row that
+ * collapses to two and then to one; drawn objects scaled to whatever width they
+ * are given rather than laid out on fixed paper. The work it holds is a website
+ * and a set of tools, and a website is not a fixed composition — it is the one
+ * thing on this page that is genuinely a different size on every screen, so
+ * drawing it as a sheet would have been a lie about what it is.
  *
- * THE DIVIDER BETWEEN THE HALVES EXISTS because the two are very nearly the same
- * colour — the two briefs asked for a light pink and landed two and three points
- * apart in green and blue — so without a break between them a reader scrolling
- * from one to the other would land on a second composition with nothing to say it
- * was the second. It carries a section number and the section's subject and
- * nothing else, in the same eyebrow as the rest of the site, and it sits on the
- * page's own ground rather than on either half, because both are specified as
- * full compositions with their own margins.
- *
- * THE PALETTE BAND SITS NEXT TO IT, closing the social half and running the same
- * dark ground and the same eyebrow so the two read as one break in the page
- * rather than two interruptions. It is the one piece of type on this page that is
- * not on a board, and it earns that: the sheets are flush and full width, so
- * there is no band left on any of them, and the colours it names are the ones
- * the sheets above are painted with.
- *
- * Its padding is halved below the large breakpoint for the same reason the
- * e-commerce board hugs there: on a phone that board is about 219 pixels tall,
- * and a divider with desktop padding on it would be taller than the artwork it
- * divides.
+ * THEY MEET DIRECTLY, with no band, no rule and no section number between them.
+ * A divider and a palette band used to sit in that gap, and the divider's reason
+ * for existing is the reason they are not missed now: it existed to announce that
+ * a second composition was arriving, because the two halves were once painted in
+ * colours close enough that a reader scrolling from one to the other would have
+ * landed on what looked like the same ground again. They are not close now. The
+ * sheets are on a blush pink and this section is on the cream of the reference it
+ * was rebuilt in, and a change of ground is a change of material — it needs no
+ * announcement, because it cannot be missed. The band beneath it named the five
+ * colours the sheets are painted with, which was a reference for work that is
+ * still on the page and did not need to be restated between the two halves.
  */
-
-const Divider: React.FC = () => (
-  <div className="flex flex-col items-center justify-center gap-5 bg-[#10090B] px-5 py-14 lg:gap-7 lg:py-24">
-    <div className="flex items-center gap-5">
-      <span className="h-px w-10 lg:w-16" style={{ background: '#705955' }} aria-hidden="true" />
-      <span className="eyebrow text-[#F8DDE3]">Section 02</span>
-      <span className="h-px w-10 lg:w-16" style={{ background: '#705955' }} aria-hidden="true" />
-    </div>
-
-    <p className="font-editorial text-center text-[clamp(1.6rem,3.2vw,2.6rem)] leading-[1.05] text-[#F8DDE3]">
-      E-commerce &amp; Website Management
-    </p>
-
-    {/* The only downward cue on the page. It is here because the second board
-        is further down the scroll and a reader at the foot of the first one has
-        no other evidence that it exists. */}
-    <ChevronDown className="w-4 h-4 text-[#705955]" aria-hidden="true" />
-  </div>
-);
-
-/**
- * THE PALETTE, between the two halves.
- *
- * It is not on a sheet. The three social sheets are fixed-size art-directed
- * compositions with every part of them placed and they are flush with each other
- * and with the edges of the window, so there is no band left on any of them that
- * would hold five swatches without pushing something else off the paper. So it
- * sits on the page's own ground, in the same eyebrow as the divider beside it,
- * and it closes the social half of the page.
- *
- * That espresso is deliberate here, and it is worth being precise about why,
- * because the social sheets spend a lot of effort keeping it out of their own
- * half of the page. The sheets are a continuous surface: gaps between them, and
- * a letterbox around them, both read as the page breaking the paper in three.
- * The palette band is not a gap in that paper — it is a different thing, a
- * labelled strip of reference that belongs to no sheet, and putting it on the
- * ground is what makes it legible as one. It is a change of material, not a
- * seam in a material.
- *
- * The colours are the ones the sheets above are painted with, not a brand colour
- * board — see `internship.palette` for what they are and are not. Two of the
- * five are pale enough to vanish against a dark ground and two are dark inks
- * that would vanish against anything, so every swatch carries a hairline in the
- * page's own taupe: the mount is what keeps the ink navy readable rather than an
- * assumption that a dark square on a dark page reads as a dark square.
- */
-const PaletteBand: React.FC = () => {
-  const { palette } = portfolioData.internship;
-
-  return (
-    <section className="bg-[#10090B] px-5 py-14 lg:px-12 lg:py-20">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-          <span className="eyebrow text-[#F8DDE3]">THE PALETTE</span>
-          <span className="eyebrow text-[#705955]">
-            {palette.swatches.length.toString().padStart(2, '0')} COLOURS
-          </span>
-        </div>
-
-        <p className="mt-4 max-w-[62ch] font-body text-sm leading-relaxed text-[#F8DDE3]/75">
-          {palette.content}
-        </p>
-
-        <ul className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 lg:gap-4">
-          {palette.swatches.map((swatch) => (
-            <li key={swatch.hex}>
-              <div className="rounded-lg border border-[#705955]/45 bg-[#1B1116] p-2 transition-colors duration-300 hover:border-[#F8DDE3]/60">
-                <div
-                  className="h-20 rounded-md border border-[#705955]/40 lg:h-24"
-                  style={{ backgroundColor: swatch.hex }}
-                  role="img"
-                  aria-label={`${swatch.name} swatch, ${swatch.hex}`}
-                />
-              </div>
-              <p className="mt-2.5 eyebrow text-[#F8DDE3]/90">{swatch.name}</p>
-              <p className="mt-1 font-mono-code text-[0.6875rem] tracking-[0.08em] text-[#705955]">
-                {swatch.hex.toUpperCase()}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-};
 
 export const InternshipExperiencePage: React.FC = () => (
   <main className="bg-[#10090B]">
     <SocialBoard />
-    <PaletteBand />
-    <Divider />
     <CommerceBoard />
   </main>
 );
