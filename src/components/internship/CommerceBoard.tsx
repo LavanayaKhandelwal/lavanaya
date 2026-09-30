@@ -2,10 +2,7 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import { motion, MotionConfig } from 'motion/react';
 import { FlowerMark } from '../CustomDoodles';
 import {
-  Annotation,
   SectionLabel,
-  SketchArrow,
-  SketchHeart,
   SparkBurst,
 } from './aadiyaMarks';
 import { WebsiteLaptop, WebsitePhone } from './commerceInterface';
@@ -417,8 +414,8 @@ export const CommerceBoard: React.FC = () => (
 
           <InterfaceCard
             index={2}
-            label="SITE UPDATES &amp; BANNERS"
-            description="Designed and updated banners, pop-ups and landing pages to keep the website fresh and aligned with brand campaigns."
+            label="SITE BANNERS"
+            description="Designed and updated banners and pop-ups to keep the website fresh and aligned with brand campaigns."
           >
             {/* The two campaign banners, stacked, at their own two different
                 proportions. This card used to be the only cluster on the section
@@ -442,86 +439,6 @@ export const CommerceBoard: React.FC = () => (
             <CollectionPage style={{ left: 150, top: 35 }} />
           </InterfaceCard>
         </div>
-
-        {/* ————— THE CLOSING NOTE —————
-            Four lines of brush lettering and a small heart. On the sheet it sat
-            in the bottom right corner, in the ninety pixels the page and the
-            sheet's edge left between them. There is no corner here that is that
-            shape, so it sits centred under the card row instead, in the same
-            soft pill the reference closes its own section with — a rose
-            lozenge, a little hand-written line, and a heart, which is very
-            nearly the reference's arrangement, down to the heart.
-
-            The pill is a stadium around a four-line block rather than around a
-            single line, and it is worth saying why the line count survived: the
-            four words are the last word of the section, and rejoining them into
-            one line would have been rewriting the copy to suit the container. */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-16 flex flex-col items-center"
-        >
-          {/* The arrow ran down the twenty-pixel gutter between the catalogue
-              column and the banner column, and it pointed between two cards. A
-              card row has no gutter to run down, so it points at the one thing
-              that is still below everything else. */}
-          <SketchArrow
-            viewBox="0 0 20 58"
-            className="mb-1"
-            style={{ width: 20, height: 58 }}
-            from={[2, 2]}
-            to={[17, 56]}
-            bow={[-4, 30]}
-            colour="var(--c-ink)"
-            width={1.4}
-          />
-
-          <div className="flex items-center gap-5">
-            {/* The three short strokes that sat beside the laptop. */}
-            <svg
-              width="34"
-              height="46"
-              viewBox="0 0 34 46"
-              fill="none"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <g stroke="var(--c-ink)" strokeWidth="1.4" strokeLinecap="round">
-                <path d="M6 2c-1.6 7 1 12.5 4.4 16.6" />
-                <path d="M16.6 6.5c-1.3 8 1.2 14 4.8 18.2" />
-                <path d="M27 12.4c-.9 6.6.8 11.4 3.4 14.8" />
-              </g>
-            </svg>
-
-            <div className="group inline-flex items-center gap-3 rounded-full border border-[var(--c-warm)] bg-[var(--c-warm-light)] px-8 py-4 transition-all duration-300 hover:-translate-y-1 hover:aj-shadow">
-              <Annotation
-                size={17}
-                colour="var(--c-ink)"
-                className="rotate-[-6deg] text-center leading-[1.05]"
-              >
-                {'Better\nDesigns\nSmoother\nExperiences'}
-              </Annotation>
-              <SketchHeart size={16} colour="var(--c-ink)" />
-            </div>
-
-            {/* The two strokes that sat in the gutter beside the last section. */}
-            <svg
-              width="18"
-              height="34"
-              viewBox="0 0 18 34"
-              fill="none"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <g stroke="var(--c-ink)" strokeWidth="1.4" strokeLinecap="round">
-                <path d="M4 3c-1.2 6 .6 11 3.6 15" />
-                <path d="M12 1.4c-1 6.4.8 11.6 3.6 15.4" />
-              </g>
-            </svg>
-          </div>
-        </motion.div>
       </div>
     </section>
   </MotionConfig>
