@@ -24,18 +24,21 @@ import { BoardPhoto } from './aadiyaMarks';
    machine in the world has, and all three are the details the eye checks first.
 
    The frame is an 800 by 489 PNG with the panel cut into it, and the cutout is
-   11.8% in from each side, 4.5% from the top and 15.5% from the bottom — the
-   proportions the reference project's own frame uses, which is what makes this
-   the same device rather than an approximation of it.
+   the transparency punched into that PNG, measured off its alpha channel
+   rather than taken on trust: 9.25% in from each side, 3.68% from the top
+   and 10.02% from the bottom. An earlier revision used the reference
+   project's own 11.8 / 4.5 / 15.5, which left the screen floating inside
+   the display with padding on three sides — measured against this file,
+   those numbers are simply smaller than the hole cut in it.
 
-   THE FRAME IS AUTHORED AT 654 BY 390 rather than filling its column, and that
-   number is not a preference. It is the proportion of the reference project's
-   own frame: 500 over 0.764 is 654 wide, 312 over 0.80 is 390 tall, and the
-   cutout comes out at 499.66 by 312. The desktop homepage screenshot is 1600
-   by 1000, a ratio of 1.6 against the cutout's 1.6014, so it covers the panel
-   with less than a tenth of a percent cropped and no headline falls off an
-   edge. The whole assembly is scaled afterwards, as one object, by the fit in
-   `CommerceBoard`.
+   THE FRAME IS AUTHORED AT 654 BY 390 rather than filling its column — the
+   reference project's own size for this device, kept because the phone is
+   seated against it. At that size the cutout comes out at 533.01 by 336.57.
+   The desktop homepage screenshot is 1600 by 1000, a ratio of 1.6 against
+   the cutout's 1.5837, so it covers the panel with about one percent cropped
+   off the sides — edge pixels of a full-page screenshot, and no headline
+   falls off an edge. The whole assembly is scaled afterwards, as one object,
+   by the fit in `CommerceBoard`.
 
    Two things went with the drawn lid and are worth naming. The brand's name was
    written across the laptop's chin, which is not something a real machine
@@ -52,10 +55,11 @@ export const WebsiteLaptop: React.FC<{ style?: React.CSSProperties }> = ({ style
         hinge, the base, the corners — and a rectangle behind it never could. */}
     <div className="drop-shadow-[0_18px_24px_rgba(60,63,58,0.3)]">
       <div className="relative h-[390px] w-[654px]">
-        <div className="absolute inset-x-[11.8%] top-[4.5%] bottom-[15.5%] overflow-hidden rounded-[4px] bg-[#FFFBF6]">
-          {/* The desktop homepage, 1600 by 1000 in a cutout of ratio 1.6014 —
-              less than a tenth of a percent cropped. The frame is the machine;
-              this is the site. */}
+        <div className="absolute inset-x-[9.25%] top-[3.68%] bottom-[10.02%] overflow-hidden rounded-[4px] bg-[#FFFBF6]">
+          {/* The desktop homepage, 1600 by 1000 in a cutout of ratio 1.5837 —
+              about one percent cropped off the sides, which is edge pixels of
+              a full-page screenshot. The frame is the machine; this is the
+              site. */}
           <BoardPhoto
             src="/portfolio-assets/website-laptop-screen.jpeg"
             alt="Screenshot of the Aadiya Jewels desktop homepage, with the navigation, an Everyday Gold Jewellery hero and a model wearing emerald jewellery"
