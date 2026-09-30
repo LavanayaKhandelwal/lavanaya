@@ -50,10 +50,9 @@ const SOCIAL = {
 
 /** The e-commerce board, which reaches further down the same folder. */
 const COMMERCE = {
-  /* THE WEBSITE — the hero photograph on the laptop screen. The phone used to
-     carry its own hero and two bestsellers; its screen is a real screenshot
-     now, so those three files have no reader left. */
-  siteHero: 'f54639f8-2182-461e-bc6b-63ce3787f763.jpg',
+  /* THE CATEGORY TILES on the collection page. The laptop screen used to be a
+     drawing with its own hero photograph; it shows the real homepage now, so
+     that file has no reader left. */
 
   /* THE CATEGORY TILES under the hero, and again on the collection page. */
   tileNecklace: 'IMG_1559.PNG',

@@ -4,7 +4,7 @@ import { BoardPhoto } from './aadiyaMarks';
 /**
  * THE THREE CARDS THAT SHOW THE WORK RATHER THAN A DIAGRAM OF IT.
  *
- * What is still drawn on this section — the laptop, the phone, the two pages —
+ * What is still drawn on this section — the phone frame and the two pages —
  * is drawn because those are objects a reader recognises by their structure,
  * and a structure can be rebuilt at any size. A backend table, a catalogue
  * workbook and a campaign banner are a different thing. They are finished

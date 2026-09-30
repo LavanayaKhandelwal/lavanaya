@@ -84,23 +84,25 @@ import { CollectionPage, ProductPage } from './commercePages';
  * twice, the products table and one row of it opened, taking `commerceBackend`
  * with it. Then the phone's drawn screen went too — status bar, hero,
  * bestsellers and all — leaving its drawn frame around the real Shop by
- * Category screen.
+ * Category screen. Last of all the laptop's drawn screen: header, hero,
+ * category tiles and the glyphs that only ever lived inside them, replaced
+ * by the real homepage in the real frame.
  */
 
 /* ————————————————————————————————————————————————————————————
    A DRAWN OBJECT, FITTED TO THE SPACE IT IS GIVEN.
 
-   The drawings on this section are the laptop screen, the phone frame and the
-   two pages. Each one is a hand-built arrangement of divs at absolute pixel
-   positions inside a fixed box, and the pixel positions are the artwork — a
-   212-pixel product page with a 188-pixel collection page laid 150 across is
-   what makes the two read as peers. So none of them is rewritten to be
-   responsive, and none of them is replaced by a screenshot.
+   The drawings on this section are the phone frame and the two pages. Each one
+   is a hand-built arrangement of divs at absolute pixel positions inside a
+   fixed box, and the pixel positions are the artwork — a 212-pixel product
+   page with a 188-pixel collection page laid 150 across is what makes the two
+   read as peers. So none of them is rewritten to be responsive, and none of
+   them is replaced by a screenshot.
 
-   Everything else on it is a screenshot — the phone's Shop by Category screen,
-   the backend table and one of its rows, two sheets of the catalogue workbook,
-   and two banner designs — and the rule above is what puts them there: each is
-   a finished artefact rather than a structure, so a drawing of one would be a
+   Everything else on it is a screenshot — the laptop's homepage screen, the
+   phone's Shop by Category screen, the backend table and one of its rows, two
+   sheets of the catalogue workbook, and two banner designs — and the rule above
+   is what puts them there: each is a finished artefact rather than a structure, so a drawing of one would be a
    substitute for the evidence instead of an illustration of it. The card
    photographs are in `commerceShots` and the phone screen is served directly
    like the laptop frame; all of them pass their own intrinsic dimensions, and
