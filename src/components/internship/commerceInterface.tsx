@@ -257,6 +257,10 @@ export const WebsiteLaptop: React.FC<{ style?: React.CSSProperties }> = ({ style
    same site at two widths is the single clearest statement that the work was
    responsive, and the only way to make that claim in one glance is to put the
    two widths next to each other on purpose.
+
+   The frame is drawn and the screen is not: buttons, gloss and hole punch are
+   structures, while the Shop by Category screen inside them is the thing
+   itself, shown from the real file.
    ———————————————————————————————————————————————————————————— */
 
 export const WebsitePhone: React.FC<{ style?: React.CSSProperties }> = ({ style }) => (
@@ -274,73 +278,18 @@ export const WebsitePhone: React.FC<{ style?: React.CSSProperties }> = ({ style 
       <span className="pointer-events-none absolute inset-[3px] z-20 rounded-[12px] bg-gradient-to-br from-white/12 via-transparent to-white/5" />
 
       <div className="relative h-full w-full overflow-hidden rounded-[12px] bg-[#FFFBF6]">
-        {/* STATUS BAR — the time and two indicators, so the screen has a top
-            edge rather than starting flush. */}
-        <div className="flex h-[11px] items-center justify-between px-2.5 pt-0.5">
-          <span className="font-body text-[5px] font-medium text-[#2E2A22]">9:41</span>
-          <div className="flex items-center gap-[3px]">
-            <span className="h-[3px] w-[7px] rounded-[1px] bg-[#2E2A22]" />
-            <span className="h-[3px] w-[4px] rounded-[1px] bg-[#2E2A22]" />
-            <span className="h-[4px] w-[6px] rounded-[1px] border border-[#2E2A22]" />
-          </div>
-        </div>
-
-        {/* HERO */}
-        <div className="relative h-[86px] overflow-hidden">
-          <BoardPhoto
-            src={photo('siteHeroAlt')}
-            alt="Jewellery lifestyle photograph used as the mobile hero"
-            plate="#EFE0D2"
-            className="absolute inset-0"
-          />
-          <span className="absolute inset-0 bg-gradient-to-t from-[#F3E2D3]/85 to-[#F3E2D3]/20" />
-          <p className="font-editorial absolute bottom-2 left-2.5 text-[13px] leading-[1.04] text-[#2E2A22]">
-            Everyday
-            <br />
-            Elegance
-          </p>
-        </div>
-
-        <div className="px-2.5 pt-1.5">
-          <span className="block w-fit bg-[#2E2A22] px-2 py-[4px]">
-            <span className="font-body text-[4.5px] uppercase tracking-[1.1px] text-[#FFFBF6]">
-              Shop Now
-            </span>
-          </span>
-        </div>
-
-        {/* BESTSELLERS — two product cards, which is what the brief asks for and
-            also the smallest place on the board where a product photograph has
-            to survive being 43 pixels wide. */}
-        <div className="px-2.5 pt-2.5">
-          <span className="font-body block text-[5.5px] uppercase tracking-[0.9px] text-[#4A4038]">
-            Our Bestsellers
-          </span>
-          <div className="mt-1.5 grid grid-cols-2 gap-1.5">
-            <div>
-              <BoardPhoto
-                src={photo('bestsellerA')}
-                alt="Gold hoop earrings product photograph"
-                plate="#F6E7DC"
-                className="h-[38px] w-full"
-              />
-              <span className="font-body mt-[3px] block text-[4px] leading-[1.2] text-[#6B6155]">
-                Gold hoop earrings
-              </span>
-            </div>
-            <div>
-              <BoardPhoto
-                src={photo('bestsellerB')}
-                alt="Pearl necklace product photograph"
-                plate="#F6E7DC"
-                className="h-[38px] w-full"
-              />
-              <span className="font-body mt-[3px] block text-[4px] leading-[1.2] text-[#6B6155]">
-                Pearl necklace
-              </span>
-            </div>
-          </div>
-        </div>
+        {/* The screen is the real file, not a drawing of it. The frame around
+            it — buttons, gloss, hole punch — is still drawn, because a frame
+            is a structure and the screen is the thing itself. */}
+        <BoardPhoto
+          src="/portfolio-assets/website-phone-screen.jpeg"
+          alt="Screenshot of the Aadiya Jewels mobile site's Shop by Category screen, with Earrings, Bracelets, Rings and Pendants tiles"
+          width={640}
+          height={1280}
+          plate="#FFFBF6"
+          className="h-full"
+          loading="eager"
+        />
       </div>
 
       {/* HOLE PUNCH */}

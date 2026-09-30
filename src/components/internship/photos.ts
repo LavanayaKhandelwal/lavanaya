@@ -50,9 +50,10 @@ const SOCIAL = {
 
 /** The e-commerce board, which reaches further down the same folder. */
 const COMMERCE = {
-  /* THE WEBSITE — the hero on the desktop screen and the one on the phone. */
+  /* THE WEBSITE — the hero photograph on the laptop screen. The phone used to
+     carry its own hero and two bestsellers; its screen is a real screenshot
+     now, so those three files have no reader left. */
   siteHero: 'f54639f8-2182-461e-bc6b-63ce3787f763.jpg',
-  siteHeroAlt: 'WhatsApp Image 2026-09-13 at 19.42.18 (1).jpeg',
 
   /* THE CATEGORY TILES under the hero, and again on the collection page. */
   tileNecklace: 'IMG_1559.PNG',
@@ -69,11 +70,6 @@ const COMMERCE = {
   /* THE FLORAL BAND at the head of the collection page. This used to be called
      the pop-up's photograph, back when there was a pop-up on this board. */
   collectionHeader: '1e36b3dd-85f2-438b-b90a-e7143dbd03cd.jpg',
-
-  /* THE BESTSELLERS on the phone — the same product, shot once, appearing
-     wherever a product needs to be seen small. */
-  bestsellerA: 'DD05B299-B533-4126-B54A-3B48CD3AA413.jpg',
-  bestsellerB: 'f72aff62-4ccf-4668-9ba7-1a88dc9a9eab.jpg',
 } as const;
 
 export const FILES = { ...SOCIAL, ...COMMERCE };
