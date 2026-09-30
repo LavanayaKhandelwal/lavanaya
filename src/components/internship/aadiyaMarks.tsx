@@ -1,26 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 /**
- * SHARED FURNITURE FOR THE AADIYA JEWELS BOARDS.
+ * SHARED FURNITURE FOR THE AADIYA JEWELS WORK.
  *
- * Four things live here because all four are needed by both boards and none of
- * them belong to either one: the hook that scales a sheet to the window, the
- * photograph wrapper, the hand-drawn marks, and the label and annotation faces.
+ * The hook that scales a sheet to the window, the photograph wrapper, the
+ * hand-drawn marks, and the label and annotation faces. It is shared because the
+ * social sheets and the e-commerce section were specified as two separate
+ * pieces of work and happen to need the same four things, and putting the
+ * shared four in one place is what stops them drifting into two slightly
+ * different versions of the same label.
  *
- * Nothing in this file carries a colour from either board's palette. Both boards
- * were specified with their own palette — one blush, one cream — and a shared
- * file that quietly preferred one of them would put the other's palette at the
- * mercy of whichever file was edited last.
+ * Nothing in this file carries a colour. The social sheets and the e-commerce
+ * section are built to two different palettes, and a shared file that quietly
+ * preferred one of them would put the other's palette at the mercy of whichever
+ * file was edited last, so every colour is passed in or taken from a token.
  */
 
 /* ————————————————————————————————————————————————————————————
-   A BOARD IS A FIXED SHEET.
+   A SHEET IS A FIXED SHEET.
 
-   Both specifications this project is built from are art-directed boards with
-   absolute pixel positions in them — a 410x280 calendar, a 48px margin, a 55px
-   title, a 1536x1024 canvas. Those numbers only mean anything against one fixed
-   sheet, so each sheet is fixed, every object is positioned in stage pixels,
-   and the whole thing is scaled as a unit to whatever the window happens to be.
+   The social media specification is an art-directed board with absolute pixel
+   positions in it — a 410x280 calendar, a 48px margin, a 55px title. Those
+   numbers only mean anything against one fixed sheet, so the sheet is fixed,
+   every object is positioned in stage pixels, and the whole thing is scaled as a
+   unit to whatever the window happens to be.
 
    Scaling is done with a transform rather than with fluid units because the
    alternative changes the design. A percentage width would make the 410px
@@ -28,18 +31,21 @@ import React, { useEffect, useRef, useState } from 'react';
    the same proportion and the wrong object. The brief is a spread, and a
    spread gets smaller, not denser.
 
-   The sheets are not all the same shape, and one number was retired to get
-   there. The social work was a single 1600x900 board; it is now three sheets of
-   1600 wide, 680, 600 and 680 tall, because three bands inside 900 pixels could
-   only be had by halving every print. So there is no single social sheet size
-   left to record here, and the e-commerce board is the only one that is still
-   one number. 1536x1024 is three by two, against the sixteen by nine the first
-   brief was written in; the number won, because the number is the one the pixel
-   positions were written against.
-   ———————————————————————————————————————————————————————————— */
+   There is no single sheet size to record here. The social work was one
+   1600x900 board and is now three sheets of 1600 wide, 680, 600 and 680 tall,
+   because three bands inside 900 pixels could only be had by halving every
+   print; three numbers where there used to be one is the honest description.
 
-/** The e-commerce board: 3:2, the shape the second brief's resolution gives. */
-export const COMMERCE_SHEET = { width: 1536, height: 1024 } as const;
+   The e-commerce half of the internship used to be a sheet too — 1536 by 1024,
+   three by two — and stopped being one. It is a fluid section now, in the
+   interface of the reference project's internship page, and it fits its drawn
+   objects to their columns individually rather than scaling one canvas as a
+   unit. It still keeps its artwork in absolute pixels inside each object; what
+   it gave up is the single sheet they all shared. Its own fit lives in
+   CommerceBoard, next to the objects it is fitting, rather than here, because
+   there is no longer anything in common between the two halves for a shared
+   hook to do.
+   ———————————————————————————————————————————————————————————— */
 
 /**
  * The width Tailwind's `lg` breakpoint sits at.
@@ -63,15 +69,15 @@ const WIDE_FROM = 1024;
  * A ResizeObserver does the measuring so the board re-fits on rotation and on
  * the mobile URL bar collapsing, neither of which fire a window resize event.
  *
- * `hug` exists because these two boards are sections of one scrolling page
- * rather than pages of their own, and a section that claims a whole screen
- * each is only affordable when one of them is the whole page. A 16:9 sheet on a
- * phone is 219 pixels tall inside an 844-pixel screen, so a full-height section
- * around it spends 625 pixels on letterbox — and with two boards stacked that
- * is 1209 pixels of scrolling through nothing to reach 480 pixels of work. In
- * hug mode the frame takes the board's own height, the width alone decides the
- * scale, and the section ends where the artwork does. The board is exactly as
- * large either way; only the padding around it changes.
+ * `hug` exists because the sheets are a section of one scrolling page rather
+ * than a page of their own, and a section that claims a whole screen is only
+ * affordable when the sheet is the whole page. A 16:9 sheet on a phone is 219
+ * pixels tall inside an 844-pixel screen, so a full-height section around it
+ * spends 625 pixels on letterbox — and with three sheets stacked that is a long
+ * scroll through nothing to reach the work. The frame takes the sheet's own
+ * height, the width alone decides the scale, and the section ends where the
+ * artwork does. The sheet is exactly as large either way; only the padding
+ * around it changes.
  *
  * The decision is made from the width the hook has already measured rather than
  * from a breakpoint read at render time, because a value read once during
@@ -86,6 +92,7 @@ const WIDE_FROM = 1024;
  * floating on a background rather than as one piece of paper. With it set, the
  * width alone decides and the height is free, so the sheets meet their margins
  * at the edges of the window and the page ground never appears between them.
+ * The social run is currently the only caller and it always fills.
  */
 export function useBoardScale(
   sheetWidth: number,

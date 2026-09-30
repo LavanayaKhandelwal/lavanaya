@@ -159,6 +159,33 @@
   color: #705955;
 }
 
+/* ————— Aadiya Jewels, the e-commerce section —————
+   This one section is built to a different project's palette: a cream ground,
+   a near-black ink, a dusty rose and a pale rose. The four values are scoped to
+   the section's own class rather than added to :root, so a cream card here
+   cannot be reached for by a component on another page by accident, and so the
+   rest of the site keeps the ground it was designed against.
+
+   The offset shadow is registered as a utility rather than written as a class,
+   because `hover:` on a plain class does not generate in Tailwind 4. It is
+   named `aj-shadow` rather than `paper-shadow` because four components on the
+   home page already ask for `paper-shadow`, `paper-shadow-sm` and
+   `paper-shadow-lg` and none of them are defined anywhere in this project.
+   Defining those names here would switch a hard-coded dark shadow on across the
+   hero and three other sections, which is not this section's business. The var
+   carries a fallback so the utility still resolves if it is ever used outside
+   the section that defines the token. */
+.aj-ecom {
+  --c-bg: #F6E7D3;
+  --c-ink: #2A2E28;
+  --c-warm: #C9A0A4;
+  --c-warm-light: #EBD7DA;
+}
+
+@utility aj-shadow {
+  box-shadow: 3.5px 3.5px 0px var(--c-ink, #2A2E28);
+}
+
 /* Organic oval frame — a closed, asymmetric figure for image slots, so the
    shape never reads as a plain circle. Percentages keep it fluid at any size. */
 .oval-frame {
