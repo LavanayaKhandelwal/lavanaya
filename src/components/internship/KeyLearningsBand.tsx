@@ -13,8 +13,9 @@ import { portfolioData } from '../../data/portfolioData';
  * is both the commit that tightened the band and the last commit before it was
  * removed, so the reduced gap and the final form are the same revision. What it
  * changed was the band's own air — `py-16 lg:py-20` to `py-10 lg:py-14`, the
- * `mb-20 lg:mb-24` below it to `mb-12 lg:mb-16`, and each outcome row from
- * `py-8` to `py-5` — plus the header, which gained `fullWidth` and lost its
+ * `mb-20 lg:mb-24` below it to `mb-12 lg:mb-16` (since gone entirely — see the
+ * end of this comment), and each outcome row from `py-8` to `py-5` — plus the
+ * header, which gained `fullWidth` and lost its
  * hairline, and the closing link through to the synthesis page, which went
  * because the rows already carry their own top rules and a rule under the header
  * as well read as a fifth row. That link is deliberately still not here. The
@@ -39,18 +40,26 @@ import { portfolioData } from '../../data/portfolioData';
  *
  * The ground under it is likewise not the band's own. It was cream, from the
  * page wrapper this band used to sit in, and it is recreated here as a wrapper
- * of this component's own so that the band's `mb-12 lg:mb-16` lands on cream
- * rather than on the near-black of `<main>`, and so the page still ends on the
- * colour it ended on when this band was last there.
+ * of this component's own, so that the page still ends on the colour it ended
+ * on when this band was last there.
+ *
+ * THE PAGE NOW ENDS ON THE BAND ITSELF, and this wrapper carries no padding at
+ * all. It used to be `pb-16 lg:pb-24`, under a band that also carried
+ * `mb-12 lg:mb-16`, which put 112 pixels of empty cream below the last row on a
+ * phone and 160 on a desktop — the largest gap on the page, at the one place a
+ * reader reaches the end and expects the end to be there. Both are gone. The
+ * band's own `py-10 lg:py-14` is still its air, so the last outcome sits 40 or
+ * 56 pixels above the band's lower edge rather than 152 or 216, and the wrapper
+ * is now a background and nothing else.
  */
 export const KeyLearningsBand: React.FC = () => {
   const { internship } = portfolioData;
 
   return (
-    <div className="bg-[#F9F8F2] pb-16 lg:pb-24">
+    <div className="bg-[#F9F8F2]">
       <section
         id="internship-learnings"
-        className="bg-[#FADBD9] px-5 sm:px-8 lg:px-12 py-10 lg:py-14 mb-12 lg:mb-16 scroll-mt-24"
+        className="bg-[#FADBD9] px-5 sm:px-8 lg:px-12 py-10 lg:py-14 scroll-mt-24"
       >
         <ProjectSectionHeader fullWidth rule={false} eyebrow="PAGE 4 — KEY LEARNINGS" title="Key Learnings" />
 

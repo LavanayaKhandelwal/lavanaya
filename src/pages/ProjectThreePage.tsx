@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { EverydayAthleisurePageOne } from '../components/marketing/EverydayAthleisurePageOne';
 import { EverydayAthleisurePageTwo } from '../components/marketing/EverydayAthleisurePageTwo';
 
@@ -45,6 +47,17 @@ export const ProjectThreePage: React.FC = () => {
           </div>
 
           <span className="eyebrow text-[#705955]">PROJECT 03</span>
+        </div>
+
+        {/* Onward link — next project */}
+        <div className="mt-8 flex justify-end">
+          <Link
+            to="/projects/project-4"
+            className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link"
+          >
+            <span>Next Project: Hunkemöller →</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </div>
     </div>

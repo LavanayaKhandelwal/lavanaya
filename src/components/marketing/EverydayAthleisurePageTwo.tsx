@@ -354,19 +354,15 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
       {/* ——— Band A — the title, and the FROM IDEA TO MVP panel ————— */}
       <section className="relative rule-t-light pt-12 pb-14 lg:pt-16 lg:pb-20">
         <div className="relative">
-          {/* Title */}
+          {/* Title. The "PROJECT" eyebrow and its hairline used to sit above
+              this; only the rule and the word are gone, the heading stays. */}
           <div className="text-center">
-            <div className="flex items-center justify-center gap-4">
-              <span className="eyebrow text-[#3E2723]">PROJECT</span>
-              <span className="block h-px w-11 bg-[#A38D89]" aria-hidden="true" />
-            </div>
-
             {/* The site selection highlight, inverted and made permanent: an
                 espresso block behind pink type. inline-block so the block
                 spans the words rather than the full column, and
                 box-decoration-break so a wrapped line gets its own block
                 instead of one tall rect spanning both. */}
-            <h1 className="mt-6 inline-block bg-[#3E2723] px-3 py-1 font-display text-[clamp(2rem,3.9vw,3rem)] leading-[1.05] tracking-[-0.01em] text-[#FADBD9] [box-decoration-break:clone]">
+            <h1 className="inline-block bg-[#3E2723] px-3 py-1 font-display text-[clamp(2rem,3.9vw,3rem)] leading-[1.05] tracking-[-0.01em] text-[#FADBD9] [box-decoration-break:clone]">
               {TITLE_LINES[0]}
             </h1>
           </div>

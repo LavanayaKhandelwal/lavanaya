@@ -118,7 +118,6 @@ export const ConceptToShapeSection: React.FC = () => {
     designInsight,
     conceptSummary,
   } = vm.page2Brief;
-  const { colourBoard } = vm.page3Boards;
 
   /* The page breaks "Where the Concept Took Shape" after the concept, so the
      second line can carry the italic. Split on the last two words. */
@@ -241,50 +240,6 @@ export const ConceptToShapeSection: React.FC = () => {
           </div>
         </div>
 
-        {/* ——— The palette, pulled out of the colour board and set as itself.
-                 The colour board is one of the three frames above, but a board
-                 is only ever a photograph of the decision; these five swatches
-                 are the decision — the exact values, named, in the order they
-                 were chosen. `page3Boards.colourBoard` had been sitting in the
-                 data unrendered until this strip, which is why the board above
-                 read as an anonymous image. ——— */}
-        <div className="rule-t-light mt-10 lg:mt-14 pt-7 lg:pt-9">
-          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-            <span className="eyebrow text-[#3E2723]">THE PALETTE</span>
-            <span className="eyebrow text-[#705955]">
-              {colourBoard.palette.length.toString().padStart(2, '0')} COLOURS
-            </span>
-          </div>
-
-          <p className="mt-4 max-w-[62ch] font-body text-sm text-[#3E2723]/80 leading-relaxed">
-            {colourBoard.content}
-          </p>
-
-          {/* Five swatches. The mounts are the same framed cards the boards
-              directly above now use — white ground, taupe hairline, rounded,
-              one soft shadow — so the strip reads as part of that column's
-              language rather than a separate component. The mount also does
-              real work here: the Soft Blush swatch is the pink of this band's
-              own ground, and without it the swatch would dissolve into it. */}
-          <ul className="mt-6 lg:mt-7 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4">
-            {colourBoard.palette.map((swatch) => (
-              <li key={swatch.hex}>
-                <div className="p-2 bg-[#FDFCF8] border-[1.5px] border-[#705955]/35 rounded-lg shadow-[0_4px_16px_rgba(62,39,35,0.06)] hover:border-[#3E2723] hover:shadow-[0_8px_24px_rgba(62,39,35,0.12)] transition-all duration-300">
-                  <div
-                    className="h-20 lg:h-24 2xl:h-28 rounded-md border border-[#705955]/20"
-                    style={{ backgroundColor: swatch.hex }}
-                    role="img"
-                    aria-label={`${swatch.name} swatch, ${swatch.hex}`}
-                  />
-                </div>
-                <p className="mt-2.5 eyebrow text-[#3E2723]">{swatch.name}</p>
-                <p className="mt-1 font-mono-code text-[0.6875rem] tracking-[0.08em] text-[#705955]">
-                  {swatch.hex.toUpperCase()}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </section>
   );

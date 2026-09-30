@@ -412,6 +412,15 @@ export const portfolioData = {
         content: "Holographic surfaces, pastel tones and reflective light gave the familiar floral form a futuristic edge.",
         keywords: ["FEMININE", "CONTEMPORARY", "FRESH", "FUTURISTIC"]
       },
+      /**
+       * Nothing renders this. It was set out as a named swatch strip at the
+       * foot of "Where the Concept Took Shape" (ConceptToShapeSection), then
+       * that strip was removed — the Soft Blush entry was the same #FADBD9 as
+       * the band it sat on, so the palette was partly describing its own
+       * background. The colour board itself is still one of the three
+       * photographs in that section; only the typed-out swatch list is gone.
+       * Kept for reference, per the same convention as page4BehindTheDisplay.
+       */
       colourBoard: {
         title: "Colour Board",
         content: "A soft, fresh and light palette that lets the Future Florals concept bloom — pastel tones with a reflective, futuristic edge.",

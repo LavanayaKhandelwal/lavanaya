@@ -94,56 +94,35 @@ const H3 = 520;
 /* ————————————————————————————————————————————————————————————
    THE PAPER.
 
-   Four washes per sheet, laid down before anything else and blurred well past
-   the point where an edge could be found. Three are the pale yellow from the
-   palette and one is a larger pink across the top right. The two that sit low
-   are hung off the foot of the sheet rather than given a top, so the same four
-   marks land in the same places on a 600-tall sheet as on a 680-tall one.
+   THE WASHES ARE GONE. The sheets were laid down with four blurred colour blobs
+   per sheet — three pale yellow from the palette and one larger pink across the
+   top right — hung off the top and foot of each sheet and blurred 48 pixels, so
+   that the pink underneath them never read as one flat colour. Three sheets of
+   it made a soft, uneven wash across the top of the section: a gradient, in
+   everything but name, and the one thing on this page that was not flat.
 
-   They are set with an inline radius rather than a class because a four-value
-   percentage radius is not something worth fighting the scanner over, and an
-   organic blob needs eight numbers.
+   They are not here. A sheet is a solid #FADBD9 from edge to edge, on all three
+   sheets, and the run of pink down the page is now genuinely one colour. Nothing
+   was hung off the foot of anything to keep the marks landing in the same
+   places at two different sheet heights, because there are no marks left to
+   land. The `h` these blobs were positioned against went with them, which is why
+   `Paper` is now a constant rather than a function of the sheet height.
 
-   The grain is a single fractal-noise tile over the whole sheet at low opacity.
-   It is underneath the content rather than on top of it, so nothing in the
-   artwork is ever dulled by it.
+   What is left is the grain: a single fractal-noise tile over the whole sheet at
+   low opacity, underneath the content rather than on top of it, so nothing in
+   the artwork is ever dulled by it. That is a texture and not a tint — it moves
+   the pink by a fraction of a value rather than across a range, so the ground is
+   still the one flat colour. Say the word and it goes too.
    ———————————————————————————————————————————————————————————— */
-
-const washes = (h: number) =>
-  [
-    { left: -70, top: -60, w: 560, h: 320, colour: '#F8E5D7', opacity: 0.8, rotate: -8 },
-    { left: -90, top: h - 370, w: 420, h: 300, colour: '#F8E5D7', opacity: 0.7, rotate: 14 },
-    { left: 880, top: -140, w: 760, h: 480, colour: '#D69589', opacity: 0.32, rotate: -6 },
-    { left: 1060, top: h - 270, w: 660, h: 440, colour: '#F8E5D7', opacity: 0.85, rotate: 10 },
-  ] as const;
 
 const GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='1600' height='900' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
-const Paper: React.FC<{ h: number }> = ({ h }) => (
-  <>
-    {washes(h).map((wash, index) => (
-      <div
-        key={index}
-        className="pointer-events-none absolute"
-        style={{
-          left: wash.left,
-          top: wash.top,
-          width: wash.w,
-          height: wash.h,
-          background: wash.colour,
-          opacity: wash.opacity,
-          transform: `rotate(${wash.rotate}deg)`,
-          borderRadius: '42% 58% 55% 45% / 48% 40% 62% 52%',
-          filter: 'blur(48px)',
-        }}
-      />
-    ))}
-    <div
-      className="pointer-events-none absolute inset-0 opacity-[0.14] mix-blend-multiply"
-      style={{ backgroundImage: GRAIN, backgroundSize: '600px 600px' }}
-    />
-  </>
+const Paper: React.FC = () => (
+  <div
+    className="pointer-events-none absolute inset-0 opacity-[0.14] mix-blend-multiply"
+    style={{ backgroundImage: GRAIN, backgroundSize: '600px 600px' }}
+  />
 );
 
 /* ————————————————————————————————————————————————————————————
@@ -275,10 +254,11 @@ const DASHBOARD: Placed = {
   node: <AnalyticsLaptop style={flush} />,
 };
 
-/** One sheet of pink paper, its washes, and whatever is hung on it. The outer
+/** One sheet of pink paper and whatever is hung on it. The outer
  *  box reserves the sheet's scaled size and the inner one carries the sheet at
  *  full size with the transform on it, so the section hugs the artwork.
  *
+ *  The ground is a flat `#FADBD9` with no wash over it — see THE PAPER above.
  *  No shadow, no margin, and `shrink-0` so the flex run cannot squeeze one sheet
  *  to fit another. All three are the same width by construction. */
 const Sheet: React.FC<{ h: number; scale: number; children: React.ReactNode }> = ({
@@ -296,7 +276,7 @@ const Sheet: React.FC<{ h: number; scale: number; children: React.ReactNode }> =
       }}
       className="absolute left-0 top-0 overflow-hidden bg-[#FADBD9]"
     >
-      <Paper h={h} />
+      <Paper />
       {children}
     </div>
   </div>

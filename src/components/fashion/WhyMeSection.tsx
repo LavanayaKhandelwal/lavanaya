@@ -120,15 +120,14 @@ export function WhyMeSection() {
         </div>
       </div>
 
-      {/* Lace trim — separator between About me and Selected Projects. The
-          new asset is 1672×941 with the lace sitting in the bottom band
-          (~84%–100%), so object-position anchors to the bottom edge; the
-          wrapper height is cropped to roughly that band's aspect so the
-          pattern shows full-size while the transparent top stays out.
-          Full-bleed (100vw) so the trim keeps running past the viewport. */}
-      <div className="relative -mx-6 mt-8 h-[14vw] max-h-40 min-h-16 w-screen max-w-none overflow-hidden md:-mx-16 md:h-[10vw]" style={{ left: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
+      {/* Border trim — separator between About me and Selected Projects. The
+          asset is 1672×941 but the artwork only fills the bottom ~80 rows
+          (rows 861–940; top 861px is transparent), so the wrapper is cropped
+          to ~8.5% of full-bleed width and the image is anchored to the
+          bottom edge — the transparent top stays out. */}
+      <div className="relative -mx-6 mt-6 h-[8.5vw] max-h-28 min-h-10 w-screen max-w-none overflow-hidden md:-mx-16 md:mt-8" style={{ left: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
         <img
-          src="/portfolio-assets/new-border.png"
+          src="/portfolio-assets/homepage-border-aboutme-section.png"
           alt=""
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover object-bottom"

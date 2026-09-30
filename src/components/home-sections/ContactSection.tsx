@@ -20,7 +20,12 @@ export const ContactSection: React.FC = () => {
   const revealWhileInView = reduceMotion ? undefined : { opacity: 1, y: 0 };
 
   return (
-    <section id="contact" className="bg-[#3E2723] py-20 lg:py-28">
+    /* Top padding is what separates this espresso band from the blush skills
+       band above it, so it stays. The bottom is not: this section is the last
+       thing on the home page and there is no footer under it, so the old
+       py-20 lg:py-28 put 80–112px of dead espresso below the Resume link with
+       nothing ever following it. */
+    <section id="contact" className="bg-[#3E2723] pt-20 lg:pt-28 pb-10 lg:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* SECTION HEADER — heading over a single hairline */}
         <div className="rule-b flex flex-col sm:flex-row sm:items-end justify-between mb-16 pb-4">
