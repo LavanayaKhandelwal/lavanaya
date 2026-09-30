@@ -2,29 +2,30 @@ import React from 'react';
 import { BoardPhoto } from './aadiyaMarks';
 
 /**
- * THE TWO CARDS THAT SHOW THE WORK RATHER THAN A DIAGRAM OF IT.
+ * THE THREE CARDS THAT SHOW THE WORK RATHER THAN A DIAGRAM OF IT.
  *
- * Everything else on this section is built out of divs at absolute pixel
- * positions, and that is the right way to draw a Shopify admin panel or a product
- * page: those are objects a reader recognises by their structure, and a structure
- * can be rebuilt at any size. A campaign banner and a product catalogue are a
- * different thing. They are finished artefacts, they were made once, and a
- * plausible-looking reconstruction of one is not a weaker version of the evidence
- * — it is a substitute for it. So these two cards show the actual files.
+ * What is still drawn on this section — the laptop, the phone, the two pages —
+ * is drawn because those are objects a reader recognises by their structure,
+ * and a structure can be rebuilt at any size. A backend table, a catalogue
+ * workbook and a campaign banner are a different thing. They are finished
+ * artefacts, they were made once, and a plausible-looking reconstruction of
+ * one is not a weaker version of the evidence — it is a substitute for it.
+ * So these three cards show the actual files.
  *
  * That is the whole argument for photographs here, and it is worth being precise
- * about the limit of it, because the section still draws most of itself. A drawn
- * object is a claim about what something looks like; a photograph is the thing.
- * Where the claim would be doing work that only the original can do, the original
- * is what belongs in the card.
+ * about the limit of it, because the section still draws four of its ten
+ * objects. A drawn object is a claim about what something looks like; a
+ * photograph is the thing. Where the claim would be doing work that only the
+ * original can do, the original is what belongs in the card.
  *
- * None of these three is in the photograph pool, and that is deliberate rather
+ * None of these six is in the photograph pool, and that is deliberate rather
  * than an omission. The e-commerce half of the pool is eleven files that really
  * are 1600 square, which is what lets `BoardPhoto` declare one pair of numbers
- * for all of them. These are 1206 by 481, 1206 by 585 and 1206 by 660, and
- * putting them in would have meant either breaking that one-size table or lying
- * about them. They are exports of finished web work rather than frames from the
- * brand shoot, and they are named for what they are.
+ * for all of them. These are 1206 by 497, 1206 by 954, 1206 by 481, 1600 by
+ * 681, 1206 by 585 and 1206 by 660, and putting them in would have meant either
+ * breaking that one-size table or lying about them. They are exports of
+ * finished web work rather than frames from the brand shoot, and they are named
+ * for what they are.
  *
  * The plate colour is the same warm neutral the drawn banners used, so the frame
  * a card shows while a file is in flight is the colour it used to flash.
@@ -37,30 +38,44 @@ const FLOAT = '0 14px 26px -14px rgba(58,38,40,0.5), 0 2px 5px rgba(58,38,40,0.1
 /* ————————————————————————————————————————————————————————————
    THE PRODUCT CATALOGUE.
 
-   One file, 1206 by 481, which is 2.5073 — the proportions of a wide admin table
-   rather than of a card. At 340 wide it is 136 tall, and 136 is within three
-   tenths of a percent of the true ratio, so `object-cover` clips rather than
-   crops and no column of the table goes missing at an edge.
+   Two sheets of the same catalogue workbook. The first is the silver sheet,
+   1206 by 481, with its SKU, stone, vendor, design, dimension, weight and
+   price columns. Below it is the gold pendant sheet, 1600 by 681, with
+   product photographs beside SKUs, materials, colours, dimensions and
+   weights. The catalogue is a workbook and these are two of its sheets, and
+   that is the honest arrangement — it is also what the card has always said
+   about itself: product details, images, pricing, organised for quick
+   updates.
 
-   It is a single object where the drawn card held three, and that is the honest
-   arrangement: the file is one screenshot of one screen. The card used to carry
-   a drawn catalogue with a content tracker and an image folder beneath it, and
-   the two beneath were not more of the catalogue — they were a posting schedule
-   and a folder of thumbnails, filled in with invented SKUs, invented prices and
-   invented dates. One real screen replaces all three.
+   At 340 wide their own ratios come out as 136 and 145, within three and
+   two tenths of a percent of the truth, so `object-cover` clips rather than
+   crops and no SKU column goes missing at an edge.
    ———————————————————————————————————————————————————————————— */
 
-export const CatalogueShot: React.FC = () => (
-  <div className="absolute h-[136px] w-[340px] overflow-hidden" style={{ boxShadow: FLOAT }}>
-    <BoardPhoto
-      src="/portfolio-assets/product-catalogue-management.jpeg"
-      alt="Screenshot of the product catalogue in the Shopify admin, showing product rows with names, prices and stock"
-      width={1206}
-      height={481}
-      plate="#F1DFD2"
-      className="h-full"
-      loading="eager"
-    />
+export const CataloguePair: React.FC = () => (
+  <div className="absolute flex w-[340px] flex-col gap-3">
+    <div className="h-[136px] overflow-hidden" style={{ boxShadow: FLOAT }}>
+      <BoardPhoto
+        src="/portfolio-assets/product-catalogue-management.jpeg"
+        alt="Screenshot of the silver catalogue spreadsheet, with SKU, stone, vendor, design, dimension, weight and price columns"
+        width={1206}
+        height={481}
+        plate="#F1DFD2"
+        className="h-full"
+        loading="eager"
+      />
+    </div>
+    <div className="h-[145px] overflow-hidden" style={{ boxShadow: FLOAT }}>
+      <BoardPhoto
+        src="/portfolio-assets/product-catalogue-management-2.jpeg"
+        alt="Screenshot of the gold pendant catalogue spreadsheet, with product photographs beside SKUs, materials, colours and weights"
+        width={1600}
+        height={681}
+        plate="#F1DFD2"
+        className="h-full"
+        loading="eager"
+      />
+    </div>
   </div>
 );
 
@@ -77,16 +92,17 @@ export const CatalogueShot: React.FC = () => (
    nothing measurable is cropped from either.
 
    The width is 340, and not the 255 this card's artwork column actually
-   measures at the large breakpoint. The other card in the row holding more than
-   one object is 338 wide — a 212-pixel product page with a 188-pixel collection
-   page laid 150 across — so 340 puts the three multi-object cards within two
-   pixels of a single scale. The fit then shrinks every one of them by the same
-   factor to fit its column, and four cards read as four cards at one
-   magnification rather than at four.
+   measures at the large breakpoint. Every multi-object card in the row is
+   authored at 340 — the backend pair, the catalogue pair, this pair — except
+   the pages card at 338, a 212-pixel product page with a 188-pixel collection
+   page laid 150 across. So all four sit within two pixels of a single scale,
+   the fit shrinks every one of them by the same factor to fit its column,
+   and four cards read as four cards at one magnification rather than at
+   four.
 
-   It is the only object on the section that is a stack rather than a positioned
-   cluster, so it takes no offset from its card and has no `style` prop to be
-   given one.
+   Like the other two pairs, this is a stack rather than a positioned cluster,
+   so it takes no offset from its card and has no `style` prop to be given
+   one.
    ———————————————————————————————————————————————————————————— */
 
 export const BannerPair: React.FC = () => (
@@ -108,6 +124,50 @@ export const BannerPair: React.FC = () => (
         alt="Second website banner design, a second campaign image at a different proportion to the first"
         width={1206}
         height={660}
+        plate="#F1DFD2"
+        className="h-full"
+        loading="eager"
+      />
+    </div>
+  </div>
+);
+
+/* ————————————————————————————————————————————————————————————
+   THE WEBSITE BACKEND.
+
+   Two screens, and they are the two ends of the same job. Above is the
+   products table, 1206 by 497: the sidebar, the columns, every row Active.
+   Below is one row of that table opened, 1206 by 954 — the edit page for
+   Green Onyx Baguette Drop Earrings, which sits in the table above, with
+   its title, its description, its media grid, its category and its product
+   organisation sidebar. The backend is the table and the row, and the pair
+   shows bulk management and single-product care the way the work did them:
+   together.
+
+   At 340 wide their own ratios come out as 140 and 269, each within a tenth
+   of a percent of the truth, so `object-cover` clips rather than crops and
+   no column of the table goes missing at an edge.
+   ———————————————————————————————————————————————————————————— */
+
+export const BackendPair: React.FC = () => (
+  <div className="absolute flex w-[340px] flex-col gap-3">
+    <div className="h-[140px] overflow-hidden" style={{ boxShadow: FLOAT }}>
+      <BoardPhoto
+        src="/portfolio-assets/website-backend.jpeg"
+        alt="Screenshot of the Shopify products table, with the sidebar and product rows showing status, inventory, category and vendor columns"
+        width={1206}
+        height={497}
+        plate="#F1DFD2"
+        className="h-full"
+        loading="eager"
+      />
+    </div>
+    <div className="h-[269px] overflow-hidden" style={{ boxShadow: FLOAT }}>
+      <BoardPhoto
+        src="/portfolio-assets/website-backend-2.jpeg"
+        alt="Screenshot of the Shopify edit page for Green Onyx Baguette Drop Earrings, showing the title, description, media grid and product organisation sidebar"
+        width={1206}
+        height={954}
         plate="#F1DFD2"
         className="h-full"
         loading="eager"

@@ -9,8 +9,7 @@ import {
   SparkBurst,
 } from './aadiyaMarks';
 import { WebsiteLaptop, WebsitePhone } from './commerceInterface';
-import { ShopifyPanel } from './commerceBackend';
-import { BannerPair, CatalogueShot } from './commerceShots';
+import { BackendPair, BannerPair, CataloguePair } from './commerceShots';
 import { CollectionPage, ProductPage } from './commercePages';
 
 /**
@@ -65,39 +64,44 @@ import { CollectionPage, ProductPage } from './commercePages';
  * touch the one file above that is not allowed to change in this pass. The name
  * is historical, not descriptive.
  *
- * TWO CARDS NOW SHOW PHOTOGRAPHS OF THE WORK, and the section's own rule about
+ * THREE CARDS NOW SHOW PHOTOGRAPHS OF THE WORK, and the section's own rule about
  * drawings did not bend to allow it — the rule was that a drawn object is a
- * claim about what something looks like, and these three are the cases where the
- * claim would have been doing work only the original can do. The catalogue and
- * the two banners are finished artefacts, not structures, so a convincing drawing
- * of one is not a weaker version of the evidence; it is a replacement for it, and
- * a portfolio that offers a replacement is asking to be checked.
+ * claim about what something looks like, and these six are the cases where the
+ * claim would have been doing work only the original can do. The backend, the
+ * catalogue and the two banners are finished artefacts, not structures, so a
+ * convincing drawing of one is not a weaker version of the evidence; it is a
+ * replacement for it, and a portfolio that offers a replacement is asking to
+ * be checked.
  *
- * Six drawings went with that decision and three real files took their places.
+ * Seven drawings went with that decision and six real files took their places.
  * The drawn catalogue, the content tracker and the image folder were one
  * screenshot of one screen shown three times, and the drawn wide banner, the
  * newsletter pop-up and the drawn mobile banner were three plausible objects
  * where two real designs now stand. `commerceData.tsx` went entirely with the
  * first three, and the pop-up went with a pang — it was good work, and it was
- * also the only object on the section that was purely invented.
+ * also the only object on the section that was purely invented. Last went the
+ * drawn Shopify panel: a reconstruction of a screen that now shows itself
+ * twice, the products table and one row of it opened, taking `commerceBackend`
+ * with it.
  */
 
 /* ————————————————————————————————————————————————————————————
    A DRAWN OBJECT, FITTED TO THE SPACE IT IS GIVEN.
 
-   Most of the objects in this section are not images. Each one is a hand-built
+   Four of the ten objects in this section are drawings. Each one is a hand-built
    arrangement of divs at absolute pixel positions inside a fixed box, and the
-   pixel positions are the artwork — a 112-pixel sidebar next to a 376-pixel
-   table is what makes a Shopify admin panel read as a Shopify admin panel. So
+   pixel positions are the artwork — a 212-pixel product page with a 188-pixel
+   collection page laid 150 across is what makes the two read as peers. So
    none of them is rewritten to be responsive, and none of them is replaced by
    a screenshot.
 
-   Three of them are screenshots, and that is a considered exception rather than
-   an inconsistency: the catalogue and the two banners are finished artefacts
-   rather than structures, so a drawing of one would be a substitute for the
-   evidence instead of an illustration of it. They are in `commerceShots`, they
-   pass their own intrinsic dimensions, and the fit below treats them exactly as
-   it treats the drawings — same measurement, same scale, same ceiling.
+   The other six are screenshots — the backend table and one of its rows, two
+   sheets of the catalogue workbook, and two banner designs — and the rule above
+   is what puts them there: each is a finished artefact rather than a structure,
+   so a drawing of one would be a substitute for the evidence instead of an
+   illustration of it. They are in `commerceShots`, they pass their own
+   intrinsic dimensions, and the fit below treats them exactly as it treats the
+   drawings — same measurement, same scale, same ceiling.
 
    What the fit needs is a way to sit all of them in a fluid column without
    losing those numbers, and that is all this is. It measures the space it was
@@ -385,7 +389,11 @@ export const CommerceBoard: React.FC = () => (
             label="WEBSITE BACKEND"
             description="Managed product uploads, updated site content, added banners and organised collections."
           >
-            <ShopifyPanel style={{ left: 0, top: 0 }} />
+            {/* Two real screens where the card held one drawing. The Shopify panel
+                was a reconstruction of a screen that now shows itself twice:
+                the products table above, and one row of that table opened as
+                its edit page below. */}
+            <BackendPair />
           </InterfaceCard>
 
           <InterfaceCard
@@ -393,11 +401,12 @@ export const CommerceBoard: React.FC = () => (
             label="PRODUCT CATALOGUE MANAGEMENT"
             description="Maintained product details, images, pricing and organised the catalogue for easy access and quick updates."
           >
-            {/* One file, shown once. This card used to hold a drawn catalogue with
+            {/* Two sheets of the same catalogue workbook, silver above and gold
+                pendants below. This card used to hold a drawn catalogue with
                 a content tracker and an image folder beneath it, which was three
                 objects making a claim about what the catalogue looked like. The
-                real screen is one object and is the thing itself. */}
-            <CatalogueShot />
+                real workbook is two objects and is the thing itself. */}
+            <CataloguePair />
           </InterfaceCard>
 
           <InterfaceCard
