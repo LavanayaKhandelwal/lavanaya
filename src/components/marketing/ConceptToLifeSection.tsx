@@ -74,10 +74,7 @@ const Arrow = () => (
  */
 export const ConceptToLifeSection: React.FC = () => {
   return (
-    <section className="paper-grain-light">
-      {/* Top bar — full-bleed, spans the viewport */}
-      <div className="-mx-5 sm:-mx-8 lg:-mx-12 h-3.5 bg-[#3E2723]" aria-hidden="true" />
-
+    <section className="paper-grain-light pt-10 lg:pt-14">
       <div className="grid grid-cols-1 lg:grid-cols-[40fr_60fr] gap-8 lg:gap-6">
         {/* ——— Left column: narrative ——— */}
         <div className="flex flex-col">

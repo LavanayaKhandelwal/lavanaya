@@ -35,12 +35,12 @@ import { AnalyticsLaptop, PostCarousel, SocialGrid } from './aadiyaResults';
  *
  * THEY ARE FLUSH AND THEY FILL THE WIDTH. There is no ground visible between
  * them, above them or beside them, and that is the whole reason for the
- * `fillWidth` scale below. The page is espresso and these sheets are pink, so
- * anything of the page showing through reads as a gap — and a strip of espresso
- * between two pink sheets says "two boards on a background" when the design is
- * one continuous piece of paper. Stacked with a gap, the seams looked like the
+ * `fillWidth` scale below. The page is espresso and these sheets are pale paper,
+ * so anything of the page showing through reads as a gap — and a strip of
+ * espresso between two sheets says "two boards on a background" when the design
+ * is one continuous piece of paper. Stacked with a gap, the seams looked like the
  * page breaking the paper in three. So the sheets touch, the width decides the
- * scale with no ceiling, and the run of pink is the only thing on the page
+ * scale with no ceiling, and the run of paper is the only thing on the page
  * between the header and the palette.
  *
  * THE RUNNING HEAD IS ON THE FIRST SHEET ONLY. It is a running head, not a
@@ -101,18 +101,19 @@ const H3 = 520;
    it made a soft, uneven wash across the top of the section: a gradient, in
    everything but name, and the one thing on this page that was not flat.
 
-   They are not here. A sheet is a solid #FADBD9 from edge to edge, on all three
-   sheets, and the run of pink down the page is now genuinely one colour. Nothing
-   was hung off the foot of anything to keep the marks landing in the same
-   places at two different sheet heights, because there are no marks left to
-   land. The `h` these blobs were positioned against went with them, which is why
-   `Paper` is now a constant rather than a function of the sheet height.
+   They are not here. A sheet is one flat colour from edge to edge — #FADBD9 on
+   the outer two sheets, the #F9F8F2 cream on the middle one — and there is no
+   gradient anywhere in the run. Nothing was hung off the foot of anything to
+   keep the marks landing in the same places at two different sheet heights,
+   because there are no marks left to land. The `h` these blobs were positioned
+   against went with them, which is why `Paper` is now a constant rather than a
+   function of the sheet height.
 
    What is left is the grain: a single fractal-noise tile over the whole sheet at
    low opacity, underneath the content rather than on top of it, so nothing in
    the artwork is ever dulled by it. That is a texture and not a tint — it moves
-   the pink by a fraction of a value rather than across a range, so the ground is
-   still the one flat colour. Say the word and it goes too.
+   the ground by a fraction of a value rather than across a range, so each sheet
+   is still the one flat colour it was given. Say the word and it goes too.
    ———————————————————————————————————————————————————————————— */
 
 const GRAIN =
@@ -254,18 +255,25 @@ const DASHBOARD: Placed = {
   node: <AnalyticsLaptop style={flush} />,
 };
 
-/** One sheet of pink paper and whatever is hung on it. The outer
+/** One sheet of paper and whatever is hung on it. The outer
  *  box reserves the sheet's scaled size and the inner one carries the sheet at
  *  full size with the transform on it, so the section hugs the artwork.
  *
- *  The ground is a flat `#FADBD9` with no wash over it — see THE PAPER above.
+ *  The ground is a flat colour with no wash over it — see THE PAPER above — and
+ *  `bg` decides which. The three sheets alternate rather than matching: blush,
+ *  cream, blush. The cream is `#F9F8F2`, the same cream the e-commerce section
+ *  below is built on (`--c-bg` in `.aj-ecom`), so the middle sheet is the site's
+ *  own paper rather than a colour invented for this page. The blush either side
+ *  of it is `#FADBD9`.
+ *
  *  No shadow, no margin, and `shrink-0` so the flex run cannot squeeze one sheet
  *  to fit another. All three are the same width by construction. */
-const Sheet: React.FC<{ h: number; scale: number; children: React.ReactNode }> = ({
-  h,
-  scale,
-  children,
-}) => (
+const Sheet: React.FC<{
+  h: number;
+  scale: number;
+  bg?: string;
+  children: React.ReactNode;
+}> = ({ h, scale, bg = '#FADBD9', children }) => (
   <div style={{ width: SHEET_W * scale, height: h * scale }} className="relative shrink-0">
     <div
       style={{
@@ -273,8 +281,9 @@ const Sheet: React.FC<{ h: number; scale: number; children: React.ReactNode }> =
         height: h,
         transform: `scale(${scale})`,
         transformOrigin: 'top left',
+        backgroundColor: bg,
       }}
-      className="absolute left-0 top-0 overflow-hidden bg-[#FADBD9]"
+      className="absolute left-0 top-0 overflow-hidden"
     >
       <Paper />
       {children}
@@ -289,7 +298,7 @@ export const SocialBoard: React.FC = () => {
      sheet is short of. Three sheets on that ground read as three boards sitting
      on a background, and the strips between them read as gaps in the paper.
      These are one continuous surface, so the width alone decides the scale,
-     without a ceiling, and the pink runs edge to edge. */
+     without a ceiling, and the paper runs edge to edge. */
   const { frameRef, scale } = useBoardScale(SHEET_W, SHEET_1_H, { fillWidth: true });
 
   return (
@@ -297,7 +306,7 @@ export const SocialBoard: React.FC = () => {
       {/* The run of all three, flush. No gap, so no page ground can show between
           them, and no margin, so none shows above or below either. There is no
           drop shadow on any of it: a shadow needs a background to fall on, and
-          the moment the pink meets the edge of the window there is nothing
+          the moment the paper meets the edge of the window there is nothing
           behind it to cast onto. What separated these sheets before was not the
           shadow, it was the espresso, and the espresso is gone.
 
@@ -364,8 +373,11 @@ export const SocialBoard: React.FC = () => {
           </div>
         </Sheet>
 
-        {/* ————— SHEET TWO, THE PRODUCTION RUN ————— */}
-        <Sheet h={SHEET_2_H} scale={scale}>
+        {/* ————— SHEET TWO, THE PRODUCTION RUN —————
+            On the same cream the e-commerce section below is built on, between
+            the two blush sheets, so the middle sheet reads as a different paper
+            without leaving the palette. */}
+        <Sheet h={SHEET_2_H} scale={scale} bg="#F9F8F2">
           <Band height={H2 + LABEL_GAP}>
             <Item label="AI CONTENT GENERATION" obj={AI} height={H2} />
             <Item label="REELS &amp; STORIES" obj={PHONES} height={H2} />
@@ -374,7 +386,7 @@ export const SocialBoard: React.FC = () => {
         </Sheet>
 
         {/* ————— SHEET THREE, THE WORK AND THE RETURN ————— */}
-        <Sheet h={SHEET_3_H} scale={scale}>
+        <Sheet h={SHEET_3_H} scale={scale} bg="#FADBD9">
           <Band height={H3 + LABEL_GAP}>
             <Item label="CREATIVE POSTS &amp; CAROUSELS" obj={POSTS} height={H3} />
             <Item label="FINAL DASHBOARD" obj={DASHBOARD} height={H3} />

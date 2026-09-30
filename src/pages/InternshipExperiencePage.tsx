@@ -29,7 +29,9 @@ import { KeyLearningsBand } from '../components/internship/KeyLearningsBand';
  * with the edges of the window, with every part of them placed: a running head,
  * six prints, a hand-drawn annotation set. The sheets are a continuous surface
  * rather than three boards on a background, so nothing separates them and the
- * pink runs edge to edge. Nothing on a sheet is reachable by scrolling within it.
+ * paper runs edge to edge; they alternate blush, cream, blush rather than all
+ * three being the same sheet of pink. Nothing on a sheet is reachable by
+ * scrolling within it.
  * These are art-directed layouts with absolute pixel positions in them, and a
  * reader who resizes the window gets the same sheet smaller rather than a
  * different arrangement of it.
