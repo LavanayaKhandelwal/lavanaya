@@ -150,9 +150,11 @@ export function useBoardScale(
    the element is not lying to the parser about a file's shape while that file is
    still in flight, which is the one moment the ratio is read.
 
-   The three files on the e-commerce side that are not from that pool now pass
-   their own numbers: the product catalogue is 1206 by 481, and the two banner
-   designs are 1206 by 585 and 1206 by 660.
+   The seven files the cards use instead of that pool now pass their own numbers,
+   and not one of them is square: the backend pair, the catalogue pair, the two
+   banner designs and the mobile page in the last card. Three of them are 1206
+   wide, one is 1600 and one is 648 — which is why they are named individually
+   here rather than left to the default.
    ———————————————————————————————————————————————————————————— */
 
 export const BoardPhoto: React.FC<{

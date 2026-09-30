@@ -2,30 +2,39 @@ import React from 'react';
 import { BoardPhoto } from './aadiyaMarks';
 
 /**
- * THE THREE CARDS THAT SHOW THE WORK RATHER THAN A DIAGRAM OF IT.
+ * THE FOUR CARDS THAT SHOW THE WORK RATHER THAN A DIAGRAM OF IT.
  *
- * What is still drawn on this section — the phone frame and the two pages —
- * is drawn because those are objects a reader recognises by their structure,
- * and a structure can be rebuilt at any size. A backend table, a catalogue
- * workbook and a campaign banner are a different thing. They are finished
- * artefacts, they were made once, and a plausible-looking reconstruction of
- * one is not a weaker version of the evidence — it is a substitute for it.
- * So these three cards show the actual files.
+ * What is still drawn on this section — the phone frame and the two desktop
+ * pages — is drawn because those are objects a reader recognises by their
+ * structure, and a structure can be rebuilt at any size. A backend table, a
+ * catalogue workbook and a campaign banner are a different thing. They are
+ * finished artefacts, they were made once, and a plausible-looking
+ * reconstruction of one is not a weaker version of the evidence — it is a
+ * substitute for it. So those three cards show the actual files.
+ *
+ * The fourth card is where both halves of that argument meet, and the mix in it
+ * is the honest description rather than a compromise. A page is a structure, so
+ * the rule would have licensed drawing its mobile page as readily as it
+ * licensed drawing the two desktop pages beside it. But a real export of that
+ * page exists, and where one does the rule has nothing left to say. The two
+ * desktop pages stay drawn for the only reason that leaves: no export of them
+ * exists to photograph.
  *
  * That is the whole argument for photographs here, and it is worth being precise
- * about the limit of it, because the section still draws four of its ten
- * objects. A drawn object is a claim about what something looks like; a
- * photograph is the thing. Where the claim would be doing work that only the
- * original can do, the original is what belongs in the card.
+ * about the limit of it, because the section is not photographs all the way
+ * down. Three of the objects on it are still drawn, and a drawing is the right
+ * answer for each of them. A drawn object is a claim about what something looks
+ * like; a photograph is the thing. Where the claim would be doing work that only
+ * the original can do, the original is what belongs in the card.
  *
- * None of these six is in the photograph pool, and that is deliberate rather
+ * None of these seven is in the photograph pool, and that is deliberate rather
  * than an omission. The e-commerce half of the pool is eleven files that really
  * are 1600 square, which is what lets `BoardPhoto` declare one pair of numbers
  * for all of them. These are 1206 by 497, 1206 by 954, 1206 by 481, 1600 by
- * 681, 1206 by 585 and 1206 by 660, and putting them in would have meant either
- * breaking that one-size table or lying about them. They are exports of
- * finished web work rather than frames from the brand shoot, and they are named
- * for what they are.
+ * 681, 1206 by 585, 1206 by 660 and 648 by 1280, and putting them in would
+ * have meant either breaking that one-size table or lying about them. They are
+ * exports of finished web work rather than frames from the brand shoot, and
+ * they are named for what they are.
  *
  * The plate colour is the same warm neutral the drawn banners used, so the frame
  * a card shows while a file is in flight is the colour it used to flash.
@@ -94,11 +103,12 @@ export const CataloguePair: React.FC = () => (
    The width is 340, and not the 255 this card's artwork column actually
    measures at the large breakpoint. Every multi-object card in the row is
    authored at 340 — the backend pair, the catalogue pair, this pair — except
-   the pages card at 338, a 212-pixel product page with a 188-pixel collection
-   page laid 150 across. So all four sit within two pixels of a single scale,
-   the fit shrinks every one of them by the same factor to fit its column,
-   and four cards read as four cards at one magnification rather than at
-   four.
+   the pages card at 338, which is a 212-pixel product page stacked above a
+   188-pixel collection page with a 118-pixel mobile page beside them. That one
+   is narrower than 340 rather than wider, so all four sit within two pixels of
+   a single scale, the fit shrinks every one of them by the same factor to fit
+   its column, and four cards read as four cards at one magnification rather
+   than at four.
 
    Like the other two pairs, this is a stack rather than a positioned cluster,
    so it takes no offset from its card and has no `style` prop to be given
@@ -173,5 +183,50 @@ export const BackendPair: React.FC = () => (
         loading="eager"
       />
     </div>
+  </div>
+);
+
+/* ————————————————————————————————————————————————————————————
+   THE MOBILE PAGE.
+
+   A third page view in the last card, and the only photograph in the section of
+   a page rather than of a finished artefact. It arrived as an export — a
+   full-page capture, 648 by 1280, in mobile proportions — and the section's own
+   rule settles what happens to it. A page is a structure, so the rule would
+   have licensed drawing this one exactly as it licensed drawing the two
+   desktop pages beside it. A file settles it the other way: where a real
+   export exists, a drawing is not a smaller claim about the work, it is a
+   substitute for the work.
+
+   WHAT IS IN IT, read off the pixels rather than the filename: a site header,
+   a two-up pair of campaign images, a two-column text section, and then two
+   large image tiles with a product in each. A full-page capture rather than a
+   single screen, which is why the file is a tall rectangle and why it is shown
+   beside the desktop pages at all — it is the same site at the other end of the
+   responsive range, so the two views standing together are the point.
+
+   118 BY 233, which is the file's own ratio of 0.50625 to within four
+   hundredths of a percent, so `object-contain` is belt and braces rather than a
+   necessity. It is spelled with the v4 important modifier because
+   `BoardPhoto` puts `object-cover` on every photograph it wraps, and the two
+   utilities carry the same specificity — which one applies is decided by their
+   order in the stylesheet, and there `object-cover` is the later of the two.
+   ———————————————————————————————————————————————————————————— */
+
+export const OtherPage: React.FC = () => (
+  <div
+    className="h-[233px] w-[118px] shrink-0 overflow-hidden rounded-[4px]"
+    style={{ boxShadow: FLOAT }}
+  >
+    <BoardPhoto
+      src="/portfolio-assets/website-other-page.jpeg"
+      alt="Full-page screenshot of a further Aadiya Jewels website page in mobile proportions, with a site header, two campaign images side by side, a two-column text section and two large product tiles below"
+      width={648}
+      height={1280}
+      plate="#F1DFD2"
+      className="h-full"
+      loading="eager"
+      imgClassName="object-contain!"
+    />
   </div>
 );

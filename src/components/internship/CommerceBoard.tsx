@@ -6,7 +6,7 @@ import {
   SparkBurst,
 } from './aadiyaMarks';
 import { WebsiteLaptop, WebsitePhone } from './commerceInterface';
-import { BackendPair, BannerPair, CataloguePair } from './commerceShots';
+import { BackendPair, BannerPair, CataloguePair, OtherPage } from './commerceShots';
 import { CollectionPage, ProductPage } from './commercePages';
 
 /**
@@ -61,14 +61,16 @@ import { CollectionPage, ProductPage } from './commercePages';
  * touch the one file above that is not allowed to change in this pass. The name
  * is historical, not descriptive.
  *
- * THREE CARDS NOW SHOW PHOTOGRAPHS OF THE WORK, and the section's own rule about
+ * FOUR CARDS NOW SHOW PHOTOGRAPHS OF THE WORK, and the section's own rule about
  * drawings did not bend to allow it — the rule was that a drawn object is a
- * claim about what something looks like, and these six are the cases where the
+ * claim about what something looks like, and these seven are the cases where the
  * claim would have been doing work only the original can do. The backend, the
  * catalogue and the two banners are finished artefacts, not structures, so a
  * convincing drawing of one is not a weaker version of the evidence; it is a
- * replacement for it, and a portfolio that offers a replacement is asking to
- * be checked.
+ * replacement for it, and a portfolio that offers a replacement is asking to be
+ * checked. The seventh is a page, which the rule would have licensed drawing,
+ * except that a real export of it exists — and a drawing is the one thing that
+ * cannot be done better than a file that is already there.
  *
  * Seven drawings went with that decision and six real files took their places.
  * The drawn catalogue, the content tracker and the image folder were one
@@ -81,30 +83,35 @@ import { CollectionPage, ProductPage } from './commercePages';
  * twice, the products table and one row of it opened, taking `commerceBackend`
  * with it. Then the phone's drawn screen went too — status bar, hero,
  * bestsellers and all — leaving its drawn frame around the real Shop by
- * Category screen. Last of all the laptop's drawn screen: header, hero,
+ * Category screen. Then the laptop's drawn screen: header, hero,
  * category tiles and the glyphs that only ever lived inside them, replaced
- * by the real homepage in the real frame.
+ * by the real homepage in the real frame. And last of all a photograph joined
+ * the other pages in the fourth card, which is the first one to arrive for a
+ * drawing the rule would have been content to keep.
  */
 
 /* ————————————————————————————————————————————————————————————
    A DRAWN OBJECT, FITTED TO THE SPACE IT IS GIVEN.
 
    The drawings on this section are the phone frame and the two pages. Each one
-   is a hand-built arrangement of divs at absolute pixel positions inside a
-   fixed box, and the pixel positions are the artwork — a 212-pixel product
-   page with a 188-pixel collection page laid 150 across is what makes the two
-   read as peers. So none of them is rewritten to be responsive, and none of
-   them is replaced by a screenshot.
+   is a hand-built arrangement of divs at exact pixel sizes inside a box of its
+   own, and those sizes are the artwork — a 212-pixel product page and a
+   188-pixel collection page are what makes the two read as peers. So none of
+   them is rewritten to be responsive, and none of them is replaced by a
+   screenshot.
 
    Everything else on it is a screenshot — the laptop's homepage screen, the
    phone's Shop by Category screen, the backend table and one of its rows, two
-   sheets of the catalogue workbook, and two banner designs — and the rule above
-   is what puts them there: each is a finished artefact rather than a structure, so a drawing of one would be a
-   substitute for the evidence instead of an illustration of it. The card
-   photographs are in `commerceShots` and the phone screen is served directly
-   like the laptop frame; all of them pass their own intrinsic dimensions, and
-   the fit below treats them exactly as it treats the drawings — same
-   measurement, same scale, same ceiling.
+   sheets of the catalogue workbook, two banner designs, and the mobile page in
+   the last card. The first six are finished artefacts rather than structures,
+   which is what puts them there: a drawing of one would be a substitute for the
+   evidence instead of an illustration of it. The last is a page, and it is a
+   photograph because a file of it exists rather than because of what it is.
+
+   The card photographs are in `commerceShots` and the phone screen is served
+   directly like the laptop frame; all of them pass their own intrinsic
+   dimensions, and the fit below treats them exactly as it treats the drawings —
+   same measurement, same scale, same ceiling.
 
    What the fit needs is a way to sit all of them in a fluid column without
    losing those numbers, and that is all this is. It measures the space it was
@@ -430,13 +437,32 @@ export const CommerceBoard: React.FC = () => (
 
           <InterfaceCard
             index={3}
-            label="WEBSITE INTERFACE / OTHER PAGES"
+            label="WEBSITE OTHER PAGES"
             description="Worked on product pages, collection pages and other key website sections for a smooth and consistent user experience."
           >
-            {/* A product page and a collection page are peers in the work, so
-                they are peers here too, at the sheet's 150 across and 35 down. */}
-            <ProductPage style={{ left: 0, top: 0 }} />
-            <CollectionPage style={{ left: 150, top: 35 }} />
+            {/* Three page views in one card, and the composition is a flex row
+                rather than a positioned cluster, because the third object needs
+                a column of its own and a column cannot be measured out of two
+                absolutely placed children. The two drawn pages are stacked on the
+                left at the two sizes they have always been — 212 wide and 188 —
+                and the real mobile page stands beside them on the right, centred
+                against the pair. The cluster is still 338 wide, so the fit gives
+                this card the same scale it gave it before and the other three
+                cards are untouched.
+
+                The heights below are the reason nothing outside this card moved.
+                The pair is about 336 tall and the mobile page 233, so the card's
+                artwork is about 255 once the fit has scaled it — against the
+                backend card's 316, which is what sets the row. This card is
+                still the shorter of the two, so the row height and the section
+                height are the same as they were. */}
+            <div className="absolute flex w-[338px] items-center gap-2">
+              <div className="flex shrink-0 flex-col gap-2">
+                <ProductPage />
+                <CollectionPage style={{ marginLeft: 12 }} />
+              </div>
+              <OtherPage />
+            </div>
           </InterfaceCard>
         </div>
       </div>

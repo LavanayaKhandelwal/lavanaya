@@ -18,8 +18,29 @@ import { photo } from './photos';
  * reader recognises a page by its structure and a structure can be rebuilt at any
  * size, so drawing one loses nothing. Drawing a campaign banner loses the banner,
  * because a banner is a finished composition and not a structure — which is why
- * the banners and the catalogue are photographs now, in `commerceShots`, and the
- * two pages are still here.
+ * the banners and the catalogue are photographs now, in `commerceShots`.
+ *
+ * A third page joined them in this card and it is the one that settles the
+ * argument for this file. A mobile page arrived as an export, and a page is a
+ * structure, so the rule above would have licensed drawing that one exactly as it
+ * licensed drawing these two. A file settles it the other way: where a real
+ * export exists, a drawing is not a smaller claim about the work, it is a
+ * substitute for it. These two stay drawn for the only reason that leaves — no
+ * export of them exists to photograph. The card is two drawings and one
+ * photograph, and that mix is the honest description of the work rather than a
+ * compromise.
+ *
+ * THE TWO ARE IN FLOW RATHER THAN POSITIONED, which is the one change to this
+ * file's own mechanics and the only one. They used to be absolutely placed
+ * inside the card's fitted stage, a hundred and fifty across and thirty-five
+ * down, because a positioned pair is how the two of them were made to overlap.
+ * The mobile page needs a column of its own beside them, and a column cannot be
+ * measured out of two absolutely placed children — their rects do not add up to
+ * anything. So the pair is a flex column with the mobile page as a flex sibling
+ * of it, which hands the one number this file no longer has to guess to the
+ * browser: how tall the pair actually is. Neither page is a different size than
+ * it was, and the cluster is still 338 wide, which is what keeps this card at
+ * the same magnification as the other three.
  *
  * The banners used to be in this file, and the pop-up with them. All three went
  * when the real designs arrived.
@@ -68,7 +89,7 @@ const Rating: React.FC<{ size?: number }> = ({ size = 6 }) => (
 
 export const ProductPage: React.FC<{ style?: React.CSSProperties }> = ({ style }) => (
   <div
-    className="absolute w-[212px] overflow-hidden rounded-[4px] bg-white"
+    className="relative w-[212px] shrink-0 overflow-hidden rounded-[4px] bg-white"
     style={{ ...style, boxShadow: FLOAT }}
   >
     {/* SITE HEADER — a single hairline bar. The product page is inside the
@@ -162,7 +183,7 @@ const COLLECTION = [
 
 export const CollectionPage: React.FC<{ style?: React.CSSProperties }> = ({ style }) => (
   <div
-    className="absolute w-[188px] overflow-hidden rounded-[4px] bg-[#FFF6F2]"
+    className="relative w-[188px] shrink-0 overflow-hidden rounded-[4px] bg-[#FFF6F2]"
     style={{ ...style, boxShadow: FLOAT }}
   >
     <div className="flex h-[16px] items-center justify-between bg-[#FFFBF6] px-2">
