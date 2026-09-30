@@ -112,65 +112,10 @@ export const HunkyHideawayPage: React.FC = () => {
             BrushMarks on this page — the one under the project name and the one
             in band 2 — are unrelated and stay.
 
-            THE RIBBON. Anchored to the section's right edge, vertically centred,
-            sitting fully inside that edge so it reads as part of the composition
-            rather than running off the page. It sits behind everything: z-0 here
-            against z-10 on the content grid below, which guarantees the paint
-            order rather than relying on source order. Right-anchored and clear
-            of the text column, so it cannot cross the title block's type. Sized
-            to 26rem against its own 1548/941 ratio, so the artwork is never
-            stretched — the file was trimmed to its alpha bounds first, which is
-            what lets the box ratio and the artwork ratio be the same number.
-            Decorative, so it carries an empty alt and takes no pointer events.
-
-            EDGES. The source artwork bleeds off its own frame on three sides.
-            The right edge is a hard cut — the last twelve columns are fully
-            opaque top to bottom — and the top and bottom rows are cut at about
-            20% coverage each. Only the left edge is naturally transparent. So
-            the ribbon is a hard-edged rectangle, and on a pale ground those
-            three straight cuts read as a border drawn around it.
-
-            Fading all four sides needs two mask layers, not one: a horizontal
-            gradient for left/right and a vertical one for top/bottom, combined
-            with mask-composite:intersect so the ribbon is only opaque where
-            BOTH gradients are. Neither layer alone would touch the other axis,
-            which is why masking only the right edge earlier left the two
-            horizontal lines in place.
-
-            The vertical layer is a FOUR-stop gradient, fading in from the top
-            as well as out through the bottom. A two-stop one running to bottom
-            starts at full opacity, which fixes the bottom edge and leaves the
-            top one exactly as hard-cut as it was before — measured at peak
-            alpha 1.00 against the top rows' 19.9% coverage. Fading the bottom
-            is not the same as fading both.
-
-            The left edge is deliberately left un-faded: the source art is
-            already fully transparent down its first four columns, so there is
-            no cut to hide there and a fade would only shorten the ribbon.
-
-            The built CSS reads back as linear-gradient(#000 62%,#0000 94%)
-            with no direction on the second layer. That is not a dropped
-            keyword: 180deg is linear-gradient's default, so the minifier
-            strips it as a no-op, and to bottom was removed for the same
-            reason. 90deg survives on the first layer precisely because right
-            is not the default. The vertical fade is intact either way.
-
-            NO SHADOW. Drop-shadows were tried here to define the edges, and
-            that was the wrong call: a shadow traces the alpha silhouette, so on
-            a boxy source it reads as an outline drawn around the image — the
-            very thing being removed. The ribbon is now the artwork and nothing
-            else. The webkit properties are spelled out because Tailwind does
-            not prefix arbitrary properties, and source-in is the webkit
-            spelling of intersect. */}
-        <img
-          src="/portfolio-assets/04_right_side_ribbon.png"
-          alt=""
-          aria-hidden="true"
-          width={1548}
-          height={941}
-          className="pointer-events-none absolute right-0 top-1/2 z-0 w-[26rem] max-w-[42%] -translate-y-1/2 aspect-[1548/941] object-contain [-webkit-mask-image:linear-gradient(90deg,#000_55%,transparent_92%),linear-gradient(180deg,transparent_2%,#000_30%,#000_68%,transparent_96%)] [-webkit-mask-composite:source-in] [mask-image:linear-gradient(90deg,#000_55%,transparent_92%),linear-gradient(180deg,transparent_2%,#000_30%,#000_68%,transparent_96%)] [mask-composite:intersect]"
-        />
-
+            The right-side ribbon artwork that used to be anchored here is
+            removed: the photograph and the title block carry the composition on
+            their own. The content grid below keeps its z-10; nothing else in
+            this band paints, so the stacking stays deterministic. */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-x-10 lg:gap-x-8 items-start">
           {/* Title block.
 
@@ -191,7 +136,7 @@ export const HunkyHideawayPage: React.FC = () => {
               432px photograph, so dropping it 48px leaves the category line
               finishing roughly level with the foot of the image instead of
               stopping 36px short of it. */}
-          <div className="mt-10 lg:mt-12 lg:col-span-4">
+          <div className="mt-10 lg:mt-12 lg:col-span-4 reveal">
             {/* The lockup, left-aligned to the heading and scaled to the column.
 
                 align defaults to centre, which is what put the two out of step:
@@ -300,9 +245,7 @@ export const HunkyHideawayPage: React.FC = () => {
 
           Scoped to this band on purpose. Taking the whole page to cream would
           put the hero on the same paper as page two and lose the alternation
-          the two-board split exists for, and it would also sink the ribbon:
-          that artwork is largely white and pale grey, so on #F9F8F2 it would
-          very nearly disappear, where on blush it reads as a pale wash.
+          the two-board split exists for.
 
           paper-grain-light is not re-applied here because it is not a texture —
           the rule is only position: relative — so nothing is lost by covering
@@ -319,7 +262,7 @@ export const HunkyHideawayPage: React.FC = () => {
         {/* A clean grid of three, `items-stretch` so the boxes finish level:
             the photographs keep their own ratios, so the cards are only equal
             because they are told to fill the row. */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-x-10 lg:gap-x-8 gap-y-12 lg:gap-y-14 items-stretch">
+        <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-x-10 lg:gap-x-8 gap-y-12 lg:gap-y-14 items-stretch reveal">
           {ACTIVATIONS.map((block) => (
             <ExperienceBox
               key={block.number}
@@ -497,7 +440,7 @@ const ExperienceBox: React.FC<{
      the grid, so the corners that hang outward are not clipped. The band 2
      section does carry overflow-hidden, but only because it once held the
      bottom-left wash, and the grid sits far inside that section's padding. */
-  <article className={`relative flex h-full flex-col border-x border-t border-[#705955]/22 bg-[#FADBD9] px-7 pt-8 shadow-[0_16px_38px_-30px_rgba(62,39,35,0.5)] sm:px-9 sm:pt-10 ${className}`}>
+  <article className={`relative flex h-full flex-col border-x border-t border-[#705955]/22 bg-[#FADBD9] px-7 pt-8 shadow-[0_16px_38px_-30px_rgba(62,39,35,0.5)] sm:px-9 sm:pt-10 hover-lift hover-warm ${className}`}>
     {/* `in` rather than a plain read, because card 02 has no corner key at
         all and TypeScript narrows this union to members that declare it. Same
         guard the photo's optional position uses a few lines below. */}

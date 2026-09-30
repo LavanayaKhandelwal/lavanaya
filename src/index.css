@@ -206,6 +206,126 @@
   text-decoration-color: #FADBD9;
 }
 
+/* ————— Scroll reveals and hover motion —————
+   Two classes of movement, both written on the CSS `translate`/`scale`
+   properties rather than `transform`, for the same reason the Polaroid jiggle
+   below is: a property-specific animation composes with a `transform` the
+   element already carries — the social sheets are inline-scaled, several plates
+   are rotated for their tilt — instead of overwriting it.
+
+   `.reveal` is inert until `motion-ready` is on <html>, which utils/scrollReveal
+   does at module scope — before React's first paint, so a page never shows a
+   section and then snatches it away to animate it in. If the script fails to
+   run, or the reader has reduced motion switched on, every element simply stays
+   where it was authored: a reveal system must never be able to hide content it
+   cannot later show. Both blocks sit inside
+   `prefers-reduced-motion: no-preference`, so the reduced-motion rule near the
+   end of this file is a backstop and not the mechanism.
+
+   The observer adds `.reveal-in`; `.reveal-d1`–`.reveal-d3` stagger the
+   children of a row so a grid of cards arrives one after another rather than as
+   a single slab. */
+
+@media (prefers-reduced-motion: no-preference) {
+  html.motion-ready .reveal,
+  html.motion-ready .reveal-fade {
+    opacity: 0;
+  }
+
+  /* A keyframe animation rather than a `transition` — the obvious thing to
+     write, and wrong here. A `transition` on `.reveal` takes the whole element
+     over: a plate that also carries `.hover-lift .hover-warm` answers a hover
+     with whichever declaration the cascade prefers, so the blush border either
+     snaps or arrives 270ms late wearing the reveal's own stagger delay. A
+     keyframe animation holds only `opacity` and `translate` and releases both
+     the moment it ends — which is also why a finished reveal leaves no
+     `translate` behind to re-anchor the `fixed` note and `sticky` column nested
+     inside it. `backwards` is what keeps a delayed row hidden while it waits. */
+  html.motion-ready .reveal.reveal-in {
+    opacity: 1;
+    animation: reveal-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+  }
+
+  /* For a block whose own `transform` matters at rest — a scaled board, a
+     rotated plate — or one that is flush with its siblings, where a mid-flight
+     rise would read as the artwork sliding on its mount, or open a seam of page
+     ground between two sheets. Arrival is lightness alone. */
+  html.motion-ready .reveal-fade.reveal-in {
+    opacity: 1;
+    animation: reveal-light 0.9s ease-out var(--reveal-delay, 0ms) backwards;
+  }
+
+  .reveal-d1 { --reveal-delay: 90ms; }
+  .reveal-d2 { --reveal-delay: 180ms; }
+  .reveal-d3 { --reveal-delay: 270ms; }
+}
+
+@keyframes reveal-rise {
+  from { opacity: 0; translate: 0 18px; }
+  to   { opacity: 1; translate: none; }
+}
+
+@keyframes reveal-light {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Hover: 3px of rise, one warm hairline, a photograph that leans 3% closer, an
+   arrow that steps toward where it points. All are small on purpose — these are
+   printed pages, not stickers, and the movement should be discoverable rather
+   than announced. `@media (hover: hover)` keeps the whole thing off touch
+   devices, where a :hover state sticks after a tap. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  /* ONE transition declaration shared by every hover class below. Declaring it
+     per class would mean an element carrying two of them — a plate that both
+     lifts and warms — gets whichever rule comes last, and the other property
+     would snap instead of moving. */
+  .hover-lift,
+  .hover-warm {
+    transition:
+      translate 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+  }
+
+  .hover-lift:hover {
+    translate: 0 -3px;
+  }
+
+  .hover-warm:hover {
+    border-color: rgba(214, 149, 137, 0.55);
+  }
+
+  /* Only for a frame that already clips: the photograph grows inside the
+     hairline rather than pushing past it. */
+  .hover-zoom img {
+    transition: scale 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hover-zoom:hover img {
+    scale: 1.035;
+  }
+
+  .hover-arrow,
+  .hover-arrow-back {
+    transition: color 0.3s ease;
+  }
+
+  .hover-arrow svg,
+  .hover-arrow-back svg {
+    transition: translate 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* The arrow steps toward where it points, so a back link steps left. */
+  .hover-arrow:hover svg {
+    translate: 4px 0;
+  }
+
+  .hover-arrow-back:hover svg {
+    translate: -4px 0;
+  }
+}
+
 /* ————— Typewriter caret ————— */
 
 .typewriter-caret {

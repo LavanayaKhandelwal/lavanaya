@@ -356,7 +356,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
         <div className="relative">
           {/* Title. The "PROJECT" eyebrow and its hairline used to sit above
               this; only the rule and the word are gone, the heading stays. */}
-          <div className="text-center">
+          <div className="text-center reveal">
             {/* The site selection highlight, inverted and made permanent: an
                 espresso block behind pink type. inline-block so the block
                 spans the words rather than the full column, and
@@ -370,7 +370,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
           {/* FROM IDEA TO MVP — blush wash panel, built on the THE OPPORTUNITY
                treatment: organic radius, slight tilt, label left and the six
                steps as a pill row on the right, description closing underneath. */}
-          <div className="mt-10 lg:mt-14 relative p-8 lg:p-12 bg-[#FADBD9]/50 rounded-[44px_24px_40px_28px] lg:rotate-[0.4deg]">
+          <div className="mt-10 lg:mt-14 relative p-8 lg:p-12 bg-[#FADBD9]/50 rounded-[44px_24px_40px_28px] lg:rotate-[0.4deg] reveal reveal-d1">
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-7 lg:gap-14 items-center">
               <p className="eyebrow text-[#3E2723]">FROM IDEA TO MVP</p>
 
@@ -403,12 +403,12 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
                match the GYM › CAFÉ › TRAVEL row on page one; self-center
                overrides items-end so they centre on the plates rather than
                riding the caption baseline. */}
-          <div className="relative mt-9 lg:mt-12 p-8 lg:p-12 bg-[#FDFCF8] rounded-[3px]">
+          <div className="relative mt-9 lg:mt-12 p-8 lg:p-12 bg-[#FDFCF8] rounded-[3px] reveal reveal-d2">
             <div className="grid grid-cols-3 sm:grid-cols-[1fr_auto_1fr_auto_1fr] items-end gap-4 sm:gap-x-6 lg:gap-x-8">
               {PROCESS_SLOTS.map((slot, i) => (
                 <React.Fragment key={slot.label}>
                   <figure
-                    className={`relative bg-[#FDFCF8] p-2.5 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)] ${slot.align ?? ''}`}
+                    className={`relative bg-[#FDFCF8] p-2.5 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)] hover-lift ${slot.align ?? ''}`}
                   >
                     <Slot
                       src={slot.src}
@@ -444,7 +444,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
       <section className="rule-t-light pt-14 pb-16 lg:pt-20 lg:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-10 lg:gap-x-8 gap-y-16 items-start">
           {/* THEN I TESTED ONE THING */}
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 reveal">
             <p className="eyebrow text-[#3E2723]">THEN I TESTED ONE THING</p>
 
             <h2 className="mt-4 font-display text-[1.875rem] lg:text-[2.125rem] leading-[1] tracking-tight text-[#3E2723]">
@@ -543,7 +543,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
               is items-center so the shorter plate sits against the middle of
               the taller one rather than a shared edge. Both are width-driven
               and use fit="contain", so nothing is ever cropped. */}
-          <div className="lg:col-start-7 lg:col-span-6 w-full">
+          <div className="lg:col-start-7 lg:col-span-6 w-full reveal reveal-d1">
             <div className="grid grid-cols-[1.1fr_1.15fr] items-center gap-4 sm:gap-5">
               {/* SURVEY INSIGHTS, overlaid on the plate rather than sat above
                   it. No fill behind it — the type sits straight on the photo.
@@ -618,7 +618,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
 
       {/* ——— Band B2 — skills applied — full width ——————————————— */}
       <section className="rule-t-light pt-10 pb-8 lg:pt-14 lg:pb-10">
-        <div className="relative bg-[#FADBD9]/50 rounded-[24px_36px_20px_34px] p-8 lg:p-14">
+        <div className="relative bg-[#FADBD9]/50 rounded-[24px_36px_20px_34px] p-8 lg:p-14 reveal">
           <p className="eyebrow leading-[1.5] text-[#3E2723]">
             WHAT I BUILT BEYOND
             <br />
@@ -631,7 +631,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
 
           <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             {SKILLS.map((skill) => (
-              <div key={skill.title} className="rounded-[18px] bg-[#FDFCF8] p-6 lg:p-7">
+              <div key={skill.title} className="rounded-[18px] bg-[#FDFCF8] p-6 lg:p-7 hover-lift">
                 <span className="flex items-center justify-center w-14 h-14 rounded-full bg-[#705955] text-[#F9F8F2]">
                   {SKILL_ICON[skill.icon]}
                 </span>
@@ -707,7 +707,7 @@ export const EverydayAthleisurePageTwo: React.FC = () => {
 
       {/* ——— Band D — what I take forward ————————————————————— */}
       <section className="rule-t-light pt-10 pb-2 lg:pt-14 lg:pb-4">
-        <div className="relative bg-[#FADBD9] rounded-[20px_36px_18px_32px] p-8 lg:p-14">
+        <div className="relative bg-[#FADBD9] rounded-[20px_36px_18px_32px] p-8 lg:p-14 reveal">
           <p className="eyebrow text-[#3E2723]">WHAT I TAKE FORWARD</p>
 
           {/* No column grid here. It was a 12-col wrapper holding one 7-col

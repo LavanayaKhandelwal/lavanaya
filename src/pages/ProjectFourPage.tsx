@@ -41,7 +41,7 @@ export const ProjectFourPage: React.FC = () => {
         <div className="flex justify-end">
           <Link
             to="/projects/marketing"
-            className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link"
+            className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link hover-arrow"
           >
             <span>Read Project 01: UNIQLO × Fragrances</span>
             <ArrowRight className="w-3.5 h-3.5" />

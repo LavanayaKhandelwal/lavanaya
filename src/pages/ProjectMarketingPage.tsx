@@ -32,11 +32,11 @@ export const ProjectMarketingPage: React.FC = () => {
         {/* PAGE 3 — THE ESSENCE OF JAPANESE SIMPLICITY */}
         <section className="bg-[#FADBD9] -mx-5 sm:-mx-8 lg:-mx-12 px-5 sm:px-8 lg:px-12 pt-16 lg:pt-20 pb-10 lg:pb-12">
           <div className="rule-b-light pb-6 mb-14 max-w-4xl">
-            <p className="eyebrow text-[#705955] mb-3">PAGE 3 — THE ESSENCE OF JAPANESE SIMPLICITY</p>
-            <h2 className="font-display text-4xl sm:text-5xl text-[#3E2723] tracking-tight mb-4">
+            <p className="eyebrow text-[#705955] mb-3 reveal">PAGE 3 — THE ESSENCE OF JAPANESE SIMPLICITY</p>
+            <h2 className="font-display text-4xl sm:text-5xl text-[#3E2723] tracking-tight mb-4 reveal reveal-d1">
               The Essence of Japanese Simplicity
             </h2>
-            <p className="font-body text-base text-[#3E2723]/80 leading-loose">
+            <p className="font-body text-base text-[#3E2723]/80 leading-loose reveal reveal-d2">
               The idea evolved into a fragrance collection designed to feel minimal, subtle and effortless — much like Uniqlo itself.
             </p>
           </div>
@@ -67,7 +67,7 @@ export const ProjectMarketingPage: React.FC = () => {
             </div>
 
             <div className="lg:col-span-4 lg:col-start-9 lg:sticky lg:top-24">
-              <div className="plate-light p-2">
+              <div className="plate-light p-2 reveal-fade hover-lift hover-warm">
                 <SlidePhoto
                   src="/portfolio-assets/03_fragrance_variants.jpg"
                   alt="The four minimalist bottle variants — Hana, Kaze, Mizu and Sora"
@@ -76,7 +76,7 @@ export const ProjectMarketingPage: React.FC = () => {
                 />
               </div>
 
-              <div className="plate-light p-2 mt-8">
+              <div className="plate-light p-2 mt-8 reveal-fade hover-lift hover-warm">
                 <SlidePhoto
                   src="/portfolio-assets/03_fragrance_variants_detail.jpg"
                   alt="Close detail of the Hana, Kaze, Mizu and Sora fragrance bottle range"

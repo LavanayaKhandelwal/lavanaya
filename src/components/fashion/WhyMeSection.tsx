@@ -70,7 +70,7 @@ export function WhyMeSection() {
     <section className="relative flex min-h-screen flex-col overflow-hidden bg-[#FADBD9] px-6 pb-0 pt-6 md:px-16 md:pt-8" aria-label="About me">
       <div className="my-auto grid w-full items-center gap-8 md:mx-auto md:min-h-[540px] md:w-full md:max-w-6xl md:grid-cols-[1fr_auto_1fr] md:gap-12">
         {/* Left column — about me */}
-        <div className="space-y-6">
+        <div className="space-y-6 reveal reveal-d1">
           {ABOUT.map((copy) => (
             <p key={copy.slice(0, 24)} className="mx-auto max-w-[34ch] text-justify hyphens-auto font-body text-[15px] leading-relaxed text-[#3E2723]/85 md:text-base">
               {copy}
@@ -81,7 +81,7 @@ export function WhyMeSection() {
         {/* Portrait — "About me!" sits above the image in flow (Times New
             Roman), so it never overlaps the photo */}
         <div className="relative">
-          <h2 className="font-wordmark-serif mb-5 text-center text-5xl leading-none text-[#3E2723] md:text-7xl">
+          <h2 className="font-wordmark-serif mb-5 text-center text-5xl leading-none text-[#3E2723] md:text-7xl reveal">
             About <em className="italic">me!</em>
           </h2>
           <Portrait />
@@ -92,7 +92,7 @@ export function WhyMeSection() {
         <div className="space-y-8 md:flex md:h-full md:flex-col md:justify-center md:gap-8 md:justify-self-start md:pb-0">
           {/* Blocks share one height so the three headings stay in rhythm,
               with no dead space under the shorter content */}
-          <div className="max-w-[30ch]">
+          <div className="max-w-[30ch] reveal reveal-d1">
             <PlateHeading icon="🎓">EDUCATION</PlateHeading>
             <p className="mt-5 font-body text-[15px] font-medium leading-relaxed text-[#3E2723] md:text-base">
               {student.degree}
@@ -103,7 +103,7 @@ export function WhyMeSection() {
           </div>
 
           {/* What I'm interested in — one line with pipe separators */}
-          <div className="max-w-[34ch]">
+          <div className="max-w-[34ch] reveal reveal-d2">
             <PlateHeading icon="🎯">{student.interests.heading}</PlateHeading>
             <p className="mt-4 font-body text-sm leading-snug text-[#3E2723]/75">
               {student.interests.chips.join(' | ')}
@@ -111,7 +111,7 @@ export function WhyMeSection() {
           </div>
 
           {/* What I love exploring — one line with pipe separators */}
-          <div className="max-w-[34ch]">
+          <div className="max-w-[34ch] reveal reveal-d3">
             <PlateHeading icon="🔍">{student.exploring.heading}</PlateHeading>
             <p className="mt-4 font-body text-sm leading-snug text-[#3E2723]/75">
               {student.exploring.chips.join(' | ')}

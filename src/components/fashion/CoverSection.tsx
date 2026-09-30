@@ -33,7 +33,7 @@ export function CoverSection() {
           optical centre. */}
       <div className="relative -translate-y-8 px-2 sm:px-6 md:-translate-y-12">
         <div className="inline-block text-center">
-          <h1 className="whitespace-nowrap leading-none font-wordmark-serif text-[#3E2723]">
+          <h1 className="whitespace-nowrap leading-none font-wordmark-serif text-[#3E2723] reveal">
             {/* letter-spacing also lands after the "R", so marginRight of the
                 same value neutralises it and the join can be tuned on its own */}
             <span style={{ fontSize: 'clamp(88px, 27vw, 470px)', letterSpacing: '-0.12em', marginRight: '0.12em' }}>PoR</span>
@@ -47,7 +47,7 @@ export function CoverSection() {
           </h1>
 
           {/* Byline — name left, year right, spanning the wordmark width */}
-          <div className="-mt-16 flex w-full items-baseline justify-between gap-x-4 md:-mt-20">
+          <div className="-mt-16 flex w-full items-baseline justify-between gap-x-4 md:-mt-20 reveal reveal-d1">
             <span
               className="font-inter text-[#3E2723]"
               style={{ fontSize: 'clamp(14px, 1.6vw, 26px)', fontWeight: 400, letterSpacing: '0.02em' }}
@@ -65,7 +65,7 @@ export function CoverSection() {
       </div>
 
       {/* Base plate — qualification anchored to the bottom edge of the cover */}
-      <div className="absolute bottom-6 left-6 right-6 md:bottom-9 md:left-10 md:right-10">
+      <div className="absolute bottom-6 left-6 right-6 md:bottom-9 md:left-10 md:right-10 reveal reveal-d2">
         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-t border-[#3E2723]/30 pt-3">
           <span
             className="font-inter text-[#3E2723]"

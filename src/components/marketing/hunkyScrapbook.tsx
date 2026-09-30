@@ -309,7 +309,7 @@ export const Slot: React.FC<{
   radius?: string;
   position?: string;
 }> = ({ src, alt, label, className = '', radius = 'rounded-[3px]', position }) => (
-  <div className={`overflow-hidden ${className}`}>
+  <div className={`overflow-hidden hover-zoom ${className}`}>
     <SlidePhoto
       src={src}
       alt={alt}

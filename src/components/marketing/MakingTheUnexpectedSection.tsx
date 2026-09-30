@@ -145,7 +145,7 @@ export const MakingTheUnexpectedSection: React.FC = () => {
   return (
     <section className="paper-grain-light relative pt-8 pb-10 lg:pt-12 lg:pb-14">
       {/* ——— Top metadata, closed with Project 1's header rule ——— */}
-      <div className="flex items-center gap-6 lg:gap-11">
+      <div className="reveal flex items-center gap-6 lg:gap-11">
         <span className="eyebrow text-[#3E2723]">03 / 04</span>
         <span className="block h-px w-8 lg:w-12 bg-[#705955]/30" aria-hidden="true" />
         <span className="eyebrow text-[#705955]">VISUAL MERCHANDISING</span>
@@ -155,7 +155,7 @@ export const MakingTheUnexpectedSection: React.FC = () => {
       {/* ——— Upper: narrative left, process photographs right ——— */}
       <div className="mt-8 lg:mt-10 grid grid-cols-1 lg:grid-cols-[38fr_62fr] gap-x-10 lg:gap-x-12 items-start">
         <div className="relative">
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-[#3E2723] uppercase">
+          <h2 className="reveal reveal-d1 font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-[#3E2723] uppercase">
             {HEADING_LEAD}
             <br />
             {/* Set like the home page's project index figures — the same upright
@@ -164,11 +164,11 @@ export const MakingTheUnexpectedSection: React.FC = () => {
             <span className="index-figure uppercase">{HEADING_TAIL}</span>
           </h2>
 
-          <p className="mt-5 max-w-[42ch] font-body text-base text-[#3E2723]/80 leading-loose">
+          <p className="reveal reveal-d2 mt-5 max-w-[42ch] font-body text-base text-[#3E2723]/80 leading-loose">
             {INTRO}
           </p>
 
-          <div className="mt-7 max-w-[46ch] space-y-4">
+          <div className="reveal mt-7 max-w-[46ch] space-y-4">
             <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed">{PARA1}</p>
             <p className="font-body text-sm text-[#3E2723]/80 leading-relaxed">{PARA2}</p>
           </div>
@@ -177,9 +177,12 @@ export const MakingTheUnexpectedSection: React.FC = () => {
         {/* Three vertical cards, labels beneath, process sequence below them */}
         <div>
           <div className="grid grid-cols-3 gap-3 lg:gap-4">
-            {PROCESS_CARDS.map((card) => (
-              <figure key={card.label} className="min-w-0">
-                <div className="plate-light p-2">
+            {PROCESS_CARDS.map((card, i) => (
+              <figure
+                key={card.label}
+                className={`reveal ${i === 0 ? '' : i === 1 ? 'reveal-d1' : 'reveal-d2'} min-w-0`}
+              >
+                <div className="plate-light p-2 hover-zoom">
                   <div className="aspect-[3/4] overflow-hidden">
                     <SlidePhoto
                       src={card.src}
@@ -198,7 +201,7 @@ export const MakingTheUnexpectedSection: React.FC = () => {
           </div>
 
           {/* Process sequence on a blush ground — Project 1's tinted flow panel */}
-          <ol className="mt-7 lg:mt-9 bg-[#FADBD9]/40 px-4 py-4 flex flex-wrap items-center justify-center gap-x-2.5 gap-y-2 lg:gap-x-4">
+          <ol className="reveal mt-7 lg:mt-9 bg-[#FADBD9]/40 px-4 py-4 flex flex-wrap items-center justify-center gap-x-2.5 gap-y-2 lg:gap-x-4">
             {PROCESS_STEPS.map((step) => (
               <li key={step} className="flex items-center gap-2.5 lg:gap-4">
                 <span className="eyebrow text-[#3E2723]">{step}</span>
@@ -239,14 +242,17 @@ export const MakingTheUnexpectedSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-[1.45fr_1fr_1fr] gap-2 lg:gap-3 h-[144px] lg:h-[188px]">
-          {INSTALLATION_STRIP.map((frame) => (
+          {INSTALLATION_STRIP.map((frame, i) => (
             /* `h-full min-h-0` gives the chain below a definite height to
                resolve against. Without it the grid item is auto-height, every
                `h-full` underneath collapses to auto, and each frame falls back
                to its photograph's own aspect ratio — which would blow past the
                strip's declared height instead of cropping to it. */
-            <div key={frame.src} className="min-w-0 h-full min-h-0">
-              <div className="plate-light p-2 h-full">
+            <div
+              key={frame.src}
+              className={`reveal ${i === 0 ? '' : i === 1 ? 'reveal-d1' : 'reveal-d2'} min-w-0 h-full min-h-0`}
+            >
+              <div className="plate-light p-2 h-full hover-zoom">
                 <div className="h-full overflow-hidden">
                   <SlidePhoto
                     src={frame.src}

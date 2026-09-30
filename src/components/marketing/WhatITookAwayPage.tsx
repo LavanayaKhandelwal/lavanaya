@@ -440,7 +440,7 @@ export const WhatITookAwayPage: React.FC = () => {
                 materially bigger than this is to give the section back to one
                 column and stack them — which puts the empty space back. */}
             <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-8 lg:items-end lg:-mt-4">
-              <div className="lg:col-span-5">
+              <div className="lg:col-span-5 reveal">
                 <h1 className="mt-9 font-editorial text-[clamp(2.5rem,4.6vw,3.1875rem)] leading-[0.91] tracking-[-0.01em] text-[#7A2A2E]">
                   {HEADING[0]}
                   <br />
@@ -563,7 +563,7 @@ export const WhatITookAwayPage: React.FC = () => {
                 of the frame's rows now, against 46%. Nothing is stretched — the
                 crop stays a crop. */}
 
-            <div className="mt-12 grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:mt-2.5 lg:flex-1 lg:min-h-0 lg:max-h-[29rem]">
+            <div className="mt-12 grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:mt-2.5 lg:flex-1 lg:min-h-0 lg:max-h-[29rem] reveal-fade">
               {REST_SHOTS.map((shot) => (
                 // One cell per column, and the cell is a flex column so that a
                 // second plate can be hung under the first: stretched to the
@@ -628,7 +628,7 @@ export const WhatITookAwayPage: React.FC = () => {
               single child. It is left in place rather than swapped for
               justify-start, which would be identical here and would be a second
               change to the same line. */}
-          <div className="lg:col-span-4 flex flex-col justify-between lg:py-[4.375rem] lg:pr-[3.4375rem] lg:pl-[4.0625rem] mt-14 lg:mt-0">
+          <div className="lg:col-span-4 flex flex-col justify-between lg:py-[4.375rem] lg:pr-[3.4375rem] lg:pl-[4.0625rem] mt-14 lg:mt-0 reveal reveal-d2">
             <div>
               {LEARNINGS.map((item, i) => (
                 <Learning key={item.number} item={item} first={i === 0} />

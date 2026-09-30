@@ -146,7 +146,7 @@ export const ConceptToShapeSection: React.FC = () => {
           own blush band. */}
       <div className="px-5 sm:px-8 lg:px-12 pt-8 pb-12 lg:pt-10 lg:pb-16">
         {/* ——— Top metadata, closed with Project 1's header rule ——— */}
-        <div className="flex items-center gap-6 lg:gap-11">
+        <div className="reveal flex items-center gap-6 lg:gap-11">
           <span className="eyebrow text-[#3E2723]">02 / 04</span>
           <span className="block h-px w-8 lg:w-12 bg-[#705955]/30" aria-hidden="true" />
           <span className="eyebrow text-[#705955]">VISUAL MERCHANDISING</span>
@@ -156,17 +156,22 @@ export const ConceptToShapeSection: React.FC = () => {
         <div className="mt-8 lg:mt-10 grid grid-cols-1 lg:grid-cols-[56fr_44fr] gap-x-10 gap-y-12 lg:gap-x-12">
           {/* ——— Left column: title, subtitle, five-stage timeline ——— */}
           <div>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-[#3E2723] uppercase">
+            <h2 className="reveal reveal-d1 font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-[#3E2723] uppercase">
               {titleLead}
               <br />
               <span className="font-editorial italic">{titleTail}</span>
             </h2>
 
-            <p className="mt-4 max-w-[46ch] font-body text-base text-[#3E2723]/80 leading-loose">
+            <p className="reveal reveal-d2 mt-4 max-w-[46ch] font-body text-base text-[#3E2723]/80 leading-loose">
               {briefText}
             </p>
 
-            <ol className="rule-t-light mt-8 lg:mt-10 pt-7">
+            {/* The one reveal on this list belongs to the list, not to its rows:
+                each stage hangs the next one off a hairline that runs through the
+                disc column, so four rows arriving four beats apart would spend
+                half a second breaking that thread and the last second joining it
+                back up. */}
+            <ol className="reveal rule-t-light mt-8 lg:mt-10 pt-7">
               {stages.map((stage, i) => (
                 <li key={stage.heading} className="grid grid-cols-[auto_1fr] gap-4 lg:gap-5 items-stretch">
                   {/* Circle + connector — the photo fills the disc edge to edge.

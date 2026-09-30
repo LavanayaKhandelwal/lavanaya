@@ -274,7 +274,14 @@ const Sheet: React.FC<{
   bg?: string;
   children: React.ReactNode;
 }> = ({ h, scale, bg = '#FADBD9', children }) => (
-  <div style={{ width: SHEET_W * scale, height: h * scale }} className="relative shrink-0">
+  /* `.reveal-fade` on the sized wrapper, never `.reveal`: this box is measured
+     by `useBoardScale` and its siblings sit flush against it, so a sheet that
+     rose 18px on arrival would slide out of the run of paper and let the page
+     ground show through the seam. Lightness is the only arrival that keeps the
+     three sheets one continuous surface, and it is the arrival each sheet gets
+     on its own as it reaches the viewport — they are 680, 600 and 680 tall, so
+     no two of them are ever on screen together at the same time. */
+  <div style={{ width: SHEET_W * scale, height: h * scale }} className="reveal-fade relative shrink-0">
     <div
       style={{
         width: SHEET_W,

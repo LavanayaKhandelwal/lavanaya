@@ -53,7 +53,7 @@ export const ProjectThreePage: React.FC = () => {
         <div className="mt-8 flex justify-end">
           <Link
             to="/projects/project-4"
-            className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link"
+            className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link hover-arrow"
           >
             <span>Next Project: Hunkemöller →</span>
             <ArrowRight className="w-3.5 h-3.5" />

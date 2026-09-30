@@ -30,7 +30,7 @@ export const InternshipLearningsPage: React.FC = () => {
       <div className="px-5 sm:px-8 lg:px-12">
         <div className="rule-b-light py-6 mb-20 lg:mb-28 flex flex-wrap items-center justify-between gap-6 font-mono-code text-xs">
           <div className="flex items-center gap-2">
-            <Link to="/internship/experience" className="inline-flex items-center gap-2 eyebrow text-[#705955] hover:text-[#3E2723]">
+            <Link to="/internship/experience" className="hover-arrow-back inline-flex items-center gap-2 eyebrow text-[#705955] hover:text-[#3E2723]">
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>BACK TO INTERNSHIP</span>
             </Link>
@@ -78,7 +78,7 @@ export const InternshipLearningsPage: React.FC = () => {
         <div className="rule-t-light pt-6 flex flex-wrap items-center justify-between gap-6">
           <Link
             to="/internship/experience"
-            className="inline-flex items-center gap-2 eyebrow text-[#3E2723] editorial-link"
+            className="hover-arrow-back inline-flex items-center gap-2 eyebrow text-[#3E2723] editorial-link"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to Internship Experience</span>
@@ -86,7 +86,7 @@ export const InternshipLearningsPage: React.FC = () => {
 
           <Link
             to="/projects/marketing"
-            className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link"
+            className="hover-arrow inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link"
           >
             <span>Proceed to Project 1 (Marketing Management)</span>
             <ArrowRight className="w-4 h-4" />

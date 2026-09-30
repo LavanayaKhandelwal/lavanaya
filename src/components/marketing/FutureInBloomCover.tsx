@@ -98,7 +98,7 @@ export const FutureInBloomCover: React.FC = () => {
             {/* One line, *Bloom* in the palette's pink. Held by
                 `whitespace-nowrap` at 6.992em — the widest line in the panel, and
                 the one every other ramp here is solved around. */}
-            <h1 className="font-display text-[clamp(1.75rem,11.5vw,4rem)] lg:text-[clamp(1.75rem,4.95vw,6.5rem)] leading-[1] tracking-tight text-[#3E2723] whitespace-nowrap">
+            <h1 className="font-display text-[clamp(1.75rem,11.5vw,4rem)] lg:text-[clamp(1.75rem,4.95vw,6.5rem)] leading-[1] tracking-tight text-[#3E2723] whitespace-nowrap reveal">
               A Future in{' '}
               <span className="font-editorial italic text-[#FADBD9]">Bloom</span>
             </h1>
@@ -109,7 +109,7 @@ export const FutureInBloomCover: React.FC = () => {
                 panel. It used to be the binding constraint on the whole column;
                 with the panel widened it clears its own overflow comfortably and
                 one ramp works from lg up. */}
-            <p className="mt-7 font-body font-medium uppercase text-[0.6875rem] tracking-[0.1em] text-[#3E2723]/85 whitespace-nowrap lg:mt-9 lg:text-[clamp(0.6875rem,1.55vw,1.125rem)]">
+            <p className="mt-7 font-body font-medium uppercase text-[0.6875rem] tracking-[0.1em] text-[#3E2723]/85 whitespace-nowrap lg:mt-9 lg:text-[clamp(0.6875rem,1.55vw,1.125rem)] reveal reveal-d1">
               COVER STORY X FUTURE FLORALS
             </p>
 
@@ -117,7 +117,7 @@ export const FutureInBloomCover: React.FC = () => {
                 side the label and the italic together run about 1.5x the panel's
                 content width, so the vertical hairline between them had to go. The
                 rule above the body copy still carries the box's old top edge. */}
-            <div className="mt-8 lg:mt-9">
+            <div className="mt-8 lg:mt-9 reveal reveal-d2">
               <span className="eyebrow text-[#705955]">COVER STORY :</span>
               <p className="mt-2 font-editorial italic text-[clamp(1.0625rem,4.4vw,1.6rem)] leading-[1.28] text-[#3E2723]/85 lg:text-[clamp(1.0625rem,2.15vw,1.6rem)]">
                 Contemporary. Feminine. Trend-led.
@@ -128,7 +128,7 @@ export const FutureInBloomCover: React.FC = () => {
                 same measure the nowrap lines above already run to. Every pixel
                 here came off this paragraph's line count; the wider the panel,
                 the fewer lines it breaks to. */}
-            <p className="rule-t-light mt-7 pt-6 font-body text-[1rem] leading-[1.6] text-[#3E2723]/80">
+            <p className="rule-t-light mt-7 pt-6 font-body text-[1rem] leading-[1.6] text-[#3E2723]/80 reveal reveal-d3">
               The project focused on taking an established fashion brand into a new product
               category. We chose Uniqlo and explored how its LifeWear philosophy could be
               extended beyond apparel.
@@ -137,6 +137,9 @@ export const FutureInBloomCover: React.FC = () => {
         </div>
 
         {/* Photograph — 65.5%, full height, touching the top, bottom and outer edge */}
+        {/* No reveal on this frame: it is the largest thing on the screen the
+            moment the page opens, so an arrival that starts at opacity 0 is
+            measured as a slower paint of the cover itself. */}
         <div className="relative order-1 lg:order-2 h-[55vh] lg:h-auto overflow-hidden">
           <SlidePhoto
             src="/portfolio-assets/project-visual-merchandising-hero.png"

@@ -60,7 +60,7 @@ export const LearningThroughProcessSection: React.FC = () => {
   return (
     <section className="paper-grain-light pt-8 pb-10 lg:pt-12 lg:pb-14">
       {/* ——— Top metadata, closed with Project 1's header rule ——— */}
-      <div className="flex items-center gap-6 lg:gap-11">
+      <div className="reveal flex items-center gap-6 lg:gap-11">
         <span className="eyebrow text-[#3E2723]">04 / 04</span>
         <span className="block h-px w-8 lg:w-12 bg-[#705955]/30" aria-hidden="true" />
         <span className="eyebrow text-[#705955]">VISUAL MERCHANDISING</span>
@@ -70,15 +70,20 @@ export const LearningThroughProcessSection: React.FC = () => {
       <div className="mt-8 lg:mt-10 grid grid-cols-1 lg:grid-cols-[52fr_48fr] items-stretch">
         {/* ——— Left panel ——— */}
         <div className="lg:pr-9 xl:pr-12">
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-[#3E2723] uppercase">
+          <h2 className="reveal reveal-d1 font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-[#3E2723] uppercase">
             {HEADING_LEAD}
             <br />
             <span className="font-editorial italic">{HEADING_TAIL}</span>
           </h2>
 
           <ol className="mt-8 lg:mt-10 space-y-7 lg:space-y-8">
-            {LEARNING_ITEMS.map((item) => (
-              <li key={item.number}>
+            {LEARNING_ITEMS.map((item, i) => (
+              /* The four points arrive in the order they are numbered, one beat
+                 apart. */
+              <li
+                key={item.number}
+                className={`reveal ${i === 0 ? '' : i === 1 ? 'reveal-d1' : i === 2 ? 'reveal-d2' : 'reveal-d3'}`}
+              >
                 {/* Project 1's index figure: big serif numeral, hairline running to the edge */}
                 <div className="flex items-center gap-3">
                   <span className="index-figure text-3xl text-[#3E2723]/80">{item.number}</span>
@@ -97,7 +102,7 @@ export const LearningThroughProcessSection: React.FC = () => {
 
           <div className="rule-t-light mt-9 pt-7 lg:mt-11">
             {/* Full blush block — Project 1's insight-panel ground */}
-            <div className="bg-[#FADBD9] p-4 sm:p-5">
+            <div className="reveal reveal-d1 bg-[#FADBD9] p-4 sm:p-5">
               <p className="eyebrow text-[#3E2723]">{SKILLS_HEADING}</p>
               <p className="mt-3 max-w-[54ch] font-body text-sm text-[#3E2723]/80 leading-[1.75]">
                 {SKILLS.join('  ·  ')}
@@ -107,7 +112,7 @@ export const LearningThroughProcessSection: React.FC = () => {
         </div>
 
         {/* ——— Right: photograph bleeding off the right edge ——— */}
-        <div className="relative mt-12 lg:mt-0 lg:-mr-5 xl:-mr-8 2xl:-mr-12">
+        <div className="reveal-fade relative mt-12 lg:mt-0 lg:-mr-5 xl:-mr-8 2xl:-mr-12">
           <div className="aspect-[4/5] lg:aspect-auto lg:h-full">
             <SlidePhoto
               src="/portfolio-assets/project2-process.jpg"

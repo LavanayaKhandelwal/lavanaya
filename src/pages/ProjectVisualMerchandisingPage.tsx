@@ -46,7 +46,7 @@ export const ProjectVisualMerchandisingPage: React.FC = () => {
         <div className="mt-8 flex justify-end">
           <Link
             to="/projects/project-3"
-            className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link"
+            className="inline-flex items-center gap-3 eyebrow text-[#3E2723] editorial-link hover-arrow"
           >
             <span>Next Project: Start Up →</span>
             <ArrowRight className="w-4 h-4" />

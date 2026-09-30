@@ -299,7 +299,7 @@ export const EverydayAthleisurePageOne: React.FC = () => {
       <section className="rule-t-light pt-16 pb-8 lg:pt-24 lg:pb-10">
         <div className="space-y-10 lg:space-y-14">
           {/* WHAT I NOTICED — cream paper brush. Copy left, the four complaints right. */}
-          <div className="relative p-8 lg:p-12 bg-[#FDFCF8] rounded-[44px_28px_40px_24px] lg:-rotate-[0.4deg]">
+          <div className="relative p-8 lg:p-12 bg-[#FDFCF8] rounded-[44px_28px_40px_24px] lg:-rotate-[0.4deg] reveal">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-9 lg:gap-14 items-center">
               <div className="max-w-xl">
                 <h2 className="eyebrow text-[#3E2723]">{NOTICED_HEADING}</h2>
@@ -336,7 +336,7 @@ export const EverydayAthleisurePageOne: React.FC = () => {
                 {NOTICED_IMAGES.map((shot) => (
                   <figure
                     key={shot.label}
-                    className="relative bg-[#FDFCF8] p-2 pb-5 border border-[#705955]/35 shadow-[0_8px_20px_-14px_rgba(62,39,35,0.3)]"
+                    className="relative bg-[#FDFCF8] p-2 pb-5 border border-[#705955]/35 shadow-[0_8px_20px_-14px_rgba(62,39,35,0.3)] hover-lift hover-warm"
                     style={{ transform: `rotate(${shot.rotation})` }}
                   >
                     <Slot
@@ -356,7 +356,7 @@ export const EverydayAthleisurePageOne: React.FC = () => {
           </div>
 
           {/* THE OPPORTUNITY — pale sage brush, mapped to blush. Heading left, the bridge right. */}
-          <div className="relative p-8 lg:p-12 bg-[#FADBD9]/50 rounded-[24px_44px_28px_40px] lg:rotate-[0.4deg]">
+          <div className="relative p-8 lg:p-12 bg-[#FADBD9]/50 rounded-[24px_44px_28px_40px] lg:rotate-[0.4deg] reveal">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-9 lg:gap-16 items-center">
               <div>
                 <p className="eyebrow text-[#3E2723]">{OPPORTUNITY_LABEL}</p>
@@ -395,7 +395,7 @@ export const EverydayAthleisurePageOne: React.FC = () => {
           </div>
 
           {/* THE CONCEPT — warm ivory, with the technical sketch at the right */}
-          <div className="relative p-8 lg:p-12 bg-[#FDFCF8] rounded-[3px]">
+          <div className="relative p-8 lg:p-12 bg-[#FDFCF8] rounded-[3px] reveal">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-9 lg:gap-16 items-start">
               <div>
                 <p className="eyebrow text-[#3E2723]">{CONCEPT_LABEL}</p>
@@ -483,11 +483,11 @@ export const EverydayAthleisurePageOne: React.FC = () => {
           {/* Lifestyle polaroids — the three moments THE CONCEPT names above,
               shown. Placed here rather than near the cover so the photographs
               land directly beneath the GYM › CAFÉ › TRAVEL discs. */}
-          <div className="grid grid-cols-2 sm:grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-4 sm:gap-x-6 lg:gap-x-8">
+          <div className="grid grid-cols-2 sm:grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-4 sm:gap-x-6 lg:gap-x-8 reveal">
             {POLAROIDS.map((shot, i) => (
               <React.Fragment key={shot.label}>
                 <figure
-                  className="relative bg-[#FDFCF8] p-2.5 pb-9 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)]"
+                  className="relative bg-[#FDFCF8] p-2.5 pb-9 shadow-[0_10px_26px_-14px_rgba(62,39,35,0.3)] hover-lift"
                   style={{ transform: `rotate(${shot.rotation})` }}
                 >
                   <Slot
@@ -528,7 +528,7 @@ export const EverydayAthleisurePageOne: React.FC = () => {
            THE OPPORTUNITY treatment: blush wash, organic radius, slight tilt,
            label left and the five methods as a pill row on the right. ————— */}
       <section className="pt-2 pb-8 lg:pt-4 lg:pb-12">
-        <div className="relative p-8 lg:p-12 bg-[#FADBD9]/50 rounded-[24px_44px_28px_40px] lg:-rotate-[0.4deg]">
+        <div className="relative p-8 lg:p-12 bg-[#FADBD9]/50 rounded-[24px_44px_28px_40px] lg:-rotate-[0.4deg] reveal">
           <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-9 lg:gap-16 items-center">
             <p className="eyebrow text-[#3E2723]">{WORKED_WITH_HEADING}</p>
 
