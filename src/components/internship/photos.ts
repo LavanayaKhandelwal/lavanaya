@@ -1,10 +1,10 @@
 /**
- * THE PHOTOGRAPH POOL FOR BOTH AADIYA JEWELS BOARDS.
+ * THE PHOTOGRAPH POOL FOR THE AADIYA JEWELS SOCIAL BOARD.
  *
- * One list, shared by the social media board and the e-commerce board, because
- * they are the same brand shoot and the same folder. Nothing is duplicated
- * between the two files and nothing is declared here without something
- * pointing at it.
+ * One list, and nothing is declared here without something pointing at it. The
+ * e-commerce board used to share it, and stopped: its objects are exports of
+ * finished web work at seven different shapes rather than frames from the brand
+ * shoot, and the note further down says where they went instead.
  *
  * The names are the job each picture does, not what is believed to be in it.
  * That is deliberate. The version of the internship page this replaced carried
@@ -48,30 +48,22 @@ const SOCIAL = {
   dashboard: 'final-dashboard.jpeg',
 } as const;
 
-/** The e-commerce board, which reaches further down the same folder. */
-const COMMERCE = {
-  /* THE CATEGORY TILES on the collection page. The laptop screen used to be a
-     drawing with its own hero photograph; it shows the real homepage now, so
-     that file has no reader left. */
+/* THE E-COMMERCE HALF OF THIS POOL IS GONE, and the pool's own rule is why: the
+   seven files in it were read by the two drawn pages in the fourth card of the
+   e-commerce board, and by nothing else once those pages went. Every other
+   object on that board is a real export of finished web work, and exports of
+   web work are not 1600 square — they are seven different shapes — so they are
+   named for what they are and served directly from `commerceShots` rather than
+   squeezed into a one-size table or lied about. The files themselves are still
+   in `public/portfolio-assets`; this is the table of what the site points at,
+   not the folder.
 
-  /* THE CATEGORY TILES under the hero, and again on the collection page. */
-  tileNecklace: 'IMG_1559.PNG',
-  tileEarring: 'IMG_1560.PNG',
-  tileRing: '60C4A694-F307-473A-836F-9FF76655E7D8.png',
-  tileBracelet: '56E0EFE3-289B-4EA1-95F0-C3DB7266DDFD.png',
+   The e-commerce board's own rule is recorded where it lives, on each of its
+   objects: a drawn object is a claim about what something looks like, a
+   photograph is the thing, and where a real export exists the export is what
+   belongs in the card. */
 
-  /* THE PRODUCT PAGE — the one large image, then one of the gallery thumbs. The
-     third product shot went with the drawn catalogue, which was its only other
-     use; the product page needs two thumbs and has two. */
-  product: 'ab8c971a-1e07-45cd-947a-d32f6efd5760.jpg',
-  productAlt: 'IMG_2187.jpg',
-
-  /* THE FLORAL BAND at the head of the collection page. This used to be called
-     the pop-up's photograph, back when there was a pop-up on this board. */
-  collectionHeader: '1e36b3dd-85f2-438b-b90a-e7143dbd03cd.jpg',
-} as const;
-
-export const FILES = { ...SOCIAL, ...COMMERCE };
+export const FILES = { ...SOCIAL };
 
 export type PhotoKey = keyof typeof FILES;
 
@@ -81,15 +73,18 @@ const DIR = '/portfolio-assets/';
 export const photo = (key: PhotoKey): string => `${DIR}${FILES[key]}`;
 
 /**
- * Intrinsic dimensions. Every file in the e-commerce half of this pool really
- * is 1600x1600 — all eleven of them — so one pair of numbers describes those
- * and no per-image table is needed. None of the twelve social files is square:
- * they are 1280 tall, or 1206 by 670 for the calendar. `BoardPhoto` falls back
- * to this number for anything that does not state its own, so on the social side
- * it describes a shape those files do not have. Nothing visible depends on it —
- * the frames are sized in CSS and the images are `object-cover` — but it is right
- * for one half of the pool and not the other, and it is a named constant rather
- * than an inlined 1600 so that this is one edit to make if the social half ever
- * starts passing its own dimensions.
+ * Intrinsic dimensions. None of the twelve files in this pool is square: they
+ * are 1280 tall, or 1206 by 670 for the calendar. `BoardPhoto` falls back to
+ * this number for anything that does not state its own, so on this side it
+ * describes a shape those files do not have. Nothing visible depends on it —
+ * the frames are sized in CSS and the images are `object-cover` — but it is a
+ * named constant rather than an inlined 1600 precisely so that the
+ * approximation is in one place and is obvious when it is read.
+ *
+ * It used to be exact for the e-commerce half of the pool, which really was
+ * eleven files that are 1600 square. That half is gone, and this number with
+ * its claim to be two-for-one is now an approximation across the whole pool.
+ * The e-commerce board passes each of its own real dimensions, so nothing there
+ * reads this.
  */
 export const PHOTO_EDGE = 1600;

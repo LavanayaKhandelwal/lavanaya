@@ -7,7 +7,6 @@ import {
 } from './aadiyaMarks';
 import { WebsiteLaptop, WebsitePhone } from './commerceInterface';
 import { BackendPair, BannerPair, CataloguePair, OtherPage } from './commerceShots';
-import { CollectionPage, ProductPage } from './commercePages';
 
 /**
  * INTERNSHIP — AADIYA JEWELS, SECTION TWO: E-COMMERCE AND WEBSITE MANAGEMENT.
@@ -86,19 +85,23 @@ import { CollectionPage, ProductPage } from './commercePages';
  * Category screen. Then the laptop's drawn screen: header, hero,
  * category tiles and the glyphs that only ever lived inside them, replaced
  * by the real homepage in the real frame. And last of all a photograph joined
- * the other pages in the fourth card, which is the first one to arrive for a
- * drawing the rule would have been content to keep.
+ * the fourth card — the first to arrive for a drawing the rule would have been
+ * content to keep — which then took the two drawn pages out of that card with
+ * it, along with `commercePages` and the seven pool photographs only they read.
+ * One drawing survives on the whole section now, the frame around the phone's
+ * screen, and that one is drawn because a device is recognised by its shape and
+ * there is no file of the shape.
  */
 
 /* ————————————————————————————————————————————————————————————
    A DRAWN OBJECT, FITTED TO THE SPACE IT IS GIVEN.
 
-   The drawings on this section are the phone frame and the two pages. Each one
+   One object on this section is drawn: the frame around the phone's screen. It
    is a hand-built arrangement of divs at exact pixel sizes inside a box of its
-   own, and those sizes are the artwork — a 212-pixel product page and a
-   188-pixel collection page are what makes the two read as peers. So none of
-   them is rewritten to be responsive, and none of them is replaced by a
-   screenshot.
+   own, and those sizes are the artwork — the buttons, the gloss and the hole
+   punch are what make it a phone rather than a rounded rectangle, and no
+   photograph of the work would carry any of that. So it is not rewritten to be
+   responsive and not replaced by a screenshot.
 
    Everything else on it is a screenshot — the laptop's homepage screen, the
    phone's Shop by Category screen, the backend table and one of its rows, two
@@ -106,7 +109,9 @@ import { CollectionPage, ProductPage } from './commercePages';
    the last card. The first six are finished artefacts rather than structures,
    which is what puts them there: a drawing of one would be a substitute for the
    evidence instead of an illustration of it. The last is a page, and it is a
-   photograph because a file of it exists rather than because of what it is.
+   photograph because a file of it exists rather than because of what it is —
+   and because once it was in the card the two drawn pages beside it had become
+   claims about a subject the card was showing the thing itself.
 
    The card photographs are in `commerceShots` and the phone screen is served
    directly like the laptop frame; all of them pass their own intrinsic
@@ -440,29 +445,24 @@ export const CommerceBoard: React.FC = () => (
             label="WEBSITE OTHER PAGES"
             description="Worked on product pages, collection pages and other key website sections for a smooth and consistent user experience."
           >
-            {/* Three page views in one card, and the composition is a flex row
-                rather than a positioned cluster, because the third object needs
-                a column of its own and a column cannot be measured out of two
-                absolutely placed children. The two drawn pages are stacked on the
-                left at the two sizes they have always been — 212 wide and 188 —
-                and the real mobile page stands beside them on the right, centred
-                against the pair. The cluster is still 338 wide, so the fit gives
-                this card the same scale it gave it before and the other three
-                cards are untouched.
+            {/* One page, and it is a photograph of the real thing. The two
+                drawn pages this card used to hold alongside it are gone, and
+                `commercePages` went with them — a card that puts a real export
+                beside two reconstructions of the same subject invites a reader
+                to prefer the reconstructions, because those are the ones that
+                stay crisp at thumbnail size, which is the whole reason this
+                section stopped drawing finished work.
 
-                The heights below are the reason nothing outside this card moved.
-                The pair is about 336 tall and the mobile page 233, so the card's
-                artwork is about 255 once the fit has scaled it — against the
-                backend card's 316, which is what sets the row. This card is
-                still the shorter of the two, so the row height and the section
-                height are the same as they were. */}
-            <div className="absolute flex w-[338px] items-center gap-2">
-              <div className="flex shrink-0 flex-col gap-2">
-                <ProductPage />
-                <CollectionPage style={{ marginLeft: 12 }} />
-              </div>
-              <OtherPage />
-            </div>
+                What is left is a single object that could not be drawn
+                honestly at this size anyway: a full-page mobile capture, 648 by
+                1280, in a card 255 wide inside. See the note on `OtherPage` for
+                why it is authored at 162 by 320 inside a 340-wide cluster rather
+                than filling the column, and for the 322.65 ceiling that stops
+                this card from being any taller than the three-object card it
+                replaces — which is what holds the section height still at two
+                across and one across, where this card's row is its own height.
+                At four across the row belongs to the backend card either way. */}
+            <OtherPage />
           </InterfaceCard>
         </div>
       </div>

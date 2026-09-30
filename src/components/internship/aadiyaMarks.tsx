@@ -140,19 +140,19 @@ export function useBoardScale(
    different enough that one fixed tint would be wrong on one of them.
 
    THE INTRINSIC SIZE IS A THIRD, and it is the only one with a default that is
-   right about half the time rather than all of it. The default is the e-commerce
-   half of `photos.ts`, where all eleven files really are 1600 square, so those
-   need no per-file table. The twelve social files are not square at all — they
-   are 1280 tall, or 1206 by 670 for the calendar — and the default is wrong for
-   every one of them. That was true before this revision and nothing shows it,
-   because the frame is sized in CSS and the image is `object-cover`, so the
-   browser's own ratio is overridden either way. What the attributes buy is that
-   the element is not lying to the parser about a file's shape while that file is
-   still in flight, which is the one moment the ratio is read.
+   wrong about all of it rather than half. The default is 1600 square, which was
+   exact for the e-commerce half of `photos.ts` while that half existed. That half
+   is gone — the two drawn pages were its only readers — so now no file in the
+   pool is square at all: the twelve that are left are 1280 tall, or 1206 by 670
+   for the calendar. Nothing shows it, because the frame is sized in CSS and the
+   image is `object-cover`, so the browser's own ratio is overridden either way.
+   What the attributes buy is that the element is not lying to the parser about a
+   file's shape while that file is still in flight, which is the one moment the
+   ratio is read.
 
-   The seven files the cards use instead of that pool now pass their own numbers,
-   and not one of them is square: the backend pair, the catalogue pair, the two
-   banner designs and the mobile page in the last card. Three of them are 1206
+   The seven files the cards use instead of that pool pass their own numbers, and
+   not one of them is square: the backend pair, the catalogue pair, the two
+   banner designs and the mobile page in the last card. Five of them are 1206
    wide, one is 1600 and one is 648 — which is why they are named individually
    here rather than left to the default.
    ———————————————————————————————————————————————————————————— */

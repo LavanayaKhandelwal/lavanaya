@@ -4,37 +4,37 @@ import { BoardPhoto } from './aadiyaMarks';
 /**
  * THE FOUR CARDS THAT SHOW THE WORK RATHER THAN A DIAGRAM OF IT.
  *
- * What is still drawn on this section — the phone frame and the two desktop
- * pages — is drawn because those are objects a reader recognises by their
- * structure, and a structure can be rebuilt at any size. A backend table, a
- * catalogue workbook and a campaign banner are a different thing. They are
- * finished artefacts, they were made once, and a plausible-looking
- * reconstruction of one is not a weaker version of the evidence — it is a
- * substitute for it. So those three cards show the actual files.
+ * What is still drawn on this section — the frame around the phone's screen —
+ * is drawn because it is an object a reader recognises by its structure, and a
+ * structure can be rebuilt at any size. A backend table, a catalogue workbook
+ * and a campaign banner are a different thing. They are finished artefacts, they
+ * were made once, and a plausible-looking reconstruction of one is not a weaker
+ * version of the evidence — it is a substitute for it. So those three cards
+ * show the actual files.
  *
- * The fourth card is where both halves of that argument meet, and the mix in it
- * is the honest description rather than a compromise. A page is a structure, so
- * the rule would have licensed drawing its mobile page as readily as it
- * licensed drawing the two desktop pages beside it. But a real export of that
- * page exists, and where one does the rule has nothing left to say. The two
- * desktop pages stay drawn for the only reason that leaves: no export of them
- * exists to photograph.
+ * The fourth card is where both halves of that argument met, and it has been
+ * resolved in the direction the rule points. It held a real mobile page beside
+ * two drawn desktop pages, and a card that puts an export next to two
+ * reconstructions of the same subject invites a reader to prefer the
+ * reconstructions, because those are the ones that look crisp at thumbnail size
+ * — which is the whole reason this section stopped drawing finished work. So
+ * the two drawings went, `commercePages` went with them, and the card is one
+ * real page.
  *
  * That is the whole argument for photographs here, and it is worth being precise
  * about the limit of it, because the section is not photographs all the way
- * down. Three of the objects on it are still drawn, and a drawing is the right
- * answer for each of them. A drawn object is a claim about what something looks
- * like; a photograph is the thing. Where the claim would be doing work that only
- * the original can do, the original is what belongs in the card.
+ * down. One object on it is still drawn — the frame around the phone's screen —
+ * and a drawing is the right answer for it. A drawn object is a claim about
+ * what something looks like; a photograph is the thing. Where the claim would
+ * be doing work that only the original can do, the original is what belongs in
+ * the card.
  *
  * None of these seven is in the photograph pool, and that is deliberate rather
- * than an omission. The e-commerce half of the pool is eleven files that really
- * are 1600 square, which is what lets `BoardPhoto` declare one pair of numbers
- * for all of them. These are 1206 by 497, 1206 by 954, 1206 by 481, 1600 by
- * 681, 1206 by 585, 1206 by 660 and 648 by 1280, and putting them in would
+ * than an omission. Every file left in the pool is a frame from the brand shoot
+ * or a report of it, and they are 1280 tall or 1206 by 670. These are exports
+ * of finished web work at seven different shapes, and putting them in would
  * have meant either breaking that one-size table or lying about them. They are
- * exports of finished web work rather than frames from the brand shoot, and
- * they are named for what they are.
+ * named for what they are and served directly.
  *
  * The plate colour is the same warm neutral the drawn banners used, so the frame
  * a card shows while a file is in flight is the colour it used to flash.
@@ -102,13 +102,11 @@ export const CataloguePair: React.FC = () => (
 
    The width is 340, and not the 255 this card's artwork column actually
    measures at the large breakpoint. Every multi-object card in the row is
-   authored at 340 — the backend pair, the catalogue pair, this pair — except
-   the pages card at 338, which is a 212-pixel product page stacked above a
-   188-pixel collection page with a 118-pixel mobile page beside them. That one
-   is narrower than 340 rather than wider, so all four sit within two pixels of
-   a single scale, the fit shrinks every one of them by the same factor to fit
-   its column, and four cards read as four cards at one magnification rather
-   than at four.
+   authored at 340 — the backend pair, the catalogue pair, this pair, and the
+   single page in the last card. One authored width for all four is what makes
+   them one magnification rather than four: the fit shrinks each by the same
+   factor to fit its column, so their heights keep one fixed order at every
+   width instead of only at the width they were measured at.
 
    Like the other two pairs, this is a stack rather than a positioned cluster,
    so it takes no offset from its card and has no `style` prop to be given
@@ -189,44 +187,90 @@ export const BackendPair: React.FC = () => (
 /* ————————————————————————————————————————————————————————————
    THE MOBILE PAGE.
 
-   A third page view in the last card, and the only photograph in the section of
-   a page rather than of a finished artefact. It arrived as an export — a
+   The whole of the last card now, and the only photograph in the section of a
+   page rather than of a finished artefact. It arrived as an export — a
    full-page capture, 648 by 1280, in mobile proportions — and the section's own
    rule settles what happens to it. A page is a structure, so the rule would
    have licensed drawing this one exactly as it licensed drawing the two
-   desktop pages beside it. A file settles it the other way: where a real
-   export exists, a drawing is not a smaller claim about the work, it is a
-   substitute for the work.
+   desktop pages that used to sit beside it. A file settles it the other way:
+   where a real export exists, a drawing is not a smaller claim about the work,
+   it is a substitute for the work.
+
+   THOSE TWO DESKTOP PAGES ARE GONE, and the rule is why rather than a change of
+   taste. A card holding a real page beside two invented ones invites a reader to
+   prefer the invented ones, because those are the ones that stay crisp at
+   thumbnail size — which is the whole reason this section stopped drawing
+   finished things in the first place. So the two drawings went,
+   `commercePages` went with them, and the seven pool photographs that only they
+   read went with those. What the card now shows is one fewer object than the
+   card's sentence describes; that is a question about the copy, and the copy
+   was not touched.
 
    WHAT IS IN IT, read off the pixels rather than the filename: a site header,
    a two-up pair of campaign images, a two-column text section, and then two
    large image tiles with a product in each. A full-page capture rather than a
-   single screen, which is why the file is a tall rectangle and why it is shown
-   beside the desktop pages at all — it is the same site at the other end of the
-   responsive range, so the two views standing together are the point.
+   single screen, which is why the file is a tall rectangle.
 
-   118 BY 233, which is the file's own ratio of 0.50625 to within four
-   hundredths of a percent, so `object-contain` is belt and braces rather than a
-   necessity. It is spelled with the v4 important modifier because
-   `BoardPhoto` puts `object-cover` on every photograph it wraps, and the two
-   utilities carry the same specificity — which one applies is decided by their
-   order in the stylesheet, and there `object-cover` is the later of the two.
+   162 BY 320 IS THE FILE'S OWN RATIO EXACTLY. 648 by 1280 reduces to 81 by
+   160, and that is 81 by 160 at twice, so nothing is cropped and nothing is
+   letterboxed and `object-contain` is belt and braces rather than a necessity.
+   It is spelled with the v4 important modifier because `BoardPhoto` puts
+   `object-cover` on every photograph it wraps, the two utilities share a
+   specificity, and which one applies is decided by their order in the
+   stylesheet — where `object-cover` is the later of the two.
+
+   320 IS THE HEIGHT BUDGET, and it is the number that matters most here,
+   because a portrait file in a fluid column is a trap: the fit scales by width,
+   so any cluster holding one of these renders at available-width over 0.50625
+   however narrow the cluster is, and one that simply filled this card's
+   255-pixel column would come out 504 tall. The page is therefore authored
+   inside this card's usual 340-wide cluster rather than filling it — the same
+   authored width as the other three, which is what puts all four cards at one
+   magnification and keeps their heights in one fixed order at every breakpoint
+   rather than only at the width it was measured at.
+
+   The ceiling on the height is 322.65, and it comes from the card this one
+   replaces rather than from the row. The old three-object card was a 338-wide
+   cluster holding a column of two drawn pages, and summing its fixed pixel
+   heights — 119.25 for the product page, 193.50 for the collection page, and
+   the 8 between them — makes it 320.75 tall, so a 340-wide cluster may be
+   322.65 tall before this card is any bigger than the one it replaced. 320 is
+   the largest whole multiple of 81 by 160 that fits under that. (The note this
+   replaces said 336, and was 15 out; the drawings are gone, so the number was
+   measured off the file in the revision that had them rather than trusted.)
+
+   Under that ceiling nothing on the section moves. At four across, where the row
+   is as tall as the backend card at 455 rendered pixels, this card comes to 407
+   and the row is what it was — and it would be what it was for any height up
+   to 384, so at that layout the section height does not really depend on this
+   number at all. At two across and one across this card shares a row with one
+   shorter card or with nothing, so its own height is its row's height; holding
+   it under what the old card was is what keeps those two layouts from growing,
+   and removing two objects from a card without that ceiling would have been the
+   one way this change made the section taller. Swept from 360 to 1600 the grid
+   is the same height to the pixel at two and four across and a shade under a
+   pixel and a half shorter at one across, and the closest this card comes to
+   being the tallest card in a row it shares is 12.5 pixels, at a viewport 812
+   wide. The next exact frame up, 169.29 by 334.4, loses that at every width
+   from 812 to 872.
    ———————————————————————————————————————————————————————————— */
 
 export const OtherPage: React.FC = () => (
-  <div
-    className="h-[233px] w-[118px] shrink-0 overflow-hidden rounded-[4px]"
-    style={{ boxShadow: FLOAT }}
-  >
-    <BoardPhoto
-      src="/portfolio-assets/website-other-page.jpeg"
-      alt="Full-page screenshot of a further Aadiya Jewels website page in mobile proportions, with a site header, two campaign images side by side, a two-column text section and two large product tiles below"
-      width={648}
-      height={1280}
-      plate="#F1DFD2"
-      className="h-full"
-      loading="eager"
-      imgClassName="object-contain!"
-    />
+  <div className="absolute flex w-[340px] items-center justify-center">
+    <div
+      className="h-[320px] w-[162px] shrink-0 overflow-hidden rounded-[4px]"
+      style={{ boxShadow: FLOAT }}
+    >
+      <BoardPhoto
+        src="/portfolio-assets/website-other-page.jpeg"
+        alt="Full-page screenshot of a further Aadiya Jewels website page in mobile proportions, with a site header, two campaign images side by side, a two-column text section and two large product tiles below"
+        width={648}
+        height={1280}
+        plate="#F1DFD2"
+        className="h-full"
+        loading="eager"
+        imgClassName="object-contain!"
+      />
+    </div>
   </div>
 );
