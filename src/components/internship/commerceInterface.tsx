@@ -100,24 +100,39 @@ const SheetsMark: React.FC<{ size?: number }> = ({ size = 13 }) => (
    mid-air.
    ———————————————————————————————————————————————————————————— */
 
-/* The shadow is a value rather than a class. It is a two-layer pair — a long
-   soft cast plus a tight contact shadow — and writing it as class text would
-   mean escaping four brackets inside an arbitrary value, and the tighter of the
-   two layers has to be tweakable by eye when the board is judged on screen. */
-const FLOAT = '0 14px 26px -14px rgba(58,38,40,0.55), 0 2px 5px rgba(58,38,40,0.12)';
-
 /* ————————————————————————————————————————————————————————————
-   SECTION 01, PART ONE — THE DESKTOP WEBSITE, ON A LAPTOP.
+   SECTION 01, PART ONE — THE DESKTOP WEBSITE, ON A REAL LAPTOP.
 
-   The screen is 16:10 as the brief specifies, which is wider than the 16:9 the
-   board itself is; that mismatch is the point, a laptop is never the shape of
-   the slide it appears on.
+   The device is a photograph of a real MacBook Pro 16, not a drawing of one —
+   `macbook-pro-16.png`, the frame used by the internship page this section's
+   interface was rebuilt in, brought over byte for byte. A drawn laptop is the
+   one thing a portfolio cannot get away with on the object it is putting front
+   and centre, because a laptop is a shape everybody already knows: the drawn one
+   had a bezel width, a base thickness and a brand name on the chin that no
+   machine in the world has, and all three are the details the eye checks first.
 
-   Inside it, top to bottom: a cream header with the wordmark, four navigation
-   items and two icons; a hero carrying a headline and one call to action over a
-   photograph; and a row of four category tiles. Nothing else. A jewellery home
-   page is mostly whitespace, and reproducing that whitespace at 1/2.4 scale is
-   the difference between a screenshot of a site and a diagram of one.
+   The frame is an 800 by 489 PNG with the panel cut into it, and the cutout is
+   11.8% in from each side, 4.5% from the top and 15.5% from the bottom — the
+   proportions the reference project's own frame uses, which is what makes this
+   the same device rather than an approximation of it.
+
+   THE FRAME IS AUTHORED AT 654 BY 390 rather than filling its column, and that
+   number is not a preference. The website inside it is laid out in absolute
+   pixels — a 30-pixel header, a 132-pixel hero, 74-pixel category tiles — so it
+   only looks like itself at roughly 500 by 312, the size it was drawn at. A
+   frame that filled its column would stretch that fixed layout to whatever width
+   the column happened to be, and the header would stop being a header. So the
+   frame is sized so the cutout comes out at 500 by 312: 500 over 0.764 is 654
+   wide, 312 over 0.80 is 390 tall, and the site then renders at its authored
+   size inside a real machine. The whole assembly is scaled afterwards, as one
+   object, by the fit in `CommerceBoard`.
+
+   Two things went with the drawn lid and are worth naming. The brand's name was
+   written across the laptop's chin, which is not something a real machine
+   carries and had no bezel left to sit in. And the hand-tuned two-layer cast
+   shadow is replaced by the reference's own device shadow, a single 18/24 drop
+   at 30% — one value instead of four, and it follows the PNG's silhouette,
+   which a shadow on a rectangle could never do.
    ———————————————————————————————————————————————————————————— */
 
 const NAV = ['Shop', 'Collections', 'About', 'Journal'] as const;
@@ -129,6 +144,19 @@ const CATEGORIES = [
   { label: 'Bracelets', key: 'tileBracelet' },
 ] as const satisfies ReadonlyArray<{ label: string; key: PhotoKey }>;
 
+/**
+ * THE WEBSITE ITSELF — everything that is the site rather than the machine.
+ *
+ * Top to bottom: a cream header with the wordmark, four navigation items and two
+ * icons; a hero carrying a headline and one call to action over a photograph;
+ * and a row of four category tiles. Nothing else. A jewellery home page is mostly
+ * whitespace, and reproducing that whitespace at this scale is the difference
+ * between a screenshot of a site and a diagram of one.
+ *
+ * Drawn, not screenshotted, and every number in it is absolute — which is the
+ * one constraint the frame above has to respect, and the reason the frame is a
+ * fixed size rather than a fluid one.
+ */
 const WebsiteScreen: React.FC = () => (
   <div className="h-full w-full overflow-hidden bg-[#FFFBF6]">
     {/* HEADER — cream, as the brief specifies, with the wordmark at the left
@@ -201,29 +229,22 @@ const WebsiteScreen: React.FC = () => (
 
 export const WebsiteLaptop: React.FC<{ style?: React.CSSProperties }> = ({ style }) => (
   <div style={style} className="absolute">
-    {/* LID — silver, holding a 16:10 screen with a black bezel around it. */}
-    <div
-      className="rounded-t-[9px] bg-[#C9CCD2] px-[7px] pt-[7px] pb-[10px]"
-      style={{ boxShadow: FLOAT }}
-    >
-      <div className="rounded-[3px] bg-[#0B0C0F] p-[4px]">
-        <div className="h-[312px] w-[500px]">
+    {/* The device's own shadow, not a box-shadow: the PNG has an alpha
+        silhouette, so a drop-shadow follows the shape of the machine — the
+        hinge, the base, the corners — and a rectangle behind it never could. */}
+    <div className="drop-shadow-[0_18px_24px_rgba(60,63,58,0.3)]">
+      <div className="relative h-[390px] w-[654px]">
+        <div className="absolute inset-x-[11.8%] top-[4.5%] bottom-[15.5%] overflow-hidden rounded-[4px] bg-[#FFFBF6]">
           <WebsiteScreen />
         </div>
+        <img
+          src="/portfolio-assets/macbook-pro-16.png"
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="pointer-events-none absolute inset-0 h-full w-full"
+        />
       </div>
-      {/* The brand's own mark below the screen, which is what stops a laptop
-          looking like a monitor in a diagram. */}
-      <span className="mt-1 block text-center font-body text-[5px] tracking-[1.4px] text-[#7C8189]">
-        AADIYA JEWELS
-      </span>
-    </div>
-
-    {/* BASE — a flatter slab, wider than the lid, with the lift notch. */}
-    <div
-      className="relative mx-[-16px] h-[11px] rounded-b-[7px] bg-[#B7BBC2]"
-      style={{ boxShadow: '0 16px 22px -10px rgba(58,38,40,0.5)' }}
-    >
-      <span className="absolute left-1/2 top-0 h-[4px] w-[68px] -translate-x-1/2 rounded-b-[4px] bg-[#A6AAB1]" />
     </div>
   </div>
 );

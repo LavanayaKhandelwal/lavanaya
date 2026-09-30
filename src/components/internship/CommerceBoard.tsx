@@ -294,12 +294,23 @@ export const CommerceBoard: React.FC = () => (
             </p>
             <div className="mt-6">
               {/* The board's focal point, and the largest object on it. The
-                  phone's offset is the sheet's, taken relative to the laptop:
-                  412 across and 138 down, which is what lands its foot just
-                  below the laptop's base and overlaps its lower right. */}
+                  phone's offset is recomputed, not inherited: the drawn laptop
+                  it used to sit against was 546 by 356, and the real MacBook
+                  frame that replaced it is 654 by 390, so the old 412/138 would
+                  have landed the phone in the middle of the screen rather than
+                  across its lower right.
+
+                  What the new numbers preserve is the relationship rather than
+                  the pixels. The phone overlaps about a sixth of the 500-pixel
+                  panel instead of the drawn laptop's fifth, stops 30 pixels
+                  short of the frame's right edge so it reads as sitting in
+                  front of the machine rather than beside it, and its foot lands
+                  24 pixels below the base — which is exactly how far it hung
+                  below the drawn laptop, and is the whole reason it overlaps at
+                  all. */}
               <Fitted>
                 <WebsiteLaptop style={{ left: 0, top: 0 }} />
-                <WebsitePhone style={{ left: 412, top: 138 }} />
+                <WebsitePhone style={{ left: 500, top: 172 }} />
               </Fitted>
             </div>
           </motion.div>
