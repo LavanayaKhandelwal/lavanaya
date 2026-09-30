@@ -276,10 +276,9 @@ export const CommerceBoard: React.FC = () => (
 
         {/* ————— THE MAIN SHOWCASE —————
             Seven columns of website, five of prose, on the reference's twelve-
-            column grid. The paragraph is the one the reference puts at the head
-            of the column and it slides in from the right, which is the one
-            directional move in the reference's whole section and it is worth
-            keeping. */}
+            column grid. The paragraph keeps the reference's one directional
+            move in this whole section and slides in from the right; where it
+            sits inside its column does not, and the note on it explains why. */}
         <div className="mb-12 grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-9">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -320,9 +319,34 @@ export const CommerceBoard: React.FC = () => (
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.55, delay: 0.12 }}
-            className="lg:col-span-5"
+            className="self-center lg:col-span-5"
           >
-            <p className="font-serif-display text-xl italic leading-[1.35] text-[var(--c-ink)]/80 sm:text-2xl lg:pt-6">
+            {/* CENTRED IN ITS COLUMN, NOT PINNED TO ITS TOP, which is the one
+                deliberate departure from the reference in this section. The
+                reference sets this paragraph in a `lg:pt-6` box at the head of
+                the right-hand five columns, top-aligned against the object beside
+                it. That works there because the reference's object is a device
+                frame at a fixed aspect — a predictable height, with the
+                paragraph's handful of lines landing near its middle by
+                coincidence.
+
+                Here the left column is a label, a sentence and a MacBook. The row
+                runs to roughly 520 pixels while the paragraph is about 230 of
+                them, so top-aligned it hung off the top of the row with
+                something like 290 pixels of cream beneath it, which read as the
+                right-hand column having been left behind rather than as a
+                deliberate top edge. `self-center` puts it level with the middle
+                of the machine instead, which is where the eye already goes.
+
+                The reference's `lg:pt-6` is gone rather than kept, because
+                nudging a centred thing downward by twenty-four pixels is the
+                opposite of centring it and would have left it permanently half a
+                line high.
+
+                Below the large breakpoint the two are stacked and every row is
+                its own height, so `self-center` has nothing to centre against
+                and the paragraph sits under the machine exactly as before. */}
+            <p className="font-serif-display text-xl italic leading-[1.35] text-[var(--c-ink)]/80 sm:text-2xl">
               Supported the brand&rsquo;s Shopify website and product catalogue, managing
               product uploads, website updates, banners and product organisation. I also
               worked on Google Sheets for product and content data management, helping keep
