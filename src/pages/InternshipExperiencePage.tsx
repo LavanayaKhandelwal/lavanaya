@@ -31,27 +31,34 @@ import { portfolioData } from '../data/portfolioData';
  * on screen; that is a real inconsistency and the honest fix is to rebalance the
  * e-commerce sheet against the new social ones, which is a job of its own.
  *
- * THE DIVIDER BETWEEN THEM EXISTS because the two sheets are very nearly the
- * same colour — the two briefs asked for a light pink and landed two and three
- * points apart in green and blue — so without a break between them a reader
- * scrolling from one to the other would land on a second composition with
- * nothing to say it was the second. It carries a section number and the
- * section's subject and nothing else, in the same eyebrow as the rest of the
- * site, and it sits on the dark surround rather than on either sheet, because
- * both sheets are specified as full compositions with their own margins and a
- * band of type across the foot of one would be a seventh thing on a board that
- * was specified as six.
+ * THE SOCIAL SHEETS RUN FULL BLEED AND THE E-COMMERCE BOARD DOES NOT. Those
+ * three sheets fill the width of the window edge to edge, so no page ground shows
+ * between them, above them or beside them — see `SocialBoard`. This board is one
+ * object on a dark page, so it is fitted and centred with ground either side,
+ * which is what a mounted print looks like. The two treatments are not a
+ * contradiction: the sheets are a continuous surface and a surface has no mount,
+ * while a single object does.
+ *
+ * THE DIVIDER BETWEEN THE HALVES EXISTS because the two are very nearly the same
+ * colour — the two briefs asked for a light pink and landed two and three points
+ * apart in green and blue — so without a break between them a reader scrolling
+ * from one to the other would land on a second composition with nothing to say it
+ * was the second. It carries a section number and the section's subject and
+ * nothing else, in the same eyebrow as the rest of the site, and it sits on the
+ * page's own ground rather than on either half, because both are specified as
+ * full compositions with their own margins.
  *
  * THE PALETTE BAND SITS NEXT TO IT, closing the social half and running the same
  * dark ground and the same eyebrow so the two read as one break in the page
  * rather than two interruptions. It is the one piece of type on this page that is
- * not on a board, and it earns that: neither sheet has space for it, and the
- * colours it names are the ones the sheet above is painted with.
+ * not on a board, and it earns that: the sheets are flush and full width, so
+ * there is no band left on any of them, and the colours it names are the ones
+ * the sheets above are painted with.
  *
  * Its padding is halved below the large breakpoint for the same reason the
- * boards hug there: on a phone the two sheets together are about 480 pixels
- * tall, and a divider with desktop padding on it would be taller than the
- * artwork it divides.
+ * e-commerce board hugs there: on a phone that board is about 219 pixels tall,
+ * and a divider with desktop padding on it would be taller than the artwork it
+ * divides.
  */
 
 const Divider: React.FC = () => (
@@ -74,20 +81,30 @@ const Divider: React.FC = () => (
 );
 
 /**
- * THE PALETTE, between the two boards.
+ * THE PALETTE, between the two halves.
  *
- * It could not go inside either sheet. Both are fixed-size art-directed
- * compositions with every part of them placed, and there is no band left on
- * either that would hold five swatches without pushing something else off the
- * paper. So it sits on the dark surround, in the same ground and the same
- * eyebrow as the divider beside it, and it closes the social half of the page.
+ * It is not on a sheet. The three social sheets are fixed-size art-directed
+ * compositions with every part of them placed and they are flush with each other
+ * and with the edges of the window, so there is no band left on any of them that
+ * would hold five swatches without pushing something else off the paper. So it
+ * sits on the page's own ground, in the same eyebrow as the divider beside it,
+ * and it closes the social half of the page.
  *
- * The colours are the ones the board above is painted with, not a brand colour
+ * That espresso is deliberate here, and it is worth being precise about why,
+ * because the social sheets spend a lot of effort keeping it out of their own
+ * half of the page. The sheets are a continuous surface: gaps between them, and
+ * a letterbox around them, both read as the page breaking the paper in three.
+ * The palette band is not a gap in that paper — it is a different thing, a
+ * labelled strip of reference that belongs to no sheet, and putting it on the
+ * ground is what makes it legible as one. It is a change of material, not a
+ * seam in a material.
+ *
+ * The colours are the ones the sheets above are painted with, not a brand colour
  * board — see `internship.palette` for what they are and are not. Two of the
  * five are pale enough to vanish against a dark ground and two are dark inks
  * that would vanish against anything, so every swatch carries a hairline in the
- * surround's own taupe: the mount is what keeps the ink navy readable rather
- * than an assumption that a dark square on a dark page reads as a dark square.
+ * page's own taupe: the mount is what keeps the ink navy readable rather than an
+ * assumption that a dark square on a dark page reads as a dark square.
  */
 const PaletteBand: React.FC = () => {
   const { palette } = portfolioData.internship;

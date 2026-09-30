@@ -33,6 +33,16 @@ import { AnalyticsLaptop, PostCarousel, SocialGrid } from './aadiyaResults';
  * the three of them ask for 1474 of the 1504 pixels available, which leaves no
  * gap at all. 440 is the largest height that still leaves that row a real gap.
  *
+ * THEY ARE FLUSH AND THEY FILL THE WIDTH. There is no ground visible between
+ * them, above them or beside them, and that is the whole reason for the
+ * `fillWidth` scale below. The page is espresso and these sheets are pink, so
+ * anything of the page showing through reads as a gap — and a strip of espresso
+ * between two pink sheets says "two boards on a background" when the design is
+ * one continuous piece of paper. Stacked with a gap, the seams looked like the
+ * page breaking the paper in three. So the sheets touch, the width decides the
+ * scale with no ceiling, and the run of pink is the only thing on the page
+ * between the header and the palette.
+ *
  * THE RUNNING HEAD IS ON THE FIRST SHEET ONLY. It is a running head, not a
  * title repeated three times, and repeating it would put three of the same line
  * on a page that is meant to read as three distinct compositions.
@@ -267,7 +277,10 @@ const DASHBOARD: Placed = {
 
 /** One sheet of pink paper, its washes, and whatever is hung on it. The outer
  *  box reserves the sheet's scaled size and the inner one carries the sheet at
- *  full size with the transform on it, so the section hugs the artwork. */
+ *  full size with the transform on it, so the section hugs the artwork.
+ *
+ *  No shadow, no margin, and `shrink-0` so the flex run cannot squeeze one sheet
+ *  to fit another. All three are the same width by construction. */
 const Sheet: React.FC<{ h: number; scale: number; children: React.ReactNode }> = ({
   h,
   scale,
@@ -281,7 +294,7 @@ const Sheet: React.FC<{ h: number; scale: number; children: React.ReactNode }> =
         transform: `scale(${scale})`,
         transformOrigin: 'top left',
       }}
-      className="absolute left-0 top-0 overflow-hidden bg-[#F8DDE5] shadow-[0_40px_90px_-30px_rgba(0,0,0,0.8)]"
+      className="absolute left-0 top-0 overflow-hidden bg-[#F8DDE5]"
     >
       <Paper h={h} />
       {children}
@@ -290,92 +303,104 @@ const Sheet: React.FC<{ h: number; scale: number; children: React.ReactNode }> =
 );
 
 export const SocialBoard: React.FC = () => {
-  /* One scale for all three sheets, and deliberately not one scale per sheet.
-     The hook fits a sheet to the frame it is measured against, and the frame
-     here is the whole stack — so the height of a third of a 680-pixel sheet can
-     never be the binding constraint and the width decides. Every sheet comes
-     out the same size on screen, which is the point of them being a set. */
-  const { frameRef, scale } = useBoardScale(SHEET_W, SHEET_1_H);
+  /* fillWidth, not the default fit-and-centre, and the width is all that is
+     measured. The default fits a sheet to the window and centres it, which
+     leaves the page's espresso ground above, below and to whichever side the
+     sheet is short of. Three sheets on that ground read as three boards sitting
+     on a background, and the strips between them read as gaps in the paper.
+     These are one continuous surface, so the width alone decides the scale,
+     without a ceiling, and the pink runs edge to edge. */
+  const { frameRef, scale } = useBoardScale(SHEET_W, SHEET_1_H, { fillWidth: true });
 
   return (
-    <div
-      ref={frameRef}
-      className="w-full flex flex-col items-center gap-8 bg-[#10090B] py-10 lg:gap-10 lg:py-14"
-    >
-      {/* ————— SHEET ONE, THE INTRODUCTION ————— */}
-      <Sheet h={SHEET_1_H} scale={scale}>
-        {/* The running head. The first sheet only. */}
-        <div className="absolute inset-x-[48px] top-[40px] flex items-center justify-between">
-          <div className="flex items-center gap-5">
-            <span className="font-body text-[11px] uppercase tracking-[4px] text-[#071326]">
-              INTERNSHIP EXPERIENCE
-            </span>
-            <span className="h-px w-[350px] bg-[#5F6871]" />
-          </div>
-          <div className="flex items-center gap-5">
-            <span className="font-body text-[10px] uppercase tracking-[4px] text-[#071326]">
-              AADIYA JEWELS
-            </span>
-            <span className="h-px w-[60px] bg-[#5F6871]" />
-          </div>
-        </div>
+    <div ref={frameRef} className="w-full">
+      {/* The run of all three, flush. No gap, so no page ground can show between
+          them, and no margin, so none shows above or below either. There is no
+          drop shadow on any of it: a shadow needs a background to fall on, and
+          the moment the pink meets the edge of the window there is nothing
+          behind it to cast onto. What separated these sheets before was not the
+          shadow, it was the espresso, and the espresso is gone.
 
-        {/* The title's size, leading and tracking are set inline rather than
-            through classes. They are the single most specific numbers on the
-            whole page and they are the numbers most likely to be argued with
-            later; inline styles put them next to the copy rather than in a
-            stylesheet, so an edit to the sheet is one edit. */}
-        <div
-          className="absolute flex items-center"
-          style={{ top: BAND_TOP, left: MARGIN, right: MARGIN, height: H1 + LABEL_GAP }}
-        >
-          <div style={{ width: BAND_W - (CALENDAR.w * (H1 / CALENDAR.h)) - COL_GAP }}>
-            <h1
-              className="font-serif-display text-[#071326]"
-              style={{
-                fontSize: `${TITLE_PX}px`,
-                lineHeight: 0.88,
-                letterSpacing: '-0.5px',
-                fontWeight: 400,
-              }}
-            >
-              Social
-              <br />
-              Media
-            </h1>
-
-            <p
-              className="font-body text-[#394252]"
-              style={{ marginTop: 28, fontSize: `${PARA_PX}px`, lineHeight: 1.55 }}
-            >
-              Managed the end-to-end social media content process, from planning and shooting to
-              editing, scheduling and publishing. Created engaging reels, posts and stories aligned
-              with the brand's identity and product communication.
-            </p>
+          The run is given no width or height of its own. Three flex children
+          that are all the same width stack to exactly that width, and writing
+          the sum out here as well would be a second place for the sheet heights
+          to be edited and a chance for the two to disagree. */}
+      <div className="flex flex-col items-stretch">
+        {/* ————— SHEET ONE, THE INTRODUCTION ————— */}
+        <Sheet h={SHEET_1_H} scale={scale}>
+          {/* The running head. The first sheet only. */}
+          <div className="absolute inset-x-[48px] top-[40px] flex items-center justify-between">
+            <div className="flex items-center gap-5">
+              <span className="font-body text-[11px] uppercase tracking-[4px] text-[#071326]">
+                INTERNSHIP EXPERIENCE
+              </span>
+              <span className="h-px w-[350px] bg-[#5F6871]" />
+            </div>
+            <div className="flex items-center gap-5">
+              <span className="font-body text-[10px] uppercase tracking-[4px] text-[#071326]">
+                AADIYA JEWELS
+              </span>
+              <span className="h-px w-[60px] bg-[#5F6871]" />
+            </div>
           </div>
 
-          <div style={{ marginLeft: COL_GAP }}>
-            <Item label="MAIN FEED CONTENT CALENDAR" obj={CALENDAR} height={H1} />
+          {/* The title's size, leading and tracking are set inline rather than
+              through classes. They are the single most specific numbers on the
+              whole page and they are the numbers most likely to be argued with
+              later; inline styles put them next to the copy rather than in a
+              stylesheet, so an edit to the sheet is one edit. */}
+          <div
+            className="absolute flex items-center"
+            style={{ top: BAND_TOP, left: MARGIN, right: MARGIN, height: H1 + LABEL_GAP }}
+          >
+            <div style={{ width: BAND_W - (CALENDAR.w * (H1 / CALENDAR.h)) - COL_GAP }}>
+              <h1
+                className="font-serif-display text-[#071326]"
+                style={{
+                  fontSize: `${TITLE_PX}px`,
+                  lineHeight: 0.88,
+                  letterSpacing: '-0.5px',
+                  fontWeight: 400,
+                }}
+              >
+                Social
+                <br />
+                Media
+              </h1>
+
+              <p
+                className="font-body text-[#394252]"
+                style={{ marginTop: 28, fontSize: `${PARA_PX}px`, lineHeight: 1.55 }}
+              >
+                Managed the end-to-end social media content process, from planning and shooting to
+                editing, scheduling and publishing. Created engaging reels, posts and stories aligned
+                with the brand's identity and product communication.
+              </p>
+            </div>
+
+            <div style={{ marginLeft: COL_GAP }}>
+              <Item label="MAIN FEED CONTENT CALENDAR" obj={CALENDAR} height={H1} />
+            </div>
           </div>
-        </div>
-      </Sheet>
+        </Sheet>
 
-      {/* ————— SHEET TWO, THE PRODUCTION RUN ————— */}
-      <Sheet h={SHEET_2_H} scale={scale}>
-        <Band height={H2 + LABEL_GAP}>
-          <Item label="AI CONTENT GENERATION" obj={AI} height={H2} />
-          <Item label="REELS &amp; STORIES" obj={PHONES} height={H2} />
-          <Item label="SOCIAL MEDIA GRID" obj={GRID} height={H2} />
-        </Band>
-      </Sheet>
+        {/* ————— SHEET TWO, THE PRODUCTION RUN ————— */}
+        <Sheet h={SHEET_2_H} scale={scale}>
+          <Band height={H2 + LABEL_GAP}>
+            <Item label="AI CONTENT GENERATION" obj={AI} height={H2} />
+            <Item label="REELS &amp; STORIES" obj={PHONES} height={H2} />
+            <Item label="SOCIAL MEDIA GRID" obj={GRID} height={H2} />
+          </Band>
+        </Sheet>
 
-      {/* ————— SHEET THREE, THE WORK AND THE RETURN ————— */}
-      <Sheet h={SHEET_3_H} scale={scale}>
-        <Band height={H3 + LABEL_GAP}>
-          <Item label="CREATIVE POSTS &amp; CAROUSELS" obj={POSTS} height={H3} />
-          <Item label="FINAL DASHBOARD" obj={DASHBOARD} height={H3} />
-        </Band>
-      </Sheet>
+        {/* ————— SHEET THREE, THE WORK AND THE RETURN ————— */}
+        <Sheet h={SHEET_3_H} scale={scale}>
+          <Band height={H3 + LABEL_GAP}>
+            <Item label="CREATIVE POSTS &amp; CAROUSELS" obj={POSTS} height={H3} />
+            <Item label="FINAL DASHBOARD" obj={DASHBOARD} height={H3} />
+          </Band>
+        </Sheet>
+      </div>
     </div>
   );
 };

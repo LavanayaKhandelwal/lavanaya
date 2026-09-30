@@ -78,11 +78,21 @@ const WIDE_FROM = 1024;
  * render is stale the moment the window crosses that width — the scale would
  * keep updating on resize while the framing it belongs to did not. Measuring
  * both from the same number keeps them in step on every resize.
+ *
+ * `fillWidth` is for a run of sheets that is the page rather than an object on
+ * a page. The default fits the sheet to the window and centres it, which puts
+ * the page's own ground either side of it and above and below it — correct for
+ * a mounted print, wrong for a continuous surface, which reads as three boards
+ * floating on a background rather than as one piece of paper. With it set, the
+ * width alone decides and the height is free, so the sheets meet their margins
+ * at the edges of the window and the page ground never appears between them.
  */
 export function useBoardScale(
   sheetWidth: number,
   sheetHeight: number,
+  options: { fillWidth?: boolean } = {},
 ): { frameRef: React.RefObject<HTMLDivElement | null>; scale: number } {
+  const { fillWidth = false } = options;
   const frameRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
 
@@ -95,14 +105,14 @@ export function useBoardScale(
       if (width === 0) return;
       const byWidth = width / sheetWidth;
       const byHeight = width < WIDE_FROM ? Number.POSITIVE_INFINITY : height / sheetHeight;
-      setScale(Math.min(byWidth, byHeight, 1));
+      setScale(fillWidth ? byWidth : Math.min(byWidth, byHeight, 1));
     };
 
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(frame);
     return () => observer.disconnect();
-  }, [sheetWidth, sheetHeight]);
+  }, [sheetWidth, sheetHeight, fillWidth]);
 
   return { frameRef, scale };
 }
