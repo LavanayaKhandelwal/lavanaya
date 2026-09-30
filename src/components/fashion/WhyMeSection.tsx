@@ -67,8 +67,8 @@ function Portrait() {
 
 export function WhyMeSection() {
   return (
-    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-[#FADBD9] px-6 pt-6 md:px-16 md:pt-8" aria-label="About me">
-      <div className="grid items-center gap-8 md:mx-auto md:min-h-[540px] md:w-full md:max-w-6xl md:grid-cols-[1fr_auto_1fr] md:gap-12">
+    <section className="relative flex min-h-screen flex-col overflow-hidden bg-[#FADBD9] px-6 pb-0 pt-6 md:px-16 md:pt-8" aria-label="About me">
+      <div className="my-auto grid w-full items-center gap-8 md:mx-auto md:min-h-[540px] md:w-full md:max-w-6xl md:grid-cols-[1fr_auto_1fr] md:gap-12">
         {/* Left column — about me */}
         <div className="space-y-6">
           {ABOUT.map((copy) => (
@@ -120,12 +120,12 @@ export function WhyMeSection() {
         </div>
       </div>
 
-      {/* Border trim — separator between About me and Selected Projects. The
-          asset is 1672×941 but the artwork only fills the bottom ~80 rows
-          (rows 861–940; top 861px is transparent), so the wrapper is cropped
-          to ~8.5% of full-bleed width and the image is anchored to the
-          bottom edge — the transparent top stays out. */}
-      <div className="relative -mx-6 mt-6 h-[8.5vw] max-h-28 min-h-10 w-screen max-w-none overflow-hidden md:-mx-16 md:mt-8" style={{ left: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
+      {/* Border trim — pinned to the section's bottom edge (mt-auto + -mb-px)
+          so its artwork connects flush to the next section with no seam.
+          The asset is 1672×941 but the artwork only fills the bottom ~80
+          rows, so the wrapper is cropped to ~8.5% of full-bleed width and
+          the image is anchored to the bottom edge. */}
+      <div className="relative -mx-6 mt-auto -mb-px h-[8.5vw] max-h-28 min-h-10 w-screen max-w-none overflow-hidden md:-mx-16" style={{ left: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
         <img
           src="/portfolio-assets/homepage-border-aboutme-section.png"
           alt=""
