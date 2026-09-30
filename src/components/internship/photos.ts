@@ -60,18 +60,17 @@ const COMMERCE = {
   tileRing: '60C4A694-F307-473A-836F-9FF76655E7D8.png',
   tileBracelet: '56E0EFE3-289B-4EA1-95F0-C3DB7266DDFD.png',
 
-  /* THE PRODUCT PAGE — the one large image, then the two gallery thumbs. */
+  /* THE PRODUCT PAGE — the one large image, then one of the gallery thumbs. The
+     third product shot went with the drawn catalogue, which was its only other
+     use; the product page needs two thumbs and has two. */
   product: 'ab8c971a-1e07-45cd-947a-d32f6efd5760.jpg',
   productAlt: 'IMG_2187.jpg',
-  productAlt2: 'IMG_4453.jpg',
 
-  /* THE BANNERS — wide, mobile, and the pop-up behind them. */
-  bannerWide: '7eee7676-2ce8-4667-9ef7-abf624ba1833.jpg',
-  bannerMobile: 'B7E707CC-CED2-43AE-A2AD-C2B28D50CD10.jpg',
-  bannerPopup: '1e36b3dd-85f2-438b-b90a-e7143dbd03cd.jpg',
+  /* THE FLORAL BAND at the head of the collection page. This used to be called
+     the pop-up's photograph, back when there was a pop-up on this board. */
+  collectionHeader: '1e36b3dd-85f2-438b-b90a-e7143dbd03cd.jpg',
 
-  /* THE BESTSELLERS on the phone, which double as two of the catalogue's
-     thumbnails and two of the folder's — the same product, shot once, appearing
+  /* THE BESTSELLERS on the phone — the same product, shot once, appearing
      wherever a product needs to be seen small. */
   bestsellerA: 'DD05B299-B533-4126-B54A-3B48CD3AA413.jpg',
   bestsellerB: 'f72aff62-4ccf-4668-9ba7-1a88dc9a9eab.jpg',
@@ -87,7 +86,15 @@ const DIR = '/portfolio-assets/';
 export const photo = (key: PhotoKey): string => `${DIR}${FILES[key]}`;
 
 /**
- * Intrinsic dimensions. Every photograph in the pool is 1600x1600, so one pair
- * of numbers describes all of them and no per-image table is needed.
+ * Intrinsic dimensions. Every file in the e-commerce half of this pool really
+ * is 1600x1600 — all eleven of them — so one pair of numbers describes those
+ * and no per-image table is needed. None of the twelve social files is square:
+ * they are 1280 tall, or 1206 by 670 for the calendar. `BoardPhoto` falls back
+ * to this number for anything that does not state its own, so on the social side
+ * it describes a shape those files do not have. Nothing visible depends on it —
+ * the frames are sized in CSS and the images are `object-cover` — but it is right
+ * for one half of the pool and not the other, and it is a named constant rather
+ * than an inlined 1600 so that this is one edit to make if the social half ever
+ * starts passing its own dimensions.
  */
 export const PHOTO_EDGE = 1600;

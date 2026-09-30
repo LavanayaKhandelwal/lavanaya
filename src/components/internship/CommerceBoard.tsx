@@ -10,14 +10,8 @@ import {
 } from './aadiyaMarks';
 import { WebsiteLaptop, WebsitePhone } from './commerceInterface';
 import { ShopifyPanel } from './commerceBackend';
-import { ContentTracker, ImageFolder, ProductCatalogue } from './commerceData';
-import {
-  CollectionPage,
-  MobileBanner,
-  NewsletterPopup,
-  ProductPage,
-  WideBanner,
-} from './commercePages';
+import { BannerPair, CatalogueShot } from './commerceShots';
+import { CollectionPage, ProductPage } from './commercePages';
 
 /**
  * INTERNSHIP — AADIYA JEWELS, SECTION TWO: E-COMMERCE AND WEBSITE MANAGEMENT.
@@ -70,21 +64,44 @@ import {
  * THE FILE KEEPS ITS NAME. It is a section, not a board, and renaming it would
  * touch the one file above that is not allowed to change in this pass. The name
  * is historical, not descriptive.
+ *
+ * TWO CARDS NOW SHOW PHOTOGRAPHS OF THE WORK, and the section's own rule about
+ * drawings did not bend to allow it — the rule was that a drawn object is a
+ * claim about what something looks like, and these three are the cases where the
+ * claim would have been doing work only the original can do. The catalogue and
+ * the two banners are finished artefacts, not structures, so a convincing drawing
+ * of one is not a weaker version of the evidence; it is a replacement for it, and
+ * a portfolio that offers a replacement is asking to be checked.
+ *
+ * Six drawings went with that decision and three real files took their places.
+ * The drawn catalogue, the content tracker and the image folder were one
+ * screenshot of one screen shown three times, and the drawn wide banner, the
+ * newsletter pop-up and the drawn mobile banner were three plausible objects
+ * where two real designs now stand. `commerceData.tsx` went entirely with the
+ * first three, and the pop-up went with a pang — it was good work, and it was
+ * also the only object on the section that was purely invented.
  */
 
 /* ————————————————————————————————————————————————————————————
    A DRAWN OBJECT, FITTED TO THE SPACE IT IS GIVEN.
 
-   The eleven objects in this section are not images. Each one is a hand-built
+   Most of the objects in this section are not images. Each one is a hand-built
    arrangement of divs at absolute pixel positions inside a fixed box, and the
    pixel positions are the artwork — a 112-pixel sidebar next to a 376-pixel
    table is what makes a Shopify admin panel read as a Shopify admin panel. So
    none of them is rewritten to be responsive, and none of them is replaced by
    a screenshot.
 
-   What they need instead is a way to sit in a fluid column without losing
-   those numbers, and that is all this is. It measures the space it was given,
-   works out the scale that fills it, and applies it as a transform.
+   Three of them are screenshots, and that is a considered exception rather than
+   an inconsistency: the catalogue and the two banners are finished artefacts
+   rather than structures, so a drawing of one would be a substitute for the
+   evidence instead of an illustration of it. They are in `commerceShots`, they
+   pass their own intrinsic dimensions, and the fit below treats them exactly as
+   it treats the drawings — same measurement, same scale, same ceiling.
+
+   What the fit needs is a way to sit all of them in a fluid column without
+   losing those numbers, and that is all this is. It measures the space it was
+   given, works out the scale that fills it, and applies it as a transform.
 
    TWO THINGS WORTH KNOWING ABOUT HOW IT MEASURES.
 
@@ -376,11 +393,11 @@ export const CommerceBoard: React.FC = () => (
             label="PRODUCT CATALOGUE MANAGEMENT"
             description="Maintained product details, images, pricing and organised the catalogue for easy access and quick updates."
           >
-            {/* The catalogue and the two trackers beneath it, at the sheet's own
-                offsets: straight below, and 175 across to the second. */}
-            <ProductCatalogue style={{ left: 0, top: 0 }} />
-            <ContentTracker style={{ left: 0, top: 208 }} />
-            <ImageFolder style={{ left: 175, top: 208 }} />
+            {/* One file, shown once. This card used to hold a drawn catalogue with
+                a content tracker and an image folder beneath it, which was three
+                objects making a claim about what the catalogue looked like. The
+                real screen is one object and is the thing itself. */}
+            <CatalogueShot />
           </InterfaceCard>
 
           <InterfaceCard
@@ -388,13 +405,15 @@ export const CommerceBoard: React.FC = () => (
             label="SITE UPDATES &amp; BANNERS"
             description="Designed and updated banners, pop-ups and landing pages to keep the website fresh and aligned with brand campaigns."
           >
-            {/* The only cluster with two objects deliberately overlapping, for
-                the same reason it had them on the sheet: a wide banner, a pop-up
-                and a mobile banner are three sizes of one idea, and three sizes
-                of one idea only look like that when they touch. */}
-            <WideBanner style={{ left: 0, top: 0 }} />
-            <NewsletterPopup style={{ left: 10, top: 145 }} />
-            <MobileBanner style={{ left: 150, top: 140 }} />
+            {/* The two campaign banners, stacked, at their own two different
+                proportions. This card used to be the only cluster on the section
+                with its objects deliberately overlapping — a drawn banner, a
+                pop-up and a mobile banner, touching on purpose, because three
+                sizes of one idea only look like that when they touch. There is
+                nothing left to overlap: two real designs at two different
+                shapes read as a set standing on its own, and the overlap was
+                only ever making a point the files make themselves. */}
+            <BannerPair />
           </InterfaceCard>
 
           <InterfaceCard

@@ -138,6 +138,21 @@ export function useBoardScale(
    which is known at the call site and not here. The plate colour is what shows
    through in the moment before the file lands, and the two boards' grounds are
    different enough that one fixed tint would be wrong on one of them.
+
+   THE INTRINSIC SIZE IS A THIRD, and it is the only one with a default that is
+   right about half the time rather than all of it. The default is the e-commerce
+   half of `photos.ts`, where all eleven files really are 1600 square, so those
+   need no per-file table. The twelve social files are not square at all — they
+   are 1280 tall, or 1206 by 670 for the calendar — and the default is wrong for
+   every one of them. That was true before this revision and nothing shows it,
+   because the frame is sized in CSS and the image is `object-cover`, so the
+   browser's own ratio is overridden either way. What the attributes buy is that
+   the element is not lying to the parser about a file's shape while that file is
+   still in flight, which is the one moment the ratio is read.
+
+   The three files on the e-commerce side that are not from that pool now pass
+   their own numbers: the product catalogue is 1206 by 481, and the two banner
+   designs are 1206 by 585 and 1206 by 660.
    ———————————————————————————————————————————————————————————— */
 
 export const BoardPhoto: React.FC<{
@@ -148,13 +163,26 @@ export const BoardPhoto: React.FC<{
   /** Ground shown while the file loads. Must come from the board's own palette. */
   plate?: string;
   loading?: 'eager' | 'lazy';
-}> = ({ src, alt, className = '', imgClassName = '', plate = '#EFD3D9', loading = 'lazy' }) => (
+  /** Intrinsic width of the file. Defaults to the pool's 1600. */
+  width?: number;
+  /** Intrinsic height of the file. Defaults to the pool's 1600. */
+  height?: number;
+}> = ({
+  src,
+  alt,
+  className = '',
+  imgClassName = '',
+  plate = '#EFD3D9',
+  loading = 'lazy',
+  width = 1600,
+  height = 1600,
+}) => (
   <div className={`relative overflow-hidden ${className}`} style={{ background: plate }}>
     <img
       src={src}
       alt={alt}
-      width={1600}
-      height={1600}
+      width={width}
+      height={height}
       loading={loading}
       decoding="async"
       className={`h-full w-full object-cover ${imgClassName}`}
