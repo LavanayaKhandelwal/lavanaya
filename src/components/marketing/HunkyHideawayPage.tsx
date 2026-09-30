@@ -154,7 +154,22 @@ export const HunkyHideawayPage: React.FC = () => {
             strips it as a no-op, and to bottom was removed for the same
             reason. 90deg survives on the first layer precisely because right
             is not the default. The vertical fade is intact either way.
-          </div>
+
+            NO SHADOW. Drop-shadows were tried here to define the edges, and
+            that was the wrong call: a shadow traces the alpha silhouette, so on
+            a boxy source it reads as an outline drawn around the image — the
+            very thing being removed. The ribbon is now the artwork and nothing
+            else. The webkit properties are spelled out because Tailwind does
+            not prefix arbitrary properties, and source-in is the webkit
+            spelling of intersect. */}
+        <img
+          src="/portfolio-assets/04_right_side_ribbon.png"
+          alt=""
+          aria-hidden="true"
+          width={1548}
+          height={941}
+          className="pointer-events-none absolute right-0 top-1/2 z-0 w-[26rem] max-w-[42%] -translate-y-1/2 aspect-[1548/941] object-contain [-webkit-mask-image:linear-gradient(90deg,#000_55%,transparent_92%),linear-gradient(180deg,transparent_2%,#000_30%,#000_68%,transparent_96%)] [-webkit-mask-composite:source-in] [mask-image:linear-gradient(90deg,#000_55%,transparent_92%),linear-gradient(180deg,transparent_2%,#000_30%,#000_68%,transparent_96%)] [mask-composite:intersect]"
+        />
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-x-10 lg:gap-x-8 items-start">
           {/* Title block.

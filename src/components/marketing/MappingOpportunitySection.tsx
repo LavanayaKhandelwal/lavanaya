@@ -39,18 +39,18 @@ export const MappingOpportunitySection: React.FC = () => {
   return (
     <section className="mb-24 lg:mb-32">
       <div className="rule-b-light pb-6 mb-14 max-w-4xl">
-        <p className="reveal eyebrow text-[#705955] mb-3">PAGE 2 — MAPPING THE OPPORTUNITY</p>
-        <h2 className="reveal reveal-d1 font-display text-4xl sm:text-5xl text-[#3E2723] tracking-tight mb-4">
+        <p className="eyebrow text-[#705955] mb-3">PAGE 2 — MAPPING THE OPPORTUNITY</p>
+        <h2 className="font-display text-4xl sm:text-5xl text-[#3E2723] tracking-tight mb-4">
           Mapping the Opportunity
         </h2>
-        <p className="reveal reveal-d2 font-body text-base text-[#3E2723]/80 leading-loose">
+        <p className="font-body text-base text-[#3E2723]/80 leading-loose">
           Exploring the market, consumer and competitive landscape to identify where Uniqlo could grow.
         </p>
       </div>
 
       {/* 01 Market · 02 Consumer · 03 Competitive */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-14 gap-y-16 mb-16">
-        <div className="reveal rule-t-light pt-8">
+        <div className="rule-t-light pt-8">
           <div className="flex items-baseline gap-4 mb-6">
             <span className="index-figure text-3xl text-[#705955]/60">01</span>
             <h3 className="eyebrow text-[#3E2723]">MARKET POTENTIAL</h3>
@@ -65,7 +65,7 @@ export const MappingOpportunitySection: React.FC = () => {
             <p className="font-mono-code text-xs text-[#D69589] mt-1.5">+5.6% CAGR</p>
           </div>
 
-          <div className="plate-light hover-lift hover-warm hover-zoom overflow-hidden p-2 mt-8">
+          <div className="plate-light p-2 mt-8">
             <SlidePhoto
               src="/portfolio-assets/02_market_potential.jpg"
               alt="Fragrance industry growth figures for the Indian market, presented as printed charts and market data"
@@ -75,14 +75,14 @@ export const MappingOpportunitySection: React.FC = () => {
           </div>
         </div>
 
-        <div className="reveal reveal-d1 rule-t-light pt-8">
+        <div className="rule-t-light pt-8">
           <div className="flex items-baseline gap-4 mb-6">
             <span className="index-figure text-3xl text-[#705955]/60">02</span>
             <h3 className="eyebrow text-[#3E2723]">CONSUMER</h3>
           </div>
           <Bullets items={consumerPoints} />
 
-          <div className="plate-light hover-lift hover-zoom overflow-hidden p-2 mt-8">
+          <div className="plate-light p-2 mt-8">
             <SlidePhoto
               src="/portfolio-assets/02_consumer.jpg"
               alt="Target consumer profile for the fragrance concept, showing the millennial and Gen Z audience"
@@ -93,7 +93,7 @@ export const MappingOpportunitySection: React.FC = () => {
           </div>
         </div>
 
-        <div className="reveal reveal-d2 rule-t-light pt-8">
+        <div className="rule-t-light pt-8">
           <div className="flex items-baseline gap-4 mb-6">
             <span className="index-figure text-3xl text-[#705955]/60">03</span>
             <h3 className="eyebrow text-[#3E2723]">COMPETITIVE SPACE</h3>
@@ -126,7 +126,7 @@ export const MappingOpportunitySection: React.FC = () => {
             Opportunity for a distinctly Japanese, minimal scent.
           </p>
 
-          <div className="plate-light hover-lift hover-warm hover-zoom overflow-hidden p-2 mt-8">
+          <div className="plate-light p-2 mt-8">
             <SlidePhoto
               src="/portfolio-assets/02_competitive_space.jpg"
               alt="Competitive landscape showing where Zara and H&M sit in fragrance and where Uniqlo currently sits in apparel"
@@ -139,7 +139,7 @@ export const MappingOpportunitySection: React.FC = () => {
 
       {/* 04 Brand fit + the space we identified */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-14 gap-y-16">
-        <div className="reveal lg:col-span-8 rule-t-light pt-8">
+        <div className="lg:col-span-8 rule-t-light pt-8">
           <div className="flex items-baseline gap-4 mb-8">
             <span className="index-figure text-3xl text-[#705955]/60">04</span>
             <h3 className="eyebrow text-[#3E2723]">BRAND FIT</h3>
@@ -159,7 +159,7 @@ export const MappingOpportunitySection: React.FC = () => {
             </div>
           </div>
 
-          <div className="plate-light hover-lift hover-warm hover-zoom overflow-hidden p-2 mt-10">
+          <div className="plate-light p-2 mt-10">
             <SlidePhoto
               src="/portfolio-assets/02_brand_fit.jpg"
               alt="Brand fit between Uniqlo Lifewear values of comfort, functionality and simplicity and the proposed FEELWEAR fragrance line"
@@ -169,10 +169,7 @@ export const MappingOpportunitySection: React.FC = () => {
           </div>
         </div>
 
-        {/* `.reveal-fade` rather than `.reveal` because this column is sticky:
-            rising 18px on arrival would move the very element the rest of the
-            row is pinned against. */}
-        <div className="reveal-fade lg:col-span-4 rule-t-light pt-8 lg:sticky lg:top-24 lg:self-start">
+        <div className="lg:col-span-4 rule-t-light pt-8 lg:sticky lg:top-24 lg:self-start">
           <p className="eyebrow text-[#705955] mb-6">THE SPACE WE IDENTIFIED</p>
           <p className="font-editorial italic text-2xl sm:text-3xl text-[#7A2A2E] leading-snug">
             A minimalist, everyday fragrance category that feels distinctly Uniqlo.

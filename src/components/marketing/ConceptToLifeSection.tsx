@@ -78,18 +78,18 @@ export const ConceptToLifeSection: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-[40fr_60fr] gap-8 lg:gap-6">
         {/* ——— Left column: narrative ——— */}
         <div className="flex flex-col">
-          <div className="reveal flex items-center gap-4 mb-5">
+          <div className="flex items-center gap-4 mb-5">
             <span className="font-body text-base text-[#3E2723]">04</span>
             <span className="block h-px w-10 lg:w-16 bg-[#705955]/30" aria-hidden="true" />
           </div>
 
-          <h2 className="reveal reveal-d1 font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.98] tracking-tight text-[#3E2723]">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[0.98] tracking-tight text-[#3E2723]">
             BRINGING THE
             <br />
             CONCEPT TO LIFE
           </h2>
 
-          <div className="reveal reveal-d2 mt-5 lg:mt-6">
+          <div className="mt-5 lg:mt-6">
             <p className="font-body text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-[#3E2723] mb-3">
               THE MARKETING PITCH
             </p>
@@ -100,7 +100,7 @@ export const ConceptToLifeSection: React.FC = () => {
           </div>
 
           {/* Process flow — pitch → test → feedback → iterate */}
-          <div className="reveal reveal-d3 mt-5 lg:mt-6 bg-[#FADBD9]/40 border border-[#705955]/20 px-4 py-4 flex flex-wrap items-center gap-x-3 gap-y-4">
+          <div className="mt-5 lg:mt-6 bg-[#FADBD9]/40 border border-[#705955]/20 px-4 py-4 flex flex-wrap items-center gap-x-3 gap-y-4">
             {steps.map((step, idx) => (
               <React.Fragment key={step.label}>
                 <div className="flex flex-col items-center gap-2">
@@ -131,7 +131,7 @@ export const ConceptToLifeSection: React.FC = () => {
 
           {/* Main event photograph — grows so both columns share a baseline. Held a
               little above centre so the top of the tall frame is not cut. */}
-          <figure className="reveal reveal-d3 hover-zoom mt-5 lg:mt-6 flex-1 min-h-[13rem] lg:min-h-[16rem] rounded-[3px] overflow-hidden">
+          <figure className="mt-5 lg:mt-6 flex-1 min-h-[13rem] lg:min-h-[16rem] rounded-[3px] overflow-hidden">
             <SlidePhoto
               src="/portfolio-assets/04_event_2.jpg"
               alt="College students gathered around a fragrance product presentation table, testing and smelling fragrance samples"
@@ -148,12 +148,12 @@ export const ConceptToLifeSection: React.FC = () => {
               down so its portrait frame reads whole, the other two split the top row
               beside it. The metric and feedback documents stack opposite, with the
               product display closing the left column. */}
-          <div className="reveal reveal-d1 grid grid-cols-[2fr_1fr_1fr] gap-4 lg:gap-6">
+          <div className="grid grid-cols-[2fr_1fr_1fr] gap-4 lg:gap-6">
             {/* First event photograph — spans the two rows beneath its neighbours so
                 the portrait shot reads whole. Top edge stays flush with the other
                 two; object-contain keeps the full frame visible and the plate fill
                 carries the slack. */}
-            <figure className="col-start-1 row-start-1 row-span-2 h-48 sm:h-60 lg:h-auto hover-zoom rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
+            <figure className="col-start-1 row-start-1 row-span-2 h-48 sm:h-60 lg:h-auto rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
               <SlidePhoto
                 src="/portfolio-assets/04_event_1.jpg"
                 alt="Students at the college fragrance pitch booth, smelling samples and engaging with the product concept"
@@ -161,7 +161,7 @@ export const ConceptToLifeSection: React.FC = () => {
                 className="w-full h-full object-contain"
               />
             </figure>
-            <figure className="h-48 sm:h-60 lg:h-[22rem] hover-zoom rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
+            <figure className="h-48 sm:h-60 lg:h-[22rem] rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
               <SlidePhoto
                 src="/portfolio-assets/04_students_interacting.png"
                 alt="Students gathered around the fragrance display, smelling samples and discussing the product concept"
@@ -170,7 +170,7 @@ export const ConceptToLifeSection: React.FC = () => {
                 style={{ objectPosition: '50% 25%' }}
               />
             </figure>
-            <figure className="h-48 sm:h-60 lg:h-[22rem] hover-zoom rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
+            <figure className="h-48 sm:h-60 lg:h-[22rem] rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
               <SlidePhoto
                 src="/portfolio-assets/04_students_at_booth.jpg"
                 alt="Group of college students gathered at the fragrance product pitch booth during the college activation"
@@ -181,7 +181,7 @@ export const ConceptToLifeSection: React.FC = () => {
             </figure>
 
             {/* Product display — now the third row, beneath the extended first photograph */}
-            <figure className="col-start-1 row-start-3 h-32 sm:h-44 lg:h-56 hover-zoom rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
+            <figure className="col-start-1 row-start-3 h-32 sm:h-44 lg:h-56 rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
               <SlidePhoto
                 src="/portfolio-assets/04_product_display.jpg"
                 alt="Fragrance bottles and cream packaging arranged on the product display table at the pitch booth"
@@ -201,7 +201,7 @@ export const ConceptToLifeSection: React.FC = () => {
             </div>
 
             {/* Feedback documentation — beside the product display, beneath the metric */}
-            <figure className="col-start-2 col-span-2 row-start-3 h-32 sm:h-44 lg:h-56 hover-zoom rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
+            <figure className="col-start-2 col-span-2 row-start-3 h-32 sm:h-44 lg:h-56 rounded-[3px] overflow-hidden bg-[#FADBD9]/40">
               <SlidePhoto
                 src="/portfolio-assets/04_feedback_documents.jpg"
                 alt="Printed Uniqlo fragrance feedback forms and review sheets arranged across a desk"
@@ -213,7 +213,7 @@ export const ConceptToLifeSection: React.FC = () => {
           </div>
 
           {/* Insight blocks */}
-          <div className="reveal reveal-d2 grid grid-cols-1 sm:grid-cols-[55fr_45fr] gap-4 lg:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-[55fr_45fr] gap-4 lg:gap-6">
             <div className="bg-[#FADBD9] p-4 sm:p-5">
               <p className="font-body text-[0.6875rem] font-medium uppercase tracking-[0.2em] text-[#3E2723] mb-2.5">
                 LISTEN. REFINE. REPEAT.

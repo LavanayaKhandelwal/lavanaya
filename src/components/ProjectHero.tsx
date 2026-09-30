@@ -60,7 +60,7 @@ export const ProjectHero: React.FC<ProjectHeroProps> = ({
 
         {/* Home button — overlaid on the hero background */}
         <div className="absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-[#F9F8F2]/75 to-transparent px-4 pt-5 pb-8 sm:px-6 lg:px-8">
-          <Link to="/" className="hover-arrow-back inline-flex items-center gap-2 eyebrow text-[#705955] hover:text-[#3E2723]">
+          <Link to="/" className="inline-flex items-center gap-2 eyebrow text-[#705955] hover:text-[#3E2723]">
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>HOME</span>
           </Link>
@@ -70,27 +70,27 @@ export const ProjectHero: React.FC<ProjectHeroProps> = ({
           {/* Measure lives on the prose, not the wrapper — the display heading
               needs the full column or it wraps mid-phrase at lg. */}
           <div className="max-w-xl space-y-5 lg:max-w-[62rem]">
-            <p className="reveal eyebrow text-[#705955] border-l-2 border-[#D69589] pl-4">
+            <p className="eyebrow text-[#705955] border-l-2 border-[#D69589] pl-4">
               {eyebrow}
             </p>
 
-            <p className="reveal reveal-d1 eyebrow text-[#705955] border-l-2 border-[#D69589] pl-4">
+            <p className="eyebrow text-[#705955] border-l-2 border-[#D69589] pl-4">
               {pageLabel}
             </p>
 
-            <h1 className="reveal reveal-d1 font-display text-5xl sm:text-6xl lg:text-7xl text-[#3E2723] leading-[1] tracking-tight whitespace-pre-line">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-[#3E2723] leading-[1] tracking-tight whitespace-pre-line">
               {title}
             </h1>
 
             {subtitle && (
-              <p className="reveal reveal-d2 rule-l border-[#D69589] pl-6 font-serif-display text-2xl sm:text-3xl italic text-[#3E2723]/80 leading-snug lg:max-w-[34ch]">
+              <p className="rule-l border-[#D69589] pl-6 font-serif-display text-2xl sm:text-3xl italic text-[#3E2723]/80 leading-snug lg:max-w-[34ch]">
                 {subtitle}
               </p>
             )}
 
             {intro && (
               <p
-                className={`reveal reveal-d3 font-body text-sm sm:text-base text-[#3E2723]/80 leading-loose whitespace-pre-line lg:max-w-[52ch] ${introClassName}`}
+                className={`font-body text-sm sm:text-base text-[#3E2723]/80 leading-loose whitespace-pre-line lg:max-w-[52ch] ${introClassName}`}
               >
                 {intro}
               </p>

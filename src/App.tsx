@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { startScrollReveal } from './utils/scrollReveal';
 import { WaitlistModal } from './components/WaitlistModal';
 import { ScrollToTop } from './components/ScrollToTop';
 import { FashionPortfolioPage } from './pages/FashionPortfolioPage';
@@ -53,11 +52,6 @@ function AppShell({
   // The homepage opens with the full-screen fashion portfolio plate,
   // followed by the original homepage sections exactly as they were.
   const isStandalonePlate = pathname === '/fashion-portfolio';
-
-  /* One IntersectionObserver for the section reveals, restarted on every
-     navigation so the new page's elements are picked up and the old page's are
-     released. See utils/scrollReveal. */
-  useEffect(() => startScrollReveal(), [pathname]);
 
   return (
     <div className={`min-h-screen flex flex-col ${isStandalonePlate ? 'bg-[#10090B]' : ''}`}>
