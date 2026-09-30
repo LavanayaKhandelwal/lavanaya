@@ -1,12 +1,14 @@
 import React from 'react';
 import { SocialBoard } from '../components/internship/SocialBoard';
 import { CommerceBoard } from '../components/internship/CommerceBoard';
+import { KeyLearningsBand } from '../components/internship/KeyLearningsBand';
 
 /**
  * INTERNSHIP — AADIYA JEWELS.
  *
- * Two sections, one page, one scroll. The social media work is the first and the
- * e-commerce and website management work is the second, and they are sections
+ * Two sections, one page, one scroll, and then the reading of them. The social
+ * media work is the first, the e-commerce and website management work is the
+ * second, and the key learnings band is the last, and the first two are sections
  * rather than pages because they are one piece of work told in two halves — one
  * internship, one brand, one set of photographs. Splitting them across two routes
  * asked the reader to decide up front which half of a single job they cared
@@ -15,7 +17,13 @@ import { CommerceBoard } from '../components/internship/CommerceBoard';
  *
  * THE TWO HALVES ARE NOT BUILT THE SAME WAY, and that is because the work in them
  * is not the same kind of work rather than because the page ran out of attention
- * halfway down.
+ * halfway down. The third section is a third thing again and is neither half's
+ * construction: four rows of prose on a blush band, with no sheet and no board in
+ * it, because it is the conclusion rather than more of the evidence. It was taken
+ * off this page in 6d41b95 when the internship was rebuilt as two fixed boards,
+ * and is restored here from de7f6bc, which is the tightened version of it and also
+ * the last commit before it was removed. See the component for why one of its
+ * classes is gone and what replaced it.
  *
  * The social half is three fixed sheets, 1600 wide, flush with each other and
  * with the edges of the window, with every part of them placed: a running head,
@@ -51,5 +59,6 @@ export const InternshipExperiencePage: React.FC = () => (
   <main className="bg-[#10090B]">
     <SocialBoard />
     <CommerceBoard />
+    <KeyLearningsBand />
   </main>
 );

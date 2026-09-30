@@ -66,7 +66,8 @@ function AppShell({
           } />
           <Route path="/about" element={<AboutPage />} />
           {/* The internship is two boards on one page, one per half of the
-              role, in the order the work was done. */}
+              role, in the order the work was done, followed by the key
+              learnings band that reads them. */}
           <Route path="/internship/experience" element={<InternshipExperiencePage />} />
           <Route path="/internship/learnings" element={<InternshipLearningsPage />} />
           <Route path="/projects/marketing" element={<ProjectMarketingPage />} />
