@@ -28,14 +28,15 @@ import React, { useEffect, useRef, useState } from 'react';
    the same proportion and the wrong object. The brief is a spread, and a
    spread gets smaller, not denser.
 
-   The two sheets are not the same shape. The social board's own brief calls
-   itself sixteen by nine and gives no number; the e-commerce brief says sixteen
-   by nine and then gives 1536 by 1024, which is three by two. The number won,
-   because the number is the one the pixel positions were written against.
+   The sheets are not all the same shape, and one number was retired to get
+   there. The social work was a single 1600x900 board; it is now three sheets of
+   1600 wide, 680, 600 and 680 tall, because three bands inside 900 pixels could
+   only be had by halving every print. So there is no single social sheet size
+   left to record here, and the e-commerce board is the only one that is still
+   one number. 1536x1024 is three by two, against the sixteen by nine the first
+   brief was written in; the number won, because the number is the one the pixel
+   positions were written against.
    ———————————————————————————————————————————————————————————— */
-
-/** The social media board: 16:9, the shape the first brief was written in. */
-export const SOCIAL_SHEET = { width: 1600, height: 900 } as const;
 
 /** The e-commerce board: 3:2, the shape the second brief's resolution gives. */
 export const COMMERCE_SHEET = { width: 1536, height: 1024 } as const;

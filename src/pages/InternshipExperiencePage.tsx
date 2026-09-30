@@ -15,12 +15,21 @@ import { portfolioData } from '../data/portfolioData';
  * job they cared about, which is a question the work itself should answer by
  * being read all the way through.
  *
- * Each section is exactly one screen tall and each holds a fixed sheet scaled
- * to fit, so scrolling moves between two complete compositions rather than
- * between two scroll regions. Nothing on either sheet is reachable by scrolling
- * within it: the boards are art-directed layouts with absolute pixel positions
- * in them, and a reader who resizes the window gets the same board smaller
- * rather than a different arrangement of it.
+ * Every composition on this page is a fixed sheet scaled to fit, so scrolling
+ * moves between complete compositions rather than between scroll regions.
+ * Nothing on any sheet is reachable by scrolling within it: these are
+ * art-directed layouts with absolute pixel positions in them, and a reader who
+ * resizes the window gets the same sheet smaller rather than a different
+ * arrangement of it.
+ *
+ * THE SOCIAL HALF IS THREE SHEETS, NOT ONE. It was a single 1600x900 board,
+ * and holding a title, a measure of copy and six prints in 900 pixels meant every
+ * print was set to 176 tall — half the size it was drawn at — with two of them
+ * spread across a 1504-pixel measure and nothing in between. Splitting it into
+ * one sheet per band took the prints to 440 and 520 tall. The e-commerce board
+ * below is still a single sheet, and the two halves are no longer the same size
+ * on screen; that is a real inconsistency and the honest fix is to rebalance the
+ * e-commerce sheet against the new social ones, which is a job of its own.
  *
  * THE DIVIDER BETWEEN THEM EXISTS because the two sheets are very nearly the
  * same colour — the two briefs asked for a light pink and landed two and three
